@@ -10,5 +10,5 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo "Your number phone is: " .$phone;
     }else {
         echo "Please enter your number phone!";
-    }
+        }
 }
