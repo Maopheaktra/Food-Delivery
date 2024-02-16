@@ -34,10 +34,10 @@
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Welcome Back</h2>
                     <p class="text-50">Sign up to continue</p>
-                    <form class="mt-5 mb-4" action="verification.html">
+                    <form class="mt-5 mb-4" action="../../controllers/signup/show.controller.php" method='post'>
                         <div class="form-group">
                             <label for="exampleInputName" class="text-dark">Username</label>
-                            <input type="text" placeholder="Enter Name" class="form-control" id="exampleInputName" />
+                            <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="exampleInputName" />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
@@ -80,7 +80,7 @@
                               <label class="form-check-label" for="radio2">Delivery</label>
                             </div>
                             </div>
-                        <a href='/' class="btn btn-primary btn-lg btn-block">SIGN UP</a>
+                        <button class="btn btn-primary btn-lg btn-block">SIGN UP</button>
                         <div class="py-2">
                             <button class="btn btn-lg btn-facebook btn-block">
                                 <i class="feather-facebook"></i> Connect with Facebook
