@@ -1,52 +1,29 @@
 <?php
 
-function createPost(string $title, string $description) : bool
+
+function getUsers() : array
 {
     global $connection;
-    $statement = $connection->prepare("insert into posts (title, description) values (:title, :description)");
-    $statement->execute([
-        ':title' => $title,
-        ':description' => $description
-
-    ]);
-
-    return $statement->rowCount() > 0;
-}
-
-function getPost(int $id) : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->fetch();
-}
-
-function getPosts() : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from posts");
+    $statement = $connection->prepare("select * from users");
     $statement->execute();
     return $statement->fetchAll();
 }
 
-function updatePost(string $title, string $description, int $id) : bool
-{
+function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
     global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
+    echo $username.' '.$email.' '.$password.' '.$gender.' '.$phoneNumber.' '. $role;
+    $statement = $connection->prepare(" insert into users (username, email, password, gender, role_id, phoneNumber) values (:username, :email, :password, :gender, :role_id, :phoneNumber)");
     $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
-
+        ':username'=>$username,
+        ':email'=>$email,
+        ':password'=>$password,
+        ':gender'=>$gender,
+        ':role_id'=>$role,
+        ':phoneNumber'=>$phoneNumber,
     ]);
-
-    return $statement->rowCount() > 0;
 }
 
-function deletePost(int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->rowCount() > 0;
-}
+
+
+
+
