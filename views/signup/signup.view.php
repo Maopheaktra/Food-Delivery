@@ -40,8 +40,8 @@
                             <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="exampleInputName" />
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
+                            <label for="email" class="text-dark">Email</label>
+                            <input type="email" placeholder="Enter Email" name='email' class="form-control" id="email"
                                 aria-describedby="emailHelp" />
                         </div>
                         <div class="form-group">

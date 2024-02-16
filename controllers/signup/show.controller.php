@@ -9,6 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $gender = $_POST['gender'];
         echo "Your gender is: " .$gender; 
         echo "Your username is: " .$usernames;
+        $email = htmlspecialchars($_POST['email']);
+        echo "Your email is: " .$email;
+
     }else {
         echo "Please enter your username!";
     }
