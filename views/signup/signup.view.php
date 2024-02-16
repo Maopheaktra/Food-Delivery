@@ -1,3 +1,4 @@
+VOEUN CHANTHOU(WEB_A _ 2024), [2/16/2024 8:28 AM]
 <!DOCTYPE html>
 <html lang="en">
 
@@ -35,6 +36,10 @@
                     <p class="text-50">Sign in to continue</p>
                     <form class="mt-5 mb-4" action="verification.html">
                         <div class="form-group">
+                            <label for="exampleInputName" class="text-dark">Username</label>
+                            <input type="text" placeholder="Enter Name" class="form-control" id="exampleInputName" />
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
                             <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" />
@@ -44,7 +49,38 @@
                             <input type="password" placeholder="Enter Password" class="form-control"
                                 id="exampleInputPassword1" />
                         </div>
-                        <button class="btn btn-primary btn-lg btn-block">SIGN IN</button>
+                        <div class="form-group">
+                            <label for="exampleInputPhonenumber" class="text-dark">Phone Number</label>
+                            <input type="number" placeholder="Phone number" class="form-control"
+                                id="exampleInputPhonenumber" />
+                        </div>
+                        <label for="#" class="text-dark mb-3">Your gender</label>
+                        <div class="form-group d-flex justify-content-around">
+                            <div class="form-check mr-5 ml-5">
+                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="M" checked>
+                              <label class="form-check-label" for="radio1">Male</label>
+                            </div>
+                            <div class="form-check mr-5 ml-5">
+                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="F">
+                              <label class="form-check-label" for="radio2">Female</label>
+                            </div>
+                            </div>
+                        <label for="#" class="text-dark mb-3">Your role</label>
+                        <div class="form-group d-flex justify-content-around">
+                            <div class="form-check mr-5 ml-5">
+                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="M" checked>
+                              <label class="form-check-label" for="radio1">Customer</label>
+                            </div>
+                            <div class="form-check mr-5 ml-5">
+                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="F">
+                              <label class="form-check-label" for="radio2">Restaurant owner</label>
+</div>
+                            <div class="form-check mr-5 ml-5">
+                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="F">
+                              <label class="form-check-label" for="radio2">Delivery</label>
+                            </div>
+                            </div>
+                        <a href='/' class="btn btn-primary btn-lg btn-block">SIGN UP</a>
                         <div class="py-2">
                             <button class="btn btn-lg btn-facebook btn-block">
                                 <i class="feather-facebook"></i> Connect with Facebook
@@ -55,7 +91,7 @@
                         <p class="text-center">Forgot your password?</p>
                     </a>
                     <div class="d-flex align-items-center justify-content-center">
-                        <a href="/signup">
+                        <a href="../orders/order.view">
                             <p class="text-center m-0">Don't have an account? Sign up</p>
                         </a>
                     </div>
@@ -126,7 +162,8 @@
                     <li>
                         <a href="#">Link Example 1</a>
                         <ul>
-                            <li>
+
+<li>
                                 <a href="#">Link Example 1.1</a>
                                 <ul>
                                     <li><a href="#">Link</a></li>
