@@ -17,21 +17,19 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $phone = $_POST["phone"];
 
         // echo $password, $usernames, $gender, $phone, $email, $role;
-        $singup = addUsers($usernames, $email, $password, $gender, $role, $phone);
-        if ($singup){
+        $data = accountExist($email);
+        if(count($data) == 0){
+            $singup = addUsers($usernames, $email, $password, $gender, $role, $phone);
             header('Location: /');
+        }else{
+            header('Location: /signin');
         }
-        else{
-            header('Location: /sigin');
-        }
-
-        
 
     }
 }
 // addUsers();
-// $data = getUsers();
-// print_r($data);
+$data = getUsers();
+print_r($data);
 
 
 
