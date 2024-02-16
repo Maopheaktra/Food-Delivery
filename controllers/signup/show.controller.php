@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // TO DO-----------
     if (isset($_POST['usernames']) && !empty($_POST['usernames'])){
         $usernames = $_POST['usernames'];
+        $role = $_POST['optradio'];
+        echo "Your role is: ". $role;
         echo "Your username is: " .$usernames;
     }else {
         echo "Please enter your username!";
