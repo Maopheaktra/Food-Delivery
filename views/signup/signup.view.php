@@ -51,7 +51,7 @@
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPhonenumber" class="text-dark">Phone Number</label>
-                            <input type="number" placeholder="Phone number" class="form-control"
+                            <input type="number" placeholder="Phone number" class="form-control" name="phone"
                                 id="exampleInputPhonenumber" />
                         </div>
                         <label for="#" class="text-dark mb-3">Your gender</label>
