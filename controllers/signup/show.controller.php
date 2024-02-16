@@ -6,6 +6,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     // TO DO-----------
     if (isset($_POST['usernames']) && !empty($_POST['usernames'] && !empty($_POST['gender']))){
         $usernames = $_POST['usernames'];
+        $role = $_POST['optradio'];
+        echo "Your role is: ". $role;
         $gender = $_POST['gender'];
         echo "Your gender is: " .$gender; 
         echo "Your username is: " .$usernames;
