@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2024 at 05:39 PM
+-- Generation Time: Feb 17, 2024 at 05:17 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,12 +24,12 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `categoies`
+-- Table structure for table `categories`
 --
 
-CREATE TABLE `categoies` (
-  `category_id` int(11) NOT NULL,
-  `description` varchar(255) DEFAULT NULL
+CREATE TABLE `categories` (
+  `category_id` int(10) UNSIGNED NOT NULL,
+  `description` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -39,37 +39,37 @@ CREATE TABLE `categoies` (
 --
 
 CREATE TABLE `comments` (
-  `comment_id` int(11) NOT NULL,
-  `content` varchar(255) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
-  `restaurant_id` int(11) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `comment_id` int(10) UNSIGNED NOT NULL,
+  `content` bigint(20) NOT NULL,
+  `date` datetime NOT NULL,
+  `deliver_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `delivery`
+-- Table structure for table `deliverers`
 --
 
-CREATE TABLE `delivery` (
-  `delivery_id` int(11) NOT NULL,
-  `name` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `phone_number` int(11) DEFAULT NULL,
-  `gender` varchar(255) DEFAULT NULL
+CREATE TABLE `deliverers` (
+  `deliver_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone_number` int(11) NOT NULL,
+  `gender` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `favorite`
+-- Table structure for table `favorites`
 --
 
-CREATE TABLE `favorite` (
-  `favorite_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `food_id` int(11) DEFAULT NULL
+CREATE TABLE `favorites` (
+  `favorite_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `Food_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -79,11 +79,24 @@ CREATE TABLE `favorite` (
 --
 
 CREATE TABLE `foods` (
-  `food_id` int(11) NOT NULL,
-  `foodname` varchar(255) DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `price` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL
+  `Food_id` int(10) UNSIGNED NOT NULL,
+  `Foodname` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notificatins`
+--
+
+CREATE TABLE `notificatins` (
+  `notification_id` int(10) UNSIGNED NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -93,11 +106,12 @@ CREATE TABLE `foods` (
 --
 
 CREATE TABLE `orderdetails` (
-  `orderdetail_id` int(11) NOT NULL,
-  `order_id` int(11) DEFAULT NULL,
-  `food_id` int(11) DEFAULT NULL,
-  `quantity` int(11) DEFAULT NULL,
-  `chechorder` varchar(255) DEFAULT NULL
+  `orderDetail_id` int(10) UNSIGNED NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `Food_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `checkorder` varchar(255) NOT NULL,
+  `total_price` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -107,10 +121,10 @@ CREATE TABLE `orderdetails` (
 --
 
 CREATE TABLE `orders` (
-  `order_id` int(11) NOT NULL,
-  `date` datetime DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL,
-  `deliver_id` int(11) DEFAULT NULL
+  `order_id` int(10) UNSIGNED NOT NULL,
+  `date` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `deliver_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -120,14 +134,26 @@ CREATE TABLE `orders` (
 --
 
 CREATE TABLE `restaurants` (
-  `restaurant_id` int(11) NOT NULL,
-  `restaurantName` varchar(255) DEFAULT NULL,
-  `address` varchar(255) DEFAULT NULL,
-  `time_open` time DEFAULT NULL,
-  `time_close` time DEFAULT NULL,
-  `description` varchar(255) DEFAULT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `restaurant_id` int(10) UNSIGNED NOT NULL,
+  `restaurant_name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `time_open` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `time_close` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`restaurant_id`, `restaurant_name`, `address`, `time_open`, `description`, `user_id`, `time_close`) VALUES
+(1, 'Fafa', 'Cambodia, Phnom Penh', '8:40', 'My restaurant', 1, NULL),
+(2, 'Fafa', 'Cambodia, Phnom Penh', '8:40', 'My restaurant', 1, '6:30'),
+(3, 'The osahan Restaurant', 'Cambodia, Kompong Thom', '7:30', 'The best restaurant in Cambodia and have a lot of food', 2, '7:30'),
+(4, 'The Famous Restaurant', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 2, '8:30'),
+(5, 'Bite Me Now Sandwiches', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 1, '8:30'),
+(6, 'Nham 24', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 1, '8:30');
 
 -- --------------------------------------------------------
 
@@ -136,9 +162,9 @@ CREATE TABLE `restaurants` (
 --
 
 CREATE TABLE `res_categories` (
-  `res_category_id` int(11) NOT NULL,
-  `restaurant_id` int(11) DEFAULT NULL,
-  `category_id` int(11) DEFAULT NULL
+  `res_categoryID` int(10) UNSIGNED NOT NULL,
+  `restaurant_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -148,8 +174,8 @@ CREATE TABLE `res_categories` (
 --
 
 CREATE TABLE `roles` (
-  `role_id` int(11) NOT NULL,
-  `role_type` varchar(255) DEFAULT NULL
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `role_type` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -157,10 +183,9 @@ CREATE TABLE `roles` (
 --
 
 INSERT INTO `roles` (`role_id`, `role_type`) VALUES
-(1, 'Admin'),
-(2, 'Customer'),
-(3, 'Delivery'),
-(4, 'Restaurant_Owner');
+(1, 'Customer'),
+(2, 'Owner'),
+(3, 'Delivery');
 
 -- --------------------------------------------------------
 
@@ -169,29 +194,36 @@ INSERT INTO `roles` (`role_id`, `role_type`) VALUES
 --
 
 CREATE TABLE `users` (
-  `user_id` int(11) NOT NULL,
-  `username` varchar(255) DEFAULT NULL,
-  `email` varchar(255) DEFAULT NULL,
-  `password` varchar(255) DEFAULT NULL,
-  `gender` varchar(255) DEFAULT NULL,
-  `role_id` int(11) NOT NULL
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `gender` char(255) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `phoneNumber` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `users`
 --
 
-INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `gender`, `role_id`) VALUES
-(3, 'Chanthou', 'chanthou.voeun@student.passerellesnumeriques.org', '12@$@Thfdou', 'M', 1);
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `gender`, `role_id`, `phoneNumber`) VALUES
+(1, 'Chanthou', 'chanthou.voeun@student.passerellesnumeriques.org', '1242323', 'M', 2, '12324324234'),
+(2, 'Chanthou', 'voeunchanthou724@gmail.com', '', 'M', 2, '12324324234'),
+(3, 'Chanthou', 'voeunchanthou7454@gmail.com', '3254234324', 'M', 2, '234234234'),
+(4, 'channa', 'v@gmail.com', '1232323232', 'F', 0, '1213123132'),
+(5, 'tra', 'et@gmail.com', '123', 'F', 1, '0938343483'),
+(6, 'Roth', 'roth@gmail.com', '12345', 'M', 3, '08694433'),
+(7, 'thou', 'voeunchanthou74@gmail.com', '123456', 'M', 3, '23456');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `categoies`
+-- Indexes for table `categories`
 --
-ALTER TABLE `categoies`
+ALTER TABLE `categories`
   ADD PRIMARY KEY (`category_id`);
 
 --
@@ -199,60 +231,66 @@ ALTER TABLE `categoies`
 --
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `restaurant_id` (`restaurant_id`);
+  ADD KEY `comments_deliver_id_index` (`deliver_id`),
+  ADD KEY `comments_user_id_index` (`user_id`);
 
 --
--- Indexes for table `delivery`
+-- Indexes for table `deliverers`
 --
-ALTER TABLE `delivery`
-  ADD PRIMARY KEY (`delivery_id`);
+ALTER TABLE `deliverers`
+  ADD PRIMARY KEY (`deliver_id`);
 
 --
--- Indexes for table `favorite`
+-- Indexes for table `favorites`
 --
-ALTER TABLE `favorite`
+ALTER TABLE `favorites`
   ADD PRIMARY KEY (`favorite_id`),
-  ADD KEY `user_id` (`user_id`),
-  ADD KEY `food_id` (`food_id`);
+  ADD KEY `favorites_user_id_index` (`user_id`),
+  ADD KEY `favorites_food_id_index` (`Food_id`);
 
 --
 -- Indexes for table `foods`
 --
 ALTER TABLE `foods`
-  ADD PRIMARY KEY (`food_id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD PRIMARY KEY (`Food_id`),
+  ADD KEY `foods_category_id_index` (`category_id`);
+
+--
+-- Indexes for table `notificatins`
+--
+ALTER TABLE `notificatins`
+  ADD PRIMARY KEY (`notification_id`),
+  ADD KEY `notificatins_comment_id_index` (`comment_id`);
 
 --
 -- Indexes for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  ADD PRIMARY KEY (`orderdetail_id`),
-  ADD KEY `food_id` (`food_id`),
-  ADD KEY `order_id` (`order_id`);
+  ADD PRIMARY KEY (`orderDetail_id`),
+  ADD KEY `orderdetails_order_id_index` (`order_id`),
+  ADD KEY `orderdetails_food_id_index` (`Food_id`);
 
 --
 -- Indexes for table `orders`
 --
 ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
-  ADD KEY `deliver_id` (`deliver_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD KEY `orders_user_id_index` (`user_id`),
+  ADD KEY `orders_deliver_id_index` (`deliver_id`);
 
 --
 -- Indexes for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  ADD PRIMARY KEY (`restaurant_id`),
-  ADD KEY `user_id` (`user_id`);
+  ADD PRIMARY KEY (`restaurant_id`);
 
 --
 -- Indexes for table `res_categories`
 --
 ALTER TABLE `res_categories`
-  ADD PRIMARY KEY (`res_category_id`),
-  ADD KEY `restaurant_id` (`restaurant_id`),
-  ADD KEY `category_id` (`category_id`);
+  ADD PRIMARY KEY (`res_categoryID`),
+  ADD KEY `res_categories_restaurant_id_index` (`restaurant_id`),
+  ADD KEY `res_categories_category_id_index` (`category_id`);
 
 --
 -- Indexes for table `roles`
@@ -265,135 +303,83 @@ ALTER TABLE `roles`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`user_id`),
-  ADD KEY `role_id` (`role_id`);
+  ADD KEY `users_role_id_index` (`role_id`);
 
 --
 -- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT for table `categoies`
+-- AUTO_INCREMENT for table `categories`
 --
-ALTER TABLE `categoies`
-  MODIFY `category_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `categories`
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `delivery`
+-- AUTO_INCREMENT for table `deliverers`
 --
-ALTER TABLE `delivery`
-  MODIFY `delivery_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `deliverers`
+  MODIFY `deliver_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `favorite`
+-- AUTO_INCREMENT for table `favorites`
 --
-ALTER TABLE `favorite`
-  MODIFY `favorite_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `favorites`
+  MODIFY `favorite_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `food_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `Food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `notificatins`
+--
+ALTER TABLE `notificatins`
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `orderdetail_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `orderDetail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `orders`
 --
 ALTER TABLE `orders`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `restaurant_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `restaurant_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `res_categories`
 --
 ALTER TABLE `res_categories`
-  MODIFY `res_category_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `res_categoryID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `roles`
 --
 ALTER TABLE `roles`
-  MODIFY `role_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `role_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- Constraints for dumped tables
---
-
---
--- Constraints for table `comments`
---
-ALTER TABLE `comments`
-  ADD CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`restaurant_id`);
-
---
--- Constraints for table `favorite`
---
-ALTER TABLE `favorite`
-  ADD CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
-  ADD CONSTRAINT `favorite_ibfk_2` FOREIGN KEY (`food_id`) REFERENCES `foods` (`food_id`);
-
---
--- Constraints for table `foods`
---
-ALTER TABLE `foods`
-  ADD CONSTRAINT `foods_ibfk_1` FOREIGN KEY (`category_id`) REFERENCES `categoies` (`category_id`);
-
---
--- Constraints for table `orderdetails`
---
-ALTER TABLE `orderdetails`
-  ADD CONSTRAINT `orderdetails_ibfk_1` FOREIGN KEY (`food_id`) REFERENCES `foods` (`food_id`),
-  ADD CONSTRAINT `orderdetails_ibfk_2` FOREIGN KEY (`order_id`) REFERENCES `orders` (`order_id`);
-
---
--- Constraints for table `orders`
---
-ALTER TABLE `orders`
-  ADD CONSTRAINT `orders_ibfk_1` FOREIGN KEY (`deliver_id`) REFERENCES `delivery` (`delivery_id`),
-  ADD CONSTRAINT `orders_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
---
--- Constraints for table `restaurants`
---
-ALTER TABLE `restaurants`
-  ADD CONSTRAINT `restaurants_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
-
---
--- Constraints for table `res_categories`
---
-ALTER TABLE `res_categories`
-  ADD CONSTRAINT `res_categories_ibfk_1` FOREIGN KEY (`restaurant_id`) REFERENCES `restaurants` (`restaurant_id`),
-  ADD CONSTRAINT `res_categories_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `categoies` (`category_id`);
-
---
--- Constraints for table `users`
---
-ALTER TABLE `users`
-  ADD CONSTRAINT `users_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `roles` (`role_id`),
-  ADD CONSTRAINT `users_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `roles` (`role_id`);
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
