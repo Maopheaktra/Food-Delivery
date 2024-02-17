@@ -169,7 +169,6 @@
             <li class="github">
                 <a href="faq.html">
                     <p class="h5 m-0"><i class="feather-message-circle"></i></p>
-                    FAQ
                 </a>
             </li>
             <li class="ko-fi">
