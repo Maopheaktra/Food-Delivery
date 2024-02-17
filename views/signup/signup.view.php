@@ -68,24 +68,19 @@
                         <label for="#" class="text-dark mb-3">Your role</label>
                         <div class="form-group d-flex">
                             <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="customer" checked>
+                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" checked>
                               <label class="form-check-label" for="radio1">Customer</label>
                             </div>
                             <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="owner">
+                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="2">
                               <label class="form-check-label" for="radio2">Restaurant owner</label>
 </div>
                             <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="delivery">
+                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="3">
                               <label class="form-check-label" for="radio2">Delivery</label>
                             </div>
                             </div>
                         <button class="btn btn-primary btn-lg btn-block">SIGN UP</button>
-                        <div class="py-2">
-                            <button class="btn btn-lg btn-facebook btn-block">
-                                <i class="feather-facebook"></i> Connect with Facebook
-                            </button>
-                        </div>
                     </form>
                     <a href="forgot_password.html" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>

@@ -1,132 +1,387 @@
-CREATE TABLE `Foods`(
-    `Food_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `Foodname` VARCHAR(255) NOT NULL,
-    `description` VARCHAR(255) NOT NULL,
-    `price` VARCHAR(255) NOT NULL,
-    `category_id` INT NOT NULL
-);
-ALTER TABLE
-    `Foods` ADD INDEX `foods_category_id_index`(`category_id`);
-CREATE TABLE `OrderDetails`(
-    `orderDetail_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `order_id` INT NOT NULL,
-    `Food_id` INT NOT NULL,
-    `quantity` INT NOT NULL,
-    `checkorder` VARCHAR(255) NOT NULL,
-    `total_price` VARCHAR(255) NOT NULL
-);
-ALTER TABLE
-    `OrderDetails` ADD INDEX `orderdetails_order_id_index`(`order_id`);
-ALTER TABLE
-    `OrderDetails` ADD INDEX `orderdetails_food_id_index`(`Food_id`);
-CREATE TABLE `Categories`(
-    `category_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `description` BIGINT NOT NULL
-);
-CREATE TABLE `roles`(
-    `role_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `role_type` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `notificatins`(
-    `notification_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `content` VARCHAR(255) NOT NULL,
-    `comment_id` INT NOT NULL,
-    `user_id` INT NOT NULL
-);
-ALTER TABLE
-    `notificatins` ADD INDEX `notificatins_comment_id_index`(`comment_id`);
-CREATE TABLE `Deliverers`(
-    `deliver_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `name` VARCHAR(255) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
-    `phone_number` INT NOT NULL,
-    `gender` VARCHAR(255) NOT NULL
-);
-CREATE TABLE `Comments`(
-    `comment_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `content` BIGINT NOT NULL,
-    `date` DATETIME NOT NULL,
-    `deliver_id` INT NOT NULL,
-    `user_id` INT NOT NULL
-);
-ALTER TABLE
-    `Comments` ADD INDEX `comments_deliver_id_index`(`deliver_id`);
-ALTER TABLE
-    `Comments` ADD INDEX `comments_user_id_index`(`user_id`);
-CREATE TABLE `Res_categories`(
-    `res_categoryID` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `restaurant_id` INT NOT NULL,
-    `category_id` INT NOT NULL
-);
-ALTER TABLE
-    `Res_categories` ADD INDEX `res_categories_restaurant_id_index`(`restaurant_id`);
-ALTER TABLE
-    `Res_categories` ADD INDEX `res_categories_category_id_index`(`category_id`);
-CREATE TABLE `Orders`(
-    `order_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `date` DATETIME NOT NULL,
-    `user_id` INT NOT NULL,
-    `deliver_id` BIGINT NOT NULL
-);
-ALTER TABLE
-    `Orders` ADD INDEX `orders_user_id_index`(`user_id`);
-ALTER TABLE
-    `Orders` ADD INDEX `orders_deliver_id_index`(`deliver_id`);
-CREATE TABLE `Users`(
-    `user_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `username` VARCHAR(255) NOT NULL,
-    `email` VARCHAR(255) NOT NULL,
-    `password` VARCHAR(255) NOT NULL,
-    `gender` CHAR(255) NOT NULL,
-    `role_id` INT NOT NULL
-);
-ALTER TABLE
-    `Users` ADD INDEX `users_role_id_index`(`role_id`);
-CREATE TABLE `Restaurants`(
-    `restaurant_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `restaurant_name` VARCHAR(255) NOT NULL,
-    `address` VARCHAR(255) NOT NULL,
-    `time_open` VARCHAR(255) NOT NULL,
-    `time_close` DATETIME NOT NULL,
-    `description` VARCHAR(255) NOT NULL,
-    `user_id` INT NOT NULL
-);
-CREATE TABLE `favorites`(
-    `favorite_id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    `user_id` INT NOT NULL,
-    `Food_id` BIGINT NOT NULL
-);
-ALTER TABLE
-    `favorites` ADD INDEX `favorites_user_id_index`(`user_id`);
-ALTER TABLE
-    `favorites` ADD INDEX `favorites_food_id_index`(`Food_id`);
-ALTER TABLE
-    `Users` ADD CONSTRAINT `users_username_foreign` FOREIGN KEY(`username`) REFERENCES `roles`(`role_id`);
-ALTER TABLE
-    `Orders` ADD CONSTRAINT `orders_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `Users`(`user_id`);
-ALTER TABLE
-    `Foods` ADD CONSTRAINT `foods_description_foreign` FOREIGN KEY(`description`) REFERENCES `Categories`(`category_id`);
-ALTER TABLE
-    `Comments` ADD CONSTRAINT `comments_content_foreign` FOREIGN KEY(`content`) REFERENCES `Deliverers`(`deliver_id`);
-ALTER TABLE
-    `Restaurants` ADD CONSTRAINT `restaurants_address_foreign` FOREIGN KEY(`address`) REFERENCES `Res_categories`(`restaurant_id`);
-ALTER TABLE
-    `OrderDetails` ADD CONSTRAINT `orderdetails_order_id_foreign` FOREIGN KEY(`order_id`) REFERENCES `Foods`(`Foodname`);
-ALTER TABLE
-    `Users` ADD CONSTRAINT `users_username_foreign` FOREIGN KEY(`username`) REFERENCES `Comments`(`comment_id`);
-ALTER TABLE
-    `Users` ADD CONSTRAINT `users_password_foreign` FOREIGN KEY(`password`) REFERENCES `Restaurants`(`restaurant_id`);
-ALTER TABLE
-    `Comments` ADD CONSTRAINT `comments_content_foreign` FOREIGN KEY(`content`) REFERENCES `notificatins`(`notification_id`);
-ALTER TABLE
-    `Res_categories` ADD CONSTRAINT `res_categories_category_id_foreign` FOREIGN KEY(`category_id`) REFERENCES `Categories`(`category_id`);
-ALTER TABLE
-    `favorites` ADD CONSTRAINT `favorites_food_id_foreign` FOREIGN KEY(`Food_id`) REFERENCES `Foods`(`category_id`);
-ALTER TABLE
-    `Users` ADD CONSTRAINT `users_email_foreign` FOREIGN KEY(`email`) REFERENCES `favorites`(`favorite_id`);
-ALTER TABLE
-    `Deliverers` ADD CONSTRAINT `deliverers_email_foreign` FOREIGN KEY(`email`) REFERENCES `Orders`(`order_id`);
-ALTER TABLE
-    `notificatins` ADD CONSTRAINT `notificatins_content_foreign` FOREIGN KEY(`content`) REFERENCES `Users`(`email`);
-ALTER TABLE
-    `Orders` ADD CONSTRAINT `orders_date_foreign` FOREIGN KEY(`date`) REFERENCES `OrderDetails`(`orderDetail_id`);
+-- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Feb 17, 2024 at 05:17 AM
+-- Server version: 10.4.32-MariaDB
+-- PHP Version: 8.0.30
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `panda_db`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(10) UNSIGNED NOT NULL,
+  `description` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int(10) UNSIGNED NOT NULL,
+  `content` bigint(20) NOT NULL,
+  `date` datetime NOT NULL,
+  `deliver_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `deliverers`
+--
+
+CREATE TABLE `deliverers` (
+  `deliver_id` int(10) UNSIGNED NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone_number` int(11) NOT NULL,
+  `gender` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `favorites`
+--
+
+CREATE TABLE `favorites` (
+  `favorite_id` int(10) UNSIGNED NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `Food_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `foods`
+--
+
+CREATE TABLE `foods` (
+  `Food_id` int(10) UNSIGNED NOT NULL,
+  `Foodname` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `price` varchar(255) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `notificatins`
+--
+
+CREATE TABLE `notificatins` (
+  `notification_id` int(10) UNSIGNED NOT NULL,
+  `content` varchar(255) NOT NULL,
+  `comment_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orderdetails`
+--
+
+CREATE TABLE `orderdetails` (
+  `orderDetail_id` int(10) UNSIGNED NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `Food_id` int(11) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `checkorder` varchar(255) NOT NULL,
+  `total_price` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(10) UNSIGNED NOT NULL,
+  `date` datetime NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `deliver_id` bigint(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `restaurants`
+--
+
+CREATE TABLE `restaurants` (
+  `restaurant_id` int(10) UNSIGNED NOT NULL,
+  `restaurant_name` varchar(255) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `time_open` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `time_close` varchar(100) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `restaurants`
+--
+
+INSERT INTO `restaurants` (`restaurant_id`, `restaurant_name`, `address`, `time_open`, `description`, `user_id`, `time_close`) VALUES
+(1, 'Fafa', 'Cambodia, Phnom Penh', '8:40', 'My restaurant', 1, NULL),
+(2, 'Fafa', 'Cambodia, Phnom Penh', '8:40', 'My restaurant', 1, '6:30'),
+(3, 'The osahan Restaurant', 'Cambodia, Kompong Thom', '7:30', 'The best restaurant in Cambodia and have a lot of food', 2, '7:30'),
+(4, 'The Famous Restaurant', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 2, '8:30'),
+(5, 'Bite Me Now Sandwiches', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 1, '8:30'),
+(6, 'Nham 24', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 1, '8:30');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `res_categories`
+--
+
+CREATE TABLE `res_categories` (
+  `res_categoryID` int(10) UNSIGNED NOT NULL,
+  `restaurant_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `roles`
+--
+
+CREATE TABLE `roles` (
+  `role_id` int(10) UNSIGNED NOT NULL,
+  `role_type` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `roles`
+--
+
+INSERT INTO `roles` (`role_id`, `role_type`) VALUES
+(1, 'Customer'),
+(2, 'Owner'),
+(3, 'Delivery');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `user_id` int(10) UNSIGNED NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `gender` char(255) NOT NULL,
+  `role_id` int(11) NOT NULL,
+  `phoneNumber` varchar(225) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `gender`, `role_id`, `phoneNumber`) VALUES
+(1, 'Chanthou', 'chanthou.voeun@student.passerellesnumeriques.org', '1242323', 'M', 2, '12324324234'),
+(2, 'Chanthou', 'voeunchanthou724@gmail.com', '', 'M', 2, '12324324234'),
+(3, 'Chanthou', 'voeunchanthou7454@gmail.com', '3254234324', 'M', 2, '234234234'),
+(4, 'channa', 'v@gmail.com', '1232323232', 'F', 0, '1213123132'),
+(5, 'tra', 'et@gmail.com', '123', 'F', 1, '0938343483'),
+(6, 'Roth', 'roth@gmail.com', '12345', 'M', 3, '08694433'),
+(7, 'thou', 'voeunchanthou74@gmail.com', '123456', 'M', 3, '23456');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `categories`
+--
+ALTER TABLE `categories`
+  ADD PRIMARY KEY (`category_id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`),
+  ADD KEY `comments_deliver_id_index` (`deliver_id`),
+  ADD KEY `comments_user_id_index` (`user_id`);
+
+--
+-- Indexes for table `deliverers`
+--
+ALTER TABLE `deliverers`
+  ADD PRIMARY KEY (`deliver_id`);
+
+--
+-- Indexes for table `favorites`
+--
+ALTER TABLE `favorites`
+  ADD PRIMARY KEY (`favorite_id`),
+  ADD KEY `favorites_user_id_index` (`user_id`),
+  ADD KEY `favorites_food_id_index` (`Food_id`);
+
+--
+-- Indexes for table `foods`
+--
+ALTER TABLE `foods`
+  ADD PRIMARY KEY (`Food_id`),
+  ADD KEY `foods_category_id_index` (`category_id`);
+
+--
+-- Indexes for table `notificatins`
+--
+ALTER TABLE `notificatins`
+  ADD PRIMARY KEY (`notification_id`),
+  ADD KEY `notificatins_comment_id_index` (`comment_id`);
+
+--
+-- Indexes for table `orderdetails`
+--
+ALTER TABLE `orderdetails`
+  ADD PRIMARY KEY (`orderDetail_id`),
+  ADD KEY `orderdetails_order_id_index` (`order_id`),
+  ADD KEY `orderdetails_food_id_index` (`Food_id`);
+
+--
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`),
+  ADD KEY `orders_user_id_index` (`user_id`),
+  ADD KEY `orders_deliver_id_index` (`deliver_id`);
+
+--
+-- Indexes for table `restaurants`
+--
+ALTER TABLE `restaurants`
+  ADD PRIMARY KEY (`restaurant_id`);
+
+--
+-- Indexes for table `res_categories`
+--
+ALTER TABLE `res_categories`
+  ADD PRIMARY KEY (`res_categoryID`),
+  ADD KEY `res_categories_restaurant_id_index` (`restaurant_id`),
+  ADD KEY `res_categories_category_id_index` (`category_id`);
+
+--
+-- Indexes for table `roles`
+--
+ALTER TABLE `roles`
+  ADD PRIMARY KEY (`role_id`);
+
+--
+-- Indexes for table `users`
+--
+ALTER TABLE `users`
+  ADD PRIMARY KEY (`user_id`),
+  ADD KEY `users_role_id_index` (`role_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `categories`
+--
+ALTER TABLE `categories`
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `deliverers`
+--
+ALTER TABLE `deliverers`
+  MODIFY `deliver_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `favorites`
+--
+ALTER TABLE `favorites`
+  MODIFY `favorite_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `foods`
+--
+ALTER TABLE `foods`
+  MODIFY `Food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `notificatins`
+--
+ALTER TABLE `notificatins`
+  MODIFY `notification_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orderdetails`
+--
+ALTER TABLE `orderdetails`
+  MODIFY `orderDetail_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `restaurants`
+--
+ALTER TABLE `restaurants`
+  MODIFY `restaurant_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `res_categories`
+--
+ALTER TABLE `res_categories`
+  MODIFY `res_categoryID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `roles`
+--
+ALTER TABLE `roles`
+  MODIFY `role_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

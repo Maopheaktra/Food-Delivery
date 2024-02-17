@@ -9,6 +9,14 @@ function getUsers() : array
     return $statement->fetchAll();
 }
 
+function getRestaurants() : array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from restaurants");
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
 function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
     global $connection;
     echo $username.' '.$email.' '.$password.' '.$gender.' '.$phoneNumber.' '. $role;
