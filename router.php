@@ -9,6 +9,8 @@ $routes = [
     '/profile' => 'controllers/profiles/profile.controller.php',
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/search' => 'controllers/search/search.controller.php',
+    '/resetPassword' => 'controllers/reset/reset_Password.controller.php',
+    '/newPassword'=> 'controllers/reset/new_Password.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {
