@@ -8,7 +8,7 @@
 <body>
     <div class="container mt-5 d-grid align-self-center">
         <div class="card p-3 align-self-center" style="width:400px">
-            <form action="" class="form-col">
+            <form action="controllers/reset/reset_Password.controller.php" method ="post" class="form-col">
                 <h4 class="card-title">Forget Password</h4>
                 <p>Enter your email address</p>
                 <div class="group-form">
