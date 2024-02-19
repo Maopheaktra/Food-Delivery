@@ -25,6 +25,8 @@ $data = getRestaurants();
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
   <link href="vendor/icons/feather.css" rel="stylesheet" type="text/css" />
 
   <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
