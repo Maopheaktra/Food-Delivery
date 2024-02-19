@@ -121,8 +121,7 @@
 
       <div class="trending-slider">
 
-      <?php foreach ($data as $value): ?>
-
+      <?php foreach ($data as $key => $value): ?>
         <div class="osahan-slider-item">
           <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
             <div class="list-card-image">
@@ -135,14 +134,14 @@
               <div class="member-plan position-absolute">
                 <span class="badge badge-dark">Promoted</span>
               </div>
-              <a href="/restaurant">
-                <img alt="#" src="assets/images/trending1.png" class="img-fluid item-img w-100" />
+              <a href="/restaurant?id=<?php echo $value[0] ?>">
+                <img alt="#" src="<?php print_r ($pic[$key]) ?>" />
               </a>
             </div>
             <div class="p-3 position-relative">
               <div class="list-card-body">
                 <h6 class="mb-1">
-                  <a href="/restaurant" class="text-black"> <?php print_r ($value[1])?>
+                  <a href="/restaurant?id=<?php echo $value[0] ?>" class="text-black"> <?php print_r ($value[1])?>
                   </a>
                 </h6>
                 <p class="text-gray mb-3"><?php print_r ($value[2])?></p>
@@ -186,7 +185,7 @@
                   <span class="badge badge-dark">Promoted</span>
                 </div>
                 <a href="/restaurant">
-                  <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100" />
+                  <img alt="#" src="<?php print_r ($pic[$i]) ?>" />
                 </a>
               </div>
               <div class="p-3 position-relative">

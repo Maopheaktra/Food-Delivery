@@ -4,9 +4,37 @@
 require "database/database.php";
 require "models/employee.model.php";
 
-$data = getRestaurants();
 
-// print_r($data);
+$pic = array(
+  'assets/images/popular1.png" class="img-fluid item-img w-100',
+  'assets/images/popular2.png" class="img-fluid item-img w-100',
+  'assets/images/popular3.png" class="img-fluid item-img w-100',
+  'assets/images/popular4.png" class="img-fluid item-img w-100',
+  'assets/images/popular5.png" class="img-fluid item-img w-100',
+  'assets/images/popular6.png" class="img-fluid item-img w-100',
+  'assets/images/popular7.png" class="img-fluid item-img w-100',
+  'assets/images/popular8.png" class="img-fluid item-img w-100',
+  ''
+);
+
+if (isset($_GET['addID'])){
+  $food = showFood($_GET['addID']);
+  $fl = addTolist();
+  session_start();
+  $_SESSION = 'true';
+  foreach ($fl as $value) {
+    if ($value[0] == $_GET['addID']){
+      $_SESSION = 'false';
+    }
+  }
+  if ($_SESSION == 'true'){
+    addFood($food[0], $food[1], $food[3]);
+  }
+}
+$data = getRestaurants();
+$foodAdd = addTolist();
+
+
 
 ?>
 
