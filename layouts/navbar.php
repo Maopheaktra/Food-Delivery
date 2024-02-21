@@ -98,7 +98,21 @@
               <div class="dropdown mr-4 m-none">
                 <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img alt="#" src="assets/images/user/1.jpg" class="img-fluid rounded-circle header-user mr-2 header-user" />
+                  <?php
+                    // index.php
+                    // require '../../database/database.php';
+                    $sessionId = 1; // User's session
+                    $userStmt = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
+                    $userStmt->execute([$sessionId]);
+                    $user = $userStmt->fetch();
+                  ?>
+
+                  <?php
+                    $id = $user["user_id"];
+                    $name = $user["username"];
+                    $image = $user["image"];
+                  ?>
+                  <img alt="#" src="assets/images/user/<?php echo $image; ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
                   Hi Osahan
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
