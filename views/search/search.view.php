@@ -8,7 +8,7 @@
 <div class="container">
             <div class="search py-5">
                 <div class="input-group mb-4">
-                    <input type="text" class="form-control form-control-lg input_search border-right-0"
+                    <input type="text" name="search"class="form-control form-control-lg input_search border-right-0"
                         id="inlineFormInputGroup" value="Osahan eats...">
                     <div class="input-group-prepend">
                         <div class="btn input-group-text bg-white border_search border-left-0 text-primary"><i
@@ -33,8 +33,8 @@
 
 </div>
 
-        <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
-            <div class="row">
+    <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
+        <div class="row">
                 <div class="col">
                     <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
                         <p class="h4 m-0"><i class="feather-home"></i></p>
@@ -66,6 +66,6 @@
                         Profile
                     </a>
                 </div>
-            </div>
         </div>
     </div>
+</div>
