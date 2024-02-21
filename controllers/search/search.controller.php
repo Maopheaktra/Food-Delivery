@@ -13,8 +13,6 @@ if (isset($_POST['search'])) {
         $statement = $connecton-> prepare("SELECT * FROM foods WHERE foodname LIKE '%$searchFood%'");
         $statement-> execute();
         $food_name = $statement->fetch_all();
-        var_dump($food_name);
-    
     }else{
         $searchError  = "We cannot find this food";
     }
