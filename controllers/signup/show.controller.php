@@ -18,7 +18,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
         $data = accountExist($email);
         if(count($data) == 0){
             $singup = addUsers($usernames, $email, $password, $gender, $role, $phone);
-            header('Location: /');
+            header('Location: /signin');
         }else{
             header('Location: /signup');
         }
