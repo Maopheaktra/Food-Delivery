@@ -36,8 +36,8 @@
                     <p class="text-50">Sign up to continue</p>
                     <form class="mt-5 mb-4" action="../../controllers/signup/show.controller.php" method='post'>
                         <div class="form-group">
-                            <label for="exampleInputName" class="text-dark">Username</label>
-                            <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="exampleInputName" />
+                            <label for="username" class="text-dark">Username</label>
+                            <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="username" />
                         </div>
                         <div class="form-group">
                             <label for="email" class="text-dark">Email</label>
@@ -50,9 +50,9 @@
                                 id="exampleInputPassword1" />
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPhonenumber" class="text-dark">Phone Number</label>
+                            <label for="phoneNumber" class="text-dark">Phone Number</label>
                             <input type="number" placeholder="Phone number" class="form-control" name="phone"
-                                id="exampleInputPhonenumber" />
+                                id="phoneNumber" />
                         </div>
                         <label for="#" class="text-dark mb-3">Your gender</label>
                         <div class="form-group d-flex">
@@ -147,7 +147,7 @@
                 <a href="#"><i class="feather-alert-triangle mr-2"></i> Error</a>
                 <ul>
                     <li><a href="not-found.html">Not Found</a></li>
-                    <li><a href="maintence.html"> Maintence</a></li>
+                    <li><a href="maintain.html"> Maintain</a></li>
                     <li><a href="coming-soon.html">Coming Soon</a></li>
                 </ul>
             </li>

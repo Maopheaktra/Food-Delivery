@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <header class="section-header">
     <section class="header-main shadow-sm bg-primary-style2">
       <div class="container">

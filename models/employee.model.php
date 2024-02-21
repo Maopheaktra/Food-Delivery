@@ -1,12 +1,20 @@
 <?php
 
-
 function getUsers() : array
 {
     global $connection;
     $statement = $connection->prepare("select * from users");
     $statement->execute();
     return $statement->fetchAll();
+}
+function getUserByID($id) : array
+{
+    global $connection;
+    $statement = $connection->prepare("select * from users where user_id = :user_id");
+    $statement->execute([
+        ":user_id"=>$id
+    ]);
+    return $statement->fetch();
 }
 
 function getRestaurants() : array
@@ -20,7 +28,7 @@ function getRestaurants() : array
 function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
     global $connection;
     echo $username.' '.$email.' '.$password.' '.$gender.' '.$phoneNumber.' '. $role;
-    $statement = $connection->prepare(" insert into users (username, email, password, gender, role_id, phoneNumber) values (:username, :email, :password, :gender, :role_id, :phoneNumber)");
+    $statement = $connection->prepare("INSERT INTO users (username, email, password, gender, role_id, phoneNumber) VALUES (:username, :email, :password, :gender, :role_id, :phoneNumber)");
     $statement->execute([
         ':username'=>$username,
         ':email'=>$email,
@@ -33,7 +41,7 @@ function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
 
 function accountExist($email): array {
     global $connection;
-    $statement = $connection->prepare("select * from users where email = :email");
+    $statement = $connection->prepare("SELECT * FROM users WHERE email = :email");
     $statement->execute([
         ':email'=> $email,
     ]);
@@ -44,9 +52,6 @@ function accountExist($email): array {
         return [];
     }
     
-}
-
-
-
+};
 
 
