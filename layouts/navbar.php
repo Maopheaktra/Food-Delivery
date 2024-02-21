@@ -99,8 +99,6 @@
                 <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php
-                    // index.php
-                    // require '../../database/database.php';
                     $sessionId = 1; // User's session
                     $userStmt = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
                     $userStmt->execute([$sessionId]);
