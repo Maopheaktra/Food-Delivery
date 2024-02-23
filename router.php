@@ -11,6 +11,8 @@ $routes = [
     '/search' => 'controllers/search/search.controller.php',
 ];
 
+
+
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {

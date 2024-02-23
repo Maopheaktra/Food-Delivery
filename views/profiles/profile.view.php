@@ -5,7 +5,7 @@ $accName = getUserByID($userAcc);
 <div class="osahan-profile">
     <div class="d-none">
         <div class="bg-primary border-bottom p-3 d-flex align-items-center">
-            <a class="toggle togglew toggle-2" href="#"><span></span></a>
+            <a class="toggle toggle toggle-2" href="#"><span></span></a>
             <h4 class="font-weight-bold m-0 text-white">Profile</h4>
         </div>
     </div>
@@ -115,9 +115,9 @@ $accName = getUserByID($userAcc);
                         <div>
                             <form action="controllers/updates/update.user.controller.php" method="POST">
                                 <div class="form-group">
-                                    <label for="usernames">FULL Name</label>
+                                    <label for="usernames">Full Name</label>
                                     <input type="text" class="form-control" id="usernames" name="usernames"
-                                        value="<?= $accName['username']; ?>">
+                                        value="<?= isset($accName['username']) ? $accName['username']: ""; ?>">
                                 </div>
                                 
                                 <div class="form-group">

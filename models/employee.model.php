@@ -3,24 +3,35 @@
 function getUsers() : array
 {
     global $connection;
-    $statement = $connection->prepare("select * from users");
+    $statement = $connection->prepare("SELECT * FROM users");
     $statement->execute();
     return $statement->fetchAll();
 }
-function getUserByID($id) : array
+function getUserByID($id): array
 {
     global $connection;
-    $statement = $connection->prepare("select * from users where user_id = :user_id");
-    $statement->execute([
-        ":user_id"=>$id
-    ]);
-    return $statement->fetch();
+    $statement = $connection->prepare("SELECT * FROM users WHERE user_id = :user_id");
+    $statement->execute([":user_id" => $id]);
+    $user = $statement->fetch();
+    if ($user === false) {
+        return []; 
+    }
+    return $user;
+}
+
+
+function getUserByName($username) {
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM users WHERE username = :username");
+    $statement->execute([':username' => $username]);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    return $user ? $user : null;
 }
 
 function getRestaurants() : array
 {
     global $connection;
-    $statement = $connection->prepare("select * from restaurants");
+    $statement = $connection->prepare("SELECT * FROM restaurants");
     $statement->execute();
     return $statement->fetchAll();
 }
@@ -55,3 +66,11 @@ function accountExist($email): array {
 };
 
 
+function getUserByEmail($email)
+{
+    global $connection;
+    $statement = $connection->prepare("SELECT * FROM users WHERE email = :email");
+    $statement->execute([':email' => $email]);
+    $user = $statement->fetch(PDO::FETCH_ASSOC);
+    return $user ? $user : null;
+}

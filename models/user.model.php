@@ -10,7 +10,7 @@ function updateUsers($user_id, $username, $phone, $email)
         ':user_id' => $user_id
     ]);
 
-    // echo $user_id, $username, $phone, $email;
+    echo $user_id, $username, $phone, $email;
 }
 
 
@@ -29,9 +29,7 @@ function delete($user_id)
 {
     global $connection;
     $statement = $connection->prepare("DELETE FROM users WHERE user_id = :user_id");
-    $statement->execute([
-        ':user_id' => $user_id
-    ]);
+    $statement->execute([':user_id' => $user_id]);
 }
 
 
