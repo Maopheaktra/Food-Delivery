@@ -17,3 +17,5 @@ function createUser($name, $email, $password, $phoneNumber, $gender, $role) : bo
     return $statement->rowCount() > 0;
 }
 
+
+

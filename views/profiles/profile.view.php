@@ -1,4 +1,9 @@
 <link rel="stylesheet" href="../../views/profiles/profile.css">
+<<<<<<< HEAD
+=======
+<link rel="stylesheet" href="../../views/profiles/popup.css">
+
+>>>>>>> profile
 <div class="osahan-profile">
         <div class="d-none">
             <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -10,6 +15,7 @@
         <div class="container position-relative">
             <div class="py-5 osahan-profile row">
                 <div class="col-md-4 mb-3">
+<<<<<<< HEAD
                     <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
                         <a href="../../controllers/profiles/upload_profile.controller.php" class>
                             <div class="d-flex align-items-center p-3">
@@ -71,6 +77,16 @@
                                         //     }
                                         // }
                                         ?>
+=======
+                    <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden" id="upload">
+                            <div class="d-flex align-items-center p-3">
+                                <div class="left mr-3">
+                                    
+                        
+                                        <div class="upload">
+                                            <img src="<?php print_r('assets/images/user/'.$img[1]) ?>" width="100" height="100" title="<?php echo $image; ?>">
+                                        </div>
+>>>>>>> profile
                                 </div>
                                 <div class="right">
                                     <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i
@@ -245,3 +261,40 @@
             </div>
         </div>
     </div>
+
+    <div id="contact-popup" style="display: none;">
+        <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php" method="post">
+            <h1>Upload Profile</h1>
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+                <div>
+                    <input type="file" name="my_image" id="image" class='btn bg-primary text-white'>
+                </div>
+                </div>
+            <div>
+                <input type="submit" id="send" name="send" value="Upload"/>
+            </div>
+        </form>
+    </div>
+
+    <?php
+
+echo "<script>
+
+let pop = document.querySelector('#contact-popup');
+let upload = document.querySelector('#upload');
+let send = document.querySelector('#send');
+
+upload.addEventListener('click', ()=>{
+    pop.style.display = 'block';
+});
+
+send.addEventListener('click', ()=>{
+    pop.style.display = 'none';
+});
+
+
+
+
+</script>"
+
+?> 

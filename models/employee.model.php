@@ -114,3 +114,35 @@ function deleteFromList(){
 }
 
 
+
+// function addFood($id, $name, $price) {
+//     global $connection;
+//     $statement = $connection->prepare(" insert into addFood (add_id, name, price) values (:add_id, :name, :price)");
+//     $statement->execute([
+//         ':add_id'=>$id,
+//         ':name'=>$name,
+//         ':price'=>$price
+//     ]);
+// }
+
+// function deleteFromList(){
+//     global $connection;
+//     $statement = $connection->prepare("delete from addFood");
+//     $statement->execute();
+// }
+
+
+//upload pf-----------
+function uploadpf($img){
+    global $connection;
+    $statement = $connection->prepare("update profile set img_url = :img where img_id = 1");
+    $statement->execute([':img'=>$img]);
+}
+
+function showPf(){
+    global $connection;
+    $statement = $connection->prepare('select * from profile');
+    $statement->execute();
+
+    return $statement->fetch();
+}
