@@ -1,2 +1,2 @@
 <?php
-require "views/resetPassword/new_password.view.php";
+// require "views/resetPassword/new_password.view.php";
