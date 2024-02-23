@@ -1,4 +1,4 @@
-
+<?php
 
 function createUser($name, $email, $password, $phoneNumber, $gender, $role) : bool
 {
