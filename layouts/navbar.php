@@ -99,18 +99,9 @@
                 <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <?php
-                    $sessionId = 1; // User's session
-                    $userStmt = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
-                    $userStmt->execute([$sessionId]);
-                    $user = $userStmt->fetch();
+                    $img = showPf();
                   ?>
-
-                  <?php
-                    $id = $user["user_id"];
-                    $name = $user["username"];
-                    $image = $user["image"];
-                  ?>
-                  <img alt="#" src="assets/images/user/<?php echo $image; ?>" class="img-fluid rounded-circle header-user mr-2 header-user" />
+                  <img alt="#" src="<?php print_r('assets/images/user/'.$img[1]) ?>" class="img-fluid header-user mr-2 header-user" style="width: 40px; height: 40px; border-radius: 50%;" />
                   Hi Osahan
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">

@@ -1,3 +1,6 @@
+<?php
+   $resDetail = (detailRes($_GET['id']));
+?>
 <div class="d-none">
         <div class="bg-primary p-3 d-flex align-items-center">
             <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -8,8 +11,8 @@
         <div class="container position-relative">
             <img alt="#" src="assets/images/trending1.png" class="restaurant-pic">
             <div class="pt-3 text-white">
-                <h2 class="font-weight-bold">Conrad Chicago Restaurant</h2>
-                <p class="text-white m-0">963 Madyson Drive Suite 679</p>
+                <h2 class="font-weight-bold"><?php echo $resDetail[1] ?></h2>
+                <p class="text-white m-0"><?php echo $resDetail[2] ?></p>
                 <div class="rating-wrap d-flex align-items-center mt-2">
                     <ul class="rating-stars list-unstyled">
                         <li>
@@ -26,12 +29,12 @@
             <div class="pb-4">
                 <div class="row">
                     <div class="col-6 col-md-2">
-                        <p class="text-white-50 font-weight-bold m-0 small">Delivery</p>
-                        <p class="text-white m-0">Free</p>
+                        <p class="text-white-50 font-weight-bold m-0 small">Open time</p>
+                        <p class="text-white m-0"><?php echo $resDetail[3] ?> AM</p>
                     </div>
                     <div class="col-6 col-md-2">
-                        <p class="text-white-50 font-weight-bold m-0 small">Open time</p>
-                        <p class="text-white m-0">8:00 AM</p>
+                        <p class="text-white-50 font-weight-bold m-0 small">Close time</p>
+                        <p class="text-white m-0"><?php echo $resDetail[6] ?> PM</p>
                     </div>
                 </div>
             </div>
@@ -57,75 +60,55 @@
             <p class="font-weight-bold pt-4 m-0">FEATURED ITEMS</p>
 
             <div class="trending-slider rounded">
-                <div class="osahan-slider-item">
-                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
-                            <a href="/checkout">
-                                <img alt="#" src="assets/images/trending1.png" class="img-fluid item-img w-100">
-                            </a>
-                        </div>
-                        <div class="p-3 position-relative">
-                            <div class="list-card-body">
-                                <h6 class="mb-1"><a href="/checkout" class="text-black">Famous Dave's Bar-B-Que</a>
-                                </h6>
-                                <p class="text-gray mb-3">Vegetarian • Indian • Pure veg</p>
-                                <p class="text-gray m-0"> <span class="text-black-50"> $350 FOR TWO</span></p>
-                            </div>
-                        </div>
-                    </div>
+            <?php for ($i=0; $i < 6 ; $i++): ?>
+          <div class="col-md-3 pb-3">
+            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+              <div class="list-card-image">
+                <div class="star position-absolute">
+                  <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
                 </div>
-                <div class="osahan-slider-item">
-                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
-                            <a href="/checkout">
-                                <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                            </a>
-                        </div>
-                        <div class="p-3 position-relative">
-                            <div class="list-card-body">
-                                <h6 class="mb-1"><a href="/checkout" class="text-black">Thai Famous Cuisine</a></h6>
-                                <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                                <p class="text-gray m-0"> <span class="text-black-50"> $250 FOR TWO</span></p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="favourite-heart text-danger position-absolute">
+                  <a href="#"><i class="feather-heart"></i></a>
                 </div>
-                <div class="osahan-slider-item">
-                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
-                            <a href="/checkout">
-                                <img alt="#" src="assets/images/trending3.png" class="img-fluid item-img w-100">
-                            </a>
-                        </div>
-                        <div class="p-3 position-relative">
-                            <div class="list-card-body">
-                                <h6 class="mb-1"><a href="/checkout" class="text-black">The osahan Restaurant</a>
-                                </h6>
-                                <p class="text-gray mb-3">North • Hamburgers • Pure veg</p>
-                                <p class="text-gray m-0"> <span class="text-black-50"> $500 FOR TWO</span></p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="member-plan position-absolute">
+                  <span class="badge badge-dark">Promoted</span>
                 </div>
-                <div class="osahan-slider-item">
-                    <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                        <div class="list-card-image">
-                            <a href="/checkout">
-                                <img alt="#" src="assets/images/trending2.png" class="img-fluid item-img w-100">
-                            </a>
-                        </div>
-                        <div class="p-3 position-relative">
-                            <div class="list-card-body">
-                                <h6 class="mb-1"><a href="/checkout" class="text-black">Thai Famous Cuisine</a></h6>
-                                <p class="text-gray mb-3">North Indian • Indian • Pure veg</p>
-                                <p class="text-gray m-0"> <span class="text-black-50"> $250 FOR TWO</span></p>
-                            </div>
-                        </div>
-                    </div>
+                <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>">
+                  <img alt="#" src="<?php print_r ($pic[$i]) ?>" />
+                </a>
+              </div>
+              <div class="p-3 position-relative">
+                <div class="list-card-body">
+                  <h6 class="mb-1">
+                    <a href="/restaurant" class="text-black"> <?php print_r($data[$i][1]) ?>
+                    </a>
+                  </h6>
+                  <p class="text-gray mb-1 small"><?php print_r($data[$i][2]) ?></p>
+                  <p class="text-gray mb-1 rating"></p>
+                  <ul class="rating-stars list-unstyled">
+                    <li>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star"></i>
+                    </li>
+                  </ul>
+                  <p></p>
                 </div>
+                <div class="list-card-badge">
+                  <span class="badge badge-danger">OFFER</span>
+                  <small>65% OSAHAN50</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endfor; ?>
             </div>
         </div>
     </div>
+
+    
 
     <div class="container position-relative">
         <div class="row">
@@ -135,170 +118,33 @@
                         <p class="font-weight-bold h6 p-3 border-bottom mb-0 w-100">Menu</p>
 
                     </div>
+                    <?php 
+                        $cate = getCate($_GET['id']);
+                        foreach ($cate as $value):
+                    ?>
                     <div class="row m-0">
-                        <h6 class="p-3 m-0 bg-light w-100">Quick Bites <small class="text-black-50">3 ITEMS</small></h6>
+                        <h6 class="p-3 m-0 bg-light w-100"><?= $value[1] ?></h6>
                         <div class="col-md-12 px-0 border-top">
                             <div class>
+                            <?php 
+                                $foods = getFoods($value[0]);
+                                foreach($foods as $food):
+                            ?>
                                 <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
+                                    <span class="float-right"><a href="/restaurant?id=<?php echo $_GET['id'] ?>&addID=<?php echo $food[0] ?>" class="btn btn-outline-secondary btn-sm">ADD</a></span>
                                     <div class="media">
                                         <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                         <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                            <p class="text-muted mb-0">$250</p>
+                                            <h6 class="mb-1"><?php echo $food[1] ?> </h6>
+                                            <p class="text-muted mb-0">$<?php echo $food[3]; ?></p>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                    SELLER</span></h6>
-                                            <p class="text-muted mb-0">$600</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub <span
-                                                    class="badge badge-danger text-white">Non veg</span></h6>
-                                            <p class="text-muted mb-0">$250</p>
-                                        </div>
-                                    </div>
-                                </div>
+                                <?php endforeach;?>
                             </div>
                         </div>
                     </div>
-                    <div class="row m-0">
-                        <h6 class="p-3 m-0 bg-light w-100">Starters <small class="text-black-50">3 ITEMS</small></h6>
-                        <div class="col-md-12 px-0 border-top">
-                            <div class>
-                                <div class="p-3 border-bottom menu-list">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <img alt="#" src="assets/images/starter1.jpg" alt="Gurdeep Osahan"
-                                            class="mr-3 rounded-pill ">
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                            <p class="text-muted mb-0">$250</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom menu-list">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <img alt="#" src="assets/images/starter2.jpg" alt="Gurdeep Osahan"
-                                            class="mr-3 rounded-pill ">
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                    SELLER</span></h6>
-                                            <p class="text-muted mb-0">$600</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom menu-list">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <img alt="#" src="assets/images/starter3.jpg" alt="Gurdeep Osahan"
-                                            class="mr-3 rounded-pill ">
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-success">Pure
-                                                    Veg</span></h6>
-                                            <p class="text-muted mb-0">$250</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row m-0">
-                        <h6 class="p-3 m-0 bg-light w-100">Soups <small class="text-black-50">8 ITEMS</small></h6>
-                        <div class="col-md-12 px-0 border-top">
-                            <div class="bg-white">
-                                <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                            <p class="text-muted mb-0">$250</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                    SELLER</span></h6>
-                                            <p class="text-muted mb-0">$600</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-success veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-success">Pure
-                                                    Veg</span></h6>
-                                            <p class="text-muted mb-0">$250</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-success veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub </h6>
-                                            <p class="text-muted mb-0">$250</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Cheese corn Roll <span class="badge badge-danger">BEST
-                                                    SELLER</span></h6>
-                                            <p class="text-muted mb-0">$600</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="p-3 gold-members">
-                                    <span class="float-right"><a href="#" class="btn btn-outline-secondary btn-sm"
-                                            data-toggle="modal" data-target="#extras">ADD</a></span>
-                                    <div class="media">
-                                        <div class="mr-3 font-weight-bold text-success veg">.</div>
-                                        <div class="media-body">
-                                            <h6 class="mb-1">Chicken Tikka Sub <span class="badge badge-success">Pure
-                                                    Veg</span></h6>
-                                            <p class="text-muted mb-0">$250</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
                 <div class="mb-3">
                     <div id="ratings-and-reviews"
@@ -483,18 +329,18 @@
                     <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
                         <img alt="osahan" src="assets/images/starter1.jpg" class="mr-3 rounded-circle img-fluid">
                         <div class="d-flex flex-column">
-                            <h6 class="mb-1 font-weight-bold">Spice Hut Indian Restaurant</h6>
-                            <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> 2036 2ND AVE, NEW YORK, NY
-                                10029</p>
+                            <h6 class="mb-1 font-weight-bold"><?php echo $resDetail[1] ?></h6>
+                            <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> <?php echo $resDetail[2] ?></p>
                         </div>
                     </div>
                     <div class="bg-white border-bottom py-2">
+                        <?php foreach ($foodAdd as $value): ?>
                         <div
                             class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
                             <div class="media align-items-center">
                                 <div class="mr-2 text-danger">&middot;</div>
                                 <div class="media-body">
-                                    <p class="m-0">Chicken Tikka Sub</p>
+                                    <p class="m-0"><?php echo $value[1] ?></p>
                                 </div>
                             </div>
                             <div class="d-flex align-items-center">
@@ -503,79 +349,11 @@
                                     </button><input class="count-number-input" type="text" readonly value="2"><button
                                         type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
                                             class="feather-plus"></i> </button></span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
+                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$<?php echo $value[2] ?></p>
                             </div>
                         </div>
-                        <div
-                            class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                            <div class="media align-items-center">
-                                <div class="mr-2 text-danger">&middot;</div>
-                                <div class="media-body">
-                                    <p class="m-0">Methi Chicken Dry
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="count-number float-right"><button type="button"
-                                        class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                                    </button><input class="count-number-input" type="text" readonly value="2"><button
-                                        type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
-                                            class="feather-plus"></i> </button></span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                            </div>
-                        </div>
-                        <div
-                            class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                            <div class="media align-items-center">
-                                <div class="mr-2 text-danger">&middot;</div>
-                                <div class="media-body">
-                                    <p class="m-0">Reshmi Kebab
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="count-number float-right"><button type="button"
-                                        class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                                    </button><input class="count-number-input" type="text" readonly value="2"><button
-                                        type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
-                                            class="feather-plus"></i> </button></span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                            </div>
-                        </div>
-                        <div
-                            class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                            <div class="media align-items-center">
-                                <div class="mr-2 text-success">&middot;</div>
-                                <div class="media-body">
-                                    <p class="m-0">Lemon Cheese Dry
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="count-number float-right"><button type="button"
-                                        class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                                    </button><input class="count-number-input" type="text" readonly value="2"><button
-                                        type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
-                                            class="feather-plus"></i> </button></span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                            </div>
-                        </div>
-                        <div class="gold-members d-flex align-items-center justify-content-between px-3 py-2">
-                            <div class="media align-items-center">
-                                <div class="mr-2 text-success">&middot;</div>
-                                <div class="media-body">
-                                    <p class="m-0">Rara Paneer</p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="count-number float-right"><button type="button"
-                                        class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                                    </button><input class="count-number-input" type="text" readonly value="2"><button
-                                        type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
-                                            class="feather-plus"></i> </button></span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$628</p>
-                            </div>
-                        </div>
+                        <?php endforeach; ?>
+                        
                     </div>
                     <div class="bg-white p-3 py-3 border-bottom clearfix">
                         <div class="input-group-sm mb-2 input-group">
@@ -592,7 +370,6 @@
                     </div>
                     <div class="bg-white p-3 clearfix border-bottom">
                         <p class="mb-1">Item Total <span class="float-right text-dark">$3140</span></p>
-                        <p class="mb-1">Restaurant Charges <span class="float-right text-dark">$62.8</span></p>
                         <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i
                                     class="feather-info"></i></span><span class="float-right text-dark">$10</span></p>
                         <p class="mb-1 text-success">Total Discount<span class="float-right text-success">$1884</span>
@@ -601,7 +378,7 @@
                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
                     </div>
                     <div class="p-3">
-                        <a class="btn btn-success btn-block btn-lg" href="successful.html">PAY $1329<i
+                        <a class="btn btn-success btn-block btn-lg" href="controllers/orders/order.controller.php">PAY $1329<i
                                 class="feather-arrow-right"></i></a>
                     </div>
                 </div>

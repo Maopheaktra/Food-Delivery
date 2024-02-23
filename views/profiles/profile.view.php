@@ -1,4 +1,6 @@
 <link rel="stylesheet" href="../../views/profiles/profile.css">
+<link rel="stylesheet" href="../../views/profiles/popup.css">
+
 <div class="osahan-profile">
         <div class="d-none">
             <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -10,67 +12,14 @@
         <div class="container position-relative">
             <div class="py-5 osahan-profile row">
                 <div class="col-md-4 mb-3">
-                    <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                        <a href="../../controllers/profiles/upload_profile.controller.php" class>
+                    <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden" id="upload">
                             <div class="d-flex align-items-center p-3">
                                 <div class="left mr-3">
-                                    <!-- <img alt="#" src="assets/images/user1.jpg" class="rounded-circle"> -->
-                                    <?php
-                                        // index.php
-                                        // require '../../database/database.php';
-                                        $sessionId = 1; // User's session
-                                        $userStmt = $connection->prepare("SELECT * FROM users WHERE user_id = ?");
-                                        $userStmt->execute([$sessionId]);
-                                        $user = $userStmt->fetch();
-                                    ?>
-                                    <form class="form" id="form" enctype="multipart/form-data" method="post">
+                                    
+                        
                                         <div class="upload">
-                                        <?php
-                                            $id = $user["user_id"];
-                                            $name = $user["username"];
-                                            $image = $user["image"];
-                                        ?>
-                                            <img src="../../assets/images/user/<?php echo $image; ?>" width="100" height="100" title="<?php echo $image; ?>">
-                                                <div class="round">
-                                                <input type="hidden" name="id" value="<?php echo $id; ?>">
-                                                <input type="hidden" name="name" value="<?php echo $name; ?>">
-                                                <input type="file" name="image" id="image" accept=".jpg, .jpeg, .png">
-                                                <i class="fa fa-camera" style="color: #fff;"></i>
-                                                </div>
+                                            <img src="<?php print_r('assets/images/user/'.$img[1]) ?>" width="100" height="100" title="<?php echo $image; ?>">
                                         </div>
-                                    </form>
-                                    <!-- <script type="text/javascript">
-                                        document.getElementById("image").onchange = function () {
-                                            document.getElementById("form").submit();
-                                        };
-                                    </script> -->
-                                    <?php
-                                        // if (isset($_FILES["image"]["name"])) {
-                                        //     $id = $_POST["id"];
-                                        //     $name = $_POST["name"];
-
-                                        //     $imageName = $_FILES["image"]["name"];
-                                        //     $imageSize = $_FILES["image"]["size"];
-                                        //     $tmpName = $_FILES["image"]["tmp_name"];
-
-                                        //     // Image validation
-                                        //     $validImageExtension = ['jpg', 'jpeg', 'png'];
-                                        //     $imageExtension = pathinfo($imageName, PATHINFO_EXTENSION);
-                                        //     if (!in_array($imageExtension, $validImageExtension)) {
-                                        //         echo "<script>alert('Invalid Image Extension'); document.location.href = '/views/profiles/profile.view.php';</script>";
-                                        //     } elseif ($imageSize > 1200000) {
-                                        //         echo "<script>alert('Image Size Is Too Large'); document.location.href = '/views/profiles/profile.view.php';</script>";
-                                        //     } else {
-                                        //         $newImageName = $name . " - " . date("Y.m.d") . " - " . date("h.i.sa"); // Generate new image name
-                                        //         $newImageName .= '.' . $imageExtension;
-                                        //         $query = "UPDATE users SET image = ? WHERE user_id = ?";
-                                        //         $stmt = $connection->prepare($query);
-                                        //         $stmt->execute([$newImageName, $id]);
-                                        //         move_uploaded_file($tmpName, '../../assets/images/user/' . $newImageName);
-                                        //         echo "<script>document.location.href = '/views/profiles/profile.view.php';</script>";
-                                        //     }
-                                        // }
-                                        ?>
                                 </div>
                                 <div class="right">
                                     <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i
@@ -245,3 +194,40 @@
             </div>
         </div>
     </div>
+
+    <div id="contact-popup" style="display: none;">
+        <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php" method="post">
+            <h1>Upload Profile</h1>
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+                <div>
+                    <input type="file" name="my_image" id="image" class='btn bg-primary text-white'>
+                </div>
+                </div>
+            <div>
+                <input type="submit" id="send" name="send" value="Upload"/>
+            </div>
+        </form>
+    </div>
+
+    <?php
+
+echo "<script>
+
+let pop = document.querySelector('#contact-popup');
+let upload = document.querySelector('#upload');
+let send = document.querySelector('#send');
+
+upload.addEventListener('click', ()=>{
+    pop.style.display = 'block';
+});
+
+send.addEventListener('click', ()=>{
+    pop.style.display = 'none';
+});
+
+
+
+
+</script>"
+
+?> 

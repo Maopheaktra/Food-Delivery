@@ -1,5 +1,5 @@
 .upload{
-    width: 90px;
+    width: 100px;
     position: relative;
     margin: auto;
   }
@@ -7,6 +7,7 @@
   .upload img{
     border-radius: 50%;
     border: 8px solid #DCDCDC;
+  
   }
   
   .upload .round{
