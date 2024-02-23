@@ -10,7 +10,7 @@
             <div class="search py-5">
                 <div class="input-group mb-4">
                     <input type="text" class="form-control form-control-lg input_search border-right-0"
-                        id="inlineFormInputGroup" value="Osahan eats...">
+                    id="search" value="Osahan eats...">
                     <div class="input-group-prepend">
                         <div class="btn input-group-text bg-white border_search border-left-0 text-primary"><i
                                 class="feather-search"></i></div>
@@ -36,7 +36,7 @@
 
                             <div class="row">
                                 <?php foreach ($data as $value): ?>
-                                <div class="col-md-3 pb-3">
+                                <div class="col-md-3 pb-3" id="card">
                                     <div
                                         class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
                                         <div class="list-card-image">
@@ -46,13 +46,13 @@
                                                         class="feather-heart"></i></a></div>
                                             <div class="member-plan position-absolute"><span
                                                     class="badge badge-dark">Promoted</span></div>
-                                            <a href="/restaurant">
+                                            <a href="/restaurant?id=<?php echo $value[0] ?>">
                                                 <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100">
                                             </a>
                                         </div>
                                         <div class="p-3 position-relative">
                                             <div class="list-card-body">
-                                                <h6 class="mb-1"><a href="/restaurant" class="text-black"><?php echo $value[1] ?>
+                                                <h6 class="mb-1"><a href="/restaurant?id=<?php echo $value[0] ?>" class="text-black"><?php echo $value[1] ?>
                                                     </a>
                                                 </h6>
                                                 <p class="text-gray mb-1 small"><?php echo $value[2] ?></p>
@@ -134,3 +134,8 @@
             </div>
         </div>
     </div>
+
+    <?php
+
+    echo '<script src="../../js/main.js"></script>';
+    ?>
