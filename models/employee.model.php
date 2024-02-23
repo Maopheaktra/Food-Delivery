@@ -46,7 +46,19 @@ function accountExist($email): array {
     
 }
 
+function getCate(){
+    global $connection;
+    $statement = $connection->prepare("select * from categories");
+    $statement->execute();
+    return $statement->fetchAll();   
+}
 
+function getFoodbyCate($cateid){
+    global $connection;
+    $statement = $connection->prepare("select * from foods where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+    return $statement->fetchAll();
+}
 
 
 

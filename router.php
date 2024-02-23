@@ -10,6 +10,7 @@ $routes = [
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/search' => 'controllers/search/search.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php',
+    '/categories' => 'controllers/categories/categorie.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
