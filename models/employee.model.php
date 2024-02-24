@@ -69,12 +69,12 @@ function getFoods($cid): array {
     return $statement->fetchAll();
 }
 
-function getCate($id):array {
-    global $connection;
-    $statement = $connection->prepare("select categories.category_id, categories.name from ((res_categories inner join categories on categories.category_id = res_categories.category_id) inner join restaurants on res_categories.restaurant_id = restaurants.restaurant_id) where restaurants.restaurant_id = $id");
-    $statement->execute();
-    return $statement->fetchAll();
-}
+// function getCate($id):array {
+//     global $connection;
+//     $statement = $connection->prepare("select categories.category_id, categories.name from ((res_categories inner join categories on categories.category_id = res_categories.category_id) inner join restaurants on res_categories.restaurant_id = restaurants.restaurant_id) where restaurants.restaurant_id = $id");
+//     $statement->execute();
+//     return $statement->fetchAll();
+// }
 
 // function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
 //     global $connection;
@@ -218,3 +218,19 @@ function getUserByEmail($email){
     $user = $statement->fetch(PDO::FETCH_ASSOC);
     return $user ? $user : null;
 }
+function getCate(){
+    global $connection;
+    $statement = $connection->prepare("select * from categories");
+    $statement->execute();
+    return $statement->fetchAll();   
+}
+
+function getFoodbyCate($cateid){
+    global $connection;
+    $statement = $connection->prepare("select * from foods where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+    return $statement->fetchAll();
+}
+
+
+

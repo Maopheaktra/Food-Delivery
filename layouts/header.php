@@ -1,8 +1,13 @@
 
 <?php
-
+session_start();
 require "database/database.php";
 require "models/employee.model.php";
+// $categories = getFoodbyCate($_SESSION['cateid']);
+ if(isset($_SESSION['cateid'])){
+  $categories = getFoodbyCate($_SESSION['cateid']);
+ }
+
 
 
 $pic = array(
