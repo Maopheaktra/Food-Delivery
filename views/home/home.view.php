@@ -129,7 +129,7 @@
                 <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
               </div>
               <div class="favourite-heart text-danger position-absolute">
-                <a href="#"><i class="feather-heart"></i></a>
+                <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
               </div>
               <div class="member-plan position-absolute">
                 <span class="badge badge-dark">Promoted</span>

@@ -86,6 +86,19 @@ function showFood($id){
     $statement->execute();
     return $statement->fetch();
 }
+function getFavorites():array{
+    global $connection;
+    $statement = $connection->prepare("select * from favorites inner join restaurants on favorites.restaurant_id = restaurants.restaurant_id;");
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+function addFavorites($favoID){
+    global $connection;
+    $statement = $connection->prepare("insert into favorites (restaurant_id) values (:favoID)");
+    $statement->execute([':favoID'=>$favoID]);
+    
+}
 
 
 
