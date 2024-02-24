@@ -31,29 +31,18 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
-                    <h2 class="text-dark my-0">Welcome Back</h2>
-                    <p class="text-50">Sign in to continue</p>
-                    <form class="mt-5 mb-4" action="../../controllers/signin/verification.signin.controller.php" method="post">
+                    <h2 class="text-dark my-0">Forget Password</h2>
+                    <p class="text-50">enter your email to continue</p>
+                    <form class="mt-5 mb-4" action="controllers/reset/reset_Password.controller.php" method ="post">
                         <div class="form-group">
-                            <label for="email" class="text-dark">Email</label>
-                            <input type="email" name="email" placeholder="Enter Email" class="form-control" id="email" aria-describedby="emailHelp" />
+                            <label for="exampleInputEmail1" class="text-dark">Email</label>
+                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp" />
                         </div>
-                        <div class="form-group">
-                            <label for="password" class="text-dark">Password</label>
-                            <input type="password" name="password" placeholder="Enter Password" class="form-control" id="password" />
-                        </div>
-                        <button class="btn btn-primary btn-lg btn-block">SIGN IN</button>
-                        <div class="py-2">
-                            <button class="btn btn-lg btn-facebook btn-block">
-                                <i class="feather-facebook"></i> Connect with Facebook
-                            </button>
-                        </div>
+                        <button type="submit" name="send_email" class="btn btn-primary btn-lg btn-block">SEND</button>
                     </form>
-                    <a href="/resetPwd" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
-                    </a>
                     <div class="d-flex align-items-center justify-content-center">
-                        <a href="/signup">
+                        <a href="signup.html">
                             <p class="text-center m-0">Don't have an account? Sign up</p>
                         </a>
                     </div>
@@ -188,7 +177,11 @@
 
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/js/osahan.js"></script>
     <script src="vendor/rocket/rocket-loader.min.js" data-cf-settings="c7cde99310a44e0c8a34cba7-|49" defer></script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}' crossorigin="anonymous"></script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}'
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

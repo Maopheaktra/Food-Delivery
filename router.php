@@ -10,6 +10,7 @@ $routes = [
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/search' => 'controllers/search/search.controller.php',
     '/layouts' => 'layouts/header.php',
+    '/newPassword'=> 'controllers/reset/new_Password.controller.php'
 ];
 
 
