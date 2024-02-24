@@ -46,8 +46,15 @@
             $statemen->execute();
             return $statemen->fetch();
         }
+
+        if(showCateFilter($cateid)[2] != ''){
+          $cateName = showCateFilter($cateid)[2];
+        }else{
+          $cateName = 'Foods';
+        }
+
         ?> 
-        <h5 class="m-0"><?php print_r(showCateFilter($cateid)[2]) ?></h5>
+        <h5 class="m-0"><?php echo $cateName ?></h5>
       </div>
 
       <div class="most_popular">

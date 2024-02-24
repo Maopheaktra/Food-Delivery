@@ -4,8 +4,10 @@ session_start();
 require "database/database.php";
 require "models/employee.model.php";
 // $categories = getFoodbyCate($_SESSION['cateid']);
+ if($_SESSION['cateid']){
+  $categories = getFoodbyCate($_SESSION['cateid']);
+ }
 
-$categories = getFoodbyCate($_SESSION['cateid']);
 
 $data = getRestaurants();
 
