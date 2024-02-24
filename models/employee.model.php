@@ -125,9 +125,6 @@ function addFavorites($favoID){
     $statement = $connection->prepare("insert into favorites (restaurant_id) values (:favoID)");
     $statement->execute([':favoID'=>$favoID]);
 }
-
-
-
 function addTolist(){
     global $connection;
     $statement = $connection->prepare("select * from addFood");
