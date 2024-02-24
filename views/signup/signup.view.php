@@ -38,13 +38,6 @@
                         <div class="form-group">
                             <label for="exampleInputName" class="text-dark">Username</label>
                             <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="exampleInputName" />
-                            <label for="username" class="text-dark">Username</label>
-                            <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="username" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" name='email' class="form-control" id="email"
-                                aria-describedby="emailHelp" />
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="text-dark">Password</label>
@@ -55,9 +48,6 @@
                             <label for="exampleInputPhonenumber" class="text-dark">Phone Number</label>
                             <input type="number" placeholder="Phone number" class="form-control" name="phone"
                                 id="exampleInputPhonenumber" />
-                            <label for="phoneNumber" class="text-dark">Phone Number</label>
-                            <input type="number" placeholder="Phone number" class="form-control" name="phone"
-                                id="phoneNumber" />
                         </div>
                         <label for="#" class="text-dark mb-3">Your gender</label>
                         <div class="form-group d-flex">

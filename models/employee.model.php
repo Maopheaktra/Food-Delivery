@@ -1,17 +1,12 @@
 <?php
-
-
-function getUsers() : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from users");
-function getUsers() : array
-{
+function getUsers() : array{
     global $connection;
     $statement = $connection->prepare("SELECT * FROM users");
     $statement->execute();
     return $statement->fetchAll();
 }
+
+
 function getUserByID($id): array
 {
     global $connection;
@@ -33,13 +28,13 @@ function getUserByName($username) {
     return $user ? $user : null;
 }
 
-function getRestaurants() : array
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT * FROM restaurants");
-    $statement->execute();
-    return $statement->fetchAll();
-}
+// function getRestaurants() : array
+// {
+//     global $connection;
+//     $statement = $connection->prepare("SELECT * FROM restaurants");
+//     $statement->execute();
+//     return $statement->fetchAll();
+// }
 
 // restaurant-----------
 function getRestaurants() : array
@@ -81,34 +76,34 @@ function getCate($id):array {
     return $statement->fetchAll();
 }
 
-function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
-    global $connection;
-    echo $username.' '.$email.' '.$password.' '.$gender.' '.$phoneNumber.' '. $role;
-    $statement = $connection->prepare(" insert into users (username, email, password, gender, role_id, phoneNumber) values (:username, :email, :password, :gender, :role_id, :phoneNumber)");
-    $statement->execute([
-        ':username'=>$username,
-        ':email'=>$email,
-        ':password'=>$password,
-        ':gender'=>$gender,
-        ':role_id'=>$role,
-        ':phoneNumber'=>$phoneNumber,
-    ]);
-}
+// function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
+//     global $connection;
+//     echo $username.' '.$email.' '.$password.' '.$gender.' '.$phoneNumber.' '. $role;
+//     $statement = $connection->prepare(" insert into users (username, email, password, gender, role_id, phoneNumber) values (:username, :email, :password, :gender, :role_id, :phoneNumber)");
+//     $statement->execute([
+//         ':username'=>$username,
+//         ':email'=>$email,
+//         ':password'=>$password,
+//         ':gender'=>$gender,
+//         ':role_id'=>$role,
+//         ':phoneNumber'=>$phoneNumber,
+//     ]);
+// }
 
-function accountExist($email): array {
-    global $connection;
-    $statement = $connection->prepare("select * from users where email = :email");
-    $statement->execute([
-        ':email'=> $email,
-    ]);
+// function accountExist($email): array {
+//     global $connection;
+//     $statement = $connection->prepare("select * from users where email = :email");
+//     $statement->execute([
+//         ':email'=> $email,
+//     ]);
 
-    if($statement->rowCount() > 0){
-        return $statement->fetch();
-    }else{
-        return [];
-    }
+//     if($statement->rowCount() > 0){
+//         return $statement->fetch();
+//     }else{
+//         return [];
+//     }
     
-}
+// }
 
 // add food------------
 
@@ -129,7 +124,6 @@ function addFavorites($favoID){
     global $connection;
     $statement = $connection->prepare("insert into favorites (restaurant_id) values (:favoID)");
     $statement->execute([':favoID'=>$favoID]);
-    
 }
 
 
@@ -201,7 +195,7 @@ function addUsers($username, $email, $password, $gender, $role, $phoneNumber){
         ':password'=>$password,
         ':gender'=>$gender,
         ':role_id'=>$role,
-        ':phoneNumber'=>$phoneNumber,
+        ':phoneNumber'=>$phoneNumber
     ]);
 }
 
@@ -218,11 +212,9 @@ function accountExist($email): array {
         return [];
     }
     
-};
+}
 
-
-function getUserByEmail($email)
-{
+function getUserByEmail($email){
     global $connection;
     $statement = $connection->prepare("SELECT * FROM users WHERE email = :email");
     $statement->execute([':email' => $email]);

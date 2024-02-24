@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 
 <?php
 
@@ -37,14 +36,12 @@ $foodAdd = addTolist();
 
 
 
-=======
-<?php
-require "database/database.php";
-require "models/employee.model.php";
+// <?php
+// require "database/database.php";
+// require "models/employee.model.php";
 
-$data = getRestaurants();
->>>>>>> update
-?>
+// $data = getRestaurants();
+// ?>
 
 
 <!DOCTYPE html>
