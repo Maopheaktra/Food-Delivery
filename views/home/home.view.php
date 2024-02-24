@@ -121,7 +121,7 @@
 
       <div class="trending-slider">
 
-      <?php foreach ($data as $value): ?>
+      <?php foreach ($data as $key => $value): ?>
 
         <div class="osahan-slider-item">
           <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
