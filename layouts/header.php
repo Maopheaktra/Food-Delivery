@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 <?php
 
@@ -36,6 +37,13 @@ $foodAdd = addTolist();
 
 
 
+=======
+<?php
+require "database/database.php";
+require "models/employee.model.php";
+
+$data = getRestaurants();
+>>>>>>> update
 ?>
 
 

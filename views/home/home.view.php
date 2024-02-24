@@ -121,7 +121,8 @@
 
       <div class="trending-slider">
 
-      <?php foreach ($data as $key => $value): ?>
+      <?php foreach ($data as $value): ?>
+
         <div class="osahan-slider-item">
           <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
             <div class="list-card-image">
@@ -141,7 +142,7 @@
             <div class="p-3 position-relative">
               <div class="list-card-body">
                 <h6 class="mb-1">
-                  <a href="/restaurant?id=<?php echo $value[0] ?>" class="text-black"> <?php print_r ($value[1])?>
+                  <a href="/restaurant" class="text-black"> <?php print_r ($value[1])?>
                   </a>
                 </h6>
                 <p class="text-gray mb-3"><?php print_r ($value[2])?></p>

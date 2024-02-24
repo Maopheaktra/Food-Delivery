@@ -12,6 +12,8 @@ $routes = [
     '/layouts' => 'layouts/header.php',
 ];
 
+
+
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];
 } else {

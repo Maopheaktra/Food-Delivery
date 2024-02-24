@@ -3,7 +3,11 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
+<<<<<<< HEAD
 -- Generation Time: Feb 23, 2024 at 02:03 AM
+=======
+-- Generation Time: Feb 17, 2024 at 05:17 AM
+>>>>>>> update
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -24,6 +28,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+<<<<<<< HEAD
 -- Table structure for table `addfood`
 --
 
@@ -31,6 +36,14 @@ CREATE TABLE `addfood` (
   `add_id` int(11) DEFAULT NULL,
   `name` varchar(200) DEFAULT NULL,
   `price` varchar(100) DEFAULT NULL
+=======
+-- Table structure for table `categories`
+--
+
+CREATE TABLE `categories` (
+  `category_id` int(10) UNSIGNED NOT NULL,
+  `description` bigint(20) NOT NULL
+>>>>>>> update
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -116,6 +129,7 @@ CREATE TABLE `foods` (
   `category_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+<<<<<<< HEAD
 --
 -- Dumping data for table `foods`
 --
@@ -133,6 +147,8 @@ INSERT INTO `foods` (`Food_id`, `Foodname`, `description`, `price`, `category_id
 (10, 'Checken', '', '10', 6),
 (11, 'Sandwich', '', '10', 6);
 
+=======
+>>>>>>> update
 -- --------------------------------------------------------
 
 --
@@ -296,6 +312,7 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `gender`, `role
 (8, 'Chan', 'chanthouere.voeun@student.passerellesnumeriques.org', '23456', 'M', 1, '34567'),
 (9, 'Chanthou', 'voeunchanthou14@gmail.com', '1234567', 'M', 3, '12436578687798'),
 (10, 'Chanthou', 'voeunchanthou34@gmail.com', '2433543543', 'M', 1, '53453453453');
+(7, 'thou', 'voeunchanthou74@gmail.com', '123456', 'M', 3, '23456');
 
 --
 -- Indexes for dumped tables
@@ -358,12 +375,15 @@ ALTER TABLE `orders`
   ADD PRIMARY KEY (`order_id`),
   ADD KEY `orders_user_id_index` (`user_id`),
   ADD KEY `orders_deliver_id_index` (`deliver_id`);
+<<<<<<< HEAD
 
 --
 -- Indexes for table `profile`
 --
 ALTER TABLE `profile`
   ADD PRIMARY KEY (`img_id`);
+=======
+>>>>>>> update
 
 --
 -- Indexes for table `restaurants`
@@ -400,7 +420,11 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
+<<<<<<< HEAD
   MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+=======
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> update
 
 --
 -- AUTO_INCREMENT for table `comments`
@@ -424,7 +448,11 @@ ALTER TABLE `favorites`
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
+<<<<<<< HEAD
   MODIFY `Food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+=======
+  MODIFY `Food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> update
 
 --
 -- AUTO_INCREMENT for table `notificatins`
@@ -443,12 +471,15 @@ ALTER TABLE `orderdetails`
 --
 ALTER TABLE `orders`
   MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+<<<<<<< HEAD
 
 --
 -- AUTO_INCREMENT for table `profile`
 --
 ALTER TABLE `profile`
   MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+=======
+>>>>>>> update
 
 --
 -- AUTO_INCREMENT for table `restaurants`
@@ -460,7 +491,11 @@ ALTER TABLE `restaurants`
 -- AUTO_INCREMENT for table `res_categories`
 --
 ALTER TABLE `res_categories`
+<<<<<<< HEAD
   MODIFY `res_categoryID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+=======
+  MODIFY `res_categoryID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+>>>>>>> update
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -472,7 +507,11 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
+<<<<<<< HEAD
   MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+=======
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+>>>>>>> update
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
