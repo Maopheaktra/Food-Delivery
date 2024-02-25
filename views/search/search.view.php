@@ -137,5 +137,5 @@
 
     <?php
 
-    echo '<script src="../../js/main.js"></script>';
+    echo '<script src="vendor/js/main.js"></script>';
     ?>

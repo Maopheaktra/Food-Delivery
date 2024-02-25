@@ -1,13 +1,8 @@
 
 <?php
-session_start();
+
 require "database/database.php";
 require "models/employee.model.php";
-// $categories = getFoodbyCate($_SESSION['cateid']);
- if(isset($_SESSION['cateid'])){
-  $categories = getFoodbyCate($_SESSION['cateid']);
- }
-
 
 
 $pic = array(
@@ -36,17 +31,15 @@ if (isset($_GET['addID'])){
     addFood($food[0], $food[1], $food[3]);
   }
 }
+if(isset($_SESSION['cateid'])){
+  $categories = getFoodbyCate($_SESSION['cateid']);
+ }
 $data = getRestaurants();
 $foodAdd = addTolist();
 
 
 
-// <?php
-// require "database/database.php";
-// require "models/employee.model.php";
-
-// $data = getRestaurants();
-// ?>
+?>
 
 
 <!DOCTYPE html>

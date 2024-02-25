@@ -13,9 +13,8 @@
             <div class="row">
 
             <?php 
-            $favo = getFavorites();
+            $favo = getFavorites($_SESSION['userid']);
             foreach ($favo as $value):
-            
             ?>
                 <div class="col-md-4 mb-3">
                     <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm grid-card">

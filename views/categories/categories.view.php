@@ -23,7 +23,7 @@
     <div class="container">
       <div class="cat-slider">
         <?php 
-        $cate = getCate();
+        $cate = getAllCate();
         foreach ($cate as $value):
         ?>
         <div class="cat-item px-1 py-3">

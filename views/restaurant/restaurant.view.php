@@ -131,7 +131,7 @@
                                 foreach($foods as $food):
                             ?>
                                 <div class="p-3 border-bottom gold-members">
-                                    <span class="float-right"><a href="/restaurant?id=<?php echo $_GET['id'] ?>&addID=<?php echo $food[0] ?>" class="btn btn-outline-secondary btn-sm">ADD</a></span>
+                                    <span class="float-right"><a class="btn btn-outline-secondary btn-sm" id="add">ADD</a></span>
                                     <div class="media">
                                         <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                         <div class="media-body">
@@ -219,11 +219,17 @@
                                 class="btn btn-primary btn-block btn-sm">Rate and Review</button></div>
                     </div>
                     <div class="bg-white p-3 mb-3 restaurant-detailed-ratings-and-reviews shadow-sm rounded">
+
+                        
                         <a class="text-primary float-right" href="#">Top Rated</a>
                         <h6 class="mb-1">All Ratings and Reviews</h6>
+                        <?php 
+                        $cmts = (showCmtOfRes($_GET['id']));
+                        foreach ($cmts as $key => $cmt):
+                        ?>
                         <div class="reviews-members py-3">
                             <div class="media">
-                                <a href="#"><img alt="#" src="assets/images/reviewer1.png" class="mr-3 rounded-pill"></a>
+                                <a href="#"><img alt="#" src=" <?php echo "assets/images/user/".$cmt['user_img']; ?>" class="mr-3" style="width: 35px; height: 35px; border-radius: 50%;"></a>
                                 <div class="media-body">
                                     <div class="reviews-members-header">
                                         <div class="star-rating float-right">
@@ -235,13 +241,11 @@
                                                 <i class="feather-star"></i>
                                             </div>
                                         </div>
-                                        <h6 class="mb-0"><a class="text-dark" href="#">Trump</a></h6>
-                                        <p class="text-muted small">Tue, 20 Mar 2020</p>
+                                        <h6 class="mb-0"><a class="text-dark" href="#"><?php echo $cmt['username']; ?></a></h6>
+                                        <p class="text-muted small"><?php echo $cmt['date']; ?></p>
                                     </div>
                                     <div class="reviews-members-body">
-                                        <p>Contrary to popular belief, Lorem Ipsum is not simply random text. It has
-                                            roots in a piece of classNameical Latin literature from 45 BC, making it
-                                            over 2000 years old.</p>
+                                        <p><?php echo $cmt['contents']; ?></p>
                                     </div>
                                     <div class="reviews-members-footer"><a
                                             class="total-like btn btn-sm btn-outline-primary" href="#"><i
@@ -262,44 +266,7 @@
                                 </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="reviews-members py-3">
-                            <div class="media">
-                                <a href="#"><img alt="#" src="assets/images/reviewer2.png" class="mr-3 rounded-pill"></a>
-                                <div class="media-body">
-                                    <div class="reviews-members-header">
-                                        <div class="star-rating float-right">
-                                            <div class="d-inline-block" style="font-size: 14px;"><i
-                                                    class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star text-warning"></i>
-                                                <i class="feather-star"></i>
-                                            </div>
-                                        </div>
-                                        <h6 class="mb-0"><a class="text-dark" href="#">Jhon Smith</a></h6>
-                                        <p class="text-muted small">Tue, 20 Mar 2020</p>
-                                    </div>
-                                    <div class="reviews-members-body">
-                                        <p>It is a long established fact that a reader will be distracted by the
-                                            readable content of a page when looking at its layout.</p>
-                                    </div>
-                                    <div class="reviews-members-footer"><a
-                                            class="total-like btn btn-sm btn-outline-primary" href="#"><i
-                                                class="feather-thumbs-up"></i> 88K</a> <a
-                                            class="total-like btn btn-sm btn-outline-primary" href="#"><i
-                                                class="feather-thumbs-down"></i> 1K</a><span
-                                            class="total-like-user-main ml-2" dir="rtl"><a href="#"><img alt="#"
-                                                    src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a><a
-                                                href="#"><img alt="#" src="assets/images/reviewer4.png"
-                                                    class="total-like-user rounded-pill"></a><a href="#"><img alt="#"
-                                                    src="assets/images/reviewer5.png" class="total-like-user rounded-pill"></a><a
-                                                href="#"><img alt="#" src="assets/images/reviewer6.png"
-                                                    class="total-like-user rounded-pill"></a></span></div>
-                                </div>
-                            </div>
-                        </div>
-                        <hr>
+                        <?php endforeach; ?>
                         <a class="text-center w-100 d-block mt-3 font-weight-bold" href="#">See All Reviews</a>
                     </div>
                     <div class="bg-white p-3 rating-review-select-page rounded shadow-sm">
@@ -315,11 +282,11 @@
                                 </div>
                             </div>
                         </div>
-                        <form>
+                        <form action="controllers/restaurant/comment.restaurants.php?id=<?php echo $_GET['id'];?>" method="post">
                             <div class="form-group"><label class="form-label small">Your Comment</label><textarea
-                                    class="form-control"></textarea></div>
-                            <div class="form-group mb-0"><button type="button" class="btn btn-primary btn-block"> Submit
-                                    Comment </button></div>
+                                    class="form-control" name="comment"></textarea></div>
+                            <div class="form-group mb-0"><input type="submit" class="btn btn-primary btn-block"> Submit
+                                    Comment </input></div>
                         </form>
                     </div>
                 </div>
@@ -333,26 +300,7 @@
                             <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> <?php echo $resDetail[2] ?></p>
                         </div>
                     </div>
-                    <div class="bg-white border-bottom py-2">
-                        <?php foreach ($foodAdd as $value): ?>
-                        <div
-                            class="gold-members d-flex align-items-center justify-content-between px-3 py-2 border-bottom">
-                            <div class="media align-items-center">
-                                <div class="mr-2 text-danger">&middot;</div>
-                                <div class="media-body">
-                                    <p class="m-0"><?php echo $value[1] ?></p>
-                                </div>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <span class="count-number float-right"><button type="button"
-                                        class="btn-sm left dec btn btn-outline-secondary"> <i class="feather-minus"></i>
-                                    </button><input class="count-number-input" type="text" readonly value="2"><button
-                                        type="button" class="btn-sm right inc btn btn-outline-secondary"> <i
-                                            class="feather-plus"></i> </button></span>
-                                <p class="text-gray mb-0 float-right ml-2 text-muted small">$<?php echo $value[2] ?></p>
-                            </div>
-                        </div>
-                        <?php endforeach; ?>
+                    <div class="bg-white border-bottom py-2" id="group-add">
                         
                     </div>
                     <div class="bg-white p-3 py-3 border-bottom clearfix">
@@ -422,3 +370,5 @@
         </div>
     </div>
     </div>
+
+    <?php echo '<script src="vendor/js/addfood.js"></script>'; ?>

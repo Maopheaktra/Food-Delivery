@@ -24,7 +24,7 @@
     <div class="container">
       <div class="cat-slider">
       <?php 
-        $cate = getCate();
+        $cate = getAllCate();
         foreach ($cate as $value):
         ?>
         <div class="cat-item px-1 py-3">
@@ -79,7 +79,6 @@
       <div class="trending-slider">
 
       <?php foreach ($data as $key => $value): ?>
-
         <div class="osahan-slider-item">
           <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
             <div class="list-card-image">
@@ -99,7 +98,7 @@
             <div class="p-3 position-relative">
               <div class="list-card-body">
                 <h6 class="mb-1">
-                  <a href="/restaurant" class="text-black"> <?php print_r ($value[1])?>
+                  <a href="/restaurant?id=<?php echo $value[0] ?>" class="text-black"> <?php print_r ($value[1])?>
                   </a>
                 </h6>
                 <p class="text-gray mb-3"><?php print_r ($value[2])?></p>
@@ -137,12 +136,12 @@
                   <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
                 </div>
                 <div class="favourite-heart text-danger position-absolute">
-                  <a href="#"><i class="feather-heart"></i></a>
+                  <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>"><i class="feather-heart"></i></a>
                 </div>
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant">
+                <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>">
                   <img alt="#" src="<?php print_r ($pic[$i]) ?>" />
                 </a>
               </div>

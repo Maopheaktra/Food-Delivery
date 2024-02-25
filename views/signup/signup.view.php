@@ -40,6 +40,11 @@
                             <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="exampleInputName" />
                         </div>
                         <div class="form-group">
+                            <label for="email" class="text-dark">Email</label>
+                            <input type="email" placeholder="Enter Email" name='email' class="form-control" id="email"
+                                aria-describedby="emailHelp" />
+                        </div>
+                        <div class="form-group">
                             <label for="exampleInputPassword1" class="text-dark">Password</label>
                             <input type="password" placeholder="Enter Password" class="form-control" name="password"
                                 id="exampleInputPassword1" />
@@ -77,11 +82,11 @@
                             </div>
                         <button class="btn btn-primary btn-lg btn-block">SIGN UP</button>
                     </form>
-                    <a href="forgot_password.html" class="text-decoration-none">
+                    <a href="/resetPwd" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>
                     </a>
                     <div class="d-flex align-items-center justify-content-center mb-5">
-                        <a href="/signin">
+                        <a href="/">
                             <p class="text-center m-0">Don't have an account? Sign in</p>
                         </a>
                     </div>
@@ -143,7 +148,6 @@
                 <ul>
                     <li><a href="not-found.html">Not Found</a></li>
                     <li><a href="maintence.html"> Maintence</a></li>
-                    <li><a href="maintain.html"> Maintain</a></li>
                     <li><a href="coming-soon.html">Coming Soon</a></li>
                 </ul>
             </li>
