@@ -5,7 +5,7 @@ $routes = [
     '/admin' => 'controllers/admin/admin.controller.php',
     '/allCate' => 'controllers/admin/admin.all_category.controller.php',
     '/allPost' => 'controllers/admin/admin.all_post.controller.php',
-    '/addList' => 'controllers/admin/admin.add_list.controller.php',
+    '/addList' => 'controllers/admin/admin.add_list.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {

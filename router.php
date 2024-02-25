@@ -9,7 +9,7 @@ $routes = [
     '/profile' => 'controllers/profiles/profile.controller.php',
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/search' => 'controllers/search/search.controller.php',
-    '/layouts' => 'layouts/header.php',
+    '/layouts' => 'layouts/header.php'
 ];
 
 if (array_key_exists($uri, $routes)) {

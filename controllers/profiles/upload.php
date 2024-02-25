@@ -3,7 +3,7 @@ require "../../database/database.php";
 require "../../models/employee.model.php";
 
 // Define default profile image path
-$default_image_path = '../../assets/images/user/1.jpg';
+$default_image_path = '../../assets/images/user/noprofil.jpg';
 
 if(isset($_FILES['my_image'])){
     $img_name = $_FILES['my_image']['name'];
@@ -30,9 +30,11 @@ if(isset($_FILES['my_image'])){
                 exit; 
             }
         }
-    }
+    }else {
+        $img_upload_path = $default_image_path;
+}
 }
 
-uploadpf(basename($default_image_path));
+uploadpf(basename($img_upload_path));
 header('Location: /profile');
 exit; 
