@@ -18,7 +18,7 @@
                                     
                         
                                         <div class="upload">
-                                            <img src="<?php print_r('assets/images/user/'.$img[1]) ?>" width="100" height="100" title="<?php echo $image; ?>">
+                                            <img src="<?php print_r('assets/images/user/'.$img[1]) ?>" width="100" height="100" title="">
                                         </div>
                                 </div>
                                 <div class="right">

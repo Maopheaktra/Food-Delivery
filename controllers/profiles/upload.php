@@ -1,13 +1,11 @@
 <?php
-
 require "../../database/database.php";
 require "../../models/employee.model.php";
 
-if(isset($_FILES['my_image'])){
-    echo"<pre>";
-    print_r($_FILES['my_image']);
-    echo "</pre>";
+// Define default profile image path
+$default_image_path = '../../assets/images/user/1.jpg';
 
+if(isset($_FILES['my_image'])){
     $img_name = $_FILES['my_image']['name'];
     $img_size = $_FILES['my_image']['size'];
     $tmp_name = $_FILES['my_image']['tmp_name'];
@@ -16,12 +14,12 @@ if(isset($_FILES['my_image'])){
     if($error === 0){
         if($img_size > 1200000){
             header('Location: /profile');
-        }else{
-           
+            exit; 
+        } else {
             $img_ex = pathinfo($img_name, PATHINFO_EXTENSION);
             $img_ex_lc = strtolower($img_ex);
             
-            $allowed_exs = array("jpg", "jpeg", "png", "webp");
+            $allowed_exs = array("jpg", "jpeg", "png", "gif", "bmp", "tiff", "webp", "svg", "ico");
             if(in_array($img_ex_lc, $allowed_exs)){
                 $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
                 $img_upload_path = '../../assets/images/user/'.$new_img_name;
@@ -29,10 +27,12 @@ if(isset($_FILES['my_image'])){
 
                 uploadpf($new_img_name);
                 header('Location: /profile');
-        }else{
-            header('Location: /profile');
+                exit; 
+            }
         }
+    }
 }
-}
-}
+
+uploadpf(basename($default_image_path));
 header('Location: /profile');
+exit; 

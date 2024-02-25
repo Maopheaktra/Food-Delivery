@@ -7,6 +7,7 @@
   <link rel="shortcut icon" href="./img/svg/logo.svg" type="image/x-icon">
   <!-- Custom styles -->
   <link rel="stylesheet" href="vendor/css/style.min.css">
+  <link rel="stylesheet" href="../../views/admin/admin.all_category.view.css">
 </head>
 
 <body>

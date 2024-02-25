@@ -34,10 +34,10 @@
                     </a>
                     <ul class="cat-sub-menu">
                         <li>
-                            <a href="posts.html">All Posts</a>
+                            <a href="/allPost">All Posts</a>
                         </li>
                         <li>
-                            <a href="new-post.html">Add new post</a>
+                            <a href="/addList">Add new post</a>
                         </li>
                     </ul>
                 </li>
@@ -51,7 +51,7 @@
                     </a>
                     <ul class="cat-sub-menu">
                         <li>
-                            <a href="categories.html">All categories</a>
+                            <a href="/allCate">All categories</a>
                         </li>
                     </ul>
                 </li>
