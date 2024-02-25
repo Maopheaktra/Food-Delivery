@@ -1,11 +1,7 @@
 <?php
-session_start();
-
 require_once 'database/database.php';
 require_once 'models/employee.model.php';
-
 $accName = "";
-
 if (isset($_SESSION['user'])) {
   $userId = $_SESSION['user'];
   $user = getUserByID($userId);
@@ -17,9 +13,7 @@ if (isset($_SESSION['user'])) {
 $uri = $_SERVER['REQUEST_URI'];
 $isProfileRoute = strpos($uri, '/profile') !== false;
 $isHomeRoute = $uri === '/';
-
 ?>
-
 <header class="section-header">
   <section class="header-main shadow-sm bg-primary-style2">
     <div class="container">
