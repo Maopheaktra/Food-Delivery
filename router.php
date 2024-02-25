@@ -9,13 +9,8 @@ $routes = [
     '/profile' => 'controllers/profiles/profile.controller.php',
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/search' => 'controllers/search/search.controller.php',
-    '/layouts' => 'layouts/header.php',
-    '/newPassword'=> 'controllers/reset/new_Password.controller.php',
-    '/signin' => 'controllers/signin/signin.controller.php',
-    '/categories' => 'controllers/categories/categorie.controller.php'
+    '/categories' => 'controllers/categories/categorie.controller.php',
 ];
-
-
 
 if (array_key_exists($uri, $routes)) {
     $page = $routes[$uri];

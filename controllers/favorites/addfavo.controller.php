@@ -1,7 +1,12 @@
 <?php
-require "../../database/database.php";
-require "../../models/employee.model.php";
+session_start();
 
-addFavorites($_GET['favoid']);
+if(isset($_GET['favoid'])){
+    require "../../database/database.php";
+    require "../../models/employee.model.php";
+    $userID = $_SESSION['userid'];
+    $resID = $_GET['favoid'];
+    addFavorites($resID, $userID);
+}
 
-header('Location: /favorite');
+header('Location: /');
