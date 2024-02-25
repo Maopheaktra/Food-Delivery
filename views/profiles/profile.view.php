@@ -1,6 +1,5 @@
 <link rel="stylesheet" href="../../views/profiles/profile.css">
 <link rel="stylesheet" href="../../views/profiles/popup.css">
-
 <div class="osahan-profile">
         <div class="d-none">
             <div class="bg-primary border-bottom p-3 d-flex align-items-center">
