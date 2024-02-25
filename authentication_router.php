@@ -3,7 +3,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
     '/signin' => 'controllers/signin/signin.controller.php',
-    '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
+    '/resetPwd' => 'controllers/reset/forgetPassword.controller.php',
     // '/trainer-review' => 'controllers/reviews/review.controller.php',
     // '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
 ];
