@@ -12,15 +12,15 @@
               <a class="btn-border-1 text-white dropdown-toggle d-flex align-items-center py-3" href="#"
                 id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <div>
-                  <i class="feather-map-pin mr-2 primary-dark rounded-pill p-2 icofont-size"></i>
+                  <i class="feather-map-pin mr-2 primary-dark rounded-pill p-2 font-size"></i>
                 </div>
                 <div>
                   <p class="text-white mb-0 small">Select Location</p>
-                  Jawaddi Ludhiana...
+                  Central market
                 </div>
               </a>
               <div class="dropdown-menu p-0 drop-loc" aria-labelledby="navbarDropdown">
-                <div class="osahan-country">
+                <div class="user-country">
                   <div class="search_location bg-primary p-3 text-right">
                     <div class="input-group rounded shadow-sm overflow-hidden">
                       <div class="input-group-prepend">
@@ -94,13 +94,13 @@
                   <?php
                     $img = showPf($_SESSION['userid']);
                   ?>
-                  <img alt="#" src="<?php print_r('assets/images/user/'.$img[7]) ?>" class="img-fluid header-user mr-2 header-user" style="width: 40px; height: 40px; border-radius: 50%;"/>
+                  <img alt="profile" src="<?php print_r('assets/images/user/'.$img[7], false) ?>" class="img-fluid header-user mr-2 header-user" style="width: 40px; height: 40px; border-radius: 50%;"/>
                   <?php print_r($img[1]) ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="/profile">My account</a>
                   <a class="dropdown-item" href="faq.html">Delivery support</a>
-                  <a class="dropdown-item" href="contact-us.html">Contant us</a>
+                  <a class="dropdown-item" href="contact-us.html">Contact us</a>
                   <a class="dropdown-item" href="terms.html">Term of use</a>
                   <a class="dropdown-item" href="privacy.html">Privacy policy</a>
                   <a class="dropdown-item" href="controllers/signout/signout.controller.php">Logout</a>

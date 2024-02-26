@@ -165,10 +165,10 @@
 
     <section class="footer-copyright border-top py-3 bg-light">
       <div class="container d-flex align-items-center">
-        <p class="mb-0">© 2021 Company All rights reserved</p>
+        <p class="mb-0">© 2024 Company All rights reserved</p>
         <p class="text-muted mb-0 ml-auto d-flex align-items-center">
-          <a href="#" class="d-block"><img alt="#" src="assets/images/appstore.png" height="40" /></a>
-          <a href="#" class="d-block ml-3"><img alt="#" src="assets/images/playmarket.png" height="40" /></a>
+          <a href="https://apps.apple.com/us/app/foodpanda-food-groceries/id758103884" class="d-block"><img alt="#" src="assets/images/appstore.png" height="40" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.global.foodpanda.android" class="d-block ml-3"><img alt="#" src="assets/images/playmarket.png" height="40" /></a>
         </p>
       </div>
     </section>
@@ -226,7 +226,7 @@
         <a href="#"><i class="feather-alert-triangle mr-2"></i> Error</a>
         <ul>
           <li><a href="not-found.html">Not Found</a></li>
-          <li><a href="maintence.html"> Maintence</a></li>
+          <li><a href="maintain.html"> Maintain</a></li>
           <li><a href="coming-soon.html">Coming Soon</a></li>
         </ul>
       </li>
