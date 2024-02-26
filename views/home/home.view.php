@@ -148,7 +148,7 @@
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
-                    <a href="/restaurant" class="text-black"> <?php print_r($data[$i][1]) ?>
+                    <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>" class="text-black"> <?php print_r($data[$i][1]) ?>
                     </a>
                   </h6>
                   <p class="text-gray mb-1 small"><?php print_r($data[$i][2]) ?></p>
@@ -197,14 +197,14 @@
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant">
+                <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>">
                   <img alt="#" src="assets/images/sales1.png" class="img-fluid item-img w-100" />
                 </a>
               </div>
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
-                    <a href="/restaurant" class="text-black"><?php print_r($data[$i][1]); ?>
+                    <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>" class="text-black"><?php print_r($data[$i][1]); ?>
                     </a>
                   </h6>
                   <p class="text-gray mb-3"><?php print_r($data[$i][2]); ?></p>
