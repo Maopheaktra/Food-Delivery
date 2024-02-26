@@ -1,4 +1,4 @@
-Breakdown of the steps and components you would need to create:
+Breakdown of the steps and components we would need to create:
 
 
 ## **Code quality manager need to have**
