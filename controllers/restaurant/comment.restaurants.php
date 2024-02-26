@@ -11,5 +11,5 @@ if(isset($_POST['comment'])){
     $date = date("Y.m.d");
 
     addCmt($userID, $comment, $date, $resID);
-    header('Location: /restaurant?id=1');
+    header('Location: /restaurant?id='.$resID);
 }
