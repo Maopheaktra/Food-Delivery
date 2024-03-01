@@ -14,4 +14,4 @@ if (array_key_exists($uri, $routes)) {
 require "layouts/RestaurantOwner/header.php";
 require "layouts/RestaurantOwner/navbar.php";
 require $page;
-require "layouts/RestaurantOwner/footer.php";
+// require "layouts/RestaurantOwner/footer.php";
