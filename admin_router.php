@@ -3,7 +3,6 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
     '/' => 'controllers/admin/admin.controller.php',
-    '/restaurantOwner' => 'controller/restauran'
 ];
 
 if (array_key_exists($uri, $routes)) {

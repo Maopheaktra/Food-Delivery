@@ -2,7 +2,7 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/' => 'controllers/restaurant_owner.php/restaurant_owner.controller.php',
+    '/restaurantOwner' => 'controllers/restaurant_owner.php/restaurant_owner.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
