@@ -208,3 +208,19 @@ function showCmtOfRes($resID){
     $statement->execute([':resID'=>$resID]);
     return $statement->fetchAll();
 }
+
+
+//order========
+
+function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
+    global $connection;
+    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time)");
+    $statement->execute([
+        ':foodname'=>$foodname,
+        ':user_id'=>$user_id,
+        ':qty'=>$qty,
+        ':res_id'=>$res_id,
+        ':total_price'=>$total_price,
+        ':time'=>$time
+    ]);
+}
