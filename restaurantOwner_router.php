@@ -2,8 +2,7 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/' => 'controllers/admin/admin.controller.php',
-    '/restaurantOwner' => 'controller/restauran'
+    '/' => 'controllers/restaurant_owner.php/restaurant_owner.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {
@@ -12,7 +11,7 @@ if (array_key_exists($uri, $routes)) {
    http_response_code(404);
    $page = 'views/errors/404.php';
 }
-require "layouts/admin/header.php";
-require "layouts/admin/navbar.php";
+require "layouts/RestaurantOwner/header.php";
+require "layouts/RestaurantOwner/navbar.php";
 require $page;
-require "layouts/admin/footer.php";
+require "layouts/RestaurantOwner/footer.php";

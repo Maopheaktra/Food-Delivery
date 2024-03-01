@@ -1,3 +1,4 @@
+
 <div class="main-wrapper">
     <!-- ! Main nav -->
     <nav class="main-nav--bg">
@@ -177,7 +178,89 @@
         <div class="row">
           <div class="col-lg-9">
             <div class="chart">
-              <canvas id="myChart" aria-label="Site statistics" role="img"></canvas>
+                <div class="container mt-3 ">
+                <a href="views/categories/category_form.php"type="Submit" class="btn btn-primary mg-3">Add New Category</a>
+                <table class = "table table-bordered mt-4">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Photo</th>
+                            <th>Category's Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td></td>
+                            <td>Khmer Food</td>
+                            <td>
+                                <span class="p-relative">
+                                    <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                    <div class="sr-only">More info</div>
+                                    <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                    </button>
+                                    <ul class="users-item-dropdown dropdown">
+                                    <li><a href="##">Edit</a></li>
+                                    <li><a href="##">Delete</a></li>
+                                    </ul>
+                                </span>
+                            </td>
+                        </tr>
+                    </tbody>
+                    <tr>
+                        <td>2</td>
+                        <td></td>
+                        <td>Europe Food</td>
+                        <td>
+                            <span class="p-relative">
+                                <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                <div class="sr-only">More info</div>
+                                <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                </button>
+                                <ul class="users-item-dropdown dropdown">
+                                <li><a href="##">Edit</a></li>
+                                <li><a href="##">Delete</a></li>
+                                </ul>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td></td>
+                        <td>Breakfast</td>
+                        <td>
+                            <span class="p-relative">
+                                <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                <div class="sr-only">More info</div>
+                                <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                </button>
+                                <ul class="users-item-dropdown dropdown">
+                                <li><a href="##">Edit</a></li>
+                                <li><a href="##">Delete</a></li>
+                                </ul>
+                            </span>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td></td>
+                        <td>Drink</td>
+                        <td>
+                            <span class="p-relative">
+                                <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                                <div class="sr-only">More info</div>
+                                <i data-feather="more-horizontal" aria-hidden="true"></i>
+                                </button>
+                                <ul class="users-item-dropdown dropdown">
+                                <li><a href="##">Edit</a></li>
+                                <li><a href="##">Delete</a></li>
+                                </ul>
+                            </span>
+                        </td>
+                    </tr>
+                </table>
+                </div>
             </div>
             <div class="users-table table-wrapper">
               <table class="posts-table">
