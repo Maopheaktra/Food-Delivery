@@ -145,11 +145,11 @@
     <div class="sidebar-footer">
         <a href="##" class="sidebar-user">
             <span class="sidebar-user-img">
-                <picture><source srcset="./img/avatar/avatar-illustrated-01.webp" type="image/webp"><img src="./img/avatar/avatar-illustrated-01.png" alt="User name"></picture>
+                <picture><source srcset="../../assets/images/avatar/avatar-face-02.png" type="image/webp"><img src="../../assets/images/avatar/avatar-face-02.png"></picture>
             </span>
             <div class="sidebar-user-info">
-                <span class="sidebar-user__title">Nafisa Sh.</span>
-                <span class="sidebar-user__subtitle">Support manager</span>
+                <span class="sidebar-user__title">Pheak Tra.</span>
+                <span class="sidebar-user__subtitle">Restaurant Owner</span>
             </div>
         </a>
     </div>
