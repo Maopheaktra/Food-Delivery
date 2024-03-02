@@ -201,8 +201,8 @@
                           <td><?=$category['name'];?></td>
 
                           <td>
-                            <button class = "btn btn-success">Edit</button>
-                            <button class = "btn btn-danger">Delete</button>
+                            <a href="#" class="btn btn-success">Edit</a>
+                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?= $category['category_id']?>" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         <?php endforeach;?>

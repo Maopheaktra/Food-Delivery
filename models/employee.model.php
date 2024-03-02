@@ -208,3 +208,11 @@ function showCmtOfRes($resID){
     $statement->execute([':resID'=>$resID]);
     return $statement->fetchAll();
 }
+
+//delete category
+
+function deleteCate($cateid){
+    global $connection;
+    $statement = $connection->prepare("delete from categories where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+}
