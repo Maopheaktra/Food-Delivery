@@ -34,7 +34,7 @@
                     </a>
                     <ul class="cat-sub-menu">
                         <li>
-                            <a href="categories.html">All categories</a>
+                            <a href="/all_categories">All categories</a>
                         </li>
                     </ul>
                 </li>
@@ -53,13 +53,22 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="comments.html">
-                        <span class="icon message" aria-hidden="true"></span>
-                        Comments
+                    <a class="show-cat-btn" href="">
+                        <span class="icon folder" aria-hidden="true"></span>Notifications
+                        <span class="category__btn transparent-btn" title="Open list">
+                            <span class="sr-only">Open list</span>
+                            <span class="icon arrow-down" aria-hidden="true"></span>
+                        </span>
                     </a>
-                    <span class="msg-counter">7</span>
+                    <ul class="cat-sub-menu">
+                        <li>
+                            <a href="categories.html">Comments</a>
+                        </li>
+                        <li>
+                            <a href="categories.html">Order</a>
+                        </li>
+                    </ul>
                 </li>
-            </ul>
             </ul>
         </div>
     </div>

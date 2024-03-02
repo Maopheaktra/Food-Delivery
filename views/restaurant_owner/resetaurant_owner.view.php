@@ -30,50 +30,6 @@
         <i class="moon-icon" data-feather="moon" aria-hidden="true"></i>
       </button>
       <div class="notification-wrapper">
-        <button class="gray-circle-btn dropdown-btn" title="To messages" type="button">
-          <span class="sr-only">To messages</span>
-          <span class="icon notification active" aria-hidden="true"></span>
-        </button>
-        <ul class="users-item-dropdown notification-dropdown dropdown">
-          <li>
-            <a href="##">
-              <div class="notification-dropdown-icon info">
-                <i data-feather="check"></i>
-              </div>
-              <div class="notification-dropdown-text">
-                <span class="notification-dropdown__title">System just updated</span>
-                <span class="notification-dropdown__subtitle">The system has been successfully upgraded. Read more
-                  here.</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="##">
-              <div class="notification-dropdown-icon danger">
-                <i data-feather="info" aria-hidden="true"></i>
-              </div>
-              <div class="notification-dropdown-text">
-                <span class="notification-dropdown__title">The cache is full!</span>
-                <span class="notification-dropdown__subtitle">Unnecessary caches take up a lot of memory space and
-                  interfere ...</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a href="##">
-              <div class="notification-dropdown-icon info">
-                <i data-feather="check" aria-hidden="true"></i>
-              </div>
-              <div class="notification-dropdown-text">
-                <span class="notification-dropdown__title">New Subscriber here!</span>
-                <span class="notification-dropdown__subtitle">A new subscriber has subscribed.</span>
-              </div>
-            </a>
-          </li>
-          <li>
-            <a class="link-to-page" href="##">Go to Notifications page</a>
-          </li>
-        </ul>
       </div>
       <div class="nav-user-wrapper">
         <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
@@ -101,7 +57,7 @@
   </div>
 </nav>
     <!-- ! Main -->
-<main class="main users chart-page" id="skip-target">
+    <main class="main users chart-page" id="skip-target">
       <div class="container">
         <h2 class="main-title">Dashboard</h2>
         <div class="row stat-cards">
@@ -175,81 +131,331 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-lg-12">
+          <div class="col-lg-9">
             <div class="chart">
-                <div class="container mt-3 ">
-                  <a href=""type="Submit" id ="add-cate" class="btn btn-primary mg-3">Add New Category</a>
-                  <table class = "table table-bordered mt-4">
-                      <thead>
-                          <tr>
-                              <th>Cate_ID</th>
-                              <th>Photo</th>
-                              <th>Category's Name</th>
-                              <th>Action</th>
-                          </tr>
-                      </thead>
-                      <tbody>
-                        <?php
-                        require "database/database.php";
-                        $statement = $connection->prepare("SELECT * FROM categories");
-                        $statement->execute();
-                        $categories = $statement->fetchAll();
-                        foreach ($categories as $category):?>
-                        <tr>
-                          <td><?=$category['category_id'];?></td>
-                          <td><img src="assets/images/categories/download.jpg" alt="" style ="width:70px" class = "img-responsive"></td>
-                          <td><?=$category['name'];?></td>
-
-                          <td>
-                            <button class = "btn btn-success">Edit</button>
-                            <button class = "btn btn-danger">Delete</button>
-                          </td>
-                        </tr>
-                        <?php endforeach;?>
-                      </tbody>
-                  </table>
-                </div>
+              <canvas id="myChart" aria-label="Site statistics" role="img"></canvas>
             </div>
+            <div class="users-table table-wrapper">
+              <table class="posts-table">
+                <thead>
+                  <tr class="users-table-info">
+                    <th>
+                      <label class="users-table__checkbox ms-20">
+                        <input type="checkbox" class="check-all">Thumbnail
+                      </label>
+                    </th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <label class="users-table__checkbox">
+                        <input type="checkbox" class="check">
+                        <div class="categories-table-img">
+                          <picture><source srcset="assets/images/categories/01.webp" type="image/webp"><img src="assets/images/categories/01.jpg" alt="category"></picture>
+                        </div>
+                      </label>
+                    </td>
+                    <td>
+                      Starting your traveling blog with Vasco
+                    </td>
+                    <td>
+                      <div class="pages-table-img">
+                        <picture><source srcset="assets/images/avatar/avatar-face-04.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-04.png" alt="User Name"></picture>
+                        Jenny Wilson
+                      </div>
+                    </td>
+                    <td><span class="badge-pending">Pending</span></td>
+                    <td>17.04.2021</td>
+                    <td>
+                      <span class="p-relative">
+                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                          <div class="sr-only">More info</div>
+                          <i data-feather="more-horizontal" aria-hidden="true"></i>
+                        </button>
+                        <ul class="users-item-dropdown dropdown">
+                          <li><a href="##">Edit</a></li>
+                          <li><a href="##">Quick edit</a></li>
+                          <li><a href="##">Trash</a></li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="users-table__checkbox">
+                        <input type="checkbox" class="check">
+                        <div class="categories-table-img">
+                          <picture><source srcset="assets/images/categories/02.webp" type="image/webp"><img src="assets/images/categories/02.jpg" alt="category"></picture>
+                        </div>
+                      </label>
+                    </td>
+                    <td>
+                      Start a blog to reach your creative peak
+                    </td>
+                    <td>
+                      <div class="pages-table-img">
+                        <picture><source srcset="assets/images/avatar/avatar-face-03.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-03.png" alt="User Name"></picture>
+                        Annette Black
+                      </div>
+                    </td>
+                    <td><span class="badge-pending">Pending</span></td>
+                    <td>23.04.2021</td>
+                    <td>
+                      <span class="p-relative">
+                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                          <div class="sr-only">More info</div>
+                          <i data-feather="more-horizontal" aria-hidden="true"></i>
+                        </button>
+                        <ul class="users-item-dropdown dropdown">
+                          <li><a href="##">Edit</a></li>
+                          <li><a href="##">Quick edit</a></li>
+                          <li><a href="##">Trash</a></li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="users-table__checkbox">
+                        <input type="checkbox" class="check">
+                        <div class="categories-table-img">
+                          <picture><source srcset="assets/images/categories/03.webp" type="image/webp"><img src="assets/images/categories/03.jpg" alt="category"></picture>
+                        </div>
+                      </label>
+                    </td>
+                    <td>
+                      Helping a local business reinvent itself
+                    </td>
+                    <td>
+                      <div class="pages-table-img">
+                        <picture><source srcset="assets/images/avatar/avatar-face-02.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-02.png" alt="User Name"></picture>
+                        Kathryn Murphy
+                      </div>
+                    </td>
+                    <td><span class="badge-active">Active</span></td>
+                    <td>17.04.2021</td>
+                    <td>
+                      <span class="p-relative">
+                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                          <div class="sr-only">More info</div>
+                          <i data-feather="more-horizontal" aria-hidden="true"></i>
+                        </button>
+                        <ul class="users-item-dropdown dropdown">
+                          <li><a href="##">Edit</a></li>
+                          <li><a href="##">Quick edit</a></li>
+                          <li><a href="##">Trash</a></li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="users-table__checkbox">
+                        <input type="checkbox" class="check">
+                        <div class="categories-table-img">
+                          <picture><source srcset="assets/images/categories/04.webp" type="image/webp"><img src="assets/images/categories/04.jpg" alt="category"></picture>
+                        </div>
+                      </label>
+                    </td>
+                    <td>
+                      Caring is the new marketing
+                    </td>
+                    <td>
+                      <div class="pages-table-img">
+                        <picture><source srcset="assets/images/avatar/avatar-face-05.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-05.png" alt="User Name"></picture>
+                        Guy Hawkins
+                      </div>
+                    </td>
+                    <td><span class="badge-active">Active</span></td>
+                    <td>17.04.2021</td>
+                    <td>
+                      <span class="p-relative">
+                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                          <div class="sr-only">More info</div>
+                          <i data-feather="more-horizontal" aria-hidden="true"></i>
+                        </button>
+                        <ul class="users-item-dropdown dropdown">
+                          <li><a href="##">Edit</a></li>
+                          <li><a href="##">Quick edit</a></li>
+                          <li><a href="##">Trash</a></li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="users-table__checkbox">
+                        <input type="checkbox" class="check">
+                        <div class="categories-table-img">
+                          <picture><source srcset="assets/images/categories/01.webp" type="image/webp"><img src="assets/images/categories/01.jpg" alt="category"></picture>
+                        </div>
+                      </label>
+                    </td>
+                    <td>
+                      How to build a loyal community online and offline
+                    </td>
+                    <td>
+                      <div class="pages-table-img">
+                        <picture><source srcset="assets/images/avatar/avatar-face-03.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-03.png" alt="User Name"></picture>
+                        Robert Fox
+                      </div>
+                    </td>
+                    <td><span class="badge-active">Active</span></td>
+                    <td>17.04.2021</td>
+                    <td>
+                      <span class="p-relative">
+                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                          <div class="sr-only">More info</div>
+                          <i data-feather="more-horizontal" aria-hidden="true"></i>
+                        </button>
+                        <ul class="users-item-dropdown dropdown">
+                          <li><a href="##">Edit</a></li>
+                          <li><a href="##">Quick edit</a></li>
+                          <li><a href="##">Trash</a></li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <label class="users-table__checkbox">
+                        <input type="checkbox" class="check">
+                        <div class="categories-table-img">
+                          <picture><source srcset="assets/images/categories/03.webp" type="image/webp"><img src="assets/images/categories/03.jpg" alt="category"></picture>
+                        </div>
+                      </label>
+                    </td>
+                    <td>
+                      How to build a loyal community online and offline
+                    </td>
+                    <td>
+                      <div class="pages-table-img">
+                        <picture><source srcset="assets/images/avatar/avatar-face-03.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-03.png" alt="User Name"></picture>
+                        Robert Fox
+                      </div>
+                    </td>
+                    <td><span class="badge-active">Active</span></td>
+                    <td>17.04.2021</td>
+                    <td>
+                      <span class="p-relative">
+                        <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                          <div class="sr-only">More info</div>
+                          <i data-feather="more-horizontal" aria-hidden="true"></i>
+                        </button>
+                        <ul class="users-item-dropdown dropdown">
+                          <li><a href="##">Edit</a></li>
+                          <li><a href="##">Quick edit</a></li>
+                          <li><a href="##">Trash</a></li>
+                        </ul>
+                      </span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <article class="customers-wrapper">
+              <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
+                           <p class="customers__title">New Customers <span>+958</span></p>
+              <p class="customers__date">28 Daily Avg.</p>
+              <picture><source srcset="assets/images/svg/customers.svg" type="image/webp"><img src="assets/images/svg/customers.svg" alt=""></picture>
+            </article>
+            <article class="white-block">
+              <div class="top-cat-title">
+                <h3>Top categories</h3>
+                <p>28 Categories, 1400 Posts</p>
+              </div>
+              <ul class="top-cat-list">
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      Lifestyle <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      Dailiy lifestyle articles <span class="purple">+472</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      Tutorials <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      Coding tutorials <span class="blue">+472</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      Technology <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      Dailiy technology articles <span class="danger">+472</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      UX design <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      UX design tips <span class="success">+472</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      Interaction tips <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      Interaction articles <span class="warning">+472</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      App development <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      Mobile development articles <span class="warning">+472</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      Nature <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      Wildlife animal articles <span class="warning">+472</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a href="##">
+                    <div class="top-cat-list__title">
+                      Geography <span>8.2k</span>
+                    </div>
+                    <div class="top-cat-list__subtitle">
+                      Geography articles <span class="primary">+472</span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </article>
           </div>
         </div>
       </div>
-</main>
-    <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display:none; z-index: 999; width:100%; height:100%">
-      <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-cate popup-cate" id="" method="post">
-        <h1>Create Category</h1>
-        <div class="mb-3">
-          <label for="username" class="form-label">Image:</label>
-          <input type="file" name="my_image" id="image">
-        </div>
-        <div class="mb-3">
-          <label for="cate" class="form-label">Category:</label>
-          <input type="text" name = "cate"class="form-control" id="cate" placeholder="Place Enter Category Name">
-        </div>               
-        <div class="mb-3">
-          <label for="descriptiom" class="form-label">Description:</label>
-          <textarea class="form-control" rows="5" id="description" placeholder = "Description"></textarea></div>
-          <button type="submit" class="btn btn-primary">Add</button>
-          <button type="submit" id ="cancel" class="btn btn-danger">Cancel</button>
-        </div>
-        </form>
-      </div>
-    </div>
-<?php
-echo "<script>
-     
-      let btnAdd = document.querySelector('#add-cate');
-      let btnCancel = document.querySelector('#cancel');
-      function showBtn(e) {
-        e.preventDefault();
-        let popup = document.querySelector('.container-pop');
-        popup.style.display = 'block';
-      };
-      function hide(){
-        let popup = document.querySelector('.container-pop');
-        popup.style.display = 'none';
-      }
-      btnAdd.addEventListener('click', showBtn);   
-      btnCancel.addEventListener('click, hide');
-    </script>";
-  ?>
+    </main>
