@@ -230,7 +230,7 @@ ob_start();
                       <i data-feather="more-horizontal" aria-hidden="true"></i>
                     </button>
                     <ul class="users-item-dropdown dropdown">
-                      <li id="update-user"><a href="##">Edite</a></li>
+                      <li id="update-user"><a href="##">Edit</a></li>
                       <li id="pop-del"><a href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>">Delete</a></li>
                     </ul>
                   </span>
@@ -309,6 +309,10 @@ ob_start();
             <label for="number" class="form-label text-secondary">Phone Number</label>
             <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp">
           </div>
+          <div class="input-group mb-1">
+            <input type="file" class="form-control" id="inputGroupFile02">
+            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+          </div>
           <div class="gender-selection d-flex mb-1">
             <label class="text-secondary">Gender:</label>
             <div class="form-check d-flex">
@@ -337,6 +341,8 @@ ob_start();
 
     <?php
     echo "<script>
+
+    // ================Create User Form================
     document.addEventListener('DOMContentLoaded', function () {
     let addUserBtn = document.getElementById('add-user-btn');
     let addUserCancelBtn = document.getElementById('add-user-cancel');
@@ -362,9 +368,7 @@ ob_start();
 
     let updateUserBtn = document.querySelectorAll('#update-user');
     
-    
-
-    
+    // ===============Update User ====================
     function showUpdateUserPopup() {
       updateUserPopup.style.display = 'block';
     }
