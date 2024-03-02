@@ -1,52 +1,30 @@
 <?php
 
-function createPost(string $title, string $description) : bool
+
+
+function getAllUsers()
 {
     global $connection;
-    $statement = $connection->prepare("insert into posts (title, description) values (:title, :description)");
-    $statement->execute([
-        ':title' => $title,
-        ':description' => $description
 
-    ]);
+    $query = "
+        SELECT 
+            u.user_id,
+            u.username,
+            u.email,
+            u.gender,
+            u.phoneNumber,
+            u.user_img,
+            r.role_type
+        FROM 
+            users u
+        LEFT JOIN 
+            roles r ON u.role_id = r.role_id
+    ";
 
-    return $statement->rowCount() > 0;
-}
-
-function getPost(int $id) : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->fetch();
-}
-
-function getPosts() : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from posts");
+    $statement = $connection->prepare($query);
     $statement->execute();
-    return $statement->fetchAll();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
-function updatePost(string $title, string $description, int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("update posts set title = :title, description = :description where id = :id");
-    $statement->execute([
-        ':title' => $title,
-        ':description' => $description,
-        ':id' => $id
 
-    ]);
 
-    return $statement->rowCount() > 0;
-}
-
-function deletePost(int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->rowCount() > 0;
-}

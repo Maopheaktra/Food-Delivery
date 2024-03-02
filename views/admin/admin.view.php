@@ -80,7 +80,7 @@
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="assets/images/avatar/avatar-illustrated-02.webp" type="image/webp"><img src="assets/images/avatar/avatar-illustrated-02.png" alt="User name">
+                <source srcset="assets/images/avatar/user.png" type="image/webp"><img src="assets/images/avatar/user.png" alt="User name">
               </picture>
             </span>
           </button>
@@ -177,13 +177,13 @@
         </div>
       </div>
       <div class="btn-add">
-        <button type="submit" id="btn-add" class="btn btn-primary">Add User</button>
+        <button type="submit" id="add-user-btn" class="btn btn-primary">Add User</button>
       </div>
       <div class="users-table table-wrapper">
         <table class="posts-table">
           <thead>
             <tr class="users-table-info">
-              <th>ID</th>
+              <th class="text-center ml-2">ID</th>
               <th>Author</th>
               <th>Username</th>
               <th>Email</th>
@@ -192,140 +192,53 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-04.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-04.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Srey Noch</td>
-              <td>sreynoch123@gmail.com</td>
-              <td>User</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-03.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-03.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Reoun</td>
-              <td>reounlove168@gmail.com</td>
-              <td>Restaurant Owner</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-02.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-02.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Pheak Tra</td>
-              <td>pheaktrasingle1@gmail.com</td>
-              <td>User</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-05.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-05.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Chantu</td>
-              <td>chanthou2222@gamil.com</td>
-              <td>Delevery</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-03.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-03.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Veasna</td>
-              <td>chuonveasna1@gmail.com</td>
-              <td>Delevery</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
+            <?php
+            $users = getAllUsers();
+            foreach ($users as $user) :
+            ?>
+              <tr>
+                <td><?= $user['user_id'] ?></td>
+                <td>
+                  <div class="pages-table-img">
+                    <picture>
+                        <!-- <source srcset="<?= $user['profile_img'] ?>" type="image/webp"> -->
+                        <img src="assets/images/user/<?= $user['user_img'] ?>" alt="Profile Picture">
+                    </picture>
+                  </div>
+                </td>
+                <td><?= $user['username'] ?></td>
+                <td><?= $user['email'] ?></td>
+                <td>
+                  <?php if (isset($user['role_type'])) {
+                    echo $user['role_type'];
+                  } else {
+                    echo "Role Undefined";
+                  } ?>
+                </td>
+                <td>
+                  <span class="p-relative">
+                    <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                      <div class="sr-only">More info</div>
+                      <i data-feather="more-horizontal" aria-hidden="true"></i>
+                    </button>
+                    <ul class="users-item-dropdown dropdown">
+                      <li id="update-user"><a href="##">Update</a></li>
+                      <li id="pop-del"><a href="##">Delete</a></li>
+                    </ul>
+                  </span>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
+
         </table>
       </div>
     </div>
-    <!-- ========Pop Up Form Add user======== -->
-    <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
-      <div id="add-user popup-user" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-user popup-user" id="" method="post">
-          <h1 class="mb-2 text-center">Add Customer</h1>
+    <!-- Pop-up form for adding a new user -->
+    <div id="add-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+      <div class="col-6 m-auto p-4 mt-3 bg-light">
+        <form class="add-user" method="post">
+          <h1 class="mb-2 text-center">Add a new user</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
             <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
@@ -346,37 +259,103 @@
             <label for="role" class="form-label text-secondary">Role</label>
             <input type="text" class="form-control" name="role" id="role">
           </div>
-          <input type="submit" id="btn-show" class="btn btn-primary" name="send" value="Add Now" />
-          <input type="button" id="btn-hide" class="btn btn-danger" name="send" value="Cancel" />
+          <input type="submit" class="btn btn-primary" name="send" value="Add" />
+          <input type="button" class="btn btn-danger" id="add-user-cancel" value="Cancel" />
+        </form>
       </div>
-      <div>
-      </div>
-      </form>
     </div>
-</div>
+    <!-- Pop-up form for updating a user -->
+    <div id="update-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+      <div class="col-6 m-auto p-4 mt-3 bg-light">
+        <form class="update-user" method="post">
+          <h1 class="mb-2 text-center">Update user info</h1>
+          <div class="mb-1">
+            <label for="username" class="form-label text-secondary">Username</label>
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
+          </div>
+          <div class="mb-1">
+            <label for="email" class="form-label text-secondary">Email address</label>
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+          </div>
+          <div class="mb-1">
+            <label for="password" class="form-label text-secondary">Password</label>
+            <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
+          </div>
+          <div class="mb-1">
+            <label for="number" class="form-label text-secondary">Phone Number</label>
+            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp">
+          </div>
+          <div class="mb-2">
+            <label for="role" class="form-label text-secondary">Role</label>
+            <input type="text" class="form-control" name="role" id="role">
+          </div>
+          <input type="submit" class="btn btn-primary" name="send" value="Update" />
+          <input type="button" class="btn btn-danger" id="update-user-cancel" value="Cancel" />
+        </form>
+      </div>
+    </div>
+
 <?php
 echo "<script>
-      let popEdit = document.getElementById('pop-edit');
-      let btnAdd = document.querySelector('#btn-add');
-      let btnHide = document.querySelector('#btn-hide');
-      function showBtn() {
-        let popup = document.querySelector('.container-pop');
-        popup.style.display = 'block';
-      };
-      function hideBtn() {
-        let popup = document.querySelector('.container-pop');
-        popup.style.display = 'none';
-      };
-      function showPopEdit() {
-        let popup = document.querySelector('.container-pop');
-        popup.style.display = 'block';
-      };
-      
-      popEdit.addEventListener('click', showPopEdit);
-      btnAdd.addEventListener('click', showBtn);   
-      btnHide.addEventListener('click', hideBtn);
+  document.addEventListener('DOMContentLoaded', function () {
+    let addUserBtn = document.getElementById('add-user-btn');
+    let addUserCancelBtn = document.getElementById('add-user-cancel');
+    let updateUserCancelBtn = document.getElementById('update-user-cancel');
+    let addUserPopup = document.getElementById('add-user-popup');
+    let updateUserPopup = document.getElementById('update-user-popup');
 
-    </script>"
+    function showAddUserPopup() {
+      addUserPopup.style.display = 'block';
+    }
+
+    function hideAddUserPopup() {
+      addUserPopup.style.display = 'none';
+    }
+
+    function hideUpdateUserPopup() {
+      updateUserPopup.style.display = 'none';
+    }
+
+    addUserBtn.addEventListener('click', showAddUserPopup);
+    addUserCancelBtn.addEventListener('click', hideAddUserPopup);
+    updateUserCancelBtn.addEventListener('click', hideUpdateUserPopup);
+
+    let updateUserBtn = document.querySelectorAll('#update-user');
+    
+    
+
+    
+    function showUpdateUserPopup() {
+      updateUserPopup.style.display = 'block';
+    }
+
+    for(let i = 0; i < updateUserBtn.length; i++) {
+      updateUserBtn[i].addEventListener('click', showUpdateUserPopup);
+    }
+    
+    let updateUserPopupVisible = false;
+    updateUserBtn.addEventListener('click', function() {
+      if (updateUserPopupVisible) {
+        updateUserPopup.style.display = 'none';
+      } else {
+        updateUserPopup.style.display = 'block';
+      }
+      updateUserPopupVisible = !updateUserPopupVisible;
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      let dropdown = document.querySelector('.users-item-dropdown.dropdown');
+      let isClickInsideDropdown = dropdown.contains(event.target);
+      if (!isClickInsideDropdown) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+  });
+</script>";
 ?>
 
-</main>
+
+
+  </main>
