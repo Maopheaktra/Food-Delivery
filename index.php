@@ -7,7 +7,7 @@ require 'controllers/signin/signin.acc.controller.php';
 require 'controllers/signup/show.controller.php';
 
 if (isset($_SESSION["email"])) {
-    if ($_SESSION['role'] == 2) { 
+    if (($_SESSION['role'] == 2) ||urlIs('/create-user')) { 
         require "admin_router.php";
     } else{
         require 'router.php';

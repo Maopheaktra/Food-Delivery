@@ -21,10 +21,10 @@ function getPost(int $id) : array
     return $statement->fetch();
 }
 
-function getPosts() : array
+function displayUser() : array
 {
     global $connection;
-    $statement = $connection->prepare("select * from posts");
+    $statement = $connection->prepare("select * from users");
     $statement->execute();
     return $statement->fetchAll();
 }
@@ -50,3 +50,4 @@ function deletePost(int $id) : bool
     $statement->execute([':id' => $id]);
     return $statement->rowCount() > 0;
 }
+

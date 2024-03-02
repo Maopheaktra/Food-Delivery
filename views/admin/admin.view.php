@@ -1,3 +1,11 @@
+<?php
+
+ob_start();
+
+// var_dump($users[]);
+
+?>
+
 <div class="main-wrapper">
   <!-- ! Main nav -->
   <nav class="main-nav--bg">
@@ -192,131 +200,38 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>1</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-04.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-04.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Srey Noch</td>
-              <td>sreynoch123@gmail.com</td>
-              <td>User</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-03.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-03.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Reoun</td>
-              <td>reounlove168@gmail.com</td>
-              <td>Restaurant Owner</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-02.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-02.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Pheak Tra</td>
-              <td>pheaktrasingle1@gmail.com</td>
-              <td>User</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>4</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-05.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-05.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Chantu</td>
-              <td>chanthou2222@gamil.com</td>
-              <td>Delevery</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>5</td>
-              <td>
-                <div class="pages-table-img">
-                  <picture>
-                    <source srcset="assets/images/avatar/avatar-face-03.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-03.png" alt="User Name">
-                  </picture>
-                </div>
-              </td>
-              <td>Veasna</td>
-              <td>chuonveasna1@gmail.com</td>
-              <td>Delevery</td>
-              <td>
-                <span class="p-relative">
-                  <button class="dropdown-btn transparent-btn" type="button" title="More info">
-                    <div class="sr-only">More info</div>
-                    <i data-feather="more-horizontal" aria-hidden="true"></i>
-                  </button>
-                  <ul class="users-item-dropdown dropdown">
-                    <li id="pop-edit"><a href="##">Edit</a></li>
-                    <li id="pop-del"><a href="##">Delete</a></li>
-                  </ul>
-                </span>
-              </td>
-            </tr>
+            <?php
+            require "database/database.php";
+            require "models/admin.model.php";
+            $users = displayUser();
+            foreach ($users as $user) :
+            ?>
+              <tr>
+                <td><?= $user['user_id'] ?></td>
+                <td>
+                  <div class="pages-table-img">
+                    <picture>
+                      <source srcset="assets/images/avatar/avatar-face-04.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-04.png" alt="User Name">
+                    </picture>
+                  </div>
+                </td>
+                <td><?= $user['username'] ?></td>
+                <td><?= $user['email'] ?></td>
+                <td><?= $user['role_id'] ?></td>
+                <td>
+                  <span class="p-relative">
+                    <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                      <div class="sr-only">More info</div>
+                      <i data-feather="more-horizontal" aria-hidden="true"></i>
+                    </button>
+                    <ul class="users-item-dropdown dropdown">
+                      <li id="pop-edit"><a href="##">Edit</a></li>
+                      <li id="pop-del"><a href="##">Delete</a></li>
+                    </ul>
+                  </span>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
@@ -324,7 +239,7 @@
     <!-- ========Pop Up Form Add user======== -->
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div id="add-user popup-user" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-user popup-user" id="" method="post">
+        <form class="add-user popup-user" action="../../controllers/admin/create_user.controller.php" id="" method="post">
           <h1 class="mb-2 text-center">Add Customer</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
