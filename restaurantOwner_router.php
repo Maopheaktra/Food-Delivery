@@ -2,7 +2,7 @@
 $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
-    '/restaurantOwner' => 'controllers/restaurant_owner.php/restaurant_owner.controller.php',
+    '/' => 'controllers/restaurant_owner/restaurant_owner.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {
@@ -13,5 +13,6 @@ if (array_key_exists($uri, $routes)) {
 }
 require "layouts/RestaurantOwner/header.php";
 require "layouts/RestaurantOwner/navbar.php";
+
 require $page;
-// require "layouts/RestaurantOwner/footer.php";
+require "layouts/RestaurantOwner/footer.php";

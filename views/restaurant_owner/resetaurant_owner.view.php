@@ -87,10 +87,9 @@
               <i data-feather="user" aria-hidden="true"></i>
               <span>Profile</span>
             </a></li>
-             <li><a href="##">
+          <li><a href="##">
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
-
             </a></li>
           <li><a class="danger" href="controllers/signout/signout.controller.php">
               <i data-feather="log-out" aria-hidden="true"></i>
@@ -102,7 +101,7 @@
   </div>
 </nav>
     <!-- ! Main -->
-    <main class="main users chart-page" id="skip-target">
+<main class="main users chart-page" id="skip-target">
       <div class="container">
         <h2 class="main-title">Dashboard</h2>
         <div class="row stat-cards">
@@ -179,43 +178,42 @@
           <div class="col-lg-12">
             <div class="chart">
                 <div class="container mt-3 ">
-                <a href=""type="Submit" id ="add-cate" class="btn btn-primary mg-3">Add New Category</a>
-                <table class = "table table-bordered mt-4">
-                    <thead>
+                  <a href=""type="Submit" id ="add-cate" class="btn btn-primary mg-3">Add New Category</a>
+                  <table class = "table table-bordered mt-4">
+                      <thead>
+                          <tr>
+                              <th>Cate_ID</th>
+                              <th>Photo</th>
+                              <th>Category's Name</th>
+                              <th>Action</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                        <?php
+                        require "database/database.php";
+                        $statement = $connection->prepare("SELECT * FROM categories");
+                        $statement->execute();
+                        $categories = $statement->fetchAll();
+                        foreach ($categories as $category):?>
                         <tr>
-                            <th>ID</th>
-                            <th>Photo</th>
-                            <th>Category's Name</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                      <?php
-                      require "database/database.php";
-                      $statement = $connection->prepare("SELECT * FROM categories");
-                      $statement->execute();
-                      $categories = $statement->fetchAll();
-                      foreach ($categories as $category):?>
-                      <tr>
-                        <td><?=$category['category_id'];?></td>
-                        <td><img src="assets/images/categories/download.jpg" alt="" style ="width:70px" class = "img-responsive"></td>
-                        <td><?=$category['name'];?></td>
+                          <td><?=$category['category_id'];?></td>
+                          <td><img src="assets/images/categories/download.jpg" alt="" style ="width:70px" class = "img-responsive"></td>
+                          <td><?=$category['name'];?></td>
 
-                        <td>
-                          <button class = "btn btn-success">Edit</button>
-                          <button class = "btn btn-danger">Delete</button>
-                        </td>
-                      </tr>
-                      <?php endforeach;?>
-                    </tbody>
-                </table>
+                          <td>
+                            <button class = "btn btn-success">Edit</button>
+                            <button class = "btn btn-danger">Delete</button>
+                          </td>
+                        </tr>
+                        <?php endforeach;?>
+                      </tbody>
+                  </table>
                 </div>
             </div>
           </div>
         </div>
       </div>
-      
-    </main>
+</main>
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display:none; z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" id="" method="post">
