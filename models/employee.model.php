@@ -208,6 +208,7 @@ function showCmtOfRes($resID){
     $statement->execute([':resID'=>$resID]);
     return $statement->fetchAll();
 }
+<<<<<<< HEAD
 
 //delete category
 
@@ -215,4 +216,15 @@ function deleteCate($cateid){
     global $connection;
     $statement = $connection->prepare("delete from categories where category_id = :cateid");
     $statement->execute([':cateid'=> $cateid]);
+=======
+// ------ *Add category of the restaurant onwer* -----------------------//
+
+function addCategories($cateName, $description){
+    global $connection;
+    $statement = $connection->prepare("insert into categories(description, name) values(:description, :name)");
+    $statement->execute([
+        ':description'=> $description,
+        ':name'=>$cateName
+    ]);
+>>>>>>> 87425f9516fd1f05bc9046f1560f9e98ce99a3b6
 }
