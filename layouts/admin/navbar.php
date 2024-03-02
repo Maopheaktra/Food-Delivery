@@ -1,18 +1,25 @@
+<?php
+require_once "database/database.php"; // Include database connection
+require_once "models/admin.model.php"; // Include admin model file once
+$users = getAllUsers();
+?>
+
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
-  <!-- ! Sidebar -->
-  <aside class="sidebar">
-    <div class="sidebar-start">
-        <div class="sidebar-head">
-            <a href="/" class="logo-wrapper" title="Home">
-                <span class="sr-only">Home</span>
-                <span class="icon logo" aria-hidden="true"></span>
-                <div class="logo-text">
-                    <span class="logo-title">Elegant</span>
-                    <span class="logo-subtitle">Dashboard</span>
-                </div>
+    <!-- ! Sidebar -->
+    <aside class="sidebar">
+        <div class="sidebar-start">
+            <div class="sidebar-head">
+                <a href="/" class="logo-wrapper" title="Home">
+                    <span class="sr-only">Home</span>
+                    <span class="icon logo" aria-hidden="true"></span>
+                    <div class="logo-text">
+                        <span class="logo-title">Elegant</span>
+                        <span class="logo-subtitle">Dashboard</span>
+                    </div>
 
+<<<<<<< HEAD
             </a>
             <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                 <span class="sr-only">Toggle menu</span>
@@ -150,7 +157,172 @@
             <div class="sidebar-user-info">
                 <span class="sidebar-user__title">Pheak Tra.</span>
                 <span class="sidebar-user__subtitle">Restaurant Owner</span>
+=======
+                </a>
+                <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+                    <span class="sr-only">Toggle menu</span>
+                    <span class="icon menu-toggle" aria-hidden="true"></span>
+                </button>
+>>>>>>> user_panel
             </div>
-        </a>
-    </div>
-</aside>
+            <div class="sidebar-body">
+                <ul class="sidebar-body-menu">
+                    <li>
+                        <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+                    </li>
+                    <li>
+                        <a class="show-cat-btn" href="##">
+                            <span class="icon document" aria-hidden="true"></span>Posts
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="posts.html">All Posts</a>
+                            </li>
+                            <li>
+                                <a href="new-post.html">Add new post</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="show-cat-btn" href="##">
+                            <span class="icon folder" aria-hidden="true"></span>Categories
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="categories.html">All categories</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="show-cat-btn" href="##">
+                            <span class="icon image" aria-hidden="true"></span>Media
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="media-01.html">Media-01</a>
+                            </li>
+                            <li>
+                                <a href="media-02.html">Media-02</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="show-cat-btn" href="##">
+                            <span class="icon paper" aria-hidden="true"></span>Pages
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="pages.html">All pages</a>
+                            </li>
+                            <li>
+                                <a href="new-page.html">Add new page</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="comments.html">
+                            <span class="icon message" aria-hidden="true"></span>
+                            Comments
+                        </a>
+                        <span class="msg-counter">7</span>
+                    </li>
+                </ul>
+                <span class="system-menu__title">system</span>
+                <ul class="sidebar-body-menu">
+                    <li>
+                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
+                    </li>
+                    <li>
+                        <a class="show-cat-btn" href="##">
+                            <span class="icon category" aria-hidden="true"></span>Extentions
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu">
+                            <li>
+                                <a href="extention-01.html">Extentions-01</a>
+                            </li>
+                            <li>
+                                <a href="extention-02.html">Extentions-02</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="show-cat-btn" href="##">
+<<<<<<< HEAD
+                            <span class="icon user-3" aria-hidden="true"></span>Users
+=======
+                            <span class="icon user-3" aria-hidden="true"></span>All users
+>>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
+                            <span class="category__btn transparent-btn" title="Open list">
+                                <span class="sr-only">Open list</span>
+                                <span class="icon arrow-down" aria-hidden="true"></span>
+                            </span>
+                        </a>
+                        <ul class="cat-sub-menu">
+                            <li>
+<<<<<<< HEAD
+                                <a href="users-01.html">Users-01</a>
+                            </li>
+                            <li>
+                                <a href="users-02.html">Users-02</a>
+=======
+                                <a href="runners.filter.php">Runners</a>
+                            </li>
+                            <li>
+                                <a href="customers.filter.php">Customers</a>
+                            </li>
+                            <li>
+                                <a href="restaurantowners.filter.php">Owners</a>
+>>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar-footer">
+            <a href="##" class="sidebar-user">
+                <span class="sidebar-user-img">
+<<<<<<< HEAD
+                    <picture><img src="<?php print_r('assets/images/user/'.$img[7]) ?>"></picture>
+=======
+                    <picture>
+                        <?php if ($user['user_img']) : true ?>
+                            <source srcset="<?= $user['user_img'] ?>" type="image/webp">
+                            <img src="<?= $user['user_img'] ?>" alt="Profile Picture">
+                        <?php else : false ?>
+                            <source srcset="../../assets/images/avatar/user.png" type="image/png">
+                            <img src="../../assets/images/avatar/user.png" alt="Default Profile Picture">
+                        <?php endif; ?>
+                    </picture>
+>>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
+                </span>
+                <div class="sidebar-user-info">
+                    <span class="sidebar-user__title">Pheak Tra.</span>
+                    <span class="sidebar-user__subtitle">Restaurant Owner</span>
+                </div>
+            </a>
+        </div>
+    </aside>
