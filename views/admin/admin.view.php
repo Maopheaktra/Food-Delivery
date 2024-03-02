@@ -407,9 +407,9 @@
           <div class="col-lg-3">
             <article class="customers-wrapper">
               <canvas id="customersChart" aria-label="Customers statistics" role="img"></canvas>
-              <!--              <p class="customers__title">New Customers <span>+958</span></p>
+                           <p class="customers__title">New Customers <span>+958</span></p>
               <p class="customers__date">28 Daily Avg.</p>
-              <picture><source srcset="assets/images/svg/customers.svg" type="image/webp"><img src="assets/images/svg/customers.svg" alt=""></picture> -->
+              <picture><source srcset="assets/images/svg/customers.svg" type="image/webp"><img src="assets/images/svg/customers.svg" alt=""></picture>
             </article>
             <article class="white-block">
               <div class="top-cat-title">
