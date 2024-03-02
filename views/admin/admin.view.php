@@ -702,13 +702,10 @@ ob_start();
           </thead>
           <tbody>
             <?php
-<<<<<<< HEAD
             require "database/database.php";
             require "models/admin.model.php";
             $users = displayUser();
-=======
             $users = getAllUsers();
->>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
             foreach ($users as $user) :
             ?>
               <tr>
@@ -716,20 +713,15 @@ ob_start();
                 <td>
                   <div class="pages-table-img">
                     <picture>
-<<<<<<< HEAD
                       <source srcset="assets/images/avatar/avatar-face-04.webp" type="image/webp"><img src="assets/images/avatar/avatar-face-04.png" alt="User Name">
-=======
                         <!-- <source srcset="<?= $user['profile_img'] ?>" type="image/webp"> -->
                         <img src="assets/images/user/<?= $user['user_img'] ?>" alt="Profile Picture">
->>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
                     </picture>
                   </div>
                 </td>
                 <td><?= $user['username'] ?></td>
                 <td><?= $user['email'] ?></td>
-<<<<<<< HEAD
                 <td><?= $user['role_id'] ?></td>
-=======
                 <td>
                   <?php if (isset($user['role_type'])) {
                     echo $user['role_type'];
@@ -737,7 +729,6 @@ ob_start();
                     echo "Role Undefined";
                   } ?>
                 </td>
->>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
                 <td>
                   <span class="p-relative">
                     <button class="dropdown-btn transparent-btn" type="button" title="More info">
@@ -745,11 +736,8 @@ ob_start();
                       <i data-feather="more-horizontal" aria-hidden="true"></i>
                     </button>
                     <ul class="users-item-dropdown dropdown">
-<<<<<<< HEAD
                       <li id="pop-edit"><a href="##">Edit</a></li>
-=======
                       <li id="update-user"><a href="##">Update</a></li>
->>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
                       <li id="pop-del"><a href="##">Delete</a></li>
                     </ul>
                   </span>
@@ -761,19 +749,16 @@ ob_start();
         </table>
       </div>
     </div>
-<<<<<<< HEAD
     <!-- ========Pop Up Form Add user======== -->
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div id="add-user popup-user" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-user popup-user" action="../../controllers/admin/create_user.controller.php" id="" method="post">
           <h1 class="mb-2 text-center">Add Customer</h1>
-=======
     <!-- Pop-up form for adding a new user -->
     <div id="add-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-user" method="post">
           <h1 class="mb-2 text-center">Add a new user</h1>
->>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
             <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
