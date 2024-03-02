@@ -1,3 +1,9 @@
+<?php
+require_once "database/database.php"; // Include database connection
+require_once "models/admin.model.php"; // Include admin model file once
+$users = getAllUsers();
+?>
+
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
@@ -121,7 +127,11 @@
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
+<<<<<<< HEAD
                             <span class="icon user-3" aria-hidden="true"></span>Users
+=======
+                            <span class="icon user-3" aria-hidden="true"></span>All users
+>>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
                                 <span class="icon arrow-down" aria-hidden="true"></span>
@@ -129,10 +139,20 @@
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
+<<<<<<< HEAD
                                 <a href="users-01.html">Users-01</a>
                             </li>
                             <li>
                                 <a href="users-02.html">Users-02</a>
+=======
+                                <a href="runners.filter.php">Runners</a>
+                            </li>
+                            <li>
+                                <a href="customers.filter.php">Customers</a>
+                            </li>
+                            <li>
+                                <a href="restaurantowners.filter.php">Owners</a>
+>>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
                             </li>
                         </ul>
                     </li>
@@ -145,7 +165,19 @@
         <div class="sidebar-footer">
             <a href="##" class="sidebar-user">
                 <span class="sidebar-user-img">
+<<<<<<< HEAD
                     <picture><img src="<?php print_r('assets/images/user/'.$img[7]) ?>"></picture>
+=======
+                    <picture>
+                        <?php if ($user['user_img']) : true ?>
+                            <source srcset="<?= $user['user_img'] ?>" type="image/webp">
+                            <img src="<?= $user['user_img'] ?>" alt="Profile Picture">
+                        <?php else : false ?>
+                            <source srcset="../../assets/images/avatar/user.png" type="image/png">
+                            <img src="../../assets/images/avatar/user.png" alt="Default Profile Picture">
+                        <?php endif; ?>
+                    </picture>
+>>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
                 </span>
                 <div class="sidebar-user-info">
                     <span class="sidebar-user__title">Pheak Tra.</span>

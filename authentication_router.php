@@ -5,8 +5,7 @@ $routes = [
     '/' => 'controllers/signin/signin.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
-    // '/trainer-review' => 'controllers/reviews/review.controller.php',
-    // '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
+
 ];
 
 if (array_key_exists($uri, $routes)) {
