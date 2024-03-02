@@ -9,12 +9,13 @@ require 'controllers/signup/show.controller.php';
 if (isset($_SESSION["email"])) {
     if ($_SESSION['role'] == 2) { 
         require "restaurantOwner_router.php";
+    if (($_SESSION['role'] == 2) ||urlIs('/create-user')) { 
+        require "admin_router.php";
     } else{
         require 'router.php';
     }
-}else{
+}
+}
+else{
     require "authentication_router.php";
 }
-
-
-

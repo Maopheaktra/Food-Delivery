@@ -6,6 +6,7 @@ $routes = [
     '/signup' => 'controllers/signup/signup.controller.php',
     '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php'
+
 ];
 
 if (array_key_exists($uri, $routes)) {
