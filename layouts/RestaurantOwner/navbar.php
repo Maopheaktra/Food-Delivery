@@ -48,7 +48,7 @@
                     </a>
                     <ul class="cat-sub-menu">
                         <li>
-                            <a href="categories.html">All Food</a>
+                            <a href="/all_food">All Food</a>
                         </li>
                     </ul>
                 </li>

@@ -218,3 +218,13 @@ function addCategories($cateName, $description){
         ':name'=>$cateName
     ]);
 }
+
+function Add_New_Food($Name, $description, $price){
+    global $connection;
+    $statement=$connection->prepare("insert into foods(Foodname, description, price) values (:name, :description, :price)" );
+    $statement->execute([
+        ':name'=>$Name,
+        ':description'=>$description,
+        ':price'=>$price
+    ]);
+}

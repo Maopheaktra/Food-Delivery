@@ -1,7 +1,4 @@
 <?php
-
-
-
 function getAllUsers()
 {
     global $connection;
@@ -21,8 +18,9 @@ function getAllUsers()
             roles r ON u.role_id = r.role_id
     ";
 
-<<<<<<< HEAD
-    return $statement->rowCount() > 0;
+    $statement = $connection->prepare($query);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
 function getPost(int $id) : array
@@ -37,17 +35,9 @@ function displayUser() : array
 {
     global $connection;
     $statement = $connection->prepare("select * from users");
-=======
     $statement = $connection->prepare($query);
->>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
-}
-
-
-
-<<<<<<< HEAD
-    return $statement->rowCount() > 0;
 }
 
 function deletePost(int $id) : bool
@@ -58,5 +48,3 @@ function deletePost(int $id) : bool
     return $statement->rowCount() > 0;
 }
 
-=======
->>>>>>> b38715ff6b315d0f12b6076d092c73510ef2eabc
