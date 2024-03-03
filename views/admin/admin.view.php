@@ -1,11 +1,6 @@
 <?php
-
 ob_start();
-
-// var_dump($users[]);
-
 ?>
-
 <div class="main-wrapper">
   <!-- ! Main nav -->
   <nav class="main-nav--bg">
@@ -194,8 +189,10 @@ ob_start();
               <th class="text-center ml-2">ID</th>
               <th>Author</th>
               <th>Username</th>
+              <th>Phone Number</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Gender</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -215,6 +212,7 @@ ob_start();
                   </div>
                 </td>
                 <td><?= $user['username'] ?></td>
+                <td><?= $user['phoneNumber'] ?></td>
                 <td><?= $user['email'] ?></td>
                 <td>
                   <?php if (isset($user['role_type'])) {
@@ -223,6 +221,7 @@ ob_start();
                     echo "Role Undefined";
                   } ?>
                 </td>
+                <td><?= $user['gender'] ?></td>
                 <td>
                   <span class="p-relative">
                     <button class="dropdown-btn transparent-btn" type="button" title="More info">
@@ -230,7 +229,7 @@ ob_start();
                       <i data-feather="more-horizontal" aria-hidden="true"></i>
                     </button>
                     <ul class="users-item-dropdown dropdown">
-                      <li id="update-user"><a href="##">Edit</a></li>
+                      <li id="update-user"><a href="#">Edit</a></li>
                       <li id="pop-del"><a href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>">Delete</a></li>
                     </ul>
                   </span>
@@ -245,7 +244,7 @@ ob_start();
     <!-- Pop-up form for adding a new user -->
     <div id="add-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <form class="add-user" action="controllers/admin/create_user.controller.php" method="post">
+        <form class="add-user" action="../../controllers/admin/create_user.controller.php" method="post">
           <h1 class="mb-1 text-center">Add a new user</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
@@ -266,11 +265,11 @@ ob_start();
           <div class="gender-selection d-flex mb-1">
             <label class="text-secondary">Gender:</label>
             <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="male">
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M">
               <label for="maleRadio" class="form-check-label text-secondary">Male</label>
             </div>
             <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="female">
+              <input type="radio" id="femaleRadio" name="gender" value="F">
               <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
             </div>
           </div>
@@ -291,15 +290,15 @@ ob_start();
     <!-- Pop-up form for updating a user -->
     <div id="update-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <form class="update-user" method="post">
+        <form class="update-user" action="../../controllers/admin/admin.edit_user.controller.php" method="post">
           <h1 class="mb-1 text-center">Update user info</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" value="<?= $user['username'] ?>">
           </div>
           <div class="mb-1">
             <label for="email" class="form-label text-secondary">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?= $user['email'] ?>">
           </div>
           <div class="mb-1">
             <label for="password" class="form-label text-secondary">Password</label>
@@ -307,7 +306,7 @@ ob_start();
           </div>
           <div class="mb-1">
             <label for="number" class="form-label text-secondary">Phone Number</label>
-            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp">
+            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp" value="<?= $user['phoneNumber'] ?>">
           </div>
           <div class="input-group mb-1">
             <input type="file" class="form-control" id="inputGroupFile02">
@@ -316,11 +315,11 @@ ob_start();
           <div class="gender-selection d-flex mb-1">
             <label class="text-secondary">Gender:</label>
             <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="male">
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M" <?= ($user['gender'] == 'M') ? 'checked' : '' ?>>
               <label for="maleRadio" class="form-check-label text-secondary">Male</label>
             </div>
             <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="female">
+              <input type="radio" id="femaleRadio" name="gender" value="F" <?= ($user['gender'] == 'F') ? 'checked' : '' ?>>
               <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
             </div>
           </div>
@@ -328,9 +327,9 @@ ob_start();
             <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
             <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
               <option selected>Choose...</option>
-              <option value="1">Customer</option>
-              <option value="2">Restaurant Owner</option>
-              <option value="3">Delevery</option>
+              <option value="<?= $user['role_type'] ?>">Customer</option>
+              <option value="<?= $user['role_type'] ?>">Restaurant Owner</option>
+              <option value="<?= $user['role_type'] ?>">Delevery</option>
             </select>
           </div>
           <input type="submit" class="btn btn-primary" name="send" value="Update" />
@@ -338,10 +337,8 @@ ob_start();
         </form>
       </div>
     </div>
-
     <?php
     echo "<script>
-
     // ================Create User Form================
     document.addEventListener('DOMContentLoaded', function () {
     let addUserBtn = document.getElementById('add-user-btn');
@@ -349,34 +346,26 @@ ob_start();
     let updateUserCancelBtn = document.getElementById('update-user-cancel');
     let addUserPopup = document.getElementById('add-user-popup');
     let updateUserPopup = document.getElementById('update-user-popup');
-
     function showAddUserPopup() {
       addUserPopup.style.display = 'block';
     }
-
     function hideAddUserPopup() {
       addUserPopup.style.display = 'none';
     }
-
     function hideUpdateUserPopup() {
       updateUserPopup.style.display = 'none';
     }
-
     addUserBtn.addEventListener('click', showAddUserPopup);
     addUserCancelBtn.addEventListener('click', hideAddUserPopup);
     updateUserCancelBtn.addEventListener('click', hideUpdateUserPopup);
-
     let updateUserBtn = document.querySelectorAll('#update-user');
-    
     // ===============Update User ====================
     function showUpdateUserPopup() {
       updateUserPopup.style.display = 'block';
     }
-
     for(let i = 0; i < updateUserBtn.length; i++) {
       updateUserBtn[i].addEventListener('click', showUpdateUserPopup);
     }
-    
     let updateUserPopupVisible = false;
     updateUserBtn.addEventListener('click', function() {
       if (updateUserPopupVisible) {
@@ -386,7 +375,6 @@ ob_start();
       }
       updateUserPopupVisible = !updateUserPopupVisible;
     });
-
     // Close dropdown when clicking outside
     document.addEventListener('click', function(event) {
       let dropdown = document.querySelector('.users-item-dropdown.dropdown');
@@ -395,11 +383,7 @@ ob_start();
         dropdown.style.display = 'none';
       }
     });
-
   });
 </script>";
     ?>
-
-
-
   </main>
