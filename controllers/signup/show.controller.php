@@ -25,21 +25,27 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             $_SESSION["email"] = $email;
             $_SESSION["password"] = $password;
             $_SESSION['userid'] = $user['user_id'];
+            $_SESSION['emailSingup'] = '';
 
             if($role == 1){
                 $_SESSION['role'] = $role;
                 header('Location: /');
             }elseif($role == 2){
                 $_SESSION['role'] = $role;
-                header('Location: /admin');
+                header('Location: /');
             }
             
         }else{
+            $_SESSION['emailSingup'] = '* Your email has already exist!';
             header('Location: /signup');
         }
 
+    }else{
+        $_SESSION['emailSingup'] = '';
+        header('Location: /singnup');
     }
 }
+
 
 
 

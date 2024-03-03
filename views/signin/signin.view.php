@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -43,6 +42,9 @@
                             <label for="exampleInputPassword1" class="text-dark">Password</label>
                             <input type="password" placeholder="Enter Password" class="form-control"
                                 id="exampleInputPassword1" name='pwd' />
+                            <?php if(isset($_SESSION['wrongPassword'])): ?>
+                            <span style="color: red;"><?php echo $_SESSION['wrongPassword'] ?></span>
+                            <?php endif; ?>
                         </div>
                         <button class="btn btn-primary btn-lg btn-block" type="submit">SIGN IN</button>
                         <div class="py-2">

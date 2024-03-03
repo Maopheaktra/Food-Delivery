@@ -8,8 +8,11 @@ require 'controllers/signup/show.controller.php';
 
 if (isset($_SESSION["email"])) {
     if ($_SESSION['role'] == 2) { 
+        require "restaurantOwner_router.php";
+    }elseif($_SESSION['role'] == 4){
         require "admin_router.php";
-    } else{
+    } 
+    else{
         require 'router.php';
     }
 }else{

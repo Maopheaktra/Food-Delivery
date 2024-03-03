@@ -224,3 +224,14 @@ function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
         ':time'=>$time
     ]);
 }
+
+// ------ *Add category of the restaurant onwer* -----------------------//
+
+function addCategories($cateName, $description){
+    global $connection;
+    $statement = $connection->prepare("insert into categories(description, name) values(:description, :name)");
+    $statement->execute([
+        ':description'=> $description,
+        ':name'=>$cateName
+    ]);
+}
