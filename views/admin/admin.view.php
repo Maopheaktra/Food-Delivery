@@ -1,7 +1,9 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
 <?php
-
 ob_start();
-
 // var_dump($users[]);
 
 ?>
@@ -88,7 +90,8 @@ ob_start();
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="assets/images/avatar/user.png" type="image/webp"><img src="assets/images/avatar/user.png" alt="User name">
+                <source srcset="assets/images/avatar/user.png" type="image/webp"><img
+                  src="assets/images/avatar/user.png" alt="User name">
               </picture>
             </span>
           </button>
@@ -194,6 +197,7 @@ ob_start();
               <th class="text-center ml-2">ID</th>
               <th>Author</th>
               <th>Username</th>
+              <th>Phone</th>
               <th>Email</th>
               <th>Role</th>
               <th>Action</th>
@@ -202,10 +206,12 @@ ob_start();
           <tbody>
             <?php
             $users = getAllUsers();
-            foreach ($users as $user) :
-            ?>
+            foreach ($users as $user):
+              ?>
               <tr>
-                <td><?= $user['user_id'] ?></td>
+                <td>
+                  <?= $user['user_id'] ?>
+                </td>
                 <td>
                   <div class="pages-table-img">
                     <picture>
@@ -214,8 +220,15 @@ ob_start();
                     </picture>
                   </div>
                 </td>
-                <td><?= $user['username'] ?></td>
-                <td><?= $user['email'] ?></td>
+                <td>
+                  <?= $user['username'] ?>
+                </td>
+                <td>
+                  <?= $user['phoneNumber'] ?>
+                </td>
+                <td>
+                  <?= $user['email'] ?>
+                </td>
                 <td>
                   <?php if (isset($user['role_type'])) {
                     echo $user['role_type'];
@@ -231,7 +244,8 @@ ob_start();
                     </button>
                     <ul class="users-item-dropdown dropdown">
                       <li id="update-user"><a href="##">Edit</a></li>
-                      <li id="pop-del"><a href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>">Delete</a></li>
+                      <li id="pop-del"><a
+                          href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>">Delete</a></li>
                     </ul>
                   </span>
                 </td>
@@ -243,7 +257,9 @@ ob_start();
       </div>
     </div>
     <!-- Pop-up form for adding a new user -->
-    <div id="add-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+    <div id="add-user-popup"
+      class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
+      style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
         <form class="add-user" action="controllers/admin/create_user.controller.php" method="post">
           <h1 class="mb-1 text-center">Add a new user</h1>
@@ -288,26 +304,37 @@ ob_start();
         </form>
       </div>
     </div>
+
+
     <!-- Pop-up form for updating a user -->
-    <div id="update-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+    <div id="update-user-popup"
+      class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
+      style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
         <form class="update-user" method="post">
           <h1 class="mb-1 text-center">Update user info</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp"
+              value="<?php echo $user['username']; ?>">
           </div>
           <div class="mb-1">
             <label for="email" class="form-label text-secondary">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
+              value="<?php echo $user['email']; ?>">
           </div>
           <div class="mb-1">
-            <label for="password" class="form-label text-secondary">Password</label>
-            <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
+            <label for="update-password" class="col-2 form-label text-secondary">Password</label>
+            <div class="col input-group ">
+              <input type="password" class="col-12 form-control" id="update-password"
+                value="<?php echo $user['password']; ?>" name="password">
+                <button type="button" id="toggle-password-btn" class="col-1 btn btn-secondary"><i class="fa-solid fa-eye"></i> </button>
+            </div>
           </div>
           <div class="mb-1">
             <label for="number" class="form-label text-secondary">Phone Number</label>
-            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp">
+            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp"
+              value="<?php echo $user['phoneNumber']; ?>">
           </div>
           <div class="input-group mb-1">
             <input type="file" class="form-control" id="inputGroupFile02">
@@ -316,21 +343,29 @@ ob_start();
           <div class="gender-selection d-flex mb-1">
             <label class="text-secondary">Gender:</label>
             <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="male">
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="male" <?php if ($user['gender'] === 'male')
+                echo 'checked'; ?>>
               <label for="maleRadio" class="form-check-label text-secondary">Male</label>
             </div>
             <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="female">
+              <input type="radio" id="femaleRadio" name="gender" value="female" <?php if ($user['gender'] === 'female')
+                echo 'checked'; ?>>
               <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
             </div>
           </div>
           <div class="input-group mb-2">
             <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
             <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
-              <option selected>Choose...</option>
-              <option value="1">Customer</option>
-              <option value="2">Restaurant Owner</option>
-              <option value="3">Delevery</option>
+              <?php if (isset($user['role_type'])): ?>
+                <option value="<?php echo $user['role_type']; ?>" selected>
+                  <?php echo $user['role_type']; ?>
+                </option>
+              <?php else: ?>
+                <option value="undefined" selected>Role Undefined</option>
+              <?php endif; ?>
+              <option value="customer">Customer</option>
+              <option value="restaurant_owner">Restaurant Owner</option>
+              <option value="delivery">Delivery</option>
             </select>
           </div>
           <input type="submit" class="btn btn-primary" name="send" value="Update" />
@@ -338,12 +373,12 @@ ob_start();
         </form>
       </div>
     </div>
+  </main>
 
-    <?php
-    echo "<script>
 
-    // ================Create User Form================
-    document.addEventListener('DOMContentLoaded', function () {
+  <?php
+echo "<script>
+document.addEventListener('DOMContentLoaded', function () {
     let addUserBtn = document.getElementById('add-user-btn');
     let addUserCancelBtn = document.getElementById('add-user-cancel');
     let updateUserCancelBtn = document.getElementById('update-user-cancel');
@@ -351,15 +386,15 @@ ob_start();
     let updateUserPopup = document.getElementById('update-user-popup');
 
     function showAddUserPopup() {
-      addUserPopup.style.display = 'block';
+        addUserPopup.style.display = 'block';
     }
 
     function hideAddUserPopup() {
-      addUserPopup.style.display = 'none';
+        addUserPopup.style.display = 'none';
     }
 
     function hideUpdateUserPopup() {
-      updateUserPopup.style.display = 'none';
+        updateUserPopup.style.display = 'none';
     }
 
     addUserBtn.addEventListener('click', showAddUserPopup);
@@ -367,39 +402,54 @@ ob_start();
     updateUserCancelBtn.addEventListener('click', hideUpdateUserPopup);
 
     let updateUserBtn = document.querySelectorAll('#update-user');
-    
-    // ===============Update User ====================
+
     function showUpdateUserPopup() {
-      updateUserPopup.style.display = 'block';
+        updateUserPopup.style.display = 'block';
     }
 
-    for(let i = 0; i < updateUserBtn.length; i++) {
-      updateUserBtn[i].addEventListener('click', showUpdateUserPopup);
+    for (let i = 0; i < updateUserBtn.length; i++) {
+        updateUserBtn[i].addEventListener('click', showUpdateUserPopup);
     }
-    
+
     let updateUserPopupVisible = false;
-    updateUserBtn.addEventListener('click', function() {
-      if (updateUserPopupVisible) {
-        updateUserPopup.style.display = 'none';
-      } else {
-        updateUserPopup.style.display = 'block';
-      }
-      updateUserPopupVisible = !updateUserPopupVisible;
+
+    for (let i = 0; i < updateUserBtn.length; i++) {
+        updateUserBtn[i].addEventListener('click', function () {
+            if (updateUserPopupVisible) {
+                updateUserPopup.style.display = 'none';
+            } else {
+                updateUserPopup.style.display = 'block';
+            }
+            updateUserPopupVisible = !updateUserPopupVisible;
+        });
+    }
+
+    // Toggle password visibility
+    let togglePasswordBtn = document.getElementById('toggle-password-btn');
+    let passwordInput = document.getElementById('update-password');
+    let eyeIcon = document.getElementById('eye-icon');
+
+    togglePasswordBtn.addEventListener('click', function () {
+        if (passwordInput.type === 'password') {
+            passwordInput.type = 'text';
+            eyeIcon.classList.remove('fa-eye-slash');
+            eyeIcon.classList.add('fa-eye');
+        } else {
+            passwordInput.type = 'password';
+            eyeIcon.classList.remove('fa-eye');
+            eyeIcon.classList.add('fa-eye-slash');
+        }
     });
 
     // Close dropdown when clicking outside
-    document.addEventListener('click', function(event) {
-      let dropdown = document.querySelector('.users-item-dropdown.dropdown');
-      let isClickInsideDropdown = dropdown.contains(event.target);
-      if (!isClickInsideDropdown) {
-        dropdown.style.display = 'none';
-      }
+    document.addEventListener('click', function (event) {
+        let dropdown = document.querySelector('.users-item-dropdown.dropdown');
+        let isClickInsideDropdown = dropdown.contains(event.target);
+        if (!isClickInsideDropdown) {
+            dropdown.style.display = 'none';
+        }
     });
 
-  });
+});
 </script>";
-    ?>
-
-
-
-  </main>
+?>
