@@ -60,7 +60,7 @@
           <div class="col-lg-12">
             <div class="chart">
                 <div class="container mt-3 ">
-                  <a href=""type="Submit" id ="add-cate" class="btn btn-primary mg-3">Add New+</a>
+                  <a href=""type="Submit" id ="add-food" class="btn btn-primary mg-3">Add New+</a>
                   <table class = "table table-bordered mt-4">
                       <thead>
                           <tr>
@@ -103,34 +103,38 @@
       </div>
 </main>
 <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display:none; z-index: 999; width:100%; height:100%">
-      <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-cate popup-cate" action="controllers/categories/create_category.controller.php" method="post">
-        <h1>Create Category</h1>
-        <div class="mb-3">
-          <label for="username" class="form-label">Image:</label>
-          <input type="file" name="my_image" id="image">
-        </div>
-        <div class="mb-3">
-          <label for="food" class="form-label">Food:</label>
-          <input type="text" name="food"class="form-control" id="food" placeholder="Place Enter Food Name">
-        </div>               
-        <div class="mb-3">
-            <label for="descriptiom" class="form-label">Description:</label>
-            <textarea class="form-control" name="description" rows="3" id="description" placeholder = "Description"></textarea></div>
+      <div id="add-food popup-food" class="col-6 m-auto p-4 mt-3 bg-light">
+        <form class="add-food popup-food" action="controllers/Food/create_food.controller.php" method="post">
+            <h1>Create Food</h1>
+            <div class="mb-3">
+            <label for="username" class="form-label">Image:</label>
+            <input type="file" name="my_image" id="image">
+            </div>
+            <div class="mb-3">
+            <label for="food" class="form-label">Food:</label>
+            <input type="text" name="food"class="form-control" id="food" placeholder="Place Enter Food Name">
+            </div>               
             <div class="mb-3">
                 <label for="price" class="form-label">Price:</label>
                 <input type="number" name="price"class="form-control" id="price" placeholder="Place Enter Food Price">
-        </div>
-            <button type="submit" class="btn btn-primary">add</button>
-            <a href="/all_food" class="btn btn-danger" >cancel</a>
-        </div>
+            </div>
+            <div class="mb-3">
+                <label for="cate_id" class="form-label">Price:</label>
+                <input type="number" name="cate_id"class="form-control" id="cate_id" placeholder="Category ID">
+            </div>
+            <div class="mb-3">
+                <label for="descriptiom" class="form-label">Description:</label>
+                <textarea class="form-control" name="description" rows="3" id="description" placeholder = "Description"></textarea></div>
+                <button type="submit" class="btn btn-primary">add</button>
+                <a href="/all_food" class="btn btn-danger" >cancel</a>
+            </div>
         </form>
       </div>
     </div>
     <?php
 echo "<script>
      
-      let btnAdd = document.querySelector('#add-cate');
+      let btnAdd = document.querySelector('#add-food');
       let btnCancel = document.querySelector('#cancel');
       function showBtn(e) {
         e.preventDefault();
