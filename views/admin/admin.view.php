@@ -104,12 +104,18 @@ ob_start();
             <li>
               <a href="./views/admin/admin.profile.php">
                 <i data-feather="user" aria-hidden="true"></i>
+<<<<<<< HEAD
                 <span>Profile</span>
               </a>
 
             </li>
             <li>
               <a href="##">
+=======
+                <span id="popInfo">Profile</span>
+              </a></li>
+            <li><a href="##">
+>>>>>>> c0774cbb99c75560f40bb03ba794bba2ac6c59e4
                 <i data-feather="settings" aria-hidden="true"></i>
                 <span>Account settings</span>
               </a>
@@ -282,25 +288,14 @@ ob_start();
               </button>
             </div>
           </div>
-          <div class="mb-1">
+          <div class="mb-1 ">
             <label for="number" class="form-label text-secondary">Phone Number</label>
             <input type="number" class="form-control" placeholder="(+855) 123456789" id="number" name="number" aria-describedby="numberHelp">
           </div>
-          <div class="gender-selection d-flex mb-2 mt-2">
-            <label class="text-secondary">Gender:</label>
-            <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M">
-              <label for="maleRadio" class="form-check-label text-secondary">Male</label>
-            </div>
-            <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="F">
-              <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
-            </div>
-          </div>
-          <div class="input-group mt-2">
+          <div class="input-group mt-3">
             <label class="input-group-text text-secondary" for="inputGroupSelect01"><i class="fa-solid fa-dice-d6"></i></label>
             <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
-              <option selected>Select a user role before</option>
+              <option selected>Select a user role </option>
               <option value="1">Customer</option>
               <option value="2">Restaurant Owner</option>
               <option value="3">Delivery</option>
@@ -350,17 +345,7 @@ ob_start();
             <input type="file" class="form-control" id="inputGroupFile02">
             <label class="input-group-text" for="inputGroupFile02"><i class="fa-solid fa-cloud-arrow-up"></i></label>
           </div>
-          <div class="gender-selection d-flex mb-2 mt-2">
-            <label class="text-secondary">Gender:</label>
-            <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M" <?= ($_SESSION['popup']['gender'] == 'M') ? 'checked' : '' ?>>
-              <label for="maleRadio" class="form-check-label text-secondary">Male</label>
-            </div>
-            <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="F" <?= ($_SESSION['popup']['gender'] == 'F') ? 'checked' : '' ?>>
-              <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
-            </div>
-          </div>
+
           <div class="input-group mb-3">
             <label class="input-group-text text-secondary" for="inputGroupSelect01"><i class="fa-solid fa-dice-d6"></i></label>
             <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
@@ -372,6 +357,50 @@ ob_start();
           <input type="submit" class="mt-2 btn btn-primary" name="send" value="Update" />
           <a href="/" type="button" class="mt-2 btn btn-danger" >Cancel</a>
         </form>
+      </div>
+    </div>
+    <!-- pop-up profile user-admin -->
+    <div id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+      <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
+        <div class="show-pro d-flex flex-column">
+          <!-- Wrap the image within a label -->
+          <label class="d-flex justify-content-center" for="imageInput" style="width: 100%;">
+            <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" style="width: 20%; border-radius: 50%;" alt="...">
+          </label>
+          <input type="file" id="imageInput" style="display: none;" accept="image/*"> <!-- Hidden file input -->
+          <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
+          <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">chuonveasna123@gmail.com</div>
+        </div>
+        <div class="show-info" style="width:100%;">
+          <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username">
+          <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email">
+          <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <div class="input-group mb-3">
+            <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
+            <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="<?= $user['role_type'] ?>">Customer</option>
+              <option value="<?= $user['role_type'] ?>">Restaurant Owner</option>
+              <option value="<?= $user['role_type'] ?>">Delivery</option>
+            </select>
+          </div>
+          <div class="gender-selection d-flex mb-1">
+            <label class="text-secondary">Gender:</label>
+            <div class="form-check d-flex">
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M">
+              <label for="maleRadio" class="form-check-label text-secondary">Male</label>
+            </div>
+            <div class="form-check d-flex">
+              <input type="radio" id="femaleRadio" name="gender" value="F">
+              <label for="femaleRadio" class="form-check-label mb-2 text-secondary">Female</label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <input type="submit" class="btn btn-primary" name="send" value="Save" />
+          <input type="button" class="btn btn-danger" id="update-user-cancel" value="Cancel" />
+        </div>
       </div>
     </div>
     <?php

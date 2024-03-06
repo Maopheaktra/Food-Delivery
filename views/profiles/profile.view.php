@@ -15,9 +15,7 @@
                     <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
                             <div class="d-flex align-items-center p-3">
                                 <div class="left mr-3">
-                                    
-                        
-                                        <div class="upload" id="upload">
+                                        <div class="upload" id="upload" for="imageInput">
                                             <img src="<?php print_r('assets/images/user/'.$img[7]) ?>" width="100" height="100">
                                         </div>
                                 </div>
