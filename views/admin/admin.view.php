@@ -3,11 +3,10 @@
 </head>
 
 <?php
+$users = getAllUsers();
 ob_start();
-// var_dump($users[]);
 
 ?>
-
 <div class="main-wrapper">
   <!-- ! Main nav -->
   <nav class="main-nav--bg">
@@ -89,21 +88,32 @@ ob_start();
           <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
-              <picture>
-                <source srcset="assets/images/avatar/user.png" type="image/webp"><img
-                  src="assets/images/avatar/user.png" alt="User name">
-              </picture>
+              <div class="pages-table-img">
+                <?php if (isset($user['user_img'])) : ?>
+                  <picture>
+                    <source srcset="assets/images/user/<?= $user['user_img'] ?>" type="image/webp">
+                    <img src="assets/images/user/<?= $user['user_img'] ?>" alt="Profile Picture">
+                  </picture>
+                <?php else : ?>
+                  <img src="assets/images/avatar/user.png" alt="Profile Picture">
+                <?php endif; ?>
+              </div>
             </span>
           </button>
           <ul class="users-item-dropdown nav-user-dropdown dropdown">
-            <li><a href="##">
+            <li>
+              <a href="./views/admin/admin.profile.php">
                 <i data-feather="user" aria-hidden="true"></i>
                 <span>Profile</span>
-              </a></li>
-            <li><a href="##">
+              </a>
+
+            </li>
+            <li>
+              <a href="##">
                 <i data-feather="settings" aria-hidden="true"></i>
                 <span>Account settings</span>
-              </a></li>
+              </a>
+            </li>
             <li><a class="danger" href="controllers/signout/signout.controller.php">
                 <i data-feather="log-out" aria-hidden="true"></i>
                 <span>Log out</span>
@@ -197,17 +207,18 @@ ob_start();
               <th class="text-center ml-2">ID</th>
               <th>Author</th>
               <th>Username</th>
-              <th>Phone</th>
+              <th>Phone Number</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Gender</th>
               <th>Action</th>
             </tr>
           </thead>
           <tbody>
             <?php
             $users = getAllUsers();
-            foreach ($users as $user):
-              ?>
+            foreach ($users as $user) :
+            ?>
               <tr>
                 <td>
                   <?= $user['user_id'] ?>
@@ -215,20 +226,13 @@ ob_start();
                 <td>
                   <div class="pages-table-img">
                     <picture>
-                      <!-- <source srcset="<?= $user['profile_img'] ?>" type="image/webp"> -->
                       <img src="assets/images/user/<?= $user['user_img'] ?>" alt="Profile Picture">
                     </picture>
                   </div>
                 </td>
-                <td>
-                  <?= $user['username'] ?>
-                </td>
-                <td>
-                  <?= $user['phoneNumber'] ?>
-                </td>
-                <td>
-                  <?= $user['email'] ?>
-                </td>
+                <td><?= $user['username'] ?></td>
+                <td><?= $user['phoneNumber'] ?></td>
+                <td><?= $user['email'] ?></td>
                 <td>
                   <?php if (isset($user['role_type'])) {
                     echo $user['role_type'];
@@ -236,6 +240,7 @@ ob_start();
                     echo "Role Undefined";
                   } ?>
                 </td>
+                <td><?= $user['gender'] ?></td>
                 <td>
                   <span class="p-relative">
                     <button class="dropdown-btn transparent-btn" type="button" title="More info">
@@ -243,140 +248,140 @@ ob_start();
                       <i data-feather="more-horizontal" aria-hidden="true"></i>
                     </button>
                     <ul class="users-item-dropdown dropdown">
-                      <li id="update-user"><a href="##">Edit</a></li>
-                      <li id="pop-del"><a
-                          href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>">Delete</a></li>
+                      <li class="mx-2 mb-2" id="update-user"><a href="controllers/admin/admin.edit_user.controller.php?id=<?= $user['user_id']?>"><i class="fa-solid fa-pen-to-square"></i> edit </a></li>
+                      <li class="mt-2 mx-2" id="pop-del"><a href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>"><i class="fa-solid fa-user-slash"></i> delete</a></li>
                     </ul>
                   </span>
                 </td>
               </tr>
             <?php endforeach; ?>
           </tbody>
-
         </table>
       </div>
     </div>
+
     <!-- Pop-up form for adding a new user -->
-    <div id="add-user-popup"
-      class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
-      style="display: none; z-index: 999; width:100%; height:100%">
+    <div id="add-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <form class="add-user" action="controllers/admin/create_user.controller.php" method="post">
+        <form class="add-user" action="../../controllers/admin/create_user.controller.php" method="post">
           <h1 class="mb-1 text-center">Add a new user</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
+            <input type="text" class="form-control" placeholder="James Smith" id="username" name="username" aria-describedby="usernameHelp">
           </div>
           <div class="mb-1">
             <label for="email" class="form-label text-secondary">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" placeholder="Ex. client@example.com" id="email" name="email" aria-describedby="emailHelp">
           </div>
           <div class="mb-1">
-            <label for="password" class="form-label text-secondary">Password</label>
-            <input type="password" class="form-control" id="password" name="password" aria-describedby="passwordHelp">
+            <label for="create-password" class="col-2 form-label text-secondary">Password</label>
+            <div class="col input-group mt-1 mb-3">
+              <input type="password" class="col-12 form-control" id="create-password" placeholder="1-9/a-z/A-Z/!@+" name="password">
+              <button type="button" id="toggle-password-btn" class="col-1 btn btn-secondary">
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
+            </div>
           </div>
           <div class="mb-1">
             <label for="number" class="form-label text-secondary">Phone Number</label>
-            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp">
+            <input type="number" class="form-control" placeholder="(+855) 123456789" id="number" name="number" aria-describedby="numberHelp">
           </div>
-          <div class="gender-selection d-flex mb-1">
+          <div class="gender-selection d-flex mb-2 mt-2">
             <label class="text-secondary">Gender:</label>
             <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="male">
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M">
               <label for="maleRadio" class="form-check-label text-secondary">Male</label>
             </div>
             <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="female">
+              <input type="radio" id="femaleRadio" name="gender" value="F">
               <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
             </div>
           </div>
-          <div class="input-group mb-2">
-            <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
+          <div class="input-group mt-2">
+            <label class="input-group-text text-secondary" for="inputGroupSelect01"><i class="fa-solid fa-dice-d6"></i></label>
             <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
-              <option selected>Choose...</option>
+              <option selected>Select a user role before</option>
               <option value="1">Customer</option>
               <option value="2">Restaurant Owner</option>
-              <option value="3">Delevery</option>
+              <option value="3">Delivery</option>
             </select>
           </div>
-          <input type="submit" class="btn btn-primary" name="send" value="Add" />
-          <input type="button" class="btn btn-danger" id="add-user-cancel" value="Cancel" />
+          <input type="submit" class="mt-3 btn btn-primary" name="send" value="Add Now" />
+          <input type="button" class="mx-3 mt-3 btn btn-danger" id="add-user-cancel" value="Cancel" />
         </form>
       </div>
     </div>
+    
 
+    <?php
 
+    if($_SESSION['popup'] != ''): ?> 
     <!-- Pop-up form for updating a user -->
-    <div id="update-user-popup"
-      class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
-      style="display: none; z-index: 999; width:100%; height:100%">
+    <div id="update-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <form class="update-user" method="post">
-          <h1 class="mb-1 text-center">Update user info</h1>
-          <div class="mb-1">
-            <label for="username" class="form-label text-secondary">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp"
-              value="<?php echo $user['username']; ?>">
+        <form class="update-user" action="../../controllers/admin/edit.user.controller.php" method="post">
+          <h1 class="mb-3 text-center">Update user info</h1>
+          <div class="row d-flex">
+            <div class="mb-1 col">
+            <input type="hidden" name="user_id" value="<?= $_SESSION['popup']['user_id'] ?>"?>
+              <label for="username" class="form-label text-secondary">Username</label>
+              <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" value="<?= $_SESSION['popup']['username'] ?>">
+            </div>
+            <div class="mb-2 col">
+              <label for="number" class="form-label text-secondary">Phone Number</label>
+              <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp" value="<?= $_SESSION['popup']['phoneNumber'] ?>">
+            </div>
           </div>
           <div class="mb-1">
             <label for="email" class="form-label text-secondary">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-              value="<?php echo $user['email']; ?>">
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?= $_SESSION['popup']['email'] ?>">
           </div>
           <div class="mb-1">
             <label for="update-password" class="col-2 form-label text-secondary">Password</label>
-            <div class="col input-group ">
-              <input type="password" class="col-12 form-control" id="update-password"
-                value="<?php echo $user['password']; ?>" name="password">
-                <button type="button" id="toggle-password-btn" class="col-1 btn btn-secondary"><i class="fa-solid fa-eye"></i> </button>
+            <div class="col input-group mt-1 mb-3">
+              <input type="password" class="col-12 form-control" id="update-password" value="<?= $_SESSION['popup']['password'] ?>" name="password">
+              <button type="button" id="toggle-password-btn" class="col-1 btn btn-secondary">
+                <i class="fa-regular fa-eye-slash"></i>
+              </button>
             </div>
           </div>
-          <div class="mb-1">
-            <label for="number" class="form-label text-secondary">Phone Number</label>
-            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp"
-              value="<?php echo $user['phoneNumber']; ?>">
-          </div>
-          <div class="input-group mb-1">
+
+          <div class="input-group mb-2 mt-2">
             <input type="file" class="form-control" id="inputGroupFile02">
-            <label class="input-group-text" for="inputGroupFile02">Upload</label>
+            <label class="input-group-text" for="inputGroupFile02"><i class="fa-solid fa-cloud-arrow-up"></i></label>
           </div>
-          <div class="gender-selection d-flex mb-1">
+          <div class="gender-selection d-flex mb-2 mt-2">
             <label class="text-secondary">Gender:</label>
             <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="male" <?php if ($user['gender'] === 'male')
-                echo 'checked'; ?>>
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M" <?= ($_SESSION['popup']['gender'] == 'M') ? 'checked' : '' ?>>
               <label for="maleRadio" class="form-check-label text-secondary">Male</label>
             </div>
             <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="female" <?php if ($user['gender'] === 'female')
-                echo 'checked'; ?>>
+              <input type="radio" id="femaleRadio" name="gender" value="F" <?= ($_SESSION['popup']['gender'] == 'F') ? 'checked' : '' ?>>
               <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
             </div>
           </div>
-          <div class="input-group mb-2">
-            <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
+          <div class="input-group mb-3">
+            <label class="input-group-text text-secondary" for="inputGroupSelect01"><i class="fa-solid fa-dice-d6"></i></label>
             <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
-              <?php if (isset($user['role_type'])): ?>
-                <option value="<?php echo $user['role_type']; ?>" selected>
-                  <?php echo $user['role_type']; ?>
-                </option>
-              <?php else: ?>
-                <option value="undefined" selected>Role Undefined</option>
-              <?php endif; ?>
-              <option value="customer">Customer</option>
-              <option value="restaurant_owner">Restaurant Owner</option>
-              <option value="delivery">Delivery</option>
+              <option <?= ($_SESSION['popup']['role_id'] == 1) ? 'selected' : '' ?> value="1">Customer</option>
+              <option <?= ($_SESSION['popup']['role_id'] == 2) ? 'selected' : '' ?> value="2">Owner</option>
+              <option <?= ($_SESSION['popup']['role_id'] == 3) ? 'selected' : '' ?> value="3">Delivery</option>
             </select>
           </div>
-          <input type="submit" class="btn btn-primary" name="send" value="Update" />
-          <input type="button" class="btn btn-danger" id="update-user-cancel" value="Cancel" />
+          <input type="submit" class="mt-2 btn btn-primary" name="send" value="Update" />
+          <a href="/" type="button" class="mt-2 btn btn-danger" >Cancel</a>
         </form>
       </div>
     </div>
+    <?php
+    $_SESSION['popup'] = '';
+   endif; 
+   ?>
   </main>
 
 
-  <?php
+<?php
 echo "<script>
 document.addEventListener('DOMContentLoaded', function () {
     let addUserBtn = document.getElementById('add-user-btn');
@@ -401,7 +406,7 @@ document.addEventListener('DOMContentLoaded', function () {
     addUserCancelBtn.addEventListener('click', hideAddUserPopup);
     updateUserCancelBtn.addEventListener('click', hideUpdateUserPopup);
 
-    let updateUserBtn = document.querySelectorAll('#update-user');
+    let updateUserBtn = document.querySelectorAll('.update-user');
 
     function showUpdateUserPopup() {
         updateUserPopup.style.display = 'block';
@@ -411,45 +416,34 @@ document.addEventListener('DOMContentLoaded', function () {
         updateUserBtn[i].addEventListener('click', showUpdateUserPopup);
     }
 
-    let updateUserPopupVisible = false;
-
-    for (let i = 0; i < updateUserBtn.length; i++) {
-        updateUserBtn[i].addEventListener('click', function () {
-            if (updateUserPopupVisible) {
-                updateUserPopup.style.display = 'none';
-            } else {
-                updateUserPopup.style.display = 'block';
-            }
-            updateUserPopupVisible = !updateUserPopupVisible;
-        });
-    }
-
-    // Toggle password visibility
-    let togglePasswordBtn = document.getElementById('toggle-password-btn');
-    let passwordInput = document.getElementById('update-password');
-    let eyeIcon = document.getElementById('eye-icon');
-
-    togglePasswordBtn.addEventListener('click', function () {
-        if (passwordInput.type === 'password') {
-            passwordInput.type = 'text';
+    // Function to toggle password visibility
+    function togglePasswordVisibility(input, eyeIcon) {
+        if (input.type === 'password') {
+            // Show password
+            input.type = 'text';
             eyeIcon.classList.remove('fa-eye-slash');
             eyeIcon.classList.add('fa-eye');
         } else {
-            passwordInput.type = 'password';
+            // Hide password
+            input.type = 'password';
             eyeIcon.classList.remove('fa-eye');
             eyeIcon.classList.add('fa-eye-slash');
         }
+    }
+
+    // Event listener for toggle password button in Add User form
+    document.getElementById('toggle-password-btn').addEventListener('click', function() {
+        let passwordInputAdd = document.getElementById('create-password');
+        let eyeIconAdd = this.querySelector('i.fa-regular');
+        togglePasswordVisibility(passwordInputAdd, eyeIconAdd);
     });
 
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (event) {
-        let dropdown = document.querySelector('.users-item-dropdown.dropdown');
-        let isClickInsideDropdown = dropdown.contains(event.target);
-        if (!isClickInsideDropdown) {
-            dropdown.style.display = 'none';
-        }
+    // Event listener for toggle password button in Update User form
+    document.getElementById('toggle-password-btn-update').addEventListener('click', function() {
+        let passwordInputUpdate = document.getElementById('update-password');
+        let eyeIconUpdate = this.querySelector('i.fa-regular');
+        togglePasswordVisibility(passwordInputUpdate, eyeIconUpdate);
     });
-
 });
 </script>";
 ?>
