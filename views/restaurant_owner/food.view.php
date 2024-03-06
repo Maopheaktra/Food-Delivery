@@ -119,8 +119,14 @@
                 <input type="number" name="price"class="form-control" id="price" placeholder="Place Enter Food Price">
             </div>
             <div class="mb-3">
-                <label for="cate_id" class="form-label">Price:</label>
-                <input type="number" name="cate_id"class="form-control" id="cate_id" placeholder="Category ID">
+                <label for="cate_id" class="form-label">Caategory:</label>
+                <select class="form-select-sm" id="cate_id" name="cate_id">
+                  <option>Select Category</option>
+                  <option>1</option>
+                  <option>3</option>
+                  <option>5</option>
+                  <option>7</option>
+                </select>            
             </div>
             <div class="mb-3">
                 <label for="descriptiom" class="form-label">Description:</label>
