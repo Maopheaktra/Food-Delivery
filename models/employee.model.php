@@ -160,6 +160,13 @@ function getAllCate(){
     return $statement->fetchAll();   
 }
 
+function getCatebyId($cateid){
+    global $connection;
+    $statement = $connection->prepare("select * from categories where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+    return $statement->fetch();   
+}
+
 function getFoodbyCate($cateid){
     global $connection;
     $statement = $connection->prepare("select * from foods where category_id = :cateid");
@@ -224,5 +231,16 @@ function addCategories($cateName, $description){
     $statement->execute([
         ':description'=> $description,
         ':name'=>$cateName
+    ]);
+}
+
+//------------- Update Categories ---------------
+function updateCate($cateid, $catename, $description){
+    global $connection;
+    $statement = $connection->prepare("update categories set name = :catename, description = :description where category_id = :cateid");
+    $statement->execute([
+        ':catename'=>$catename,
+        ':description'=>$description,
+        ':cateid'=>$cateid,
     ]);
 }

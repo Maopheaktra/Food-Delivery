@@ -9,6 +9,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         $cateName = $_POST['cate'];
         $description = $_POST['description'];
         addCategories($cateName, $description);
-        header('Location: /');
+        header('Location: /all_categories');
     }
 }
