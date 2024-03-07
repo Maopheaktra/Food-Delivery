@@ -1,7 +1,5 @@
 <head>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <?php
@@ -94,12 +92,12 @@ if (!isset($_SESSION['popup'])) {
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <div class="pages-table-img">
-                <?php if (isset($user['user_img'])): ?>
+                <?php if (isset($user['user_img'])) : ?>
                   <picture>
                     <source srcset="assets/images/user/<?= $user['user_img'] ?>" type="image/webp">
                     <img src="assets/images/user/<?= $user['user_img'] ?>" alt="Profile Picture">
                   </picture>
-                <?php else: ?>
+                <?php else : ?>
                   <img src="assets/images/avatar/user.png" alt="Profile Picture">
                 <?php endif; ?>
               </div>
@@ -201,7 +199,7 @@ if (!isset($_SESSION['popup'])) {
         </div>
       </div>
       <div class="btn-add">
-        <button type="submit" id="add-user-btn" class="btn btn-primary">Add User</button>
+        <button type="submit" id="add-user-btn" class="btn btn-primary border-2" style="border-color: transparent !important;">Add User</button>
       </div>
       <div class="users-table table-wrapper">
         <table class="posts-table">
@@ -220,8 +218,8 @@ if (!isset($_SESSION['popup'])) {
           <tbody>
             <?php
             $users = getAllUsers();
-            foreach ($users as $user):
-              ?>
+            foreach ($users as $user) :
+            ?>
               <tr>
                 <td>
                   <?= $user['user_id'] ?>
@@ -254,17 +252,13 @@ if (!isset($_SESSION['popup'])) {
                 </td>
                 <td>
                   <span class="p-relative">
-                    <button class="dropdown-btn transparent-btn" type="button" title="More info">
+                    <button class="dropdown-btn transparent-btn " style="border-color: transparent !important;" type="button" title="More info">
                       <div class="sr-only">More info</div>
-                      <i data-feather="more-horizontal" aria-hidden="true"></i>
+                      <i class="text-info" data-feather="more-horizontal" aria-hidden="true" style="color: initial; transition: color 0.3s;" onmouseover="this.style.color='red'" onmouseout="this.style.color='initial'"></i>
                     </button>
-                    <ul class="users-item-dropdown dropdown">
-                      <li class="mx-2 mb-2" id="update-user"><a
-                          href="controllers/admin/admin.edit_user.controller.php?id=<?= $user['user_id'] ?>"><i
-                            class="fa-solid fa-pen-to-square"></i> edit </a></li>
-                      <li class="mt-2 mx-2" id="pop-del"><a
-                          href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>"><i
-                            class="fa-solid fa-user-slash"></i> delete</a></li>
+                    <ul class="users-item-dropdown dropdown shadow-none" style="border-color: transparent !important;">
+                      <li class="mx-2 mb-2 " style="border-color: transparent !important;" id="update-user"><a href="controllers/admin/admin.edit_user.controller.php?id=<?= $user['user_id'] ?>"><i class="fa-solid fa-pen-to-square"></i> edit </a></li>
+                      <li class="mt-2 mx-2" id="pop-del"><a href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>"><i class="fa-solid fa-user-slash"></i> delete</a></li>
                     </ul>
                   </span>
                 </td>
@@ -276,155 +270,154 @@ if (!isset($_SESSION['popup'])) {
     </div>
 
     <!-- Pop-up form for adding a new user -->
-    <div id="add-user-popup"
-      class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
-      style="display: none; z-index: 999; width:100%; height:100%">
-      <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
+    <div id="add-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+      <div class="col-7 m-auto p-4 mt-3 bg-light rounded-3">
         <form class="add-user" action="../../controllers/admin/create_user.controller.php" method="post">
-          <h1 class="mb-1 text-center">Add a new user</h1>
-          <div class="mb-1">
-            <label for="username" class="form-label text-secondary">Username</label>
-            <input type="text" class="form-control" placeholder="James Smith" id="username" name="username"
-              aria-describedby="usernameHelp">
-          </div>
-          <div class="mb-1">
-            <label for="email" class="form-label text-secondary">Email address</label>
-            <input type="email" class="form-control" placeholder="Ex. client@example.com" id="email" name="email"
-              aria-describedby="emailHelp">
+          <div class="head-control mb-4 mt-2 d-flex">
+            <h1 class="col-11 text-center text-uppercase">Add a new user</h1>
+            <div class="col btn-closing d-flex justify-content-end align-items-lg-center ">
+
+              <button class="d-flex justify-content-center align-items-center btn btn-outline-info shadow-none  text-warning rounded-circle" style="width:32px; height:32px;" onmouseover="this.classList.remove('text-dark-subtle'); this.classList.add('text-danger');" onmouseout="this.classList.remove('text-danger'); this.classList.add('text-dark-subtle');">
+                <i style="font-size: 32px;" class="fa-solid fa-circle-xmark"></i>
+              </button>
+
+
+            </div>
           </div>
 
-          <div class="mb-1">
-            <label for="create-password" class="col-2 form-label text-secondary">Password</label>
-            <div class="col input-group mt-1 mb-3">
-              <input type="password" class="col-12 form-control" id="create-password"
-                placeholder="Your password should be at least 8 characters long" name="password">
-              <button type="button" id="toggle-create-password-btn" class="col-1 btn btn-secondary btn-outline-info text-white border-0 ">
+          <div class="d-flex mb-3">
+            <label for="username" class="col-3 form-label text-secondary">Username</label>
+            <input type="text" class="col-9 form-control shadow-none" placeholder="James Smith" id="username" name="username" aria-describedby="usernameHelp">
+          </div>
+          <div class="d-flex mb-3">
+            <label for="email" class="col-3 form-label text-secondary">Email address</label>
+            <input type="email" class="col-9 form-control shadow-none" style="border-color: transparent !important;" placeholder="Ex. client@example.com" id="email" name="email" aria-describedby="emailHelp">
+          </div>
+
+          <div class="mb-3 d-flex align-items-center row">
+            <div class="pass-form-lab col-3 d-flex align-items-center">
+              <label for="create-password" class="mx-3 bg-body-tertiary mt-1 form-label text-secondary">Password</label>
+            </div>
+            <div class="col input-group">
+              <input type="password" class="col-11 form-control border-white shadow-none" id="create-password" placeholder="Your password should be at least 8 characters long" name="password">
+              <button type="button" id="toggle-create-password-btn" class="btn btn-secondary btn-outline-info text-white shadow-none" style="margin-right:8px ; width: 50px; border-color: transparent !important;">
                 <i class="fa-solid fa-eye-slash"></i>
               </button>
             </div>
           </div>
 
-          <div class="mb-1">
-            <label for="number" class="form-label text-secondary">Phone Number</label>
-            <input type="number" class="form-control" placeholder="(+855) 123456789" id="number" name="number"
-              aria-describedby="numberHelp">
+          <div class="d-flex mb-3">
+            <label for="number" class="col-3 form-label text-secondary">Phone Number</label>
+            <input type="number" class="col-9 form-control border-white shadow-none" placeholder="(+855) 123456789" id="number" name="number" aria-describedby="numberHelp">
           </div>
 
-          <div class="mb-3 row align-items-center">
+          <div class="d-flex row align-items-center">
             <div class="col-3">
-              <label class="form-label text-secondary">Gender</label>
+              <label class="col-3 form-label text-secondary">Gender</label>
             </div>
-            <div class="form-check col-2 d-flex align-items-center">
-              <input style="width: 20px; height: 20px; outline: 1.5px solid teal;"  class="form-check-input" type="radio" name="gender" id="maleRadio" value="M">
-              <label class="form-check-label" for="maleRadio">
-                Male
-              </label>
-            </div>
-            <div class="form-check col-2 d-flex align-items-center">
-              <input style="width: 20px; height: 20px; outline: 1.5px solid teal;" class="form-check-input" type="radio" name="gender" id="femaleRadio" value="F">
-              <label class="form-check-label" for="femaleRadio">
-                Female
-              </label>
+            <div class="col d-flex bg-white p-2 form-control border-0 rounded" style="margin-right:15px ; margin-left:5px ;">
+              <div class=" form-check col-3 d-flex align-items-center mx-3">
+                <input style="width: 20px; height: 20px; outline: 1.5px solid teal;" class="form-check-input shadow-none" type="radio" name="gender" id="maleRadio" value="M">
+                <label class="form-check-label" for="maleRadio">
+                  Male
+                </label>
+              </div>
+              <div class="form-check col d-flex align-items-center">
+                <input style="width: 20px; height: 20px; outline: 1.5px solid teal;" class="form-check-input shadow-none" type="radio" name="gender" id="femaleRadio" value="F">
+                <label class="form-check-label" for="femaleRadio">
+                  Female
+                </label>
+              </div>
             </div>
           </div>
 
 
           <div class="input-group mt-3">
-            <label class="input-group-text text-secondary" for="inputGroupSelect01"><i
-                class="fa-solid fa-dice-d6"></i></label>
-            <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
+            <label class="input-group-text text-secondary" for="inputGroupSelect01"><i class="fa-solid fa-dice-d6"></i></label>
+            <select class="form-select text-secondary shadow-none" style="border-color: transparent !important;" name="role" id="inputGroupSelect01">
               <option selected>Select a user role</option>
               <option value="1">Customer</option>
               <option value="2">Restaurant Owner</option>
               <option value="3">Delivery</option>
             </select>
           </div>
-          <input type="submit" class="mt-3 btn btn-primary" name="send" value="Add Now" />
-          <input type="button" class="mx-3 mt-3 btn btn-danger" id="add-user-cancel" value="Cancel" />
+
+          <input type="button" class="mx-3 mt-3 btn btn-danger border-2 " id="add-user-cancel" value="Cancel" />
+          <input type="submit" class="mt-3 btn btn-primary shadow-none border-2 " name="send" value="Add Now" />
+
         </form>
       </div>
     </div>
 
 
     <?php
-    if ($_SESSION['popup'] != ''): ?>
+    if ($_SESSION['popup'] != '') : ?>
       <!-- Pop-up form for updating a user -->
-      <div id="update-user-popup"
-        class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
-        style="z-index: 999; width:100%; height:100%">
-        <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
+      <div id="update-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
+        <div class="col-7 m-auto p-4 mt-3 bg-light rounded-3">
           <form class="update-user" action="../../controllers/admin/edit.user.controller.php" method="post">
-            <h1 class="mb-3 text-center">Update user info</h1>
+            <h1 class="mb-3 text-center text-uppercase">Update user info</h1>
             <div class="row d-flex">
-              <div class="mb-1 col">
+              <div class="mb-3 col">
                 <input type="hidden" name="user_id" value="<?= $_SESSION['popup']['user_id'] ?>" ?>
                 <label for="username" class="form-label text-secondary">Username</label>
-                <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp"
-                  value="<?= $_SESSION['popup']['username'] ?>">
+                <input type="text" class="form-control border-white shadow-none" id="username" name="username" aria-describedby="usernameHelp" value="<?= $_SESSION['popup']['username'] ?>">
               </div>
-              <div class="mb-2 col">
+              <div class="mb-3 col">
                 <label for="number" class="form-label text-secondary">Phone Number</label>
-                <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp"
-                  value="<?= $_SESSION['popup']['phoneNumber'] ?>">
+                <input type="int" class="form-control border-white shadow-none" id="number" name="number" aria-describedby="numberHelp" value="<?= $_SESSION['popup']['phoneNumber'] ?>">
               </div>
             </div>
-            <div class="mb-1">
+            <div class="mb-3">
               <label for="email" class="form-label text-secondary">Email address</label>
-              <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp"
-                value="<?= $_SESSION['popup']['email'] ?>">
+              <input type="email" class="form-control border-white shadow-none" id="email" name="email" aria-describedby="emailHelp" value="<?= $_SESSION['popup']['email'] ?>">
             </div>
-            <div class="mb-1">
-              <label for="update-password" class="col-2 form-label text-secondary">Password</label>
-              <div class="col input-group mt-1 mb-3">
-                <input type="password" class="col-12 form-control" id="update-password"
-                  value="<?= $_SESSION['popup']['password'] ?>" name="password">
-                <button type="button" id="toggle-update-password-btn" class="col-1 btn btn-secondary btn-outline-info text-white border-0">
+            <div class="password-form-control mb-3">
+              <label for="update-password" class="form-label text-secondary">Password</label>
+              <div class="d-flex input-group">
+                <input type="password" class="col-12 form-control border-white shadow-none" id="update-password" value="<?= $_SESSION['popup']['password'] ?>" name="password">
+                <button type="button" id="toggle-update-password-btn" style="border-color: transparent !important;" class="btn btn-secondary btn-outline-info text-white border-2">
                   <i class="fa-regular fa-eye-slash"></i>
                 </button>
               </div>
             </div>
 
 
-            <div class="input-group mb-2 mt-2">
-              <input type="file" class="form-control" id="inputGroupFile02">
-              <label class="input-group-text btn-outline-info text-dark" for="inputGroupFile02"><i class="fa-solid fa-cloud-arrow-up"></i></label>
+            <div class="input-group mb-3">
+              <input type="file" class="form-control shadow-none" style="border-color: transparent !important;" id="inputGroupFile02">
+              <label class="input-group-text text-dark bg-outline-info" for="inputGroupFile02"><i class="fa-solid fa-cloud-arrow-up"></i></label>
             </div>
 
-            <div class="input-group mb-3 mt-3">
-              <label class="input-group-text text-secondary" for="inputGroupSelect01"><i
-                  class="fa-solid fa-dice-d6"></i></label>
-              <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
+            <div class="input-group mb-3">
+              <label class="input-group-text text-secondary" for="inputGroupSelect01"><i class="fa-solid fa-dice-d6"></i></label>
+              <select class="form-select text-secondary shadow-none" style="border-color: transparent !important;" name="role" id="inputGroupSelect01">
                 <option <?= ($_SESSION['popup']['role_id'] == 1) ? 'selected' : '' ?> value="1">Customer</option>
                 <option <?= ($_SESSION['popup']['role_id'] == 2) ? 'selected' : '' ?> value="2">Owner</option>
                 <option <?= ($_SESSION['popup']['role_id'] == 3) ? 'selected' : '' ?> value="3">Delivery</option>
               </select>
             </div>
-            <button type="submit" class="mt-2 btn btn-primary border-0 btn-outline-info text-white" name="send" value="Update">Update</button>
-            <a href="/"><button type="button" class="mt-2 btn btn-danger"> Cancel</button> </a>
+            <button type="submit" class="mt-2 btn btn-primary border-2 btn-outline-info text-white" name="send" value="Update">Update</button>
+            <a href="/"><button type="button" class="mt-2 mx-2 btn btn-danger border-2"> Cancel</button> </a>
           </form>
         </div>
       </div>
       <!-- pop-up profile user-admin -->
-      <div id="profile-admin-popup"
-        class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
-        style="display: none; z-index: 999; width:100%; height:100%">
+      <div id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
         <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
           <div class="show-pro d-flex flex-column">
             <!-- Wrap the image within a label -->
             <label class="d-flex justify-content-center" for="imageInput" style="width: 100%;">
-              <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg"
-                style="width: 20%; border-radius: 50%;" alt="...">
+              <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" style="width: 20%; border-radius: 50%;" alt="...">
             </label>
             <input type="file" id="imageInput" style="display: none;" accept="image/*"> <!-- Hidden file input -->
-            <div class="username text-center fs-4"
-              style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
+            <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
             <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">
               chuonveasna123@gmail.com</div>
           </div>
           <div class="show-info" style="width:100%;">
-            <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username">
-            <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email">
-            <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone">
+            <input type="text" class="form-control shadow-none mb-3" placeholder="Username" aria-label="username">
+            <input type="email" class="form-control shadow-none mb-3" placeholder="Email Address" aria-label="email">
+            <input type="number" class="form-control shadow-none mb-3" placeholder="Phone Number" aria-label="phone">
             <label class="visually-hidden" for="autoSizingSelect">Preference</label>
             <div class="input-group mb-3">
               <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
@@ -448,12 +441,12 @@ if (!isset($_SESSION['popup'])) {
             </div>
           </div>
           <div>
-            <input type="submit" class="btn btn-primary" name="send" value="Save" />
-            <input type="button" class="btn btn-danger" id="update-user-cancel" value="Cancel" />
+            <input type="submit" class="btn btn-primary border-2" name="send" value="Save" />
+            <input type="button" class="btn btn-danger border-2" id="update-user-cancel" value="Cancel" />
           </div>
         </div>
       </div>
-      <?php
+    <?php
       $_SESSION['popup'] = '';
     endif;
     ?>
