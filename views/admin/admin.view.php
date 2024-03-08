@@ -9,6 +9,7 @@ ob_start();
 if (!isset($_SESSION['popup'])) {
   $_SESSION['popup'] = '';
 }
+$userCountsByRole = countUsersByRole();
 ?>
 <div class="main-wrapper">
   <!-- ! Main nav -->
@@ -91,16 +92,9 @@ if (!isset($_SESSION['popup'])) {
           <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
-              <div class="pages-table-img">
-                <?php if (isset($user['user_img'])) : ?>
-                  <picture>
-                    <source srcset="assets/images/user/<?= $user['user_img'] ?>" type="image/webp">
-                    <img src="assets/images/user/<?= $user['user_img'] ?>" alt="Profile Picture">
-                  </picture>
-                <?php else : ?>
-                  <img src="assets/images/avatar/user.png" alt="Profile Picture">
-                <?php endif; ?>
-              </div>
+              <picture>
+                <source srcset="assets/images/user/<?= $adminPf['user_img']; ?>" type="image/webp"><img src="assets/images/user/<?= $adminPf['user_img']; ?>" alt="User name">
+              </picture>
             </span>
           </button>
           <ul class="users-item-dropdown nav-user-dropdown dropdown">
@@ -127,7 +121,8 @@ if (!isset($_SESSION['popup'])) {
   <!-- ! Main -->
   <main class="main users chart-page" id="skip-target">
     <div class="container">
-      <h2 class="main-title">Dashboard</h2>
+      <h2 class="main-title">USER PANEL</h2>
+
       <div class="row stat-cards">
         <div class="col-md-6 col-xl-3">
           <article class="stat-cards-item">
@@ -135,13 +130,9 @@ if (!isset($_SESSION['popup'])) {
               <img src="../../assets/images/icons/users.png" class="rounded-circle" alt="">
             </div>
             <div class="stat-cards-info">
-              <p class="stat-cards-info__num"></p>
-              <p class="stat-cards-info__title">Total visits</p>
-              <p class="stat-cards-info__progress">
-                <span class="stat-cards-info__profit success">
-                  <i data-feather="trending-up" aria-hidden="true"></i>
-                </span>
-                Last month
+              <h5 class="mb-3">All users</h5>
+              <p class="text-info">
+                <?= $userCountsByRole[3]['user_count']; ?>
               </p>
             </div>
           </article>
@@ -151,14 +142,10 @@ if (!isset($_SESSION['popup'])) {
             <div class="stat-cards-icon warning">
               <img src="../../assets/images/icons/restaurant owner.png" class="rounded-circle" alt="">
             </div>
-            <div class=" stat-cards-info">
-              <p class="stat-cards-info__num">1478 286</p>
-              <p class="stat-cards-info__title">Total visits</p>
-              <p class="stat-cards-info__progress">
-                <span class="stat-cards-info__profit success">
-                  <i data-feather="trending-up" aria-hidden="true"></i>0.24%
-                </span>
-                Last month
+            <div class="stat-cards-info">
+              <h5 class="mb-3">Owners</h5>
+              <p class="text-info">
+                <?= $userCountsByRole[2]['user_count']; ?>
               </p>
             </div>
           </article>
@@ -169,13 +156,9 @@ if (!isset($_SESSION['popup'])) {
               <img src="../../assets/images/icons/deliverer.png" class="rounded-circle" alt="">
             </div>
             <div class="stat-cards-info">
-              <p class="stat-cards-info__num">1478 286</p>
-              <p class="stat-cards-info__title">Total visits</p>
-              <p class="stat-cards-info__progress">
-                <span class="stat-cards-info__profit danger">
-                  <i data-feather="trending-down" aria-hidden="true"></i>1.64%
-                </span>
-                Last month
+              <h5 class="mb-3">Runners</h5>
+              <p class="text-info">
+                <?= $userCountsByRole[1]['user_count']; ?>
               </p>
             </div>
           </article>
@@ -185,9 +168,16 @@ if (!isset($_SESSION['popup'])) {
             <div class="stat-cards-icon success">
               <img src="../../assets/images/icons/eaters.png" class="rounded-circle" alt="">
             </div>
+            <div class="stat-cards-info">
+              <h5 class="mb-3">Customers</h5>
+              <p class="text-info">
+                <?php echo $userCountsByRole[0]['user_count']; ?>
+              </p>
+            </div>
           </article>
         </div>
       </div>
+
       <div class="btn-add">
         <button type="submit" id="add-user-btn" class="btn btn-primary border-2" style="border-color: transparent !important;">Add User</button>
       </div>
@@ -266,8 +256,10 @@ if (!isset($_SESSION['popup'])) {
           <div class="head-control mb-4 mt-2 d-flex">
             <h1 class="col-11 text-center text-uppercase">Add a new user</h1>
             <div class="col btn-closing d-flex justify-content-end align-items-lg-center ">
-              <button class="d-flex justify-content-center align-items-center btn btn-outline-info shadow-none btn-close" style="width:32px; height:32px;" onmouseover="this.classList.remove('text-dark-subtle'); this.classList.add('text-danger');" onmouseout="this.classList.remove('text-danger'); this.classList.add('text-dark-subtle');">
+
+              <button class="btn btn-outline-danger border-2 shadow-none btn-close" id="add-user-cancel" style="width:32px; height:32px;" onmouseover="this.classList.remove('text-dark-subtle'); this.classList.add('text-danger');" onmouseout="this.classList.remove('text-danger'); this.classList.add('text-dark-subtle');">
               </button>
+
             </div>
           </div>
 
@@ -277,7 +269,7 @@ if (!isset($_SESSION['popup'])) {
           </div>
           <div class="d-flex mb-3">
             <label for="email" class="col-3 form-label text-secondary">Email address</label>
-            <input type="email" class="col-9 form-control shadow-none" style="border-color: transparent !important;" placeholder="Ex. client@example.com" id="email" name="email" aria-describedby="emailHelp">
+            <input type="email" class="col-9 form-control shadow-none" style="border-color: transparent !important;" placeholder="client@example.com" id="email" name="email" aria-describedby="emailHelp">
           </div>
 
           <div class="mb-3 d-flex align-items-center row">
@@ -328,8 +320,8 @@ if (!isset($_SESSION['popup'])) {
             </select>
           </div>
           <div class="bottom-btn d-flex justify-content-end mt-3">
-            <input type="button" class="mx-3 btn btn-danger border-2 " id="add-user-cancel" value="Cancel" />
-            <input type="submit" class="btn btn-primary shadow-none border-2 " name="send" value="Add Now" />
+            <input type="submit" class="mx-3 btn btn-primary shadow-none border-2 " name="send" value="Add Now" />
+            <input type="button" class="btn btn-danger border-2 " id="add-user-cancel" value="Cancel" />
           </div>
 
         </form>
@@ -399,7 +391,7 @@ if (!isset($_SESSION['popup'])) {
             <input type="file" id="imageInput" style="display: none;" accept="image/*"> <!-- Hidden file input -->
             <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
             <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">
-              team@gmail.com</div>
+              chuonveasna123@gmail.com</div>
           </div>
           <div class="show-info" style="width:100%;">
             <input type="text" class="form-control shadow-none mb-3" placeholder="Username" aria-label="username">
@@ -433,15 +425,16 @@ if (!isset($_SESSION['popup'])) {
           </div>
         </div>
       </div>
-    <?php
+</div>
+<?php
       $_SESSION['popup'] = '';
     endif;
-    ?>
+?>
 
-  </main>
+</main>
 
-  <?php
-  echo "<script>
+<?php
+echo "<script>
 document.addEventListener('DOMContentLoaded', function () {
     let addUserBtn = document.getElementById('add-user-btn');
     let addUserCancelBtn = document.getElementById('add-user-cancel');
@@ -505,4 +498,4 @@ function togglePasswordVisibilityCreate() {
 // Event listener for toggle password button in Create User form
 document.getElementById('toggle-create-password-btn').addEventListener('click', togglePasswordVisibilityCreate);
 </script>";
-  ?>
+?>

@@ -42,15 +42,28 @@ function countUsersByRole()
 
     $statement = $connection->prepare($query);
     $statement->execute();
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
+    $userCountsByRole = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+    // Get the total count of users regardless of role
+    $queryTotal = "
+        SELECT 
+            COUNT(user_id) AS total_count
+        FROM 
+            users
+    ";
+
+    $statementTotal = $connection->prepare($queryTotal);
+    $statementTotal->execute();
+    $totalUsers = $statementTotal->fetch(PDO::FETCH_ASSOC);
+
+    // Add the total count of users to the result array
+    $userCountsByRole[] = array('role_type' => 'Total', 'user_count' => $totalUsers['total_count']);
+
+    return $userCountsByRole;
 }
 
-$userCountsByRole = countUsersByRole();
 
-// Iterate through the results and echo them
-foreach ($userCountsByRole as $role) {
-    echo "Role: " . $role['role_type'] . ", User Count: " . $role['user_count'] . "<br>";
-}
+
 function createUsers($username, $email, $password, $gender, $role, $phoneNumber, $userImg)
 {
     global $connection;
