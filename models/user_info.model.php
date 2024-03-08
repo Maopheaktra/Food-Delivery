@@ -44,13 +44,13 @@ function deleteUser($userid){
 }
 
 
-function Add_New_Food($Name, $description, $price, $cate_id){
-    global $connection;
-    $statement=$connection->prepare("insert into foods(Foodname, description, price, category_id) values (:name, :description, :price, :category_id)");
-    $statement->execute([
-        ':name'=> $Name,
-        ':description'=> $description,
-        ':price'=> $price,
-        ':category_id'=> $cate_id
-    ]);
-}
+// function Add_New_Food($Name, $description, $price, $cate_id){
+//     global $connection;
+//     $statement=$connection->prepare("insert into foods(Foodname, description, price, category_id) values (:name, :description, :price, :category_id)");
+//     $statement->execute([
+//         ':name'=> $Name,
+//         ':description'=> $description,
+//         ':price'=> $price,
+//         ':category_id'=> $cate_id
+//     ]);
+// }

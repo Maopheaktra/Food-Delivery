@@ -1,6 +1,4 @@
 <?php
-
-
 function getUsers() : array
 {
     global $connection;
