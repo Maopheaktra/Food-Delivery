@@ -80,9 +80,9 @@
                         $statement = $connection->prepare("SELECT * FROM foods");
                         $statement->execute();
                         $foods = $statement->fetchAll();
-                        foreach ($foods as $food):?>
+                        foreach ($foods as $key => $food):?>
                         <tr>
-                          <td><?=$food['Food_id'];?></td>
+                          <td><?=$key+1?></td>
                           <td><img src="assets/images/categories/breakfast.jpg" alt="" style ="width:70px" class = "img-responsive"></td>
                           <td><?=$food['Foodname'];?></td>
                           <td><?=$food['description'];?></td>
@@ -90,7 +90,7 @@
                           <td><?=$food['category_id'];?></td>
                           <td>
                             <button class = "btn btn-success">Edit</button>
-                            <button class = "btn btn-danger">Delete</button>
+                            <a href="controllers/Food/delete_food.controller.php?foodid=<?=$food['Food_id'];?>" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         <?php endforeach;?>

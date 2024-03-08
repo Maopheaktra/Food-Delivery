@@ -229,3 +229,9 @@ function Add_New_Food($Name, $description, $price, $cate_id){
         ':category_id'=> $cate_id
     ]);
 }
+
+function deleteFood($foodid){
+    global $connection;
+    $statement = $connection->prepare("delete from foods where Food_id = :foodid");
+    $statement->execute([':foodid'=> $foodid]);
+}
