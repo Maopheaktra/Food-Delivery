@@ -61,23 +61,28 @@
             <div class="chart">
                 <div class="container mt-3 ">
                   <a href=""type="Submit" id ="add-food" class="btn btn-primary mg-3">Add New+</a>
-                  <table class = "table table-bordered mt-4">
+                  <table class = "table table-bordered mt-4"  id="selectedColumn"  cellspacing="0" width="100%">
                       <thead>
                           <tr>
-                              <th>Food_ID</th>
-                              <th>Photo</th>
-                              <th>Food Name</th>
-                              <th>Description</th>
-                              <th>Price</th>
-                              <th>Cate_name</th>
-                              <th>Action</th>
+                              <th class="th-sm">Food_ID</th>
+                              <th class="th-sm">Photo</th>
+                              <th class="th-sm">Food Name</th>
+                              <th class="th-sm">Description</th>
+                              <th class="th-sm">Price</th>
+                              <th class="th-sm">Cate_name</th>
+                              <th class="th-sm">Action</th>
                           </tr>
                       </thead>
                       <tbody>
                         <?php
-                        require "database/database.php";
-                        // require "models/employee.model.php";
-                        $statement = $connection->prepare("SELECT * FROM foods");
+                          $resId = $_SESSION['res_own']['restaurant_id'];
+                          $categories = getCateInres($resId);
+                          foreach ($categories as $key => $value):
+                             $cateid = $value['category_id'];
+                          ?>
+                        <?php
+                        
+                        $statement = $connection->prepare("SELECT * FROM foods where category_id = $cateid");
                         $statement->execute();
                         $foods = $statement->fetchAll();
                         foreach ($foods as $food):?>
@@ -87,13 +92,16 @@
                           <td><?=$food['Foodname'];?></td>
                           <td><?=$food['description'];?></td>
                           <td><?=$food['price'];?></td>
-                          <td><?=$food['category_id'];?></td>
+                          <td><?=getCatebyId($food['category_id'])['name'];?></td>
                           <td>
                             <button class = "btn btn-success">Edit</button>
                             <button class = "btn btn-danger">Delete</button>
                           </td>
                         </tr>
                         <?php endforeach;?>
+                        <?php
+                        endforeach;
+                        ?>
                       </tbody>
                   </table>
                 </div>
@@ -105,6 +113,7 @@
 <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display:none; z-index: 999; width:100%; height:100%">
       <div id="add-food popup-food" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-food popup-food" action="controllers/Food/create_food.controller.php" method="post" >
+        <form class="add-food popup-food" action="controllers/Food/create_food.controller.php" method="post">
             <h1>Create Food</h1>
             <div class="mb-3">
             <label for="username" class="form-label">Image:</label>
@@ -127,6 +136,8 @@
                   <option>5</option>
                   <option>7</option>
                 </select>            
+                <label for="cate_id" class="form-label">Price:</label>
+                <input type="number" name="cate_id"class="form-control" id="cate_id" placeholder="Category ID">
             </div>
             <div class="mb-3">
                 <label for="descriptiom" class="form-label">Description:</label>
@@ -137,7 +148,7 @@
         </form>
       </div>
     </div>
-    <?php
+<?php
 echo "<script>
      
       let btnAdd = document.querySelector('#add-food');
@@ -153,5 +164,17 @@ echo "<script>
       }
       btnAdd.addEventListener('click', showBtn);   
       btnCancel.addEventListener('click, hide');
+
+
+      $(document).ready(function () {
+        $('#selectedColumn').DataTable({
+          'aaSorting': [],
+          columnDefs: [{
+          orderable: false,
+          targets: 3
+          }]
+        });
+          $('.dataTables_length').addClass('bs-select');
+      });
     </script>";
   ?>

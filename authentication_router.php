@@ -7,6 +7,7 @@ $routes = [
     '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
     '/signin' => 'controllers/signin/signin.controller.php'
 
+    // '/createRes'=> 'controllers/restaurant_owner/create_restaurant.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {

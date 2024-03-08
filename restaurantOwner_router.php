@@ -5,7 +5,8 @@ $routes = [
     '/' => 'controllers/restaurant_owner/restaurant_owner.controller.php',
     '/all_categories'=> 'controllers/restaurant_owner/all_categories_owner.controller.php',
     '/all_food'=> 'controllers/restaurant_owner/all_food_owner.controller.php',
-    '/comment' => 'controllers/restaurant_owner/comment.controller.php'
+    '/comment' => 'controllers/restaurant_owner/comment.controller.php',
+    '/res_order'=> 'controllers/restaurant_owner/res_order.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {

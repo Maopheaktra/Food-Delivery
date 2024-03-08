@@ -33,7 +33,7 @@
         <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
-            <picture><source srcset="assets/images/avatar/avatar-illustrated-02.webp" type="image/webp"><img src="assets/images/avatar/avatar-illustrated-02.png" alt="User name"></picture>
+            <picture><source srcset="../../assets/images/user/<?= $resOwner['user_img'] ?>" type="image/webp"><img src="../../assets/images/user/<?= $resOwner['user_img'] ?>" alt="User name"></picture>
           </span>
         </button>
         <ul class="users-item-dropdown nav-user-dropdown dropdown">
@@ -83,6 +83,14 @@
                         <tr>
                           <td><?=$category['category_id'];?></td>
                           <td><img src="assets/images/categories/download.jpg" alt="" style ="width:70px" class = "img-responsive"></td>
+                        $resId = $_SESSION['res_own']['restaurant_id'];
+                        $categories = getCateInres($resId);
+
+                        
+                        foreach ($categories as $category):?>
+                        <tr>
+                          <td><?=$category['category_id'];?></td>
+                          <td><img src="assets/images/trending4.png" alt="" style ="width:70px" class = "img-responsive"></td>
                           <td><?=$category['name'];?></td>
                           <td><?=$category['description'];?></td>
                           <td>

@@ -1,5 +1,6 @@
 <?php
 require "../../database/database.php";
+<<<<<<< HEAD
 require "../../models/employee.model.php";
 // echo $_POST['food'];
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,6 +29,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //         header("Location: /add_food");
         //     }
         // }
+=======
+require "../../models/user_info.model.php";
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST['food']) && isset($_POST['description']) && isset($_POST['price']) && isset($_POST['cate_id'])) {
+>>>>>>> res_pay
         $Name = $_POST['food'];
         $description = $_POST['description'];
         $price = $_POST['price'];

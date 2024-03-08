@@ -17,7 +17,7 @@ function createUser($name, $email, $password, $phoneNumber, $gender, $role) : bo
     return $statement->rowCount() > 0;
 }
 
-function login($email, $password){
+function login($email){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->execute([':email' => $email]);
@@ -36,4 +36,21 @@ function updateInfo($name, $phone, $email, $userID): bool {
     return $statement->rowCount() > 0;
 }
 
+function deleteUser($userid){
+    global $connection;
+    $statement = $connection->prepare("delete from users where user_id = :userid");
+    $statement->execute([':userid'=> $userid]);
 
+}
+
+
+function Add_New_Food($Name, $description, $price, $cate_id){
+    global $connection;
+    $statement=$connection->prepare("insert into foods(Foodname, description, price, category_id) values (:name, :description, :price, :category_id)");
+    $statement->execute([
+        ':name'=> $Name,
+        ':description'=> $description,
+        ':price'=> $price,
+        ':category_id'=> $cate_id
+    ]);
+}

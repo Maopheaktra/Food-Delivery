@@ -1,5 +1,5 @@
 
-<footer class="section-footer border-top bg-dark">
+<footer class="section-footer border-top bg-dark" id="footer">
     <div class="container">
       <section class="footer-top padding-y py-5">
         <div class="row">
