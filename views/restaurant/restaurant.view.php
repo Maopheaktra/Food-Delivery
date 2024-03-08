@@ -1,5 +1,6 @@
 <?php
    $resDetail = (detailRes($_GET['id']));
+//    print_r($data[$_GET['id']][]);
 ?>
 <div class="d-none">
         <div class="bg-primary p-3 d-flex align-items-center">
@@ -48,68 +49,13 @@
                             class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
                     <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i
                             class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
-                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
+                    <a href="/restaurant_location" class="text-decoration-none text-dark"><i
                             class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
                 </div>
                 <a href="contact-us.html" class="btn btn-sm btn-outline-light ml-auto">Contact</a>
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class>
-            <p class="font-weight-bold pt-4 m-0">FEATURED ITEMS</p>
-
-            <div class="trending-slider rounded">
-            <?php for ($i=0; $i < 6 ; $i++): ?>
-          <div class="col-md-3 pb-3">
-            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
-                <div class="star position-absolute">
-                  <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
-                </div>
-                <div class="favourite-heart text-danger position-absolute">
-                  <a href="#"><i class="feather-heart"></i></a>
-                </div>
-                <div class="member-plan position-absolute">
-                  <span class="badge badge-dark">Promoted</span>
-                </div>
-                <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>">
-                  <img alt="#" src="<?php print_r ($pic[$i]) ?>" />
-                </a>
-              </div>
-              <div class="p-3 position-relative">
-                <div class="list-card-body">
-                  <h6 class="mb-1">
-                    <a href="/restaurant" class="text-black"> <?php print_r($data[$i][1]) ?>
-                    </a>
-                  </h6>
-                  <p class="text-gray mb-1 small"><?php print_r($data[$i][2]) ?></p>
-                  <p class="text-gray mb-1 rating"></p>
-                  <ul class="rating-stars list-unstyled">
-                    <li>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star"></i>
-                    </li>
-                  </ul>
-                  <p></p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">OFFER</span>
-                  <small>65% OSAHAN50</small>
-                </div>
-              </div>
-            </div>
-          </div>
-          <?php endfor; ?>
-            </div>
-        </div>
-    </div>
-
-    
-
     <div class="container position-relative">
         <div class="row">
             <div class="col-md-8 pt-3">
@@ -136,7 +82,8 @@
                                         <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                         <div class="media-body">
                                             <h6 class="mb-1"><?php echo $food[1] ?> </h6>
-                                            <p class="text-muted mb-0">$<?php echo $food[3]; ?></p>
+                                            <p class="text-muted mb-0"><?php echo $food[3]; ?></p>
+                                            <input type="hidden" value="<?php echo $food[0]?>">
                                         </div>
                                     </div>
                                 </div>
@@ -291,7 +238,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 pt-3">
+            <form class="col-md-4 pt-3" action="controllers/orders/payment.controller.php?id=<?php echo $_GET['id'] ?>" method="post">
                 <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
                     <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
                         <img alt="osahan" src="assets/images/starter1.jpg" class="mr-3 rounded-circle img-fluid">
@@ -303,34 +250,19 @@
                     <div class="bg-white border-bottom py-2" id="group-add">
                         
                     </div>
-                    <div class="bg-white p-3 py-3 border-bottom clearfix">
-                        <div class="input-group-sm mb-2 input-group">
-                            <input placeholder="Enter promo code" type="text" class="form-control">
-                            <div class="input-group-append"><button type="button" class="btn btn-primary"><i
-                                        class="feather-percent"></i> APPLY</button></div>
-                        </div>
-                        <div class="mb-0 input-group">
-                            <div class="input-group-prepend"><span class="input-group-text"><i
-                                        class="feather-message-square"></i></span></div>
-                            <textarea placeholder="Any suggestions? We will pass it on..." aria-label="With textarea"
-                                class="form-control"></textarea>
-                        </div>
-                    </div>
                     <div class="bg-white p-3 clearfix border-bottom">
-                        <p class="mb-1">Item Total <span class="float-right text-dark">$3140</span></p>
+                        <p class="mb-1">Item Total <span class="float-right text-dark">$0</span></p>
                         <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i
-                                    class="feather-info"></i></span><span class="float-right text-dark">$10</span></p>
-                        <p class="mb-1 text-success">Total Discount<span class="float-right text-success">$1884</span>
-                        </p>
+                                    class="feather-info"></i></span><span class="float-right text-dark">$0</span>
                         <hr>
-                        <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$1329</span></h6>
+                        <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$0</span></h6>
                     </div>
                     <div class="p-3">
-                        <a class="btn btn-success btn-block btn-lg" href="controllers/orders/order.controller.php">PAY $1329<i
-                                class="feather-arrow-right"></i></a>
+                        <button class="btn btn-success btn-block btn-lg" type="submit" >PAY $0<i
+                                class="feather-arrow-right"></i></button>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 

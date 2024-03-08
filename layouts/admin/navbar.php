@@ -1,9 +1,21 @@
 <?php
+<<<<<<< HEAD
 require_once "database/database.php"; // Include database connection
 require_once "models/admin.model.php"; // Include admin model file once
 $users = getAllUsers();
 ?>
 
+=======
+// session_start();
+require_once "database/database.php"; // Include database connection
+require_once "models/admin.model.php"; // Include admin model file once
+require_once "models/employee.model.php";
+$users = getAllUsers();
+
+?>
+
+<!-- ! Body -->
+>>>>>>> res_pay
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
@@ -16,10 +28,13 @@ $users = getAllUsers();
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
                         <span class="logo-title">Elegant</span>
+<<<<<<< HEAD
+=======
                         <span class="logo-subtitle">Dashboard</span>
                     </div>
 
                 </a>
+>>>>>>> res_pay
                 <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
                     <span class="sr-only">Toggle menu</span>
                     <span class="icon menu-toggle" aria-hidden="true"></span>
@@ -32,6 +47,7 @@ $users = getAllUsers();
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
+<<<<<<< HEAD
                             <span class="icon document" aria-hidden="true"></span>Posts
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -49,6 +65,8 @@ $users = getAllUsers();
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
+=======
+>>>>>>> res_pay
                             <span class="icon folder" aria-hidden="true"></span>Categories
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -63,6 +81,7 @@ $users = getAllUsers();
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
+<<<<<<< HEAD
                             <span class="icon image" aria-hidden="true"></span>Media
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -80,6 +99,8 @@ $users = getAllUsers();
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
+=======
+>>>>>>> res_pay
                             <span class="icon paper" aria-hidden="true"></span>Pages
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -106,6 +127,7 @@ $users = getAllUsers();
                 <span class="system-menu__title">system</span>
                 <ul class="sidebar-body-menu">
                     <li>
+<<<<<<< HEAD
                         <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
                     </li>
                     <li>
@@ -126,6 +148,11 @@ $users = getAllUsers();
                         </ul>
                     </li>
                     <li>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> res_pay
+>>>>>>> DEVELOP
                         <a class="show-cat-btn" href="##">
                             <span class="icon user-3" aria-hidden="true"></span>All users
                             <span class="category__btn transparent-btn" title="Open list">
@@ -139,6 +166,11 @@ $users = getAllUsers();
                             </li>
                             <li>
                                 <a href="users-02.html">Users-02</a>
+<<<<<<< HEAD
+=======
+=======
+>>>>>>> res_pay
+>>>>>>> DEVELOP
                                 <a href="runners.filter.php">Runners</a>
                             </li>
                             <li>
@@ -167,6 +199,10 @@ $users = getAllUsers();
                             <source srcset="../../assets/images/avatar/user.png" type="image/png">
                             <img src="../../assets/images/avatar/user.png" alt="Default Profile Picture">
                         <?php endif; ?>
+=======
+                    <picture>
+                            <img src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" alt="Default Profile Picture">
+>>>>>>> res_pay
                     </picture>
                 </span>
                 <div class="sidebar-user-info">

@@ -37,7 +37,7 @@
       </div>
     </div>
 
-    <div class="bg-theme-black py-3">
+    <!-- <div class="bg-theme-black py-3">
       <div class="container">
         <div class="offer-slider">
           <div class="cat-item px-1 py-3">
@@ -67,7 +67,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
     <div class="container">
       <div class="pt-4 pb-2 title d-flex align-items-center">
         <h5 class="m-0">Trending this week</h5>
@@ -128,7 +128,7 @@
       <div class="most_popular">
         <div class="row">
 
-        <?php for ($i=0; $i < 6 ; $i++): ?>
+        <?php foreach ($data as $key => $value): ?>
           <div class="col-md-3 pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
               <div class="list-card-image">
@@ -136,22 +136,26 @@
                   <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
                 </div>
                 <div class="favourite-heart text-danger position-absolute">
-                  <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>"><i class="feather-heart"></i></a>
+                  <a href="/restaurant?id=<?php print_r($value[0]) ?>"><i class="feather-heart"></i></a>
                 </div>
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>">
-                  <img alt="#" src="<?php print_r ($pic[$i]) ?>" />
+                <a href="/restaurant?id=<?php print_r($value[0]) ?>">
+                  <img alt="#" src="<?php print_r ($pic[$key]) ?>" />
                 </a>
               </div>
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
+<<<<<<< HEAD
                     <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>" class="text-black"> <?php print_r($data[$i][1]) ?>
+=======
+                    <a href="/restaurant" class="text-black"> <?php print_r($value[1]) ?>
+>>>>>>> res_pay
                     </a>
                   </h6>
-                  <p class="text-gray mb-1 small"><?php print_r($data[$i][2]) ?></p>
+                  <p class="text-gray mb-1 small"><?php print_r($value[2]) ?></p>
                   <p class="text-gray mb-1 rating"></p>
                   <ul class="rating-stars list-unstyled">
                     <li>
@@ -171,7 +175,7 @@
               </div>
             </div>
           </div>
-          <?php endfor; ?>
+          <?php endforeach; ?>
       </div>
 
       <div class="pt-2 pb-3 title d-flex align-items-center">

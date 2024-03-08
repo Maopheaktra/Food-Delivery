@@ -1,7 +1,8 @@
 
-const groupAdd =  document.querySelector('#group-add');
-const adds =  document.querySelectorAll('#add');
+const groupAdd = document.querySelector('#group-add');
+const adds = document.querySelectorAll('#add');
 
+<<<<<<< HEAD
 
 
 for(let add of adds){
@@ -32,6 +33,36 @@ function listFoodCodi(food, price){
             qty.value ++;
         });
     }
+=======
+for (let add of adds) {
+    add.addEventListener('click', (e) => {
+        let food = e.target.parentElement.parentElement.children[1].children[1].children[0].textContent;
+        let price = e.target.parentElement.parentElement.children[1].children[1].children[1].textContent;
+        let id = e.target.parentElement.parentElement.children[1].children[1].children[2].value;
+        console.log(id);
+
+        if (addTolist(food)){
+            creatCarelist(food, price, id);
+            
+        }
+
+    });
+}
+
+function addTolist(food) {
+    let foodNames = document.querySelectorAll('#food_name');
+    for (let foodname of foodNames) {
+        if (foodname.textContent == food) {
+            return false;
+        }
+    }
+    return true;
+
+}
+
+
+function creatCarelist(food, price, id) {
+>>>>>>> res_pay
 
     for(let mini of btnMini){
         mini.addEventListener('click', ()=>{
@@ -57,8 +88,16 @@ function creatCarelist(food, price){
     mediaBody.setAttribute('class', 'media-body');
     let foodname = document.createElement('p');
     foodname.setAttribute('class', 'm-0');
+<<<<<<< HEAD
     foodname.id="list_food";
+=======
+    foodname.id = 'food_name';
+>>>>>>> res_pay
     foodname.textContent = food;
+    let Inputid = document.createElement('input');
+    Inputid.type='hidden';
+    Inputid.value = id;
+    Inputid.name = 'id[]';
 
     let mediaLeft = document.createElement('div');
     mediaLeft.setAttribute('class', 'd-flex align-items-center');
@@ -69,18 +108,35 @@ function creatCarelist(food, price){
     btn.setAttribute('class', 'btn-sm left dec btn btn-outline-secondary');
     let i = document.createElement('i');
     i.setAttribute('class', 'feather-minus');
+<<<<<<< HEAD
     i.id = "mini";
+=======
+    i.addEventListener('click', (e)=>{
+        let qty = e.target.parentElement.parentElement.children[1];
+        if (qty.value > 1){
+            console.log(qty.value --);
+        }
+    });
+>>>>>>> res_pay
     let input = document.createElement('input');
     input.setAttribute('class', 'count-number-input');
     input.type = 'text';
+    input.name = 'qty[]';
     input.readOnly;
-    input.value = '1';
+    input.value = 1;
     let btn3 = document.createElement('button');
     btn3.type = 'button';
     btn3.setAttribute('class', 'btn-sm right inc btn btn-outline-secondary');
     let i1 = document.createElement('i');
     i1.setAttribute('class', 'feather-plus');
+<<<<<<< HEAD
     i1.id = "plus";
+=======
+    i1.addEventListener('click', (e)=>{
+        let qty = e.target.parentElement.parentElement.children[1];
+        qty.value ++;
+    })
+>>>>>>> res_pay
     let foodPrice = document.createElement('p');
     foodPrice.setAttribute('class', 'text-gray mb-0 float-right ml-2 text-muted small');
     foodPrice.value = price;
@@ -90,10 +146,11 @@ function creatCarelist(food, price){
     groupAdd.appendChild(cardList);
     cardList.appendChild(media);
     media.appendChild(hh);
-   
+
     cardList.appendChild(mediaLeft);
     media.appendChild(mediaBody);
     mediaBody.appendChild(foodname);
+    mediaBody.appendChild(Inputid);
 
     mediaLeft.appendChild(span);
     mediaLeft.appendChild(foodPrice);
@@ -101,8 +158,17 @@ function creatCarelist(food, price){
     btn.appendChild(i);
     span.appendChild(input);
     span.appendChild(btn3);
+<<<<<<< HEAD
     btn3.appendChild(i1);   
 }
 
 
 
+=======
+    btn3.appendChild(i1);
+
+}
+
+let btnIncrease = document.querySelectorAll('#plusOrder');
+console.log(bt)
+>>>>>>> res_pay
