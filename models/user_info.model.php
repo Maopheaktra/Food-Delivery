@@ -51,6 +51,6 @@ function Add_New_Food($Name, $description, $price, $cate_id){
         ':name'=> $Name,
         ':description'=> $description,
         ':price'=> $price,
-        ':category_id'=> $cate_id
+        ':category_id'=> $cate_id,
     ]);
 }

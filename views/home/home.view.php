@@ -148,11 +148,7 @@
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
-<<<<<<< HEAD
-                    <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>" class="text-black"> <?php print_r($data[$i][1]) ?>
-=======
                     <a href="/restaurant" class="text-black"> <?php print_r($value[1]) ?>
->>>>>>> res_pay
                     </a>
                   </h6>
                   <p class="text-gray mb-1 small"><?php print_r($value[2]) ?></p>
