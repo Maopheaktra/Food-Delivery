@@ -37,3 +37,6 @@ function updateInfo($name, $phone, $email, $userID): bool
     ]);
     return $statement->rowCount() > 0;
 }
+
+
+
