@@ -4,8 +4,8 @@
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
 
     session_start();
-    require "../../database/database.php"; // line 7
-    require "../../models/employee.model.php";
+    require "database/database.php"; // line 7
+    require "models/employee.model.php";
     if (isset($_POST['usernames']) && !empty($_POST['usernames'] && !empty($_POST['gender'] && !empty($_POST['phone'])))){
         $usernames = htmlspecialchars($_POST['usernames']);
         $role = htmlspecialchars($_POST['optradio']);
