@@ -45,25 +45,6 @@
                             </div>
                             <div class="right ml-auto">
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
-        <div class="container position-relative">
-            <div class="py-5 osahan-profile row">
-                <div class="col-md-4 mb-3">
-                    <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                            <div class="d-flex align-items-center p-3">
-                                <div class="left mr-3">
-                                    
-                        
-                                        <div class="upload" id="upload">
-                                            <img src="<?php print_r('assets/images/user/'.$img[7]) ?>" width="100" height="100" title="Change Profile">
-                                        </div>
-                                </div>
-                                <div class="right">
-                                    <h6 class="mb-1 font-weight-bold"><?php print_r($img[1]) ?><i
-                                            class="feather-check-circle text-success"></i></h6>
-                                    <p class="text-muted m-0 small"><span class="__cf_email__"
-                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290"><?php print_r($img[2]) ?></span>
-                                    </p>
-                                </div>
                             </div>
                         </a>
                         <a data-toggle="modal" data-target="#modal"
