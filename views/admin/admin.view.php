@@ -276,12 +276,8 @@ if (!isset($_SESSION['popup'])) {
           <div class="head-control mb-4 mt-2 d-flex">
             <h1 class="col-11 text-center text-uppercase">Add a new user</h1>
             <div class="col btn-closing d-flex justify-content-end align-items-lg-center ">
-
-              <button class="d-flex justify-content-center align-items-center btn btn-outline-info shadow-none  text-warning rounded-circle" style="width:32px; height:32px;" onmouseover="this.classList.remove('text-dark-subtle'); this.classList.add('text-danger');" onmouseout="this.classList.remove('text-danger'); this.classList.add('text-dark-subtle');">
-                <i style="font-size: 32px;" class="fa-solid fa-circle-xmark"></i>
+              <button class="d-flex justify-content-center align-items-center btn btn-outline-info shadow-none btn-close" style="width:32px; height:32px;" onmouseover="this.classList.remove('text-dark-subtle'); this.classList.add('text-danger');" onmouseout="this.classList.remove('text-danger'); this.classList.add('text-dark-subtle');">
               </button>
-
-
             </div>
           </div>
 
@@ -300,7 +296,7 @@ if (!isset($_SESSION['popup'])) {
             </div>
             <div class="col input-group">
               <input type="password" class="col-11 form-control border-white shadow-none" id="create-password" placeholder="Your password should be at least 8 characters long" name="password">
-              <button type="button" id="toggle-create-password-btn" class="btn btn-secondary btn-outline-info text-white shadow-none" style="margin-right:8px ; width: 50px; border-color: transparent !important;">
+              <button type="button" id="toggle-create-password-btn" class="btn btn-secondary btn-outline-info border-2 text-white shadow-none" style="margin-right:8px ; width: 50px; border-color: transparent !important;">
                 <i class="fa-solid fa-eye-slash"></i>
               </button>
             </div>
@@ -341,9 +337,10 @@ if (!isset($_SESSION['popup'])) {
               <option value="3">Delivery</option>
             </select>
           </div>
-
-          <input type="button" class="mx-3 mt-3 btn btn-danger border-2 " id="add-user-cancel" value="Cancel" />
-          <input type="submit" class="mt-3 btn btn-primary shadow-none border-2 " name="send" value="Add Now" />
+              <div class="bottom-btn d-flex justify-content-end mt-3">
+                <input type="button" class="mx-3 btn btn-danger border-2 " id="add-user-cancel" value="Cancel" />
+                <input type="submit" class="btn btn-primary shadow-none border-2 " name="send" value="Add Now" />
+              </div>
 
         </form>
       </div>
@@ -376,7 +373,7 @@ if (!isset($_SESSION['popup'])) {
               <label for="update-password" class="form-label text-secondary">Password</label>
               <div class="d-flex input-group">
                 <input type="password" class="col-12 form-control border-white shadow-none" id="update-password" value="<?= $_SESSION['popup']['password'] ?>" name="password">
-                <button type="button" id="toggle-update-password-btn" style="border-color: transparent !important;" class="btn btn-secondary btn-outline-info text-white border-2">
+                <button type="button" id="toggle-update-password-btn" style="width: 50px; border-color: transparent !important;" class="btn btn-secondary btn-outline-info text-white border">
                   <i class="fa-regular fa-eye-slash"></i>
                 </button>
               </div>
