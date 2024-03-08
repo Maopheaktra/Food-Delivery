@@ -132,14 +132,14 @@ if (!isset($_SESSION['popup'])) {
         <div class="col-md-6 col-xl-3">
           <article class="stat-cards-item">
             <div class="stat-cards-icon primary">
-              <i data-feather="bar-chart-2" aria-hidden="true"></i>
+              <img src="../../assets/images/icons/users.png" class="rounded-circle" alt="">
             </div>
             <div class="stat-cards-info">
-              <p class="stat-cards-info__num">1478 286</p>
+              <p class="stat-cards-info__num"></p>
               <p class="stat-cards-info__title">Total visits</p>
               <p class="stat-cards-info__progress">
                 <span class="stat-cards-info__profit success">
-                  <i data-feather="trending-up" aria-hidden="true"></i>4.07%
+                  <i data-feather="trending-up" aria-hidden="true"></i>
                 </span>
                 Last month
               </p>
@@ -149,9 +149,9 @@ if (!isset($_SESSION['popup'])) {
         <div class="col-md-6 col-xl-3">
           <article class="stat-cards-item">
             <div class="stat-cards-icon warning">
-              <i data-feather="file" aria-hidden="true"></i>
+              <img src="../../assets/images/icons/restaurant owner.png" class="rounded-circle" alt="">
             </div>
-            <div class="stat-cards-info">
+            <div class=" stat-cards-info">
               <p class="stat-cards-info__num">1478 286</p>
               <p class="stat-cards-info__title">Total visits</p>
               <p class="stat-cards-info__progress">
@@ -166,7 +166,7 @@ if (!isset($_SESSION['popup'])) {
         <div class="col-md-6 col-xl-3">
           <article class="stat-cards-item">
             <div class="stat-cards-icon purple">
-              <i data-feather="file" aria-hidden="true"></i>
+              <img src="../../assets/images/icons/deliverer.png" class="rounded-circle" alt="">
             </div>
             <div class="stat-cards-info">
               <p class="stat-cards-info__num">1478 286</p>
@@ -183,17 +183,7 @@ if (!isset($_SESSION['popup'])) {
         <div class="col-md-6 col-xl-3">
           <article class="stat-cards-item">
             <div class="stat-cards-icon success">
-              <i data-feather="feather" aria-hidden="true"></i>
-            </div>
-            <div class="stat-cards-info">
-              <p class="stat-cards-info__num">1478 286</p>
-              <p class="stat-cards-info__title">Total visits</p>
-              <p class="stat-cards-info__progress">
-                <span class="stat-cards-info__profit warning">
-                  <i data-feather="trending-up" aria-hidden="true"></i>0.00%
-                </span>
-                Last month
-              </p>
+              <img src="../../assets/images/icons/eaters.png" class="rounded-circle" alt="">
             </div>
           </article>
         </div>
@@ -337,10 +327,10 @@ if (!isset($_SESSION['popup'])) {
               <option value="3">Delivery</option>
             </select>
           </div>
-              <div class="bottom-btn d-flex justify-content-end mt-3">
-                <input type="button" class="mx-3 btn btn-danger border-2 " id="add-user-cancel" value="Cancel" />
-                <input type="submit" class="btn btn-primary shadow-none border-2 " name="send" value="Add Now" />
-              </div>
+          <div class="bottom-btn d-flex justify-content-end mt-3">
+            <input type="button" class="mx-3 btn btn-danger border-2 " id="add-user-cancel" value="Cancel" />
+            <input type="submit" class="btn btn-primary shadow-none border-2 " name="send" value="Add Now" />
+          </div>
 
         </form>
       </div>
@@ -409,7 +399,7 @@ if (!isset($_SESSION['popup'])) {
             <input type="file" id="imageInput" style="display: none;" accept="image/*"> <!-- Hidden file input -->
             <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
             <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">
-              chuonveasna123@gmail.com</div>
+              team@gmail.com</div>
           </div>
           <div class="show-info" style="width:100%;">
             <input type="text" class="form-control shadow-none mb-3" placeholder="Username" aria-label="username">

@@ -24,7 +24,33 @@ function getAllUsers()
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
 
+function countUsersByRole()
+{
+    global $connection;
 
+    $query = "
+        SELECT 
+            r.role_type,
+            COUNT(u.user_id) AS user_count
+        FROM 
+            roles r
+        LEFT JOIN 
+            users u ON u.role_id = r.role_id
+        GROUP BY 
+            r.role_type
+    ";
+
+    $statement = $connection->prepare($query);
+    $statement->execute();
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+$userCountsByRole = countUsersByRole();
+
+// Iterate through the results and echo them
+foreach ($userCountsByRole as $role) {
+    echo "Role: " . $role['role_type'] . ", User Count: " . $role['user_count'] . "<br>";
+}
 function createUsers($username, $email, $password, $gender, $role, $phoneNumber, $userImg)
 {
     global $connection;
