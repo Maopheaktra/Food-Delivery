@@ -31,6 +31,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             }elseif($role == 2){
                 $_SESSION['role'] = $role;
                 header('Location: /admin');
+            }else{
+                $_SESSION['role'] = $role;
+                header('Location: /');
             }
             
         }else{

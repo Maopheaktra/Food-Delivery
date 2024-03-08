@@ -83,7 +83,7 @@ ob_start();
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="assets/images/avatar/user.png" type="image/webp"><img src="assets/images/avatar/user.png" alt="User name">
+                <source srcset="assets/images/user/<?= $adminPf['user_img']; ?>" type="image/webp"><img src="assets/images/user/<?= $adminPf['user_img']; ?>" alt="User name">
               </picture>
             </span>
           </button>
@@ -338,49 +338,51 @@ ob_start();
       </div>
     </div>
     <!-- pop-up profile user-admin -->
-    <div id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+    <form id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%" action="../../controllers/admin/admin.upload_profile.controller.php" method="post" enctype="multipart/form-data">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
         <div class="show-pro d-flex flex-column">
-          <!-- Wrap the image within a label -->
-          <label class="d-flex justify-content-center" for="imageInput" style="width: 100%;">
-            <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" style="width: 20%; border-radius: 50%;" alt="...">
+          <label class="d-flex justify-content-center" for="imageInput" style="width: auto;">
+            <img id="imagePreview" class="border border-5" src="<?php $adminPf['user_img']; ?>" style="border-radius: 50%;" width="100" height="100" alt="Preview">
           </label>
-          <input type="file" id="imageInput" style="display: none;" accept="image/*"> <!-- Hidden file input -->
-          <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
-          <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">chuonveasna123@gmail.com</div>
+          <input type="file" id="imageInput" class="image" name="my_image" style="display: none;" accept="image/*">
+          <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"><?= $adminPf['username']; ?></div>
+          <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;"><?= $adminPf['email']; ?></div>
         </div>
         <div class="show-info" style="width:100%;">
-          <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username">
-          <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email">
-          <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone">
-          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
-          <div class="input-group mb-3">
-            <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
-            <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
-              <option selected>Choose...</option>
-              <option value="<?= $user['role_type'] ?>">Customer</option>
-              <option value="<?= $user['role_type'] ?>">Restaurant Owner</option>
-              <option value="<?= $user['role_type'] ?>">Delevery</option>
-            </select>
-          </div>
-          <div class="gender-selection d-flex mb-1">
-            <label class="text-secondary">Gender:</label>
-            <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M">
-              <label for="maleRadio" class="form-check-label text-secondary">Male</label>
-            </div>
-            <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="F">
-              <label for="femaleRadio" class="form-check-label mb-2 text-secondary">Female</label>
-            </div>
-          </div>
+          <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username" value="<?= $adminPf['username'] ?>">
+          <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email" value="<?= $adminPf['email'] ?>">
+          <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone" value="<?= $adminPf['phoneNumber'] ?>">
         </div>
         <div>
           <input type="submit" class="btn btn-primary" name="send" value="Save" />
-          <input type="button" class="btn btn-danger" id="update-user-cancel" value="Cancel" />
+          <input type="button" class="btn btn-danger" id="btn-user-cancel" value="Cancel" />
         </div>
       </div>
-    </div>
+    </form>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        const imageInput = document.getElementById('imageInput');
+        const imagePreview = document.getElementById('imagePreview');
+
+        imageInput.addEventListener('change', function() {
+          const file = this.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              imagePreview.src = e.target.result;
+              localStorage.setItem('imagePreview', e.target.result);
+            }
+            reader.readAsDataURL(file);
+          }
+        });
+        const storedImagePreview = localStorage.getItem('imagePreview');
+        if (storedImagePreview) {
+          imagePreview.src = storedImagePreview;
+        }
+      });
+    </script>
+
+
     <?php
     echo "<script>
     // ================Create User Form================
@@ -394,14 +396,15 @@ ob_start();
 // =================Show popup admin_user===============
     let btnUpInfo = document.getElementById('popInfo');
     let popUpInfo = document.getElementById('profile-admin-popup');
+    let btnHidePopup = document.getElementById('btn-user-cancel');
     function showProfilePopup() {
       popUpInfo.style.display = 'block';
     }
-    let btnHidePop = document.getElementById('update-user-cancel');
+
     function hideProfilePopup() {
       popUpInfo.style.display = 'none';
     }
-    btnHidePop.addEventListener('click', hideProfilePopup); 
+    btnHidePopup.addEventListener('click',hideProfilePopup);
     btnUpInfo.addEventListener('click', showProfilePopup);
 
     function showAddUserPopup() {
@@ -417,6 +420,7 @@ ob_start();
     addUserCancelBtn.addEventListener('click', hideAddUserPopup);
     updateUserCancelBtn.addEventListener('click', hideUpdateUserPopup);
     let updateUserBtn = document.querySelectorAll('#update-user');
+
     // ===============Update User ====================
     function showUpdateUserPopup() {
       updateUserPopup.style.display = 'block';

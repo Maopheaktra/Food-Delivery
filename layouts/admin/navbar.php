@@ -1,7 +1,11 @@
 <?php
 require_once "database/database.php"; // Include database connection
 require_once "models/admin.model.php"; // Include admin model file once
+require_once "models/employee.model.php"; // Include admin model file once
 $users = getAllUsers();
+$adminPf = showPf($_SESSION['userid']);
+
+
 ?>
 
 <!-- ! Body -->
