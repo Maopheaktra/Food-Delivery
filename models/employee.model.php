@@ -7,7 +7,7 @@ function getUsers() : array
     $statement = $connection->prepare("select * from users");
     $statement->execute();
     return $statement->fetchAll();
-}
+};
 
 // restaurant-----------
 function getRestaurants() : array
