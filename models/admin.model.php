@@ -105,7 +105,7 @@ function destroy($user_id)
     ]);
 
     header("Location: /");
-    exit(); 
+    exit();
 }
 
 function updateUser($name, $phone, $email, $userID, $role): bool
@@ -121,4 +121,3 @@ function updateUser($name, $phone, $email, $userID, $role): bool
     ]);
     return $statement->rowCount() > 0;
 }
-
