@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 01, 2024 at 04:30 AM
+-- Generation Time: Mar 08, 2024 at 04:12 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -41,19 +41,21 @@ CREATE TABLE `addfood` (
 
 CREATE TABLE `categories` (
   `category_id` int(10) UNSIGNED NOT NULL,
-  `description` bigint(20) NOT NULL,
-  `name` varchar(200) DEFAULT NULL
+  `description` varchar(225) NOT NULL,
+  `name` varchar(200) DEFAULT NULL,
+  `cate_img` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `categories`
 --
 
-INSERT INTO `categories` (`category_id`, `description`, `name`) VALUES
-(1, 0, 'Steak'),
-(4, 0, 'Fries'),
-(5, 0, 'Coffee'),
-(6, 0, 'Steak ColaCan');
+INSERT INTO `categories` (`category_id`, `description`, `name`, `cate_img`) VALUES
+(1, 'no', 'Fast food', ''),
+(2, 'for breakfast', 'Breakfast', ''),
+(3, '', 'Chinese Food', ''),
+(4, 'Good ', 'Banana', ''),
+(5, 'The most popular food in the world', 'Cambodia Food', '');
 
 -- --------------------------------------------------------
 
@@ -69,32 +71,6 @@ CREATE TABLE `comments` (
   `contents` varchar(225) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
---
--- Dumping data for table `comments`
---
-
-INSERT INTO `comments` (`comment_id`, `date`, `user_id`, `restaurant_id`, `contents`) VALUES
-(1, '2024-02-28 00:00:00', 1, 1, 'Hello'),
-(2, '2024-02-28 00:00:00', 2, 1, 'hi'),
-(3, '2024-02-29 00:00:00', 1, 6, 'haha'),
-(4, '2024-02-29 00:00:00', 1, 3, 'ohh good'),
-(5, '2024-02-29 00:00:00', 1, 3, 'haha'),
-(6, '2024-03-01 08:23:04', 1, 1, 'Oh good');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `deliverers`
---
-
-CREATE TABLE `deliverers` (
-  `deliver_id` int(10) UNSIGNED NOT NULL,
-  `name` varchar(255) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  `phone_number` int(11) NOT NULL,
-  `gender` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
 -- --------------------------------------------------------
 
 --
@@ -106,18 +82,6 @@ CREATE TABLE `favorites` (
   `user_id` int(11) NOT NULL,
   `restaurant_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `favorites`
---
-
-INSERT INTO `favorites` (`favorite_id`, `user_id`, `restaurant_id`) VALUES
-(2, 2, 1),
-(3, 3, 2),
-(4, 3, 3),
-(5, 3, 4),
-(6, 0, 5),
-(7, 3, 5);
 
 -- --------------------------------------------------------
 
@@ -138,17 +102,17 @@ CREATE TABLE `foods` (
 --
 
 INSERT INTO `foods` (`Food_id`, `Foodname`, `description`, `price`, `category_id`) VALUES
-(1, 'checken', '', '200', 6),
-(2, 'Soup', '', '200', 6),
-(3, 'Cheese corn Roll', '', '200', 1),
-(4, 'Cheese corn Roll', '', '200', 1),
-(5, 'Cheese corn Roll', '', '200', 3),
-(6, 'Egg', '', '10', 4),
-(7, 'Noodle', '', '12', 4),
-(8, 'Egg', '', '10', 4),
-(9, 'Noodle', '', '12', 4),
-(10, 'Checken', '', '10', 6),
-(11, 'Sandwich', '', '10', 6);
+(1, 'Bread', 'no', '23', 1),
+(2, 'beef', 'no', '23', 1),
+(3, 'Bay Cha', 'Fast delivery for customer', '5', 2),
+(6, 'Chinese Noodle', '', '3', 3),
+(7, 'Quo deserunt vel rer', 'Excepteur consequatu', '881', 4),
+(8, 'Fried Noodle', 'Good service', '4', 2),
+(11, 'Qui et facere adipis', 'no', '6', 2),
+(12, 'Tempor reprehenderit', 'Quia aperiam qui ten', '4', 4),
+(13, 'Somlor kako', 'the best food in Kompong Thom Province', '1', 5),
+(14, 'Somlor kari', 'not description', '2', 5),
+(15, 'Khmer noodle', 'no description', '3', 5);
 
 -- --------------------------------------------------------
 
@@ -185,15 +149,11 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`orderDetail_id`, `foodname`, `user_id`, `quantity`, `restaurant_id`, `total_price`, `action`, `time`) VALUES
-(1, 'Egg', 1, 1, 1, '10', 1, '2024-03-01 09:36:49'),
-(2, 'Noodle', 1, 1, 1, '12', 1, '2024-03-01 09:36:49'),
-(3, 'Soup', 1, 1, 6, '200', 1, '2024-03-01 09:44:48'),
-(4, 'Checken', 1, 1, 6, '10', 1, '2024-03-01 09:44:48'),
-(5, 'Sandwich', 1, 1, 6, '10', 1, '2024-03-01 09:44:48'),
-(6, 'Cheese corn Roll', 1, 1, 2, '200', 1, '2024-03-01 09:51:33'),
-(7, 'checken', 1, 1, 6, '200', 0, '2024-03-01 10:20:17'),
-(8, 'Soup', 1, 1, 6, '200', 0, '2024-03-01 10:20:17'),
-(9, 'Checken', 1, 4, 6, '40', 0, '2024-03-01 10:20:17');
+(1, 'Bay Cha', 6, 1, 2, '5', 0, '2024-03-06 08:07:46'),
+(2, 'Somlor kako', 6, 4, 5, '4', 3, '2024-03-06 07:57:23'),
+(3, 'Khmer noodle', 6, 1, 5, '3', 0, '2024-03-08 01:28:46'),
+(4, 'Somlor kari', 6, 3, 5, '6', 0, '2024-03-08 01:28:46'),
+(5, 'Somlor kako', 6, 3, 5, '3', 0, '2024-03-08 01:28:46');
 
 -- --------------------------------------------------------
 
@@ -211,35 +171,17 @@ CREATE TABLE `orders` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `profile`
---
-
-CREATE TABLE `profile` (
-  `img_id` int(11) NOT NULL,
-  `img_url` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `profile`
---
-
-INSERT INTO `profile` (`img_id`, `img_url`) VALUES
-(1, 'IMG-65d9f4f69e5411.43011126.jpg');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `restaurants`
 --
 
 CREATE TABLE `restaurants` (
   `restaurant_id` int(10) UNSIGNED NOT NULL,
   `restaurant_name` varchar(255) NOT NULL,
-  `address` varchar(255) NOT NULL,
-  `time_open` varchar(255) NOT NULL,
+  `address` varchar(225) NOT NULL,
+  `time_open` varchar(11) NOT NULL,
   `description` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL,
-  `time_close` varchar(100) DEFAULT NULL
+  `time_close` varchar(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -247,12 +189,11 @@ CREATE TABLE `restaurants` (
 --
 
 INSERT INTO `restaurants` (`restaurant_id`, `restaurant_name`, `address`, `time_open`, `description`, `user_id`, `time_close`) VALUES
-(1, 'Fafa', 'Cambodia, Phnom Penh', '8:40', 'My restaurant', 1, '6:30'),
-(2, 'Fafa', 'Cambodia, Phnom Penh', '8:40', 'My restaurant', 1, '6:30'),
-(3, 'The osahan Restaurant', 'Cambodia, Kompong Thom', '7:30', 'The best restaurant in Cambodia and have a lot of food', 2, '7:30'),
-(4, 'The Famous Restaurant', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 2, '8:30'),
-(5, 'Bite Me Now Sandwiches', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 1, '8:30'),
-(6, 'Nham 24', 'Cambodia, Kompong Cham', '7:30', 'The best restaurant in Cambodia and have a lot of food', 1, '8:30');
+(1, 'RTK BEEFE', 'Phnom Penh', '08:30', 'No', 2, '19:00'),
+(2, 'Lk', 'Borey sorla 371, Sensok, PP', '09:00', 'Sell food 24hr', 3, '22:54'),
+(3, 'IT FOOD ', 'Pnc, Tropang Chhuk, Obek kaorm, Phnom Penh', '16:00', 'Please support my new Restuarant. Thank you😘', 4, '23:00'),
+(4, 'SN-KompongChhnang', 'KompongChhnang', '07:00', 'ឆ្ងាញ់ ស្អាត អនាម័យល្អ គឺមាននៅ SN-KompongChhnang', 5, '10:00'),
+(5, 'Kompong Thom Restaurant', 'Kompong Thom, Tank kok', '07:30', 'The restaurant has a lot of food.', 7, '18:30');
 
 -- --------------------------------------------------------
 
@@ -271,13 +212,11 @@ CREATE TABLE `res_categories` (
 --
 
 INSERT INTO `res_categories` (`res_categoryID`, `restaurant_id`, `category_id`) VALUES
-(1, 1, 4),
-(2, 1, 6),
-(3, 2, 1),
-(4, 3, 5),
-(5, 4, 5),
-(6, 5, 4),
-(7, 6, 6);
+(1, 1, 1),
+(2, 2, 2),
+(3, 3, 3),
+(4, 4, 4),
+(5, 5, 5);
 
 -- --------------------------------------------------------
 
@@ -321,9 +260,13 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `gender`, `role_id`, `phoneNumber`, `user_img`) VALUES
-(1, 'Chanthou', 'voeunchanthou74@gmail.com', '$2y$10$LuF/tpF77FkocnY2iuXtGuoHSQm5JaOHIUBseH38jYGr3yqFehrjC', 'M', 1, '0795697535', 'IMG-65df5c06478a56.98120544.jpg'),
-(2, 'Emcha', 'cha@gmail.com', '$2y$10$EUDmreEx9glFGIckcmBo2eThCDTlww7DFVMbhSq95MTVZPf1SK9oa', 'M', 1, '46568534546', 'IMG-65d9f4f69e5411.43011126.jpg'),
-(3, 'Chanthou', 'voeunchanthou14@gmail.com', '$2y$10$WyQEVD5SHe3cbTYw.gt7tuA7lyoqhZdB3q4Ww3jC3B6pj8dK4gnii', 'M', 2, '04835673454', 'IMG-65d9f4f69e5411.43011126.jpg');
+(1, 'Voeun Chanthou', 'voeunchanthou74@gmail.com', '$2y$10$s7.TGlhtLgsFjpXB5ctrTueT5n6mjkgpjJRwCU7BEk9FJcj3Ys0tC', 'M', 4, '070898032', 'IMG-65e7bd26e36c93.04288160.jpg'),
+(2, 'ROEURN', 'roeurnkaki@gmail.com', '$2y$10$njj3WOjG3bgI4BcYHiIS/e8G15rpXLTFo5iLKPlyCq88yJ9bxpnO2', 'M', 2, '0719163052', 'IMG-65d9f4f69e5411.43011126.jpg'),
+(3, 'Pheaktra', 'pheaktra.mao@student.passerellesnumeriques.org', '$2y$10$IX2ZOlGPYEzMT/BBpRKXuOUbtkq.U9I6hh/6a.1D5iJDkYmUFxeTa', 'F', 2, '0886461253', 'IMG-65d9f4f69e5411.43011126.jpg'),
+(4, 'Chuon Veasna', 'chuonveasna500@gmail.com', '$2y$10$8oEy56N6/IPzE2QAQLq97eYTRgdCE9ihhQYKu54QCn4GQbQ1Z4zM6', 'M', 2, '0718911019', 'IMG-65d9f4f69e5411.43011126.jpg'),
+(5, 'SreyNuch', 'sreynuchthoeun94@gmail.com', '$2y$10$cdtwlcSoO.FDG7KnjvM71uTZywP4zMRAPxMGFGyYT7tnVOG3Upviq', 'F', 2, '0319612352', 'IMG-65d9f4f69e5411.43011126.jpg'),
+(6, 'Roth', 'roth@gmail.com', '$2y$10$A/G4TqYveELs2M02sEk8PO2CIxwj5A47qYl/TpObHzmzO8SUGOrQO', 'M', 1, '0747939554', 'IMG-65e7c0f96bb044.66271487.jpg'),
+(7, 'sothea', 'sothea@gmail.com', '$2y$10$Gpx1v0Z3hRk/Ssc23ViCEO7nFUz4EjLMhjsvPk5omSV/SWilfwLsS', 'M', 2, '089903043', 'IMG-65d9f4f69e5411.43011126.jpg');
 
 --
 -- Indexes for dumped tables
@@ -341,12 +284,6 @@ ALTER TABLE `categories`
 ALTER TABLE `comments`
   ADD PRIMARY KEY (`comment_id`),
   ADD KEY `comments_user_id_index` (`user_id`);
-
---
--- Indexes for table `deliverers`
---
-ALTER TABLE `deliverers`
-  ADD PRIMARY KEY (`deliver_id`);
 
 --
 -- Indexes for table `favorites`
@@ -384,12 +321,6 @@ ALTER TABLE `orders`
   ADD KEY `orders_deliver_id_index` (`deliver_id`);
 
 --
--- Indexes for table `profile`
---
-ALTER TABLE `profile`
-  ADD PRIMARY KEY (`img_id`);
-
---
 -- Indexes for table `restaurants`
 --
 ALTER TABLE `restaurants`
@@ -424,31 +355,25 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `categories`
 --
 ALTER TABLE `categories`
-  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `category_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `comments`
 --
 ALTER TABLE `comments`
-  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `deliverers`
---
-ALTER TABLE `deliverers`
-  MODIFY `deliver_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `comment_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favorite_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `favorite_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `foods`
 --
 ALTER TABLE `foods`
-  MODIFY `Food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `Food_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `notificatins`
@@ -460,7 +385,7 @@ ALTER TABLE `notificatins`
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `orderDetail_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `orderDetail_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -469,22 +394,16 @@ ALTER TABLE `orders`
   MODIFY `order_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `profile`
---
-ALTER TABLE `profile`
-  MODIFY `img_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
 -- AUTO_INCREMENT for table `restaurants`
 --
 ALTER TABLE `restaurants`
-  MODIFY `restaurant_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `restaurant_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `res_categories`
 --
 ALTER TABLE `res_categories`
-  MODIFY `res_categoryID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `res_categoryID` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `roles`
@@ -496,7 +415,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

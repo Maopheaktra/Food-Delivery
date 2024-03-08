@@ -235,3 +235,33 @@ function addCategories($cateName, $description){
         ':name'=>$cateName
     ]);
 }
+
+function getCateInres($resid){
+    global $connection;
+    $statement = $connection->prepare("select * from res_categories inner join categories on res_categories.category_id = categories.category_id where restaurant_id = :resId");
+    $statement->execute([':resId'=> $resid]);
+    return $statement->fetchAll();
+}
+
+function getCateLimited(){
+    global $connection;
+    $statement = $connection->prepare("select * from categories order by category_id desc limit 1");
+    $statement->execute();
+    return $statement->fetch();
+}
+
+function addToresCate($cateid, $resid){
+    global $connection;
+    $statement = $connection->prepare("insert into res_categories(restaurant_id, category_id) values (:resid, :cateid)");
+    $statement->execute([
+        ':resid'=> $resid,
+        ':cateid'=> $cateid,
+    ]);
+}
+
+function getCatebyId($cateid){
+    global $connection;
+    $statement = $connection->prepare("select * from categories where category_id = :cateid");
+    $statement->execute(['cateid'=> $cateid]);
+    return $statement->fetch();
+}

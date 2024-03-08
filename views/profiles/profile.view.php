@@ -18,7 +18,7 @@
                                     
                         
                                         <div class="upload" id="upload">
-                                            <img src="<?php print_r('assets/images/user/'.$img[7]) ?>" width="100" height="100" title="<?php echo $image; ?>">
+                                            <img src="<?php print_r('assets/images/user/'.$img[7]) ?>" width="100" height="100" title="Change Profile">
                                         </div>
                                 </div>
                                 <div class="right">

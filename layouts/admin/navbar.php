@@ -8,6 +8,7 @@ $users = getAllUsers();
 ?>
 
 <!-- ! Body -->
+<!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
     <!-- ! Sidebar -->
@@ -35,23 +36,6 @@ $users = getAllUsers();
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
-                            <span class="icon document" aria-hidden="true"></span>Posts
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="posts.html">All Posts</a>
-                            </li>
-                            <li>
-                                <a href="new-post.html">Add new post</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
                             <span class="icon folder" aria-hidden="true"></span>Categories
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -61,23 +45,6 @@ $users = getAllUsers();
                         <ul class="cat-sub-menu">
                             <li>
                                 <a href="categories.html">All categories</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon image" aria-hidden="true"></span>Media
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="media-01.html">Media-01</a>
-                            </li>
-                            <li>
-                                <a href="media-02.html">Media-02</a>
                             </li>
                         </ul>
                     </li>
@@ -108,26 +75,6 @@ $users = getAllUsers();
                 </ul>
                 <span class="system-menu__title">system</span>
                 <ul class="sidebar-body-menu">
-                    <li>
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon category" aria-hidden="true"></span>Extentions
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="extention-01.html">Extentions-01</a>
-                            </li>
-                            <li>
-                                <a href="extention-02.html">Extentions-02</a>
-                            </li>
-                        </ul>
-                    </li>
                     <li>
                         <a class="show-cat-btn" href="##">
                             <span class="icon user-3" aria-hidden="true"></span>All users

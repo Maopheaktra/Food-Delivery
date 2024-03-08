@@ -1,7 +1,7 @@
 <?php
     $FoodOrders = (getOrderFood($_SESSION['userid'], 0));
     $cancelFood = (getOrderFood($_SESSION['userid'], 1));
-    $completedFood = (getOrderFood($_SESSION['userid'], 2));
+    $completedFood = (getOrderFood($_SESSION['userid'], 4));
 ?>
 <div class="d-none">
         <div class="bg-primary border-bottom p-3 d-flex align-items-center">

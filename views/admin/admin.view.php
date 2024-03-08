@@ -1,5 +1,4 @@
 
-
 <div class="main-wrapper">
   <!-- ! Main nav -->
   <nav class="main-nav--bg">
@@ -82,14 +81,14 @@
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="../../assets/images/user/<?= showPf($_SESSION['userid'])['user_img']; ?>" type="image/webp"><img src="../../assets/images/user/<?= showPf($_SESSION['userid'])['user_img']; ?>" alt="User name">
+                <source srcset="assets/images/user/<?php print_r(showPf($_SESSION['userid'])['user_img']); ?>" type="image/webp"><img src="assets/images/user/<?php print_r(showPf($_SESSION['userid'])['user_img']); ?>" alt="User name">
               </picture>
             </span>
           </button>
           <ul class="users-item-dropdown nav-user-dropdown dropdown">
             <li><a href="##">
                 <i data-feather="user" aria-hidden="true"></i>
-                <span>Profile</span>
+                <span id="popInfo">Profile</span>
               </a></li>
             <li><a href="##">
                 <i data-feather="settings" aria-hidden="true"></i>
@@ -188,8 +187,10 @@
               <th class="text-center ml-2">ID</th>
               <th>Author</th>
               <th>Username</th>
+              <th>Phone Number</th>
               <th>Email</th>
               <th>Role</th>
+              <th>Gender</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -208,6 +209,7 @@
                   </div>
                 </td>
                 <td><?= $user['username'] ?></td>
+                <td><?= $user['phoneNumber'] ?></td>
                 <td><?= $user['email'] ?></td>
                 <td>
                   <?php if (isset($user['role_type'])) {
@@ -216,6 +218,7 @@
                     echo "Role Undefined";
                   } ?>
                 </td>
+                <td><?= $user['gender'] ?></td>
                 <td>
                   <span class="p-relative">
                     <button class="dropdown-btn transparent-btn" type="button" title="More info">
@@ -223,7 +226,7 @@
                       <i data-feather="more-horizontal" aria-hidden="true"></i>
                     </button>
                     <ul class="users-item-dropdown dropdown">
-                      <li id="update-user"><a href="##">Edit</a></li>
+                      <li id="update-user"><a href="#">Edit</a></li>
                       <li id="pop-del"><a href="controllers/admin/delete_user.controller.php?id=<?= $user['user_id'] ?>">Delete</a></li>
                     </ul>
                   </span>
@@ -238,7 +241,7 @@
     <!-- Pop-up form for adding a new user -->
     <div id="add-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <form class="add-user" action="controllers/admin/create_user.controller.php" method="post">
+        <form class="add-user" action="../../controllers/admin/create_user.controller.php" method="post">
           <h1 class="mb-1 text-center">Add a new user</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
@@ -284,15 +287,15 @@
     <!-- Pop-up form for updating a user -->
     <div id="update-user-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
       <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <form class="update-user" method="post">
+        <form class="update-user" action="../../controllers/admin/admin.edit_user.controller.php" method="post">
           <h1 class="mb-1 text-center">Update user info</h1>
           <div class="mb-1">
             <label for="username" class="form-label text-secondary">Username</label>
-            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp">
+            <input type="text" class="form-control" id="username" name="username" aria-describedby="usernameHelp" value="<?= $user['username'] ?>">
           </div>
           <div class="mb-1">
             <label for="email" class="form-label text-secondary">Email address</label>
-            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="email" name="email" aria-describedby="emailHelp" value="<?= $user['email'] ?>">
           </div>
           <div class="mb-1">
             <label for="password" class="form-label text-secondary">Password</label>
@@ -300,7 +303,7 @@
           </div>
           <div class="mb-1">
             <label for="number" class="form-label text-secondary">Phone Number</label>
-            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp">
+            <input type="int" class="form-control" id="number" name="number" aria-describedby="numberHelp" value="<?= $user['phoneNumber'] ?>">
           </div>
           <div class="input-group mb-1">
             <input type="file" class="form-control" id="inputGroupFile02">
@@ -309,11 +312,11 @@
           <div class="gender-selection d-flex mb-1">
             <label class="text-secondary">Gender:</label>
             <div class="form-check d-flex">
-              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="male">
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M" <?= ($user['gender'] == 'M') ? 'checked' : '' ?>>
               <label for="maleRadio" class="form-check-label text-secondary">Male</label>
             </div>
             <div class="form-check d-flex">
-              <input type="radio" id="femaleRadio" name="gender" value="female">
+              <input type="radio" id="femaleRadio" name="gender" value="F" <?= ($user['gender'] == 'F') ? 'checked' : '' ?>>
               <label for="femaleRadio" class="form-check-label text-secondary">Female</label>
             </div>
           </div>
@@ -321,9 +324,9 @@
             <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
             <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
               <option selected>Choose...</option>
-              <option value="1">Customer</option>
-              <option value="2">Restaurant Owner</option>
-              <option value="3">Delevery</option>
+              <option value="<?= $user['role_type'] ?>">Customer</option>
+              <option value="<?= $user['role_type'] ?>">Restaurant Owner</option>
+              <option value="<?= $user['role_type'] ?>">Delevery</option>
             </select>
           </div>
           <input type="submit" class="btn btn-primary" name="send" value="Update" />
@@ -331,10 +334,52 @@
         </form>
       </div>
     </div>
-
+    <!-- pop-up profile user-admin -->
+    <div id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
+      <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
+        <div class="show-pro d-flex flex-column">
+          <!-- Wrap the image within a label -->
+          <label class="d-flex justify-content-center" for="imageInput" style="width: 100%;">
+            <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" style="width: 20%; border-radius: 50%;" alt="...">
+          </label>
+          <input type="file" id="imageInput" style="display: none;" accept="image/*"> <!-- Hidden file input -->
+          <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
+          <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">chuonveasna123@gmail.com</div>
+        </div>
+        <div class="show-info" style="width:100%;">
+          <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username">
+          <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email">
+          <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone">
+          <label class="visually-hidden" for="autoSizingSelect">Preference</label>
+          <div class="input-group mb-3">
+            <label class="input-group-text text-secondary" for="inputGroupSelect01">Role</label>
+            <select class="form-select text-secondary" name="role" id="inputGroupSelect01">
+              <option selected>Choose...</option>
+              <option value="<?= $user['role_type'] ?>">Customer</option>
+              <option value="<?= $user['role_type'] ?>">Restaurant Owner</option>
+              <option value="<?= $user['role_type'] ?>">Delevery</option>
+            </select>
+          </div>
+          <div class="gender-selection d-flex mb-1">
+            <label class="text-secondary">Gender:</label>
+            <div class="form-check d-flex">
+              <input class="text-danger" type="radio" id="maleRadio" name="gender" value="M">
+              <label for="maleRadio" class="form-check-label text-secondary">Male</label>
+            </div>
+            <div class="form-check d-flex">
+              <input type="radio" id="femaleRadio" name="gender" value="F">
+              <label for="femaleRadio" class="form-check-label mb-2 text-secondary">Female</label>
+            </div>
+          </div>
+        </div>
+        <div>
+          <input type="submit" class="btn btn-primary" name="send" value="Save" />
+          <input type="button" class="btn btn-danger" id="update-user-cancel" value="Cancel" />
+        </div>
+      </div>
+    </div>
     <?php
     echo "<script>
-
     // ================Create User Form================
     document.addEventListener('DOMContentLoaded', function () {
     let addUserBtn = document.getElementById('add-user-btn');
@@ -343,33 +388,39 @@
     let addUserPopup = document.getElementById('add-user-popup');
     let updateUserPopup = document.getElementById('update-user-popup');
 
+// =================Show popup admin_user===============
+    let btnUpInfo = document.getElementById('popInfo');
+    let popUpInfo = document.getElementById('profile-admin-popup');
+    function showProfilePopup() {
+      popUpInfo.style.display = 'block';
+    }
+    let btnHidePop = document.getElementById('update-user-cancel');
+    function hideProfilePopup() {
+      popUpInfo.style.display = 'none';
+    }
+    btnHidePop.addEventListener('click', hideProfilePopup); 
+    btnUpInfo.addEventListener('click', showProfilePopup);
+
     function showAddUserPopup() {
       addUserPopup.style.display = 'block';
     }
-
     function hideAddUserPopup() {
       addUserPopup.style.display = 'none';
     }
-
     function hideUpdateUserPopup() {
       updateUserPopup.style.display = 'none';
     }
-
     addUserBtn.addEventListener('click', showAddUserPopup);
     addUserCancelBtn.addEventListener('click', hideAddUserPopup);
     updateUserCancelBtn.addEventListener('click', hideUpdateUserPopup);
-
     let updateUserBtn = document.querySelectorAll('#update-user');
-    
     // ===============Update User ====================
     function showUpdateUserPopup() {
       updateUserPopup.style.display = 'block';
     }
-
     for(let i = 0; i < updateUserBtn.length; i++) {
       updateUserBtn[i].addEventListener('click', showUpdateUserPopup);
     }
-    
     let updateUserPopupVisible = false;
     updateUserBtn.addEventListener('click', function() {
       if (updateUserPopupVisible) {
@@ -379,7 +430,6 @@
       }
       updateUserPopupVisible = !updateUserPopupVisible;
     });
-
     // Close dropdown when clicking outside
     document.addEventListener('click', function(event) {
       let dropdown = document.querySelector('.users-item-dropdown.dropdown');
@@ -388,11 +438,7 @@
         dropdown.style.display = 'none';
       }
     });
-
   });
 </script>";
     ?>
-
-
-
   </main>

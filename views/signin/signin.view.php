@@ -47,11 +47,6 @@
                             <?php endif; ?>
                         </div>
                         <button class="btn btn-primary btn-lg btn-block" type="submit">SIGN IN</button>
-                        <div class="py-2">
-                            <button class="btn btn-lg btn-facebook btn-block">
-                                <i class="feather-facebook"></i> Connect with Facebook
-                            </button>
-                        </div>
                     </form>
                     <a href="/resetPwd" class="text-decoration-none">
                         <p class="text-center">Forgot your password?</p>

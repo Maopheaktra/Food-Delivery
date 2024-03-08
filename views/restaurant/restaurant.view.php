@@ -49,7 +49,7 @@
                             class="p-2 bg-light rounded-circle font-weight-bold  feather-upload"></i></a>
                     <a href="#ratings-and-reviews" class="text-decoration-none text-dark mx-2"><i
                             class="p-2 bg-light rounded-circle font-weight-bold  feather-star"></i></a>
-                    <a href="#ratings-and-reviews" class="text-decoration-none text-dark"><i
+                    <a href="/restaurant_location" class="text-decoration-none text-dark"><i
                             class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
                 </div>
                 <a href="contact-us.html" class="btn btn-sm btn-outline-light ml-auto">Contact</a>
