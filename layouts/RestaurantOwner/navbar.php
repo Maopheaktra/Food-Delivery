@@ -76,10 +76,10 @@
     <div class="sidebar-footer">
         <a href="##" class="sidebar-user">
             <span class="sidebar-user-img">
-                <picture><source srcset="../../assets/images/user/<?= $resOwner['user_img'] ?>" type="image/webp"><img src="../../assets/images/user/<?= $resOwner['user_img'] ?>"></picture>
+                <picture><source srcset="../../assets/images/user/<?= $resOwner['user_img'] ?>" type="image/webp"><img src="../../assets/images/user/<?=$resOwner['user_img'];?>"></picture>
             </span>
             <div class="sidebar-user-info">
-                <span class="sidebar-user__title"><?= $resOwner['username'] ?></span>
+                <span class="sidebar-user__title"><?=$resOwner['username'];?></span>
                 <span class="sidebar-user__subtitle">Restaurant Owner</span>
             </div>
         </a>
