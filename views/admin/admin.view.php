@@ -90,9 +90,9 @@ $userCountsByRole = countUsersByRole();
                 </div>
                 <div class="nav-user-wrapper">
                     <!-- <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button" style="border-color: transparent !important;"> -->
-                    <button class="rounded-circle nav-user-btn dropdown-btn" 
-                        style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;"
-                        onmouseover="this.style.border='2px solid #EED7C5'"
+                    <button class="rounded-circle nav-user-btn dropdown-btn"
+                        style="border-color: transparent !important;" border: 2px solid transparent; background-color:
+                        #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'"
                         onmouseout="this.style.border='2px solid transparent'" title="My profile">
                         <span class="sr-only">My profile</span>
                         <span class="nav-user-img">
@@ -441,7 +441,7 @@ $userCountsByRole = countUsersByRole();
                     </form>
                 </div>
             </div>
-            
+
             <!-- pop-up profile user-admin -->
             <div id="profile-admin-popup"
                 class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
@@ -513,17 +513,20 @@ $userCountsByRole = countUsersByRole();
     <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
 
         <div class="show-pro row">
+
             <div class="profile-container d-flex justify-content-center">
-                <label class="rounded-circle" for="imageInput" style="width: 100px; height: 100px; background-color:beige;">
-                    <img id="imagePreview" class="border border-5 rounded-circle" src="<?php $adminPf['user_img']; ?>" alt="Preview">
+                <label class="rounded-circle" for="imageInput" style="width: 100px; height: 100px;">
+                    <img id="imagePreview" class="border border-5 rounded-circle" src="<?php $adminPf['user_img']; ?>" alt="Preview" title="Upload profile">
                 </label>
                 <input type="file" id="imageInput" class="image" name="my_image" style="display: none;" accept="image/*">
             </div>
+
             <div class="username text-center fs-4"
                 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                 <?= $adminPf['username']; ?>
             </div>
-            <div class="email text-secondary mb-3 m-auto d-flex justify-content-center" style="font-family: serif; font-style: italic;">
+            <div class="email text-secondary mb-3 m-auto d-flex justify-content-center"
+                style="font-family: serif; font-style: italic;">
                 <?= $adminPf['email']; ?>
             </div>
         </div>
@@ -536,7 +539,7 @@ $userCountsByRole = countUsersByRole();
                 value="<?= $adminPf['phoneNumber'] ?>">
         </div>
         <div>
-            <input type="submit" class="btn btn-primary shadow-none"  name="send" value="Save" />
+            <input type="submit" class="btn btn-primary shadow-none" name="send" value="Save" />
             <input type="button" class="btn btn-danger shadow-none" id="btn-user-cancel" value="Cancel" />
         </div>
     </div>
