@@ -89,7 +89,11 @@ $userCountsByRole = countUsersByRole();
                     </ul>
                 </div>
                 <div class="nav-user-wrapper">
-                    <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
+                    <!-- <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button" style="border-color: transparent !important;"> -->
+                    <button class="rounded-circle nav-user-btn dropdown-btn" 
+                        style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;"
+                        onmouseover="this.style.border='2px solid #EED7C5'"
+                        onmouseout="this.style.border='2px solid transparent'" title="My profile">
                         <span class="sr-only">My profile</span>
                         <span class="nav-user-img">
                             <picture>
@@ -98,8 +102,9 @@ $userCountsByRole = countUsersByRole();
                             </picture>
                         </span>
                     </button>
-                    <ul class="users-item-dropdown nav-user-dropdown dropdown">
-                        <li><a href="##">
+                    <ul class="users-item-dropdown nav-user-dropdown dropdown"
+                        style="border-color: transparent !important;">
+                        <li><a href="#" style="border-color: transparent !important;">
                                 <i data-feather="user" aria-hidden="true"></i>
                                 <span id="popInfo">Profile</span>
                             </a></li>
@@ -210,7 +215,6 @@ $userCountsByRole = countUsersByRole();
                                 <td>
                                     <div class="pages-table-img">
                                         <picture>
-                                            <!-- <source srcset="<?= $user['profile_img'] ?>" type="image/webp"> -->
                                             <img src="assets/images/user/<?= $user['user_img'] ?>" alt="Profile Picture">
                                         </picture>
                                     </div>
@@ -437,6 +441,7 @@ $userCountsByRole = countUsersByRole();
                     </form>
                 </div>
             </div>
+            
             <!-- pop-up profile user-admin -->
             <div id="profile-admin-popup"
                 class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
@@ -454,7 +459,7 @@ $userCountsByRole = countUsersByRole();
                             style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                         </div>
                         <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">
-                        
+
                         </div>
                     </div>
                     <div class="show-info" style="width:100%;">
@@ -506,34 +511,34 @@ $userCountsByRole = countUsersByRole();
     style="display: none; z-index: 999; width:100%; height:100%"
     action="../../controllers/admin/admin.upload_profile.controller.php" method="post" enctype="multipart/form-data">
     <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <div class="show-pro d-flex flex-column">
-            <label class="d-flex justify-content-center" for="imageInput" style="width: auto;">
-                <img id="imagePreview" class="border border-5" src="<?php $adminPf['user_img']; ?>"
-                    style="border-radius: 50%;" width="100" height="100" alt="Preview">
-            </label>
-            <input type="file" id="imageInput" class="image" name="my_image" style="display: none;" accept="image/*">
+
+        <div class="show-pro row">
+            <div class="profile-container d-flex justify-content-center">
+                <label class="rounded-circle" for="imageInput" style="width: 100px; height: 100px; background-color:beige;">
+                    <img id="imagePreview" class="border border-5 rounded-circle" src="<?php $adminPf['user_img']; ?>" alt="Preview">
+                </label>
+                <input type="file" id="imageInput" class="image" name="my_image" style="display: none;" accept="image/*">
+            </div>
             <div class="username text-center fs-4"
                 style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
                 <?= $adminPf['username']; ?>
             </div>
-            <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">
+            <div class="email text-secondary mb-3 m-auto d-flex justify-content-center" style="font-family: serif; font-style: italic;">
                 <?= $adminPf['email']; ?>
             </div>
         </div>
         <div class="show-info" style="width:100%;">
-            <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username"
+            <input type="text" class="form-control mb-3 shadow-none" placeholder="Username" aria-label="username"
                 value="<?= $adminPf['username'] ?>">
-            <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email"
+            <input type="email" class="form-control mb-3 shadow-none" placeholder="Email Address" aria-label="email"
                 value="<?= $adminPf['email'] ?>">
-            <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone"
+            <input type="number" class="form-control mb-3 shadow-none" placeholder="Phone Number" aria-label="phone"
                 value="<?= $adminPf['phoneNumber'] ?>">
         </div>
         <div>
-            <input type="submit" class="btn btn-primary" name="send" value="Save" />
-            <input type="button" class="btn btn-danger" id="btn-user-cancel" value="Cancel" />
+            <input type="submit" class="btn btn-primary shadow-none"  name="send" value="Save" />
+            <input type="button" class="btn btn-danger shadow-none" id="btn-user-cancel" value="Cancel" />
         </div>
     </div>
 </form>
 </main>
-
-
