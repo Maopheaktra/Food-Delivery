@@ -121,3 +121,5 @@ function updateUser($name, $phone, $email, $userID, $role): bool
     ]);
     return $statement->rowCount() > 0;
 }
+
+

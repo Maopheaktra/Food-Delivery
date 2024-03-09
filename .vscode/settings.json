@@ -5,7 +5,8 @@
         "restaurantowners",
         "signout",
         "Tolist",
-        "uploadpf"
+        "uploadpf",
+        "upswitch"
     ],
     "files.autoSave": "afterDelay"
 }
