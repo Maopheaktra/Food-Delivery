@@ -17,7 +17,7 @@ function createUser($name, $email, $password, $phoneNumber, $gender, $role): boo
     return $statement->rowCount() > 0;
 }
 
-function login($email, $password)
+function login($email)
 {
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM users WHERE email = :email");
