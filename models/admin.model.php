@@ -108,3 +108,16 @@ function updateUser($name, $phone, $email, $userID, $role): bool
     ]);
     return $statement->rowCount() > 0;
 }
+function updateAdmin($name, $email, $phone): bool
+{
+    global $connection;
+    $statement = $connection->prepare("UPDATE users SET username = :username, email = :email, phoneNumber = :phone WHERE user_id = :userID");
+    $statement->execute([
+        ':username' => $name,
+        ':phone' => $phone,
+        ':email' => $email,
+    ]);
+    return $statement->rowCount() > 0;
+}
+
+
