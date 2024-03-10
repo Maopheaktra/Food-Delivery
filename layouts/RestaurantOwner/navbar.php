@@ -64,7 +64,7 @@
                     </a>
                     <ul class="cat-sub-menu">
                         <li>
-                            <a href="categories.html">Comments</a>
+                            <a href="/comment">Comments</a>
                         </li>
                         <li>
                             <a href="categories.html">Order</a>
