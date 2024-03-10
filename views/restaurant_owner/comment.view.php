@@ -74,13 +74,13 @@
                               <?php
                                 require "database/database.php";
                                 // require "models/employee.model.php";
-                                $statement = $connection->prepare("SELECT * FROM comments");
+                                $statement = $connection->prepare("SELECT * FROM comments inner join users on users.user_id = comments.user_id");
                                 $statement->execute();
                                 $cmts = $statement->fetchAll();
                                 foreach ($cmts as $key => $cmt) :?>
                                   <tr>
-                                    <td><img src=" <?php echo $cmt['user_img']; ?></td>
-                                    <td><?php echo $cmt['user_id'];?></td>
+                                    <td><?php echo $cmt['username'];?></td>
+                                    <td><img src="assets/images/user/<?php echo $cmt['user_img']; ?>" alt="" style="width: 40px; heigh: 40px; border-radius: 50%;" ></td>
                                     <td><?php echo $cmt['date']; ?></td>
                                     <td><?php echo $cmt['contents']; ?></td>
                                   </tr>
