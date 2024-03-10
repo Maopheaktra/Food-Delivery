@@ -112,7 +112,6 @@
 </main>
 <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display:none; z-index: 999; width:100%; height:100%">
       <div id="add-food popup-food" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-food popup-food" action="controllers/Food/create_food.controller.php" method="post" >
         <form class="add-food popup-food" action="controllers/Food/create_food.controller.php" method="post">
             <h1>Create Food</h1>
             <div class="mb-3">

@@ -75,18 +75,10 @@
                       <tbody>
                         <?php
                         require "database/database.php";
-                        require "models/employee.model.php";
+                        // require "models/employee.model.php";
                         $statement = $connection->prepare("SELECT * FROM categories");
                         $statement->execute();
                         $categories = $statement->fetchAll();
-                        foreach ($categories as $category):?>
-                        <tr>
-                          <td><?=$category['category_id'];?></td>
-                          <td><img src="assets/images/categories/download.jpg" alt="" style ="width:70px" class = "img-responsive"></td>
-                        $resId = $_SESSION['res_own']['restaurant_id'];
-                        $categories = getCateInres($resId);
-
-                        
                         foreach ($categories as $category):?>
                         <tr>
                           <td><?=$category['category_id'];?></td>

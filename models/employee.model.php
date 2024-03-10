@@ -1,13 +1,11 @@
 <?php
-
-
 function getUsers() : array
 {
     global $connection;
     $statement = $connection->prepare("select * from users");
     $statement->execute();
     return $statement->fetchAll();
-}
+};
 
 // restaurant-----------
 function getRestaurants() : array
