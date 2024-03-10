@@ -158,6 +158,13 @@ function getAllCate(){
     return $statement->fetchAll();   
 }
 
+function getCatebyId($cateid){
+    global $connection;
+    $statement = $connection->prepare("select * from categories where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+    return $statement->fetch();   
+}
+
 function getFoodbyCate($cateid){
     global $connection;
     $statement = $connection->prepare("select * from foods where category_id = :cateid");
@@ -223,6 +230,13 @@ function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
     ]);
 }
 
+//delete category
+
+function deleteCate($cateid){
+    global $connection;
+    $statement = $connection->prepare("delete from categories where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+}
 // ------ *Add category of the restaurant onwer* -----------------------//
 
 function addCategories($cateName, $description){
@@ -269,9 +283,44 @@ function addToresCate($cateid, $resid){
     ]);
 }
 
-function getCatebyId($cateid){
+// function getCatebyId($cateid){
+//     global $connection;
+//     $statement = $connection->prepare("select * from categories where category_id = :cateid");
+//     $statement->execute(['cateid'=> $cateid]);
+//     return $statement->fetch();
+// }
+
+function deleteFood($foodid){
     global $connection;
-    $statement = $connection->prepare("select * from categories where category_id = :cateid");
-    $statement->execute(['cateid'=> $cateid]);
-    return $statement->fetch();
+    $statement = $connection->prepare("delete from foods where Food_id = :foodid");
+    $statement->execute([':foodid'=> $foodid]);
+}
+
+function updateFood($foodid, $foodname, $description,$price){
+    global $connection;
+    $statement = $connection->prepare("update foods set Foodname = :foodname, description = :description, price = :price where Food_id = :foodid");
+    $statement->execute([
+        ':foodid'=>$foodid,
+        ':foodname'=>$foodname,
+        ':description'=>$description,
+        ':price'=>$price,
+    ]);
+}
+
+function getFoodbyId($foodid){
+    global $connection;
+    $statement = $connection->prepare("select * from foods where Food_id = :foodid");
+    $statement->execute([':foodid'=> $foodid]);
+    return $statement->fetch();   
+}
+
+//------------- Update Categories ---------------
+function updateCate($cateid, $catename, $description){
+    global $connection;
+    $statement = $connection->prepare("update categories set name = :catename, description = :description where category_id = :cateid");
+    $statement->execute([
+        ':catename'=>$catename,
+        ':description'=>$description,
+        ':cateid'=>$cateid,
+    ]);
 }
