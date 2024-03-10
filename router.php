@@ -13,6 +13,7 @@ $routes = [
     // '/createCategories' => 'controllers/categories/create_category.controller.php'
     '/categories' => 'controllers/categories/categorie.controller.php',
     '/restaurant_location' => 'controllers/restaurant/show.map.controller.php',
+    // '/categories' => 'controllers/categories/categorie.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {
