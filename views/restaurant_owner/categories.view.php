@@ -134,7 +134,7 @@
           <input type="file" name="my_image" id="image">
         </div>
         <div class="mb-3">
-          <input type="hidden" name="cateid" value="<?php print_r($_SESSION['cate']['category_id']); ?>">
+          <input type="hidden" name="cateid" value="<?php print_r($_SESSION['cate']['category_id']);?>">
           <label for="cate" class="form-label">Category:</label>
           <input type="text" name="cate"class="form-control" id="cate" value="<?php print_r($_SESSION['cate']['name']); ?>">
         </div>               
