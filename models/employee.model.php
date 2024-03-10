@@ -275,3 +275,27 @@ function getCatebyId($cateid){
     $statement->execute(['cateid'=> $cateid]);
     return $statement->fetch();
 }
+
+function deleteFood($foodid){
+    global $connection;
+    $statement = $connection->prepare("delete from foods where Food_id = :foodid");
+    $statement->execute([':foodid'=> $foodid]);
+}
+
+function updateFood($foodid, $foodname, $description,$price){
+    global $connection;
+    $statement = $connection->prepare("update foods set Foodname = :foodname, description = :description, price = :price where Food_id = :foodid");
+    $statement->execute([
+        ':foodid'=>$foodid,
+        ':foodname'=>$foodname,
+        ':description'=>$description,
+        ':price'=>$price,
+    ]);
+}
+
+function getFoodbyId($foodid){
+    global $connection;
+    $statement = $connection->prepare("select * from foods where Food_id = :foodid");
+    $statement->execute([':foodid'=> $foodid]);
+    return $statement->fetch();   
+}
