@@ -79,8 +79,8 @@
                                 $cmts = $statement->fetchAll();
                                 foreach ($cmts as $key => $cmt) :?>
                                   <tr>
-                                    <td><?php echo $cmt['user_id'];?></td>
                                     <td><img src=" <?php echo $cmt['user_img']; ?></td>
+                                    <td><?php echo $cmt['username'];?></td>
                                     <td><?php echo $cmt['date']; ?></td>
                                     <td><?php echo $cmt['contents']; ?></td>
                                   </tr>
