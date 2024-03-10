@@ -5,7 +5,8 @@ $routes = [
     '/' => 'controllers/admin/admin.controller.php',
     // '/trainer-review' => 'controllers/reviews/review.controller.php',
     // '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
-    '/create-user' => 'controllers/admin/admin.controller.php'
+    '/create-user' => 'controllers/admin/admin.controller.php',
+    '/profile_admin' => 'controllers/admin/admin.upload_profile.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {

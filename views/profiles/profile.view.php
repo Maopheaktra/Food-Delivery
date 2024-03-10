@@ -1,44 +1,38 @@
 <link rel="stylesheet" href="../../vendor/css/profile.css">
 <link rel="stylesheet" href="../../vendor/css/popup.css">
 
-<div class="user-profile">
+<div class="osahan-profile">
     <div class="d-none">
         <div class="bg-primary border-bottom p-3 d-flex align-items-center">
-            <a class="toggle toggle-2" href="#"><span></span></a>
+            <a class="toggle togglew toggle-2" href="#"><span></span></a>
             <h4 class="font-weight-bold m-0 text-white">Profile</h4>
         </div>
     </div>
 
     <div class="container position-relative">
-        <div class="py-5 user-profile row">
+        <div class="py-5 osahan-profile row">
             <div class="col-md-4 mb-3">
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
                     <div class="d-flex align-items-center p-3">
                         <div class="left mr-3">
-
-
-                            <div class="upload" id="upload">
+                            <label class="upload pointer-event" id="upload" for="imageInput">
                                 <img src="<?php print_r('assets/images/user/' . $img[7]) ?>" width="100" height="100">
-                            </div>
+                            </label>
                         </div>
                         <div class="right">
-                            <h6 class="mb-1 font-weight-bold">
-                                <?php print_r($img[1]) ?><i class="feather-check-circle text-success ml-1"></i>
-                            </h6>
-                            <p class="text-muted m-0 small">
-                                <?= '<span class="font-weight-bold" style="font-size: 11px;">' . print_r($img[2], true) . '</span>'; ?>
+                            <h6 class="mb-1 font-weight-bold"><?php print_r($img[1]) ?><i class="feather-check-circle text-success"></i></h6>
+                            <p class="text-muted m-0 small"><span class="__cf_email__" data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290"><?php print_r($img[2]) ?></span>
                             </p>
                         </div>
                     </div>
                     </a>
-                    <div class="user-credits d-flex align-items-center p-3 bg-light">
+                    <div class="osahan-credits d-flex align-items-center p-3 bg-light">
                         <p class="m-0">Accounts Credits</p>
                         <h5 class="m-0 ml-auto text-primary">$52.25</h5>
                     </div>
 
                     <div class="bg-white profile-details">
-                        <a data-toggle="modal" data-target="#paycard"
-                            class="d-flex w-100 align-items-center border-bottom p-3">
+                        <a data-toggle="modal" data-target="#paycard" class="d-flex w-100 align-items-center border-bottom p-3">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold mb-1 text-dark">Payment Cards</h6>
                                 <p class="small text-muted m-0">Add a credit or debit card</p>
@@ -47,8 +41,7 @@
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
                             </div>
                         </a>
-                        <a data-toggle="modal" data-target="#modal"
-                            class="d-flex w-100 align-items-center border-bottom p-3">
+                        <a data-toggle="modal" data-target="#exampleModal" class="d-flex w-100 align-items-center border-bottom p-3">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold mb-1 text-dark">Address</h6>
                                 <p class="small text-muted m-0">Add or remove a delivery address</p>
@@ -57,8 +50,7 @@
                                 <h6 class="font-weight-bold m-0"><i class="feather-chevron-right"></i></h6>
                             </div>
                         </a>
-                        <a class="d-flex align-items-center border-bottom p-3" data-toggle="modal"
-                            data-target="#inviteModal">
+                        <a class="d-flex align-items-center border-bottom p-3" data-toggle="modal" data-target="#inviteModal">
                             <div class="left mr-3">
                                 <h6 class="font-weight-bold mb-1">Refer Friends</h6>
                                 <p class="small text-primary m-0">Get $10.00 FREE</p>
@@ -69,8 +61,7 @@
                         </a>
                         <a href="faq.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
                             <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i
-                                        class="feather-truck bg-danger text-white p-2 rounded-circle mr-2"></i>
+                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-truck bg-danger text-white p-2 rounded-circle mr-2"></i>
                                     Delivery Support</h6>
                             </div>
                             <div class="right ml-auto">
@@ -79,8 +70,7 @@
                         </a>
                         <a href="contact-us.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
                             <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i
-                                        class="feather-phone bg-primary text-white p-2 rounded-circle mr-2"></i>
+                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-phone bg-primary text-white p-2 rounded-circle mr-2"></i>
                                     Contact</h6>
                             </div>
                             <div class="right ml-auto">
@@ -89,8 +79,7 @@
                         </a>
                         <a href="terms.html" class="d-flex w-100 align-items-center border-bottom px-3 py-4">
                             <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i
-                                        class="feather-info bg-success text-white p-2 rounded-circle mr-2"></i> Term
+                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-info bg-success text-white p-2 rounded-circle mr-2"></i> Term
                                     of use</h6>
                             </div>
                             <div class="right ml-auto">
@@ -99,8 +88,7 @@
                         </a>
                         <a href="privacy.html" class="d-flex w-100 align-items-center px-3 py-4">
                             <div class="left mr-3">
-                                <h6 class="font-weight-bold m-0 text-dark"><i
-                                        class="feather-lock bg-warning text-white p-2 rounded-circle mr-2"></i>
+                                <h6 class="font-weight-bold m-0 text-dark"><i class="feather-lock bg-warning text-white p-2 rounded-circle mr-2"></i>
                                     Privacy policy</h6>
                             </div>
                             <div class="right ml-auto">
@@ -117,19 +105,16 @@
                         <div>
                             <form action="controllers/profiles/change.account.info.controller.php" method="post">
                                 <div class="form-group">
-                                    <label for="username">Full Name</label>
-                                    <input type="text" class="form-control" id="username"
-                                        value="<?php print_r($img[1]) ?>" name="username">
+                                    <label for="exampleInputName1">Full Name</label>
+                                    <input type="text" class="form-control" id="exampleInputName1d" value="<?php print_r($img[1]) ?>" name="username">
                                 </div>
                                 <div class="form-group">
-                                    <label for="phone">Mobile Number</label>
-                                    <input type="number" class="form-control" id="phone"
-                                        value="<?php print_r($img[6]) ?>" name="phone">
+                                    <label for="exampleInputNumber1">Mobile Number</label>
+                                    <input type="number" class="form-control" id="exampleInputNumber1" value="<?php print_r($img[6]) ?>" name="phone">
                                 </div>
                                 <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="email" class="form-control" id="email"
-                                        value="<?php print_r($img[2]) ?>" name="email">
+                                    <label for="exampleInputEmail1">Email</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" value="<?php print_r($img[2]) ?>" name="email">
                                 </div>
                                 <div class="text-center">
                                     <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
@@ -138,14 +123,12 @@
                         </div>
                         <div class="additional">
                             <div class="change_password my-3">
-                                <a href="forgot_password.html"
-                                    class="p-3 border rounded bg-white btn d-flex align-items-center">Change
+                                <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Change
                                     Password
                                     <i class="feather-arrow-right ml-auto"></i></a>
                             </div>
                             <div class="deactivate_account">
-                                <a href="forgot_password.html"
-                                    class="p-3 border rounded bg-white btn d-flex align-items-center">Deactivate
+                                <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Deactivate
                                     Account
                                     <i class="feather-arrow-right ml-auto"></i></a>
                             </div>
@@ -156,7 +139,7 @@
         </div>
     </div>
 
-    <div class="user-menu-footer fixed-bottom bg-white px-3 py-2 text-center d-none">
+    <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
         <div class="row">
             <div class="col">
                 <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
@@ -194,8 +177,7 @@
 </div>
 
 <div id="contact-popup" style="display: none;">
-    <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php"
-        method="post">
+    <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php" method="post">
         <h1>Upload Profile</h1>
         <div style="margin-top: 10px; margin-bottom: 10px;">
             <div>
@@ -229,4 +211,4 @@ send.addEventListener('click', ()=>{
 
 </script>"
 
-    ?>
+?>

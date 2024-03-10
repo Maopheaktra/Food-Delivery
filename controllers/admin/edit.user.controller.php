@@ -1,26 +1,27 @@
-<?php 
+<?php
+
+session_start();
 require "../../database/database.php";
 require "../../models/admin.model.php";
-require "../../models/employee.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // Check if all required fields are filled
     if ($_POST['username'] !== '' && $_POST['email'] !== '' && $_POST['password'] !== '' && $_POST['number'] !== '' && $_POST['role'] !== '') {
         // If all required fields are filled, proceed with user creation
-        $username = $_POST['username'];
+        $username = strval($_POST['username']);
         $email = $_POST['email'];
         $password = $_POST['password'];
         $phoneNumber = $_POST['number'];
         $role = $_POST['role'];
         $gender = $_POST['gender'];
-        $userImg = 'IMG-65d9f4f69e5411.43011126.jpg';
-        
-        createUsers($username, $email, $password, $gender, $role, $phoneNumber, $userImg);
+        $user_id = intval($_POST['user_id']);
 
-        header('location: /');
+        updateUser($username, $phoneNumber, $email, $user_id, $role);
+
+        header('Location: /');
+
         exit(); 
     } else {
-       
+        echo "Please fill in all required fields.";
     }
-    header('location: /');
 }
