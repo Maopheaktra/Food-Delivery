@@ -8,6 +8,7 @@ $adminPf = showPf($_SESSION['userid']);
 
 ?>
 
+<!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
     <!-- ! Sidebar -->
@@ -35,23 +36,6 @@ $adminPf = showPf($_SESSION['userid']);
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
-                            <span class="icon document" aria-hidden="true"></span>Posts
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="posts.html">All Posts</a>
-                            </li>
-                            <li>
-                                <a href="new-post.html">Add new post</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
                             <span class="icon folder" aria-hidden="true"></span>Categories
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -66,24 +50,6 @@ $adminPf = showPf($_SESSION['userid']);
                     </li>
                     <li>
                         <a class="show-cat-btn" href="##">
-                            <span class="icon image" aria-hidden="true"></span>Media
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="media-01.html">Media-01</a>
-                            </li>
-                            <li>
-                                <a href="media-02.html">Media-02</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-
                             <span class="icon paper" aria-hidden="true"></span>Pages
                             <span class="category__btn transparent-btn" title="Open list">
                                 <span class="sr-only">Open list</span>
@@ -110,28 +76,6 @@ $adminPf = showPf($_SESSION['userid']);
                 <span class="system-menu__title">system</span>
                 <ul class="sidebar-body-menu">
                     <li>
-
-                        <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon category" aria-hidden="true"></span>Extentions
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="extention-01.html">Extentions-01</a>
-                            </li>
-                            <li>
-                                <a href="extention-02.html">Extentions-02</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
                         <a class="show-cat-btn" href="##">
                             <span class="icon user-3" aria-hidden="true"></span>All users
                             <span class="category__btn transparent-btn" title="Open list">
@@ -141,12 +85,6 @@ $adminPf = showPf($_SESSION['userid']);
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
-
-                                <a href="users-01.html">Users-01</a>
-                            </li>
-                            <li>
-                                <a href="users-02.html">Users-02</a>
-
                                 <a href="runners.filter.php">Runners</a>
                             </li>
                             <li>
@@ -163,26 +101,5 @@ $adminPf = showPf($_SESSION['userid']);
                 </ul>
             </div>
         </div>
-        <div class="sidebar-footer">
-            <a href="##" class="sidebar-user">
-                <span class="sidebar-user-img">
-                    <picture><img src="<?php print_r('assets/images/user/'.$img[7]) ?>"></picture>
-                    <picture>
-                        <?php if ($user['user_img']) : true ?>
-                            <source srcset="<?= $user['user_img'] ?>" type="image/webp">
-                            <img src="<?= $user['user_img'] ?>" alt="Profile Picture">
-                        <?php else : false ?>
-                            <source srcset="../../assets/images/avatar/user.png" type="image/png">
-                            <img src="../../assets/images/avatar/user.png" alt="Default Profile Picture">
-                        <?php endif; ?>
-                    <picture>
-                            <img src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" alt="Default Profile Picture">
-                    </picture>
-                </span>
-                <div class="sidebar-user-info">
-                    <span class="sidebar-user__title">Pheak Tra.</span>
-                    <span class="sidebar-user__subtitle">Restaurant Owner</span>
-                </div>
-            </a>
-        </div>
+        
     </aside>

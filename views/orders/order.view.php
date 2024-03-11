@@ -117,7 +117,7 @@
                                             <span class="text-dark font-weight-bold"><?php echo $total_price.'$' ?></span>
                                         </div>
                                         <div class="text-right">
-                                            <a href="controllers/orders/cancel.controller.php?orderid=<?php echo $value['time'] ?>" class="btn btn-primary px-3">Track</a>
+                                            <a href="controllers/orders/cancel.controller.php?orderid=<?php echo $value['time'] ?>" class="btn btn-primary px-3">Cancel</a>
                                             <a href="contact-us.html" class="btn btn-outline-primary px-3">Help</a>
                                         </div>
                                     </div>

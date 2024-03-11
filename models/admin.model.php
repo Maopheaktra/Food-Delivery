@@ -1,4 +1,7 @@
 <?php
+
+
+
 function getAllUsers()
 {
     global $connection;
@@ -10,7 +13,6 @@ function getAllUsers()
             u.email,
             u.gender,
             u.phoneNumber,
-            u.password,
             u.user_img,
             r.role_type
         FROM 
@@ -23,6 +25,7 @@ function getAllUsers()
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
+
 
 function countUsersByRole()
 {

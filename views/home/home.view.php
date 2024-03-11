@@ -29,13 +29,45 @@
         ?>
         <div class="cat-item px-1 py-3">
           <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="controllers/categories/categories.filter.controller.php?cateid=<?= $value[0]; ?>">
-            <img alt="#" src="assets/images/icons/Fries.png" class="img-fluid mb-2" />
+            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" />
             <p class="m-0 small"><?php echo $value[2] ?></p>
           </a>
         </div>
         <?php endforeach; ?>
       </div>
     </div>
+
+    <!-- <div class="bg-theme-black py-3">
+      <div class="container">
+        <div class="offer-slider">
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro1.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro3.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro4.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> -->
     <div class="container">
       <div class="pt-4 pb-2 title d-flex align-items-center">
         <h5 class="m-0">Trending this week</h5>
@@ -165,14 +197,14 @@
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>">
+                <a href="/restaurant">
                   <img alt="#" src="assets/images/sales1.png" class="img-fluid item-img w-100" />
                 </a>
               </div>
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
-                    <a href="/restaurant?id=<?php print_r($data[$i][0]) ?>" class="text-black"><?php print_r($data[$i][1]); ?>
+                    <a href="/restaurant" class="text-black"><?php print_r($data[$i][1]); ?>
                     </a>
                   </h6>
                   <p class="text-gray mb-3"><?php print_r($data[$i][2]); ?></p>
@@ -232,4 +264,3 @@
       </div>
     </div>
   </div>
-</div>

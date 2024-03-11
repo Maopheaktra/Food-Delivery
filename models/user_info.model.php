@@ -1,6 +1,6 @@
 <?php
 
-function createUser($name, $email, $password, $phoneNumber, $gender, $role): bool
+function createUser($name, $email, $password, $phoneNumber, $gender, $role) : bool
 {
     global $connection;
     $statement = $connection->prepare("insert into users (username, email, password, gender, role_id, phoneNumber) values (:username, :email, :password, :gender, :role_id, :phoneNumber)");
@@ -17,23 +17,21 @@ function createUser($name, $email, $password, $phoneNumber, $gender, $role): boo
     return $statement->rowCount() > 0;
 }
 
-function login($email)
-{
+function login($email){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM users WHERE email = :email");
     $stmt->execute([':email' => $email]);
     return $stmt->fetch();
 }
 
-function updateInfo($name, $phone, $email, $userID): bool
-{
+function updateInfo($name, $phone, $email, $userID): bool {
     global $connection;
     $statement = $connection->prepare("update users set username = :username, phoneNumber = :phone, email = :email where user_id = :userID");
     $statement->execute([
-        ':username' => $name,
-        ':phone' => $phone,
-        ':email' => $email,
-        ':userID' => $userID,
+        ':username'=>$name,
+        ':phone'=>$phone,
+        ':email'=>$email,
+        ':userID'=>$userID,
     ]);
     return $statement->rowCount() > 0;
 }
@@ -46,14 +44,13 @@ function deleteUser($userid){
 }
 
 
-// function Add_New_Food($Name, $description, $price, $cate_id){
-//     global $connection;
-//     $statement=$connection->prepare("insert into foods(Foodname, description, price, category_id) values (:name, :description, :price, :category_id)");
-//     $statement->execute([
-//         ':name'=> $Name,
-//         ':description'=> $description,
-//         ':price'=> $price,
-//         ':category_id'=> $cate_id
-//     ]);
-// }
-
+function Add_New_Food($Name, $description, $price, $cate_id){
+    global $connection;
+    $statement=$connection->prepare("insert into foods(Foodname, description, price, category_id) values (:name, :description, :price, :category_id)");
+    $statement->execute([
+        ':name'=> $Name,
+        ':description'=> $description,
+        ':price'=> $price,
+        ':category_id'=> $cate_id
+    ]);
+}

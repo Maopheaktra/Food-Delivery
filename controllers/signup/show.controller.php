@@ -2,13 +2,14 @@
 <?php
 // ----get data from user input------
 if ($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    // session_start();
-    require "../../database/database.php"; // line 7
+    // TO DO-----------
+    session_start();
+    require "../../database/database.php";
     require "../../models/employee.model.php";
     if (isset($_POST['usernames']) && !empty($_POST['usernames'] && !empty($_POST['gender'] && !empty($_POST['phone'])))){
         $usernames = htmlspecialchars($_POST['usernames']);
         $role = htmlspecialchars($_POST['optradio']);
+        // $role = '2';
         $gender = htmlspecialchars($_POST['gender']);
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
@@ -31,8 +32,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
                 header('Location: /');
             }elseif($role == 2){
                 $_SESSION['role'] = $role;
-                header('Location: /admin');
-            }else{
+                header('Location: /');
+            }elseif($role == 3){
                 $_SESSION['role'] = $role;
                 header('Location: /');
             }
