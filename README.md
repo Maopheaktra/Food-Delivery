@@ -42,10 +42,3 @@ Breakdown of the steps and components we would need to create:
 
 * Using JSON for data interchange between the client-side JavaScript and server-side PHP, especially for Ajax requests and responses
 * Parsing JSON data received from the server and manipulating it dynamically on the client-side with JavaScript
-
-## **NodeJS** (Optional):
-
-* Using Node.js for server-side scripting instead of PHP, with frameworks like Express.js
-* Handling form submissions and other server-side logic using Node.js
-* Utilizing npm packages for tasks such as password hashing, session management, and OAuth authentication
-* Integrating with MySQL or other databases for storing and retrieving user data
