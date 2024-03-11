@@ -74,7 +74,8 @@
                               <?php
                                 require "database/database.php";
                                 // require "models/employee.model.php";
-                                $statement = $connection->prepare("SELECT * FROM comments inner join users on users.user_id = comments.user_id");
+                                $resid = $_SESSION['res_own']['restaurant_id'];
+                                $statement = $connection->prepare("SELECT * FROM comments inner join users on users.user_id = comments.user_id where restaurant_id = $resid");
                                 $statement->execute();
                                 $cmts = $statement->fetchAll();
                                 foreach ($cmts as $key => $cmt) :?>
