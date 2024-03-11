@@ -33,7 +33,7 @@
         <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
-            <picture><source srcset="assets/images/avatar/avatar-illustrated-02.webp" type="image/webp"><img src="assets/images/avatar/avatar-illustrated-02.png" alt="User name"></picture>
+            <picture><source srcset="../../assets/images/user/<?= $resOwner['user_img'] ?>" type="image/webp"><img src="../../assets/images/user/<?= $resOwner['user_img'] ?>" alt="User name"></picture>
           </span>
         </button>
         <ul class="users-item-dropdown nav-user-dropdown dropdown">
@@ -41,7 +41,7 @@
               <i data-feather="user" aria-hidden="true"></i>
               <span>Profile</span>
             </a></li>
-          <li><a href="##">
+          <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
@@ -62,30 +62,29 @@
             <div class="chart">
                 <div class="container mt-3 ">
                   <a href=""type="Submit" id ="add-cate" class="btn btn-primary mg-3">Add New+</a>
-                  <table class = "table table-bordered mt-4">
+                  <table class = "table" style="margin-top: 30px;">
                       <thead>
                           <tr>
-                              <th>Cate_ID</th>
-                              <th>Photo</th>
-                              <th>Category's Name</th>
-                              <th>Description</th>
-                              <th>Action</th>
+                              <th scope="col">Cate_ID</th>
+                              <th scope="col">Photo</th>
+                              <th scope="col">Category's Name</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Action</th>
                           </tr>
                       </thead>
                       <tbody>
                         <?php
-                        require "database/database.php";
-                        require "models/employee.model.php";
-                        $statement = $connection->prepare("SELECT * FROM categories");
-                        $statement->execute();
-                        $categories = $statement->fetchAll();
+                        $resId = $_SESSION['res_own']['restaurant_id'];
+                        $categories = getCateInres($resId);
+
+                        
                         foreach ($categories as $category):?>
                         <tr>
-                          <td><?=$category['category_id'];?></td>
-                          <td><img src="assets/images/categories/download.jpg" alt="" style ="width:70px" class = "img-responsive"></td>
-                          <td><?=$category['name'];?></td>
-                          <td><?=$category['description'];?></td>
-                          <td>
+                          <td scope="row" style="vertical-align: bottom; text-align: center;"><?=$category['category_id'];?></td>
+                          <td style="vertical-align: bottom;"><img src="assets/images/trending4.png" alt="" style ="width:70px" class = "img-responsive"></td>
+                          <td style="vertical-align: bottom;"><?=$category['name'];?></td>
+                          <td style="vertical-align: bottom;"><?=$category['description'];?></td>
+                          <td style="vertical-align: bottom;">
                             <button class = "btn btn-success">Edit</button>
                             <button class = "btn btn-danger">Delete</button>
                           </td>

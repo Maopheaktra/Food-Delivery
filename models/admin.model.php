@@ -1,4 +1,7 @@
 <?php
+
+
+
 function getAllUsers()
 {
     global $connection;
@@ -21,30 +24,5 @@ function getAllUsers()
     $statement = $connection->prepare($query);
     $statement->execute();
     return $statement->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function getPost(int $id) : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->fetch();
-}
-
-function displayUser() : array
-{
-    global $connection;
-    $statement = $connection->prepare("select * from users");
-    $statement = $connection->prepare($query);
-    $statement->execute();
-    return $statement->fetchAll(PDO::FETCH_ASSOC);
-}
-
-function deletePost(int $id) : bool
-{
-    global $connection;
-    $statement = $connection->prepare("delete from posts where id = :id");
-    $statement->execute([':id' => $id]);
-    return $statement->rowCount() > 0;
 }
 

@@ -1,9 +1,4 @@
 
-<?php
-require "database/database.php";
-require "models/admin.model.php";
-$users = getAllUsers();
-?>
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,6 +10,7 @@ $users = getAllUsers();
   <link rel="shortcut icon" href="./img/svg/logo.svg" type="image/x-icon">
   <!-- Custom styles -->
   <link rel="stylesheet" href="vendor/css/style.min.css">
+  
 </head>
 
 <body>

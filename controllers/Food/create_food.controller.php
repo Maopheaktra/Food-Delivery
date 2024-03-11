@@ -1,11 +1,9 @@
 <?php
 require "../../database/database.php";
-require "../../models/employee.model.php";
-// echo $_POST['food'];
+require "../../models/user_info.model.php";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    # code...
     if (isset($_POST['food']) && isset($_POST['description']) && isset($_POST['price']) && isset($_POST['cate_id'])) {
-        # code...
         $Name = $_POST['food'];
         $description = $_POST['description'];
         $price = $_POST['price'];
