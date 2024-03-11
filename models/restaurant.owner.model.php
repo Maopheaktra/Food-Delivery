@@ -51,3 +51,16 @@ function orderResponse($resid, $time, $action){
         ":action"=> $action,
     ]);
 }
+
+function editeRestaurant($resid, $resname, $resimg, $resAddress, $resOpen, $resClose){
+    global $connection;
+    $statement = $connection->prepare("update restaurants set restaurant_name = :resname, address = :resaddress, time_open = :resOpen, time_close = :resClose, res_img = :resimg where restaurant_id = :resid");
+    $statement->execute([
+        ':resname'=> $resname,
+        ':resaddress'=> $resAddress,
+        ':resOpen'=> $resOpen,
+        ':resClose'=> $resClose,
+        ':resimg'=> $resimg,
+        ':resid'=> $resid,
+    ]);
+}

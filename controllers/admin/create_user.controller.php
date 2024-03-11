@@ -1,26 +1,20 @@
 <?php 
 require "../../database/database.php";
-require "../../models/admin.model.php";
 require "../../models/employee.model.php";
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Check if all required fields are filled
     if ($_POST['username'] !== '' && $_POST['email'] !== '' && $_POST['password'] !== '' && $_POST['number'] !== '' && $_POST['role'] !== '') {
-        // If all required fields are filled, proceed with user creation
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
+        $crypted = password_hash($password, PASSWORD_BCRYPT);
         $phoneNumber = $_POST['number'];
         $role = $_POST['role'];
         $gender = $_POST['gender'];
         $userImg = 'IMG-65d9f4f69e5411.43011126.jpg';
-        
-        createUsers($username, $email, $password, $gender, $role, $phoneNumber, $userImg);
-
+        // echo $role
+        addUsers($username, $email, $crypted, $gender, $role, $phoneNumber, $userImg);
         header('location: /');
-        exit(); 
-    } else {
-       
+        // echo 'yes';
     }
-    header('location: /');
 }
+?>

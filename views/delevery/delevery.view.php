@@ -16,17 +16,6 @@ ob_start();
           <span class="sr-only">Toggle menu</span>
           <span class="icon menu-toggle--gray" aria-hidden="true"></span>
         </button>
-        <div class="lang-switcher-wrapper">
-          <button class="lang-switcher transparent-btn" type="button">
-            EN
-            <i data-feather="chevron-down" aria-hidden="true"></i>
-          </button>
-          <ul class="lang-menu dropdown">
-            <li><a href="##">English</a></li>
-            <li><a href="##">French</a></li>
-            <li><a href="##">Uzbek</a></li>
-          </ul>
-        </div>
         <button class="theme-switcher gray-circle-btn" type="button" title="Switch theme">
           <span class="sr-only">Switch theme</span>
           <i class="sun-icon" data-feather="sun" aria-hidden="true"></i>
@@ -83,7 +72,7 @@ ob_start();
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="assets/images/avatar/user.png" type="image/webp"><img src="assets/images/avatar/user.png" alt="User name">
+                <source srcset="../../assets/images/icons/runner.png"><img src="../../assets/images/icons/runner.png" alt="User name">
               </picture>
             </span>
           </button>
@@ -107,7 +96,7 @@ ob_start();
   </nav>
   <!-- ! Main -->
   <!-- ================delevery page=============== -->
-  <div class="container-card mt-2">
+  <div class="container-card mt-4">
     <div class="card rounded-0">
       <div class="card-body d-flex">
         <img src="../../assets/images/delevery moto.jpg" style="width: 30%;" alt="...">
@@ -118,28 +107,63 @@ ob_start();
       </div>
     </div>
   </div>
-  <div class="contain-card d-flex justify-content-between p-2" style="gap: 10px;">
-    <div class="card" style="width: 22rem;">
+  <div class="contain-card d-flex justify-content-between p-4">
+  <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
       <img src="assets/images/popular2.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Location: Svayluong, Kandieng, Pursat Province, Cambodia.</p>
-        <a href="#" class="btn btn-primary" style="font-size: 10px;">Accept</a>
+      <div class="card-body d-flex flex-column">
+        <div class="contain-name d-flex mb-1">
+          <span class="card-text" style="font-weight:bold;">Name: </span>
+          <p class="align-self-center">Peaktra</p>
+        </div>
+        <div class="contain-phone d-flex mb-1">
+          <span class="card-text mb-1" style="font-weight:bold;">Phone Number: </span>
+          <p class="align-self-center">0718911019</p>
+        </div>
+        <div class="contain-loca d-flex mb-1">
+          <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
+          <p class="align-self-center">Kandieng, Pursat.</p>
+        </div>
+        <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
       </div>
     </div>
-    <div class="card" style="width: 22rem;">
+    <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
       <img src="assets/images/popular2.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Location: Svayluong, Kandieng, Pursat Province, Cambodia.</p>
-        <a href="#" class="btn btn-primary">Accept</a>
+      <div class="card-body d-flex flex-column">
+        <div class="contain-name d-flex mb-1">
+          <span class="card-text" style="font-weight:bold;">Name: </span>
+          <p class="align-self-center">Peaktra</p>
+        </div>
+        <div class="contain-phone d-flex mb-1">
+          <span class="card-text mb-1" style="font-weight:bold;">Phone Number: </span>
+          <p class="align-self-center">0718911019</p>
+        </div>
+        <div class="contain-loca d-flex mb-1">
+          <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
+          <p class="align-self-center">Kandieng, Pursat.</p>
+        </div>
+        <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
       </div>
     </div>
-    <div class="card" style="width: 22rem;">
+    <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
       <img src="assets/images/popular2.png" class="card-img-top" alt="...">
-      <div class="card-body">
-        <p class="card-text">Location: Svayluong, Kandieng, Pursat Province, Cambodia.</p>
-        <a href="#" class="btn btn-primary">Accept</a>
+      <div class="card-body d-flex flex-column">
+        <div class="contain-name d-flex mb-1">
+          <span class="card-text" style="font-weight:bold;">Name: </span>
+          <p class="align-self-center">Peaktra</p>
+        </div>
+        <div class="contain-phone d-flex mb-1">
+          <span class="card-text mb-1" style="font-weight:bold;">Phone Number: </span>
+          <p class="align-self-center">0718911019</p>
+        </div>
+        <div class="contain-loca d-flex mb-1">
+          <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
+          <p class="align-self-center">Kandieng, Pursat.</p>
+        </div>
+        <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
       </div>
     </div>
+
+  </div>
 
 
   <!-- pop-up profile user-admin -->

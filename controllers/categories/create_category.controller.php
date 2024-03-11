@@ -12,7 +12,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         addCategories($cateName, $description);
         $cateid = getCateLimited()['category_id'];
         addToresCate($cateid, $_SESSION['res_own']['restaurant_id']);
-        // header('Location: /');
         header('Location: /all_categories');
     }
 }

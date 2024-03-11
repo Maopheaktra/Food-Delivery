@@ -1,5 +1,3 @@
-
-
 <!-- ! Body -->
 
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
@@ -12,8 +10,6 @@
                 <span class="sr-only">Home</span>
                 <span class="icon logo" aria-hidden="true"></span>
                 <div class="logo-text">
-                    <!-- <span class="logo-title">Elegant</span>
-                    <span class="logo-subtitle">Dashboard</span> -->
                     <span class="logo-title"><?php print_r($_SESSION['res_own']['restaurant_name']);?></span>
                     <span class="logo-subtitle"><?php print_r($_SESSION['res_own']['address']);?></span>
                 </div>

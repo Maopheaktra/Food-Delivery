@@ -41,7 +41,7 @@
               <i data-feather="user" aria-hidden="true"></i>
               <span>Profile</span>
             </a></li>
-          <li><a href="##">
+          <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
@@ -62,31 +62,30 @@
             <div class="chart">
                 <div class="container mt-3 ">
                   <a href=""type="Submit" id ="add-cate" class="btn btn-primary mg-3">Add New+</a>
-                  <table class = "table table-bordered mt-4">
+                  <table class = "table" style="margin-top: 30px;">
                       <thead>
                           <tr>
-                              <th>Cate_ID</th>
-                              <th>Photo</th>
-                              <th>Category's Name</th>
-                              <th>Description</th>
-                              <th>Action</th>
+                              <th scope="col">Cate_ID</th>
+                              <th scope="col">Photo</th>
+                              <th scope="col">Category's Name</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Action</th>
                           </tr>
                       </thead>
                       <tbody>
                         <?php
-                        require "database/database.php";
-                        // require "models/employee.model.php";
-                        $statement = $connection->prepare("SELECT * FROM categories");
-                        $statement->execute();
-                        $categories = $statement->fetchAll();
+                        $resId = $_SESSION['res_own']['restaurant_id'];
+                        $categories = getCateInres($resId);
+
+                        
                         foreach ($categories as $category):?>
                         <tr>
-                          <td><?=$category['category_id'];?></td>
-                          <td><img src="assets/images/trending4.png" alt="" style ="width:70px" class = "img-responsive"></td>
-                          <td><?=$category['name'];?></td>
-                          <td><?=$category['description'];?></td>
-                          <td>
-                            <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>" class = "btn btn-success">Edit</a>
+                          <td scope="row" style="vertical-align: bottom; text-align: center;"><?=$category['category_id'];?></td>
+                          <td style="vertical-align: bottom;"><img src="assets/images/icons/<?= $category['cate_img']; ?>" alt="" style ="width:70px" class = "img-responsive"></td>
+                          <td style="vertical-align: bottom;"><?=$category['name'];?></td>
+                          <td style="vertical-align: bottom;"><?=$category['description'];?></td>
+                          <td style="vertical-align: bottom;">
+                          <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>" class = "btn btn-success">Edit</a>
                             <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
