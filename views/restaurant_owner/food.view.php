@@ -92,7 +92,8 @@
                       <td><?= $food['category_id']; ?></td>
                       <td>
                         <a href="controllers/Food/edit_food.restaurant.controller.php?foodid=<?= $food['Food_id']; ?>" class="btn btn-success">Edit</a>
-                        <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id']; ?>" class="btn btn-danger">Delete</a>
+                        <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id'];  ?>" class="btn btn-danger">Delete</a>
+                        
                       </td>
                     </tr>
                   <?php endforeach; ?>
