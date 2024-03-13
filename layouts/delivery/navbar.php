@@ -1,7 +1,7 @@
 <?php
 // session_start();
-require_once "database/database.php"; // Include database connection
-require_once "models/admin.model.php"; // Include admin model file once
+require_once "database/database.php";
+require_once "models/admin.model.php"; 
 $users = getAllUsers();
 ?>
 

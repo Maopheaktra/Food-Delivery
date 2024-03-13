@@ -4,9 +4,7 @@ require "../../models/admin.model.php";
 require "../../models/employee.model.php";
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    // Check if all required fields are filled
     if ($_POST['username'] !== '' && $_POST['email'] !== '' && $_POST['password'] !== '' && $_POST['number'] !== '' && $_POST['role'] !== '') {
-        // If all required fields are filled, proceed with user creation
         $username = $_POST['username'];
         $email = $_POST['email'];
         $password = $_POST['password'];
