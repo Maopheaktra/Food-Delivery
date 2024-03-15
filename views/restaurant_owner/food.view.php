@@ -142,7 +142,7 @@
   </div>
 </div>
 
-
+<!-- Form To Edit Food -->
 <?php 
     if(isset($_SESSION['editFood']) && $_SESSION['editFood'] != ''): 
       $food = getFoodbyId($_SESSION['editFood']);
@@ -153,10 +153,10 @@
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" method="post">
         <h1>Edite Food</h1>
-        <div class="mb-3">
-          <label for="username" class="form-label">Image:</label>
-          <input type="file" name="my_image" id="image">
+        <div style="margin-top: 10px; margin-bottom: 10px;">
+              <input type="file" name="my_image" id="image" >
         </div>
+        
         <div class="mb-3">
           <input type="hidden" name="food_id" value="<?= $_SESSION['editFood'] ?>">
           <label for="food" class="form-label">Food:</label>
