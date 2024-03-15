@@ -43,11 +43,15 @@
                             <label for="email" class="text-dark">Email</label>
                             <input type="email" placeholder="Enter Email" name='email' class="form-control" id="email"
                                 aria-describedby="emailHelp" />
+                            <?php if(isset($_SESSION['emailSingup'])): ?>
+                            <span style="color: red;"><?= $_SESSION['emailSingup'] ?></span>
+                            <?php endif; ?>
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPassword1" class="text-dark">Password</label>
                             <input type="password" placeholder="Enter Password" class="form-control" name="password"
                                 id="exampleInputPassword1" />
+                            
                         </div>
                         <div class="form-group">
                             <label for="exampleInputPhonenumber" class="text-dark">Phone Number</label>

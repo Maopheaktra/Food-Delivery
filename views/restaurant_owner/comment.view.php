@@ -41,7 +41,7 @@
               <i data-feather="user" aria-hidden="true"></i>
               <span>Profile</span>
             </a></li>
-          <li><a href="##">
+          <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
@@ -61,17 +61,30 @@
           <div class="col-lg-12">
             <div class="chart">
                 <div class="container mt-3 ">
-                    <table class="table table-bordered">
+                    <table class="table" style="margin-top: 30px;">
                             <thead>
                                 <tr>
-                                    <th>Name</th>
-                                    <th>Profile</th>
-                                    <th>Date</th>
-                                    <th>Comment</th>
+                                  <th scope="col">Profile</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Comment</th>
                                 </tr>
                             </thead>
                             <tbody>
-                              
+                              <?php
+                                require "database/database.php";
+                                // require "models/employee.model.php";
+                                $statement = $connection->prepare("SELECT * FROM comments inner join users on users.user_id = comments.user_id");
+                                $statement->execute();
+                                $cmts = $statement->fetchAll();
+                                foreach ($cmts as $key => $cmt) :?>
+                                  <tr>
+                                    <td style="vertical-align: bottom;"><img src="assets/images/user/<?php echo $cmt['user_img']; ?>" alt="" style="width: 40px; heigh: 40px; border-radius: 50%;" ></td>
+                                    <td style="vertical-align: bottom;"><?php echo $cmt['username'];?></td>
+                                    <td style="vertical-align: bottom;"><?php echo $cmt['date']; ?></td>
+                                    <td style="vertical-align: bottom;"><?php echo $cmt['contents']; ?></td>
+                                  </tr>
+                                <?php endforeach;?>
                             </tbody>
                     </table>
                 </div>

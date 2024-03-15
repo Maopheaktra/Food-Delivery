@@ -9,8 +9,8 @@ $routes = [
     '/profile' => 'controllers/profiles/profile.controller.php',
     '/restaurant' => 'controllers/restaurant/restaurant.controller.php',
     '/search' => 'controllers/search/search.controller.php',
-    '/categories' => 'controllers/categories/categorie.controller.php'
-    // '/createCategories' => 'controllers/categories/create_category.controller.php'
+    '/categories' => 'controllers/categories/categorie.controller.php',
+    '/restaurant_location' => 'controllers/restaurant/show.map.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {

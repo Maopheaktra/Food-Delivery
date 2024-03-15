@@ -208,6 +208,23 @@ function showCmtOfRes($resID){
     $statement->execute([':resID'=>$resID]);
     return $statement->fetchAll();
 }
+
+
+//order========
+
+function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
+    global $connection;
+    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time)");
+    $statement->execute([
+        ':foodname'=>$foodname,
+        ':user_id'=>$user_id,
+        ':qty'=>$qty,
+        ':res_id'=>$res_id,
+        ':total_price'=>$total_price,
+        ':time'=>$time
+    ]);
+}
+
 // ------ *Add category of the restaurant onwer* -----------------------//
 
 function addCategories($cateName, $description){
@@ -218,15 +235,53 @@ function addCategories($cateName, $description){
         ':name'=>$cateName
     ]);
 }
-//---------------*Add food of the restaurant owner*-----------------//
-function Add_New_Food($Name, $description, $price, $cate_id){
+
+function getCateInres($resid){
     global $connection;
-    $statement=$connection->prepare("insert into foods(Foodname, description, price, category_id) values (:name, :description, :price, :category_id)");
+    $statement = $connection->prepare("select * from res_categories inner join categories on res_categories.category_id = categories.category_id where restaurant_id = :resId");
+    $statement->execute([':resId'=> $resid]);
+    return $statement->fetchAll();
+}
+
+function getCateLimited(){
+    global $connection;
+    $statement = $connection->prepare("select * from categories order by category_id desc limit 1");
+    $statement->execute();
+    return $statement->fetch();
+}
+
+function addToresCate($cateid, $resid){
+    global $connection;
+    $statement = $connection->prepare("insert into res_categories(restaurant_id, category_id) values (:resid, :cateid)");
     $statement->execute([
-        ':name'=> $Name,
-        ':description'=> $description,
-        ':price'=> $price,
-        ':category_id'=> $cate_id
+        ':resid'=> $resid,
+        ':cateid'=> $cateid,
+    ]);
+}
+
+function getCatebyId($cateid){
+    global $connection;
+    $statement = $connection->prepare("select * from categories where category_id = :cateid");
+    $statement->execute(['cateid'=> $cateid]);
+    return $statement->fetch();
+}
+
+//delete category
+
+function deleteCate($cateid){
+    global $connection;
+    $statement = $connection->prepare("delete from categories where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+}
+
+//------------- Update Categories ---------------
+function updateCate($cateid, $catename, $description){
+    global $connection;
+    $statement = $connection->prepare("update categories set name = :catename, description = :description where category_id = :cateid");
+    $statement->execute([
+        ':catename'=>$catename,
+        ':description'=>$description,
+        ':cateid'=>$cateid,
     ]);
 }
 

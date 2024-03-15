@@ -1,6 +1,5 @@
-
-
 <!-- ! Body -->
+
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
   <!-- ! Sidebar -->
@@ -11,8 +10,8 @@
                 <span class="sr-only">Home</span>
                 <span class="icon logo" aria-hidden="true"></span>
                 <div class="logo-text">
-                    <span class="logo-title">Elegant</span>
-                    <span class="logo-subtitle">Dashboard</span>
+                    <span class="logo-title"><?php print_r($_SESSION['res_own']['restaurant_name']);?></span>
+                    <span class="logo-subtitle"><?php print_r($_SESSION['res_own']['address']);?></span>
                 </div>
 
             </a>
@@ -67,7 +66,7 @@
                             <a href="/comment">Comments</a>
                         </li>
                         <li>
-                            <a href="categories.html">Order</a>
+                            <a href="/res_order">Order</a>
                         </li>
                     </ul>
                 </li>
@@ -77,10 +76,10 @@
     <div class="sidebar-footer">
         <a href="##" class="sidebar-user">
             <span class="sidebar-user-img">
-                <picture><source srcset="../../assets/images/avatar/avatar-face-02.png" type="image/webp"><img src="../../assets/images/avatar/avatar-face-02.png"></picture>
+                <picture><source srcset="../../assets/images/user/<?= $resOwner['user_img'] ?>" type="image/webp"><img src="../../assets/images/user/<?=$resOwner['user_img'];?>"></picture>
             </span>
             <div class="sidebar-user-info">
-                <span class="sidebar-user__title">Pheak Tra.</span>
+                <span class="sidebar-user__title"><?=$resOwner['username'];?></span>
                 <span class="sidebar-user__subtitle">Restaurant Owner</span>
             </div>
         </a>

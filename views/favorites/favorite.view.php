@@ -25,13 +25,13 @@
                                         class="feather-heart"></i></a></div>
                             <div class="member-plan position-absolute"><span class="badge badge-dark">Promoted</span>
                             </div>
-                            <a href="/restaurant?id=<?php echo $value['restaurant_id'] ?>">
+                            <a href="/restaurant">
                                 <img alt="#" src="assets/images/trending1.png" class="img-fluid item-img w-100">
                             </a>
                         </div>
                         <div class="p-3 position-relative">
                             <div class="list-card-body">
-                                <h6 class="mb-1"><a href="/restaurant?id=<?php echo $value[1] ?>" class="text-black"><?php echo $value[4] ?>
+                                <h6 class="mb-1"><a href="/restaurant" class="text-black"><?php echo $value[4] ?>
                                     </a>
                                 </h6>
                                 <p class="text-gray mb-3"><?php echo $value[5] ?></p>
