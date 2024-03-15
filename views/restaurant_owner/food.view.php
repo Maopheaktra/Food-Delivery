@@ -152,37 +152,37 @@
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" method="post">
-        <h1>Edite Food</h1>
-        <div style="margin-top: 10px; margin-bottom: 10px;">
-              <input type="file" name="my_image" id="image" >
-        </div>
-        
-        <div class="mb-3">
-          <input type="hidden" name="food_id" value="<?= $_SESSION['editFood'] ?>">
-          <label for="food" class="form-label">Food:</label>
-          <input type="text" name="food"class="form-control" id="food" value="<?= $food['Foodname'];?>">
-        </div>
-        <div class="mb-3">
-          <label for="price" class="form-label">Price:</label>
-          <input type="number" name="price" class="form-control" id="price" placeholder="Place Enter Food Price" value="<?= $food['price']?>">
-        </div>
-        <div class="mb-3">
-          <label for="cate_id" class="form-label">Caategory:</label>
-          <select class="form-select-sm" id="cate_id" name="cate_id">
-            <option>Select Category</option>
-            <option>1</option>
-            <option>3</option>
-            <option>5</option>
-            <option>7</option>
-          </select>
-        </div>               
-        <div class="mb-3">
-          <label for="descriptiom" class="form-label">Description:</label>
-          <textarea class="form-control" name="description" rows="5" id="description"></textarea></div>
-          <button type="submit" class="btn btn-primary">Update</button>
-          <a href="/all_food" class="btn btn-danger" >cancel</a>
-        </div>
-        </form>
+          <h1>Edit Food</h1>
+          <div style="margin-top: 10px; margin-bottom: 10px;">
+                <input type="file" name="my_image" id="image" >
+          </div>
+          
+          <div class="mb-3">
+            <input type="hidden" name="food_id" value="<?= $_SESSION['editFood'] ?>">
+            <label for="food" class="form-label">Food:</label>
+            <input type="text" name="food"class="form-control" id="food" value="<?= $food['Foodname'];?>">
+          </div>
+          <div class="mb-3">
+            <label for="price" class="form-label">Price:</label>
+            <input type="number" name="price" class="form-control" id="price" placeholder="Place Enter Food Price" value="<?= $food['price']?>">
+          </div>
+          <div class="mb-3">
+            <label for="cate_id" class="form-label">Caategory:</label>
+            <select class="form-select-sm" id="cate_id" name="cate_id">
+              <option>Select Category</option>
+              <option>1</option>
+              <option>3</option>
+              <option>5</option>
+              <option>7</option>
+            </select>
+          </div>               
+          <div class="mb-3">
+            <label for="descriptiom" class="form-label">Description:</label>
+            <textarea class="form-control" name="description" rows="5" id="description"></textarea></div>
+            <button type="submit" class="btn btn-primary">Update</button>
+            <a href="/all_food" class="btn btn-danger" >cancel</a>
+          </div>
+          </form>
       </div>
     </div>
   <?php 
