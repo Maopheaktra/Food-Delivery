@@ -152,7 +152,7 @@
     <?php 
     if(isset($_SESSION['editFood']) && $_SESSION['editFood'] != ''): 
       $food = getFoodbyId($_SESSION['editFood']);
-      print_r($food['Foodname']);
+      // print_r($food['Foodname']);
      
     ?>
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
