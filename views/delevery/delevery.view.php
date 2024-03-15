@@ -72,7 +72,7 @@ ob_start();
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
               <picture>
-                <source srcset="assets/images/avatar/user.png/" type="image/webp"><img src="assets/images/avatar/user.png" alt="User name">
+                <source srcset="../../assets/images/icons/runner.png"><img src="../../assets/images/icons/runner.png" alt="User name">
               </picture>
             </span>
           </button>
@@ -101,7 +101,7 @@ ob_start();
       <div class="card-body d-flex">
         <img src="../../assets/images/delevery moto.jpg" style="width: 30%;" alt="...">
         <span class="d-flex flex-column justify-content-center" style="width: 100%;">
-          <h2 class="text-center mb-2">Safety & Quickly For Delevery</h2>
+          <h2 class="text-center mb-2">Safety & Quickly</h2>
           <p class="text-center">Please order now to be accept a good price for our Restuarant.</p>
         </span>
       </div>
@@ -123,7 +123,7 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
-        <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="/deliveryMap" class="btn btn-danger" style="font-size: 13px;">Accept</a>
       </div>
     </div>
     <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
@@ -141,7 +141,7 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
-        <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="/deliveryMap" class="btn btn-danger" style="font-size: 13px;">Accept</a>
       </div>
     </div>
     <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
@@ -159,7 +159,7 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
-        <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="/deliveryMap" class="btn btn-danger" style="font-size: 13px;">Accept</a>
       </div>
     </div>
 
@@ -167,33 +167,27 @@ ob_start();
 
 
   <!-- pop-up profile user-admin -->
-  <form id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%" action="../../controllers/delivery/delivery.profile_upload.controller.php" method="post" enctype="multipart/form-data">
+  <div id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
     <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-        <div class="show-pro row">
-            <div class="profile-container d-flex justify-content-center">
-                <label class="rounded-circle" for="imageInput" style="width: 100px; height: 100px;">
-                    <img id="imagePreview" class="border border-5 rounded-circle" src="<?php $uploadPf['user_img']; ?>" alt="Preview" title="Upload profile">
-                </label>
-                <input type="file" id="imageInput" class="image" name="my_image" style="display: none;" accept="image/*">
-            </div>
-            <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">
-                <?= $_POST['username'] ?>
-            </div>
-            <div class="email text-secondary mb-3 m-auto d-flex justify-content-center" style="font-family: serif; font-style: italic;">
-            <?= $_POST['email'] ?>
-            </div>
-        </div>
-        <div class="show-info" style="width:100%;">
-            <input type="text" class="form-control mb-3 shadow-none" placeholder="Username" aria-label="username" value="<?= $uploadPf['username'] ?>">
-            <input type="email" class="form-control mb-3 shadow-none" placeholder="Email Address" aria-label="email" value="<?= $uploadPf['email'] ?>">
-            <input type="number" class="form-control mb-3 shadow-none" placeholder="Phone Number" aria-label="phone" value="<?= $uploadPf['phoneNumber'] ?>">
-        </div>
-        <div>
-            <input type="submit" class="btn btn-primary shadow-none" name="send" value="Save" />
-            <input type="button" class="btn btn-danger shadow-none" id="btn-user-cancel" value="Cancel" />
-        </div>
+      <div class="show-pro d-flex flex-column">
+        <label class="d-flex justify-content-center" for="imageInput" style="width: auto;">
+          <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" style="width: 20%; border-radius: 50%;" alt="...">
+        </label>
+        <input type="file" id="imageInput" style="display: none;" accept="image/*">
+        <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
+        <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">chuonveasna123@gmail.com</div>
+      </div>
+      <div class="show-info" style="width:100%;">
+        <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username">
+        <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email">
+        <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone">
+      </div>
+      <div>
+        <input type="submit" class="btn btn-primary" name="send" value="Save" />
+        <input type="button" class="btn btn-danger" id="btn-user-cancel" value="Cancel" />
+      </div>
     </div>
-</form>
+  </div>
   <?php
   echo "<script>
     // ================Create User Form================

@@ -28,7 +28,7 @@
         ?>
         <div class="cat-item px-1 py-3">
           <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="controllers/categories/categories.filter.controller.php?cateid=<?= $value[0]; ?>">
-            <img alt="#" src="assets/images/icons/Fries.png" class="img-fluid mb-2" />
+            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" />
             <p class="m-0 small"><?php echo $value[2] ?></p>
           </a>
         </div>

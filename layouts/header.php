@@ -3,6 +3,7 @@
 
 require "database/database.php";
 require "models/employee.model.php";
+require "models/foodOrder.model.php";
 
 
 $pic = array(
@@ -56,6 +57,7 @@ $foodAdd = addTolist();
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
 
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
   <link href="vendor/icons/feather.css" rel="stylesheet" type="text/css" />
@@ -65,6 +67,7 @@ $foodAdd = addTolist();
   <link href="vendor/css/style.css" rel="stylesheet" />
 
   <link href="vendor/sidebar/demo.css" rel="stylesheet" />
+  <link href="vendor/css/res_table.css" rel="stylesheet" />
 </head>
 
 <body class="fixed-bottom-bar">

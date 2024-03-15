@@ -15,9 +15,9 @@
                 <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
                     <div class="d-flex align-items-center p-3">
                         <div class="left mr-3">
-                            <label class="upload pointer-event" id="upload" for="imageInput">
-                                <img src="<?php print_r('assets/images/user/' . $img[7]) ?>" width="100" height="100">
-                            </label>
+                            <div class="upload" id="upload">
+                                <img src="<?php print_r('assets/images/user/' . $img[7]) ?>" width="100" height="100" title="Change Profile">
+                            </div>
                         </div>
                         <div class="right">
                             <h6 class="mb-1 font-weight-bold"><?php print_r($img[1]) ?><i class="feather-check-circle text-success"></i></h6>
@@ -175,20 +175,27 @@
         </div>
     </div>
 </div>
-
+<!-- =========form popup======== -->
 <div id="contact-popup" style="display: none;">
     <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php" method="post">
-        <h1>Upload Profile</h1>
-        <div style="margin-top: 10px; margin-bottom: 10px;">
-            <div>
-                <input type="file" name="my_image" id="image" class='btn bg-primary text-white'>
-            </div>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
+            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
+        </svg>
+        <div class="contain-img d-flex flex-column" style="margin-top: -40px;">
+            <h1>Upload Profile</h1>
+            <img class="rounded-circle m-auto" style="width: 150px; height: 150px;" src="<?php print_r('assets/images/user/' . $img[7]) ?>" alt="">
         </div>
-        <div>
+        <div style="margin-top: 30px; margin-bottom: 10px;">
+            <input type="file" name="my_image" id="image" class='btn bg-primary text-white' style="width: 100%;">
+        </div>
+        <div class="contain-btn d-flex justify-content-end" style="gap: 10px;">
             <input type="submit" id="send" name="send" value="Upload" />
         </div>
     </form>
 </div>
+
+
 
 <?php
 
@@ -197,6 +204,8 @@ echo "<script>
 let pop = document.querySelector('#contact-popup');
 let upload = document.querySelector('#upload');
 let send = document.querySelector('#send');
+let cancel = document.querySelector('.bi');
+let footer = document.querySelector('footer');
 
 upload.addEventListener('click', ()=>{
     pop.style.display = 'block';
@@ -206,9 +215,9 @@ send.addEventListener('click', ()=>{
     pop.style.display = 'none';
 });
 
-
-
-
+cancel.addEventListener('click', ()=>{
+    pop.style.display = 'none';
+});
 </script>"
 
 ?>

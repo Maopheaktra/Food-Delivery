@@ -100,17 +100,17 @@
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="/profile">My account</a>
                   <a class="dropdown-item" href="faq.html">Delivery support</a>
-                  <a class="dropdown-item" href="contact-us.html">Contant us</a>
+                  <a class="dropdown-item" href="#footer">Contant us</a>
                   <a class="dropdown-item" href="terms.html">Term of use</a>
                   <a class="dropdown-item" href="privacy.html">Privacy policy</a>
                   <a class="dropdown-item" href="controllers/signout/signout.controller.php">Logout</a>
                 </div>
               </div>
 
-              <a href="/checkout" class="widget-header mr-4 text-white">
+              <a href="/order" class="widget-header mr-4 text-white">
                 <div class="icon d-flex align-items-center">
                   <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-                  <span>Cart</span>
+                  <span>My order</span>
                 </div>
               </a>
               <a class="toggle" href="#">

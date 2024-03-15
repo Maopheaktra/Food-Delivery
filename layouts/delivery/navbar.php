@@ -1,7 +1,7 @@
 <?php
 // session_start();
-require_once "database/database.php";
-require_once "models/admin.model.php"; 
+require_once "database/database.php"; // Include database connection
+require_once "models/admin.model.php"; // Include admin model file once
 $users = getAllUsers();
 ?>
 
@@ -16,8 +16,8 @@ $users = getAllUsers();
                     <span class="sr-only">Home</span>
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
-                        <span class="logo-title">Elegant</span>
-                        <span class="logo-subtitle">Dashboard</span>
+                        <span class="logo-title">Delivery Page</span>
+                        <span class="logo-subtitle">fast delivery</span>
                     </div>
 
                 </a>
@@ -32,7 +32,7 @@ $users = getAllUsers();
                         <a href="/"><span class="icon home" aria-hidden="true"></span>Costomer Orders</a>
                     </li>
                     <li>
-                        <a href="/"><span class="icon home" aria-hidden="true"></span>Feedback</a>
+                        <a href="/deliveryMap"><span class="icon home" aria-hidden="true"></span>Feedback</a>
                     </li>
                         
                 </ul>

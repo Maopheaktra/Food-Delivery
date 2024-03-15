@@ -191,6 +191,7 @@ $userCountsByRole = countUsersByRole();
                         $users = getAllUsers();
                         foreach ($users as $user) :
                         ?>
+                        <?php if ($user['role_type'] != ""): ?>
                             <tr>
                                 <td>
                                     <?= $user['user_id'] ?>
@@ -235,6 +236,7 @@ $userCountsByRole = countUsersByRole();
                                     </span>
                                 </td>
                             </tr>
+                            <?php endif; ?>
                         <?php endforeach; ?>
                     </tbody>
                 </table>
@@ -423,8 +425,8 @@ $userCountsByRole = countUsersByRole();
     <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
         <div class="show-pro row">
             <div class="profile-container d-flex justify-content-center">
-                <label class="rounded-circle" for="imageInput" style="width: 100px; height: 100px;">
-                    <img id="imagePreview" class="border border-5 rounded-circle" src="<?php $adminPf['user_img']; ?>" alt="Preview" title="Upload profile">
+                <label for="imageInput" style="width: 150px; height: 150px;">
+                    <img id="imagePreview" class="border border-5" src="assets/images/user/<?= $adminPf['user_img']; ?>" alt="Preview" title="Upload profile" width="150" height="150" style="border-radius: 50%;">
                 </label>
                 <input type="file" id="imageInput" class="image" name="my_image" style="display: none;" accept="image/*">
             </div>
@@ -446,4 +448,68 @@ $userCountsByRole = countUsersByRole();
         </div>
     </div>
 </form>
-</main>
+
+    <?php
+    echo "<script>
+    // ================Create User Form================
+    document.addEventListener('DOMContentLoaded', function () {
+    let addUserBtn = document.getElementById('add-user-btn');
+    let addUserCancelBtn = document.getElementById('add-user-cancel');
+    let updateUserCancelBtn = document.getElementById('update-user-cancel');
+    let addUserPopup = document.getElementById('add-user-popup');
+    let updateUserPopup = document.getElementById('update-user-popup');
+
+// =================Show popup admin_user===============
+    let btnUpInfo = document.getElementById('popInfo');
+    let popUpInfo = document.getElementById('profile-admin-popup');
+    function showProfilePopup() {
+      popUpInfo.style.display = 'block';
+    }
+    let btnHidePop = document.getElementById('update-user-cancel');
+    function hideProfilePopup() {
+      popUpInfo.style.display = 'none';
+    }
+    btnHidePop.addEventListener('click', hideProfilePopup); 
+    btnUpInfo.addEventListener('click', showProfilePopup);
+
+    function showAddUserPopup() {
+      addUserPopup.style.display = 'block';
+    }
+    function hideAddUserPopup() {
+      addUserPopup.style.display = 'none';
+    }
+    function hideUpdateUserPopup() {
+      updateUserPopup.style.display = 'none';
+    }
+    addUserBtn.addEventListener('click', showAddUserPopup);
+    addUserCancelBtn.addEventListener('click', hideAddUserPopup);
+    updateUserCancelBtn.addEventListener('click', hideUpdateUserPopup);
+    let updateUserBtn = document.querySelectorAll('#update-user');
+    // ===============Update User ====================
+    function showUpdateUserPopup() {
+      updateUserPopup.style.display = 'block';
+    }
+    for(let i = 0; i < updateUserBtn.length; i++) {
+      updateUserBtn[i].addEventListener('click', showUpdateUserPopup);
+    }
+    let updateUserPopupVisible = false;
+    updateUserBtn.addEventListener('click', function() {
+      if (updateUserPopupVisible) {
+        updateUserPopup.style.display = 'none';
+      } else {
+        updateUserPopup.style.display = 'block';
+      }
+      updateUserPopupVisible = !updateUserPopupVisible;
+    });
+    // Close dropdown when clicking outside
+    document.addEventListener('click', function(event) {
+      let dropdown = document.querySelector('.users-item-dropdown.dropdown');
+      let isClickInsideDropdown = dropdown.contains(event.target);
+      if (!isClickInsideDropdown) {
+        dropdown.style.display = 'none';
+      }
+    });
+  });
+</script>";
+    ?>
+  </main>
