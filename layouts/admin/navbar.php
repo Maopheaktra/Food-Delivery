@@ -87,6 +87,7 @@ $adminPf = showPf($_SESSION['userid']);
                             <li>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                                 <a href="users-01.html">Users-01</a>
                             </li>
@@ -96,6 +97,8 @@ $adminPf = showPf($_SESSION['userid']);
 >>>>>>> DEVELOP
 =======
 >>>>>>> add_category
+=======
+>>>>>>> add_food
                                 <a href="runners.filter.php">Runners</a>
                             </li>
                             <li>

@@ -127,23 +127,22 @@
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/restaurant_owner/editcategory.controller.php" method="post">
-          <h1 class="text-center">Edit Category</h1>
-          <div class="mb-3">
-                <label for="username" class="form-label"></label>
-                <img src="../../assets/images/res_img/IMG-65edd7f1a02667.05645755.png" style="width: 100%; height:16rem;"alt="">
-                <!-- <input type="file" name="my_image" id="image"> -->
-              </div>
-          <div class="mb-3">
-            <input type="hidden" name="cateid" value="<?php print_r($_SESSION['cate']['category_id']);?>">
-            <label for="cate" class="form-label">Category:</label>
-            <input type="text" name="cate"class="form-control" id="cate" value="<?php print_r($_SESSION['cate']['name']); ?>">
-          </div>               
-          <div class="mb-3">
-            <label for="descriptiom" class="form-label">Description:</label>
-            <textarea class="form-control" name="description" rows="2" id="description"><?php print_r($_SESSION['cate']['description']); ?></textarea></div>
-            <button type="submit" class="btn btn-primary">Update</button>
-            <a href="/all_categories" class="btn btn-danger" >cancel</a>
-          </div>
+        <h1>Edite Category</h1>
+        <div class="mb-3">
+          <label for="username" class="form-label">Image:</label>
+          <input type="file" name="my_image" id="image">
+        </div>
+        <div class="mb-3">
+          <input type="hidden" name="cateid" value="<?php print_r($_SESSION['cate']['category_id']);?>">
+          <label for="cate" class="form-label">Category:</label>
+          <input type="text" name="cate"class="form-control" id="cate" value="<?php print_r($_SESSION['cate']['name']); ?>">
+        </div>               
+        <div class="mb-3">
+          <label for="descriptiom" class="form-label">Description:</label>
+          <textarea class="form-control" name="description" rows="5" id="description"><?php print_r($_SESSION['cate']['description']); ?></textarea></div>
+          <button type="submit" class="btn btn-primary">Update</button>
+          <a href="/all_categories" class="btn btn-danger" >cancel</a>
+        </div>
         </form>
       </div>
     </div>
