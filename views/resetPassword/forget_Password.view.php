@@ -42,7 +42,8 @@
                     <form class="mt-5 mb-4" action="controllers/reset/new_Password.controller.php" method ="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp"  name="send_email" />
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">SEND</button>
                     </form>

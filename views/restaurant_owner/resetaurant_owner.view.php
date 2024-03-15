@@ -79,7 +79,7 @@
         <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
           <span class="sr-only">My profile</span>
           <span class="nav-user-img">
-            <picture><source srcset="assets/images/avatar/avatar-illustrated-02.webp" type="image/webp"><img src="assets/images/avatar/avatar-illustrated-02.png" alt="User name"></picture>
+            <picture><source srcset="../../assets/images/user/<?= $resOwner['user_img'] ?>" type="image/webp"><img src="../../assets/images/user/<?= $resOwner['user_img'] ?>" alt="User name"></picture>
           </span>
         </button>
         <ul class="users-item-dropdown nav-user-dropdown dropdown">
@@ -87,7 +87,7 @@
               <i data-feather="user" aria-hidden="true"></i>
               <span>Profile</span>
             </a></li>
-          <li><a href="##">
+          <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
@@ -174,7 +174,9 @@
             </article>
           </div>
         </div>
-            </div>
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
+</div>
+
+    
