@@ -127,7 +127,7 @@
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/restaurant_owner/editcategory.controller.php" method="post">
-        <h1>Edite Category</h1>
+        <h1>Edit Category</h1>
         <div class="mb-3">
           <label for="username" class="form-label">Image:</label>
           <input type="file" name="my_image" id="image">
