@@ -174,7 +174,7 @@
           <input type="number" name="price" class="form-control" id="price" placeholder="Place Enter Food Price" value="<?= $food['price']?>">
         </div>
         <div class="mb-3">
-              <label for="cate_id" class="form-label">Caategory:</label>
+              <label for="cate_id" class="form-label">Category:</label>
               <select class="form-select-sm" id="cate_id" name="cate_id">
                 <option>Select Category</option>
                 <?php
