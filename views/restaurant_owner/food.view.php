@@ -153,10 +153,10 @@
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" method="post">
           <h1>Edit Food</h1>
-          <div style="margin-top: 10px; margin-bottom: 10px;">
-                <input type="file" name="my_image" id="image" >
+          <div class="mb-3">
+            <label for="username" class="form-label">Image:</label>
+            <input type="file" name="my_image" id="image">
           </div>
-          
           <div class="mb-3">
             <input type="hidden" name="food_id" value="<?= $_SESSION['editFood'] ?>">
             <label for="food" class="form-label">Food:</label>
@@ -167,30 +167,32 @@
             <input type="number" name="price" class="form-control" id="price" placeholder="Place Enter Food Price" value="<?= $food['price']?>">
           </div>
           <div class="mb-3">
-            <label for="cate_id" class="form-label">Caategory:</label>
-            <select class="form-select-sm" id="cate_id" name="cate_id">
-              <option>Select Category</option>
-              <option>1</option>
-              <option>3</option>
-              <option>5</option>
-              <option>7</option>
-            </select>
-          </div>               
+                <label for="cate_id" class="form-label">Caategory:</label>
+                <select class="form-select-sm" id="cate_id" name="cate_id">
+                  <option>Select Category</option>
+                  <?php
+                    $resId = $_SESSION['res_own']['restaurant_id'];
+                    $categories = getCateInres($resId);
+                    foreach ($categories as $index => $category):
+                  ?>
+                  <option value="<?= $category['category_id']; ?>"><?= $category['name'] ?></option>
+                  <?php endforeach; ?>
+                </select>
+                </div>          
           <div class="mb-3">
             <label for="descriptiom" class="form-label">Description:</label>
             <textarea class="form-control" name="description" rows="5" id="description"></textarea></div>
             <button type="submit" class="btn btn-primary">Update</button>
             <a href="/all_food" class="btn btn-danger" >cancel</a>
           </div>
-          </form>
+        </form>
       </div>
     </div>
   <?php 
   $_SESSION['editFood'] = '';
   endif; 
   ?>
-
-<?php
+    <?php
 echo "<script>
      
       let btnAdd = document.querySelector('#add-food');
@@ -206,5 +208,17 @@ echo "<script>
       }
       btnAdd.addEventListener('click', showBtn);   
       btnCancel.addEventListener('click, hide');
+
+
+      $(document).ready(function () {
+        $('#selectedColumn').DataTable({
+          'aaSorting': [],
+          columnDefs: [{
+          orderable: false,
+          targets: 3
+          }]
+        });
+          $('.dataTables_length').addClass('bs-select');
+      });
     </script>";
-?>
+  ?>
