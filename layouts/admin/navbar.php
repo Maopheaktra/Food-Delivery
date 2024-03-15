@@ -85,6 +85,20 @@ $adminPf = showPf($_SESSION['userid']);
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
+<<<<<<< HEAD
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+                                <a href="users-01.html">Users-01</a>
+                            </li>
+                            <li>
+                                <a href="users-02.html">Users-02</a>
+=======
+>>>>>>> DEVELOP
+=======
+>>>>>>> add_category
+=======
+>>>>>>> add_food
                                 <a href="runners.filter.php">Runners</a>
                             </li>
                             <li>
