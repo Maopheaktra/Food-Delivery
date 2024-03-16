@@ -7,7 +7,6 @@ if (!isset ($_SESSION['popup'])) {
 $userCountsByRole = countUsersByRole();
 ?>
 
-
 <div class="main-wrapper">
     <!-- ! Main nav -->
     <nav class="main-nav--bg">
@@ -176,7 +175,7 @@ $userCountsByRole = countUsersByRole();
             <div class="btn-add">
                 <button type="submit" id="add-user-btn" class="btn btn-primary">Add User</button>
             </div>
-            
+
             <div class="users-table table-wrapper mt-3">
                 <table id="example" class="table table-striped" style="width:100%">
                     <thead>
@@ -267,7 +266,8 @@ $userCountsByRole = countUsersByRole();
                         <h1 class="col-11 text-center text-uppercase">Add a new user</h1>
                         <div class="col btn-closing d-flex justify-content-end align-items-lg-center ">
 
-                            <button class="btn btn-outline-danger border-2 shadow-none btn-close"
+                            <button id="buttonCancel" 
+                                class="btn btn-outline-danger border-2 shadow-none btn-close" type="button"
                                 style="width:32px; height:32px;"
                                 onmouseover="this.classList.remove('text-dark-subtle'); this.classList.add('text-danger');"
                                 onmouseout="this.classList.remove('text-danger'); this.classList.add('text-dark-subtle');">
@@ -473,22 +473,23 @@ $userCountsByRole = countUsersByRole();
                     </div>
                 </div>
             </div>
-            </div>
             <?php
             $_SESSION['popup'] = '';
-             endif;
-            ?>
-            <!-- pop-up profile user-admin -->
-            <form id="profile-admin-popup"
+        endif;
+        ?>
+        <!-- pop-up profile user-admin -->
+        <form id="profile-admin-popup"
             class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle"
             style="display: none; z-index: 999; width:100%; height:100%"
-            action="../../controllers/admin/admin.upload_profile.controller.php" method="post" enctype="multipart/form-data">
+            action="../../controllers/admin/admin.upload_profile.controller.php" method="post"
+            enctype="multipart/form-data">
             <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
                 <div class="show-pro row">
                     <div class="profile-container d-flex justify-content-center">
                         <label for="imageInput" style="width: 150px; height: 150px;">
-                            <img id="imagePreview" class="border border-5" src="assets/images/user/<?= $adminPf['user_img']; ?>"
-                                alt="Preview" title="Upload profile" width="150" height="150" style="border-radius: 50%;">
+                            <img id="imagePreview" class="border border-5"
+                                src="assets/images/user/<?= $adminPf['user_img']; ?>" alt="Preview"
+                                title="Upload profile" width="150" height="150" style="border-radius: 50%;">
                         </label>
                         <input type="file" id="imageInput" class="image" name="my_image" style="display: none;"
                             accept="image/*">
@@ -503,12 +504,12 @@ $userCountsByRole = countUsersByRole();
                     </div>
                 </div>
                 <div class="show-info" style="width:100%;">
-                    <input type="text" class="form-control mb-3 shadow-none" placeholder="Username" aria-label="username"
-                        value="<?= $adminPf['username'] ?>">
-                    <input type="email" class="form-control mb-3 shadow-none" placeholder="Email Address" aria-label="email"
-                        value="<?= $adminPf['email'] ?>">
-                    <input type="number" class="form-control mb-3 shadow-none" placeholder="Phone Number" aria-label="phone"
-                        value="<?= $adminPf['phoneNumber'] ?>">
+                    <input type="text" class="form-control mb-3 shadow-none" placeholder="Username"
+                        aria-label="username" value="<?= $adminPf['username'] ?>">
+                    <input type="email" class="form-control mb-3 shadow-none" placeholder="Email Address"
+                        aria-label="email" value="<?= $adminPf['email'] ?>">
+                    <input type="number" class="form-control mb-3 shadow-none" placeholder="Phone Number"
+                        aria-label="phone" value="<?= $adminPf['phoneNumber'] ?>">
                 </div>
                 <div>
                     <input type="submit" class="btn btn-primary shadow-none" name="send" value="Save" />
@@ -517,5 +518,4 @@ $userCountsByRole = countUsersByRole();
             </div>
         </form>
     </main>
-</did>
-
+    </did>

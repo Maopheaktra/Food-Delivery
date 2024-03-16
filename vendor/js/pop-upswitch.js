@@ -1,6 +1,5 @@
 // vendor/js/pop-upswitch.js
 
-
 document.addEventListener("DOMContentLoaded", function () {
   const imageInput = document.getElementById("imageInput");
   const imagePreview = document.getElementById("imagePreview");
@@ -154,3 +153,10 @@ function togglePasswordVisibilityCreate() {
 document
   .getElementById("toggle-create-password-btn")
   .addEventListener("click", togglePasswordVisibilityCreate);
+
+document
+  .getElementById("buttonCancel")
+  .addEventListener("click", function (event) {
+    event.preventDefault(); // Prevent default action of the anchor tag
+    document.getElementById("add-user-popup").style.display = "none"; // Hide the modal popup
+  });
