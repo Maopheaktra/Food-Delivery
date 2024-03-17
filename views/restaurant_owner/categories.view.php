@@ -65,7 +65,7 @@
                   <table class = "table" style="margin-top: 30px;">
                       <thead>
                           <tr>
-                              <th scope="col">Cate_ID</th>
+                              <!-- <th scope="col">Cate_ID</th> -->
                               <th scope="col">Photo</th>
                               <th scope="col">Category's Name</th>
                               <th scope="col">Description</th>
@@ -80,13 +80,12 @@
                         
                         foreach ($categories as $category):?>
                         <tr>
-                          <td scope="row" style="vertical-align: bottom; text-align: center;"><?=$category['category_id'];?></td>
-                          <td style="vertical-align: bottom;"><img src="assets/images/icons/<?= $category['cate_img']; ?>" alt="" style ="width:70px" class = "img-responsive"></td>
+                          <td style="vertical-align: bottom;"><img src="assets/images/icons/<?= $category['cate_img']; ?>" alt="" style ="width:40px" class = "img-responsive"></td>
                           <td style="vertical-align: bottom;"><?=$category['name'];?></td>
                           <td style="vertical-align: bottom;"><?=$category['description'];?></td>
                           <td style="vertical-align: bottom;">
-                          <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>" class = "btn btn-success">Edit</a>
-                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>" class="btn btn-danger">Delete</a>
+                            <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>"><i data-feather="edit" style="font-size:48px;color:green"></i></a>
+                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>"><i data-feather="trash" style="font-size:48px;color:red"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>
