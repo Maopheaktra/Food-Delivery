@@ -94,7 +94,7 @@
                           <td style="vertical-align: bottom;"><?=getCatebyId($food['category_id'])['name'];?></td>
                           <td style="vertical-align: bottom;">
                           <a href="controllers/Food/edit_food.restaurant.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="edit" style="font-size:48px;color:green"></i></a>
-                        <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="trash" style="font-size:48px;color:red"></i></a>
+                        <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="trash-2" style="font-size:48px;color:red"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>
