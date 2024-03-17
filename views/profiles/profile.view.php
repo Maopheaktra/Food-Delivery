@@ -28,7 +28,7 @@
                     </a>
                     <div class="osahan-credits d-flex align-items-center p-3 bg-light">
                         <p class="m-0">Accounts Credits</p>
-                        <h5 class="m-0 ml-auto text-primary">$52.25</h5>
+                        <h5 class="m-0 ml-auto text-primary">$0.00</h5>
                     </div>
 
                     <div class="bg-white profile-details">

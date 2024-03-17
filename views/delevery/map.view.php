@@ -1,4 +1,4 @@
-<form action="controllers/delivery/delivery.controller.php" method="post">
+<!-- <form action="controllers/delivery/delivery.controller.php" method="post">
     <p><input type="text" name="address" placeholder="Enter address"></p>
     <input type="submit" name="submit_address">
 </form>
@@ -10,4 +10,4 @@
         <input type="text" name="longitude" placeholder="Enter longitude">
     </p>
     <input type="submit" name="submit_coordinates">
-</form>
+</form> -->

@@ -1,3 +1,6 @@
+<?php
+require "views/delevery/delevery.view.php"
+?>
 
 <?php
 if (isset($_POST['submit_address'])){
