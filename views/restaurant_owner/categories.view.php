@@ -85,7 +85,7 @@
                           <td style="vertical-align: bottom;"><?=$category['description'];?></td>
                           <td style="vertical-align: bottom;">
                             <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>"><i data-feather="edit" style="font-size:48px;color:green"></i></a>
-                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>"><i data-feather="trash" style="font-size:48px;color:red"></i></a>
+                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>"><i data-feather="trash-2" style="font-size:48px;color:red"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>
