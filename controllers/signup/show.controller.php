@@ -9,7 +9,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
     if (isset($_POST['usernames']) && !empty($_POST['usernames'] && !empty($_POST['gender'] && !empty($_POST['phone'])))){
         $usernames = htmlspecialchars($_POST['usernames']);
         $role = htmlspecialchars($_POST['optradio']);
-        // $role = '2';
         $gender = htmlspecialchars($_POST['gender']);
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);

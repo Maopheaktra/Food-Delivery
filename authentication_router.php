@@ -5,6 +5,7 @@ $routes = [
     '/' => 'controllers/signin/signin.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
+    '/changePwd' => 'controllers/reset/change_password.controller.php'
     // '/createRes'=> 'controllers/restaurant_owner/create_restaurant.controller.php',
 ];
 

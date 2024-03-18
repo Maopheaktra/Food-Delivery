@@ -34,7 +34,7 @@
                 <a href="not-found.html" class="text-muted">Not found</a>
               </li>
               <li>
-                <a href="maintence.html" class="text-muted">Maintence</a>
+                <a href="maintain.html" class="text-muted">Maintain</a>
               </li>
               <li>
                 <a href="coming-soon.html" class="text-muted">Coming Soon</a>
@@ -165,10 +165,10 @@
 
     <section class="footer-copyright border-top py-3 bg-light">
       <div class="container d-flex align-items-center">
-        <p class="mb-0">© 2021 Company All rights reserved</p>
+        <p class="mb-0">© 2024 Company All rights reserved</p>
         <p class="text-muted mb-0 ml-auto d-flex align-items-center">
-          <a href="#" class="d-block"><img alt="#" src="assets/images/appstore.png" height="40" /></a>
-          <a href="#" class="d-block ml-3"><img alt="#" src="assets/images/playmarket.png" height="40" /></a>
+          <a href="https://apps.apple.com/us/app/foodpanda-food-delivery/id758103884" class="d-block"><img alt="app-store" title="Download now"  src="assets/images/appstore.png" height="40" /></a>
+          <a href="https://play.google.com/store/apps/details?id=com.global.foodpanda.android&hl=en_GB" class="d-block ml-3"><img alt="play-store" title="Download now" src="assets/images/playmarket.png" height="40" /></a>
         </p>
       </div>
     </section>

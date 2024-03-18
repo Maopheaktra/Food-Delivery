@@ -30,7 +30,7 @@
         </video>
         <?php
             if(isset($_SESSION['pwd']) && $_SESSION['pwd'] != ''){
-                echo "<script>alert('Your Password is worng!!')</script>";
+                echo "<script>alert('Your Password is wrong!!')</script>";
                 $_SESSION['pwd'] = '';
             }
         ?>
@@ -39,10 +39,10 @@
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Forget Password</h2>
                     <p class="text-50">enter your email to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/reset/new_Password.controller.php" method ="post">
+                    <form class="mt-5 mb-4" action="controllers/reset/new_password.controller.php" method ="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
+                            <label for="inputEmail" class="text-dark">Email</label>
+                            <input type="email" placeholder="Enter Email" class="form-control" id="inputEmail"
                                 aria-describedby="emailHelp"  name="send_email" />
                         </div>
                         <button type="submit" class="btn btn-primary btn-lg btn-block">SEND</button>
@@ -173,7 +173,6 @@
             </li>
         </ul>
     </nav>
-
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/jquery/jquery.min.js"></script>
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
