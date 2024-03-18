@@ -30,75 +30,10 @@
         </video>
         <div class="d-flex align-items-center justify-content-between vh-140">
             <div class="px-5 col-md-6 ml-auto">
-<<<<<<< HEAD
-                <div class="px-5 col-10 mx-auto">
-                    <h2 class="text-dark my-0">Welcome Back</h2>
-                    <p class="text-50">Sign up to continue</p>
-                    <form class="mt-5 mb-4" action="../../controllers/signup/show.controller.php" method='post'>
-                        <div class="form-group">
-                            <label for="exampleInputName" class="text-dark">Username</label>
-                            <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="exampleInputName" />
-                        </div>
-                        <div class="form-group">
-                            <label for="email" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" name='email' class="form-control" id="email"
-                                aria-describedby="emailHelp" />
-                            <?php if(isset($_SESSION['emailSingup'])): ?>
-                            <span style="color: red;"><?= $_SESSION['emailSingup'] ?></span>
-                            <?php endif; ?>
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPassword1" class="text-dark">Password</label>
-                            <input type="password" placeholder="Enter Password" class="form-control" name="password"
-                                id="exampleInputPassword1" />
-                            
-                        </div>
-                        <div class="form-group">
-                            <label for="exampleInputPhonenumber" class="text-dark">Phone Number</label>
-                            <input type="number" placeholder="Phone number" class="form-control" name="phone"
-                                id="exampleInputPhonenumber" />
-                        </div>
-                        <label for="#" class="text-dark mb-3">Your gender</label>
-                        <div class="form-group d-flex">
-                            <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="gender" name="gender" value="M" checked>
-                              <label class="form-check-label" for="radio1">Male</label>
-                            </div>
-                            <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="gender" name="gender" value="F">
-                              <label class="form-check-label" for="radio2">Female</label>
-                            </div>
-                            </div>
-                        <label for="#" class="text-dark mb-3">Your role</label>
-                        <div class="form-group d-flex">
-                            <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="radio1" name="optradio" value="1" checked>
-                              <label class="form-check-label" for="radio1">Customer</label>
-                            </div>
-                            <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="2">
-                              <label class="form-check-label" for="radio2">Restaurant owner</label>
-</div>
-                            <div class="form-check mr-5 ml-5">
-                              <input type="radio" class="form-check-input" id="radio2" name="optradio" value="3">
-                              <label class="form-check-label" for="radio2">Delivery</label>
-                            </div>
-                            </div>
-                        <button class="btn btn-primary btn-lg btn-block">SIGN UP</button>
-                    </form>
-                    <a href="/resetPwd" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
-                    </a>
-                    <div class="d-flex align-items-center justify-content-center mb-5">
-                        <a href="/">
-                            <p class="text-center m-0">Don't have an account? Sign in</p>
-                        </a>
-=======
                 <h2 class="text-dark my-0 mb-4 mt-3">Sign Up</h2>
                 <form action="../../controllers/signup/show.controller.php" method='post'>
                     <div class="form-group">
                         <input type="text" name="usernames" placeholder="Enter Name" class="form-control" id="exampleInputName" />
->>>>>>> user_panel
                     </div>
                     <div class="form-group">
                         <input type="email" placeholder="Enter Email" name='email' class="form-control" id="email" aria-describedby="emailHelp" />

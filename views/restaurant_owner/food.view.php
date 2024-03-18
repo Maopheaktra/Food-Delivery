@@ -64,14 +64,7 @@
                   <table class = "table"  id="selectedColumn"  cellspacing="0" width="100%" style="margin-top: 30px;">
                       <thead>
                           <tr>
-<<<<<<< HEAD
-<<<<<<< HEAD
-                              <!-- <th scope="col">Food_ID</th> -->
-=======
->>>>>>> add_category
-=======
                               <th scope="col">Food_ID</th>
->>>>>>> user_panel
                               <th scope="col">Photo</th>
                               <th scope="col">Food Name</th>
                               <th scope="col">Description</th>
@@ -94,23 +87,15 @@
                         $foods = $statement->fetchAll();
                         foreach ($foods as $index => $food):?>
                         <tr>
-<<<<<<< HEAD
-=======
                           <td scope="row" style="vertical-align: bottom; text-align: center;"><?= $index+1 ?></td>
->>>>>>> user_panel
                           <td style="vertical-align: bottom;"><img src="assets/images/popular3.png" alt="" style ="width:70px" class = "img-responsive"></td>
                           <td style="vertical-align: bottom;"><?=$food['Foodname'];?></td>
                           <td style="vertical-align: bottom;"><?=$food['description'];?></td>
                           <td style="vertical-align: bottom;"><?=$food['price']."$";?></td>
                           <td style="vertical-align: bottom;"><?=getCatebyId($food['category_id'])['name'];?></td>
                           <td style="vertical-align: bottom;">
-<<<<<<< HEAD
-                          <a href="controllers/Food/edit_food.restaurant.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="edit" style="font-size:48px;color:green"></i></a>
-                        <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="trash-2" style="font-size:48px;color:red"></i></a>
-=======
                           <a href="controllers/Food/edit_food.restaurant.controller.php?foodid=<?= $food['Food_id']; ?>" class="btn btn-success">Edit</a>
                         <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id']; ?>" class="btn btn-danger">Delete</a>
->>>>>>> user_panel
                           </td>
                         </tr>
                         <?php endforeach;?>
@@ -167,31 +152,17 @@
     <?php 
     if(isset($_SESSION['editFood']) && $_SESSION['editFood'] != ''): 
       $food = getFoodbyId($_SESSION['editFood']);
-<<<<<<< HEAD
-      // print_r($food['Foodname']);
-=======
       print_r($food['Foodname']);
->>>>>>> user_panel
      
     ?>
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
-<<<<<<< HEAD
-        <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" style="width:100%; height:100%"  method="post">
-            <h1 class="text-center">Edit Food</h1>
-            <div class="mb-3">
-              <label for="username" class="form-label"></label>
-              <img src="../../assets/images/res_img/IMG-65edd7f1a02667.05645755.png" style="width: 100%; height:16rem;"alt="">
-              <!-- <input type="file" name="my_image" id="image"> -->
-            </div>
-=======
         <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" method="post">
         <h1>Edite Food</h1>
         <div class="mb-3">
           <label for="username" class="form-label">Image:</label>
           <input type="file" name="my_image" id="image">
         </div>
->>>>>>> user_panel
         <div class="mb-3">
           <input type="hidden" name="food_id" value="<?= $_SESSION['editFood'] ?>">
           <label for="food" class="form-label">Food:</label>
@@ -215,11 +186,8 @@
               </select>
               </div>          
         <div class="mb-3">
-<<<<<<< HEAD
-=======
           <label for="descriptiom" class="form-label">Description:</label>
           <textarea class="form-control" name="description" rows="5" id="description"></textarea></div>
->>>>>>> user_panel
           <button type="submit" class="btn btn-primary">Update</button>
           <a href="/all_food" class="btn btn-danger" >cancel</a>
         </div>
