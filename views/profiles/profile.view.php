@@ -129,21 +129,20 @@
                         </div>
 
 
-
-
                         <div class="additional" id="close-form-resetpass">
                             <div class="change_password my-3">
-                                <a href="#" class="p-3 border rounded  btn d-flex align-items-center">
-                                    <button id="changePasswordButton" type="button" class="btn mx-0 p-0 shadow-none" style="border-color:transparent !important;">
+                                <a href="#" class="p-3 border rounded btn d-flex align-items-center">
+                                    <button id="changePasswordButton" type="button" class="p-0  bg-white btn d-flex align-items-center">
                                         Change Password
                                     </button>
-
-
-                                    <div class="deactivate_account">
-                                        <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">Deactivate Account
-                                            <i class="feather-arrow-right ml-auto"></i>
-                                        </a>
-                                    </div>
+                                    <i class="feather-arrow-right ml-auto"></i>
+                                </a>
+                                <div class="deactivate_account">
+                                    <a href="forgot_password.html" class="p-3 border rounded bg-white btn d-flex align-items-center">
+                                        Deactivate Account
+                                        <i class="feather-arrow-right ml-auto"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>

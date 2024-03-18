@@ -16,8 +16,9 @@ if($newPassword == $confirmPassword){
         $newPwd = password_hash($_POST['new_password'], PASSWORD_BCRYPT);
         updatePassword($email, $newPassword);
     }else{
-        echo "Insecces";
+        $_SESSION['errorCurrentPassword'] = "Incorrect current password.";
     }
 }else{
-    echo 'Insecces';
+    $_SESSION['errorChangePassword'] = "Passwords do not match.";
 }
+header("Location: /profile");
