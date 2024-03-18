@@ -101,7 +101,7 @@ ob_start();
       <div class="card-body d-flex">
         <img src="../../assets/images/delevery moto.jpg" style="width: 30%;" alt="...">
         <span class="d-flex flex-column justify-content-center" style="width: 100%;">
-          <h2 class="text-center mb-2">Safety & Quickly For Delevery</h2>
+          <h2 class="text-center mb-2">Safety & Quickly</h2>
           <p class="text-center">Please order now to be accept a good price for our Restuarant.</p>
         </span>
       </div>
@@ -123,7 +123,11 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
+<<<<<<< HEAD
         <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+=======
+        <a href="/deliveryMap" class="btn btn-success" style="font-size: 13px;">Accept</a>
+>>>>>>> user_panel
       </div>
     </div>
     <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
@@ -141,7 +145,11 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
+<<<<<<< HEAD
         <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+=======
+        <a href="/deliveryMap" class="btn btn-success" style="font-size: 13px;">Accept</a>
+>>>>>>> user_panel
       </div>
     </div>
     <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
@@ -159,7 +167,11 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
+<<<<<<< HEAD
         <a href="#" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+=======
+        <a href="/deliveryMap" class="btn btn-success" style="font-size: 13px;">Accept</a>
+>>>>>>> user_panel
       </div>
     </div>
 

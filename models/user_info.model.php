@@ -55,6 +55,7 @@ function Add_New_Food($Name, $description, $price, $cate_id){
     ]);
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
@@ -62,3 +63,6 @@ function Add_New_Food($Name, $description, $price, $cate_id){
 =======
 }
 >>>>>>> add_food
+=======
+}
+>>>>>>> user_panel
