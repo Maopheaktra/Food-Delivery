@@ -22,6 +22,7 @@ $resOwner = showPf($_SESSION['res_own']['user_id']);
   <link rel="stylesheet" href="vendor/css/style.min.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="stylesheet" href="vendor/css/res_order.css">
+  <link rel="stylesheet" href="vendor/css/edit_res.css">
   
 </head>
 

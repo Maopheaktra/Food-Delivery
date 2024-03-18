@@ -33,6 +33,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'){
             }elseif($role == 2){
                 $_SESSION['role'] = $role;
                 header('Location: /');
+            }elseif($role == 3){
+                $_SESSION['role'] = $role;
+                header('Location: /');
             }
             
         }else{

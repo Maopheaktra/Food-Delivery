@@ -1,13 +1,13 @@
 <?php
-// session_start();
-require_once "database/database.php"; // Include database connection
-require_once "models/admin.model.php"; // Include admin model file once
+require_once "database/database.php"; 
 require_once "models/employee.model.php";
+require_once "models/admin.model.php"; 
 $users = getAllUsers();
+$adminPf = showPf($_SESSION['userid']);
+
 
 ?>
 
-<!-- ! Body -->
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
@@ -85,13 +85,13 @@ $users = getAllUsers();
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
-                                <a href="runners.filter.php">Runners</a>
+                                <a href="/delivery">Runners</a>
                             </li>
                             <li>
-                                <a href="customers.filter.php">Customers</a>
+                                <a href="/customer">Customers</a>
                             </li>
                             <li>
-                                <a href="restaurantowners.filter.php">Owners</a>
+                                <a href="/res_onwer">Owners</a>
                             </li>
                         </ul>
                     </li>
@@ -101,17 +101,5 @@ $users = getAllUsers();
                 </ul>
             </div>
         </div>
-        <div class="sidebar-footer">
-            <a href="##" class="sidebar-user">
-                <span class="sidebar-user-img">
-                    <picture>
-                            <img src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" alt="Default Profile Picture">
-                    </picture>
-                </span>
-                <div class="sidebar-user-info">
-                    <span class="sidebar-user__title">Pheak Tra.</span>
-                    <span class="sidebar-user__subtitle">Restaurant Owner</span>
-                </div>
-            </a>
-        </div>
+        
     </aside>

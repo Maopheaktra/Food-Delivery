@@ -212,16 +212,17 @@ function showCmtOfRes($resID){
 
 //order========
 
-function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
+function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time, $address){
     global $connection;
-    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time)");
+    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time, useraddress) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time, :address)");
     $statement->execute([
         ':foodname'=>$foodname,
         ':user_id'=>$user_id,
         ':qty'=>$qty,
         ':res_id'=>$res_id,
         ':total_price'=>$total_price,
-        ':time'=>$time
+        ':time'=>$time,
+        ':address'=>$address
     ]);
 }
 
@@ -264,4 +265,72 @@ function getCatebyId($cateid){
     $statement = $connection->prepare("select * from categories where category_id = :cateid");
     $statement->execute(['cateid'=> $cateid]);
     return $statement->fetch();
+}
+
+//delete category
+
+function deleteCate($cateid){
+    global $connection;
+    $statement = $connection->prepare("delete from categories where category_id = :cateid");
+    $statement->execute([':cateid'=> $cateid]);
+}
+
+//------------- Update Categories ---------------
+function updateCate($cateid, $catename, $description){
+    global $connection;
+    $statement = $connection->prepare("update categories set name = :catename, description = :description where category_id = :cateid");
+    $statement->execute([
+        ':catename'=>$catename,
+        ':description'=>$description,
+        ':cateid'=>$cateid,
+    ]);
+}
+
+function deleteFood($foodid){
+    global $connection;
+    $statement = $connection->prepare("delete from foods where Food_id = :foodid");
+    $statement->execute([':foodid'=> $foodid]);
+}
+
+function updateFood($foodid, $foodname, $description,$price){
+    global $connection;
+    $statement = $connection->prepare("update foods set Foodname = :foodname, description = :description, price = :price where Food_id = :foodid");
+    $statement->execute([
+        ':foodid'=>$foodid,
+        ':foodname'=>$foodname,
+        ':description'=>$description,
+        ':price'=>$price,
+    ]);
+}
+
+function getFoodbyId($foodid){
+    global $connection;
+    $statement = $connection->prepare("select * from foods where Food_id = :foodid");
+    $statement->execute([':foodid'=> $foodid]);
+    return $statement->fetch();   
+}
+
+//get customer
+function getSpacificUser($role){
+    global $connection;
+
+    $query = "
+        SELECT 
+            u.user_id,
+            u.username,
+            u.email,
+            u.gender,
+            u.phoneNumber,
+            u.user_img,
+            r.role_type
+        FROM 
+            users u
+        LEFT JOIN 
+            roles r ON u.role_id = r.role_id
+        WHERE  u.role_id = :role
+    ";
+
+    $statement = $connection->prepare($query);
+    $statement->execute([':role'=> $role]);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }

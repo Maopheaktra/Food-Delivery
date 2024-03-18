@@ -41,7 +41,7 @@
               <i data-feather="user" aria-hidden="true"></i>
               <span>Profile</span>
             </a></li>
-          <li><a href="##">
+          <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
@@ -62,14 +62,14 @@
             <div class="chart">
                 <div class="container mt-3 ">
                   <a href=""type="Submit" id ="add-cate" class="btn btn-primary mg-3">Add New+</a>
-                  <table class = "table table-bordered mt-4">
+                  <table class = "table" style="margin-top: 30px;">
                       <thead>
                           <tr>
-                              <th>Cate_ID</th>
-                              <th>Photo</th>
-                              <th>Category's Name</th>
-                              <th>Description</th>
-                              <th>Action</th>
+                              <th scope="col">Cate_ID</th>
+                              <th scope="col">Photo</th>
+                              <th scope="col">Category's Name</th>
+                              <th scope="col">Description</th>
+                              <th scope="col">Action</th>
                           </tr>
                       </thead>
                       <tbody>
@@ -80,13 +80,13 @@
                         
                         foreach ($categories as $category):?>
                         <tr>
-                          <td><?=$category['category_id'];?></td>
-                          <td><img src="assets/images/trending4.png" alt="" style ="width:70px" class = "img-responsive"></td>
-                          <td><?=$category['name'];?></td>
-                          <td><?=$category['description'];?></td>
-                          <td>
-                            <button class = "btn btn-success">Edit</button>
-                            <button class = "btn btn-danger">Delete</button>
+                          <td scope="row" style="vertical-align: bottom; text-align: center;"><?=$category['category_id'];?></td>
+                          <td style="vertical-align: bottom;"><img src="assets/images/icons/<?= $category['cate_img']; ?>" alt="" style ="width:70px" class = "img-responsive"></td>
+                          <td style="vertical-align: bottom;"><?=$category['name'];?></td>
+                          <td style="vertical-align: bottom;"><?=$category['description'];?></td>
+                          <td style="vertical-align: bottom;">
+                          <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>" class = "btn btn-success">Edit</a>
+                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>" class="btn btn-danger">Delete</a>
                           </td>
                         </tr>
                         <?php endforeach;?>
@@ -119,6 +119,37 @@
         </form>
       </div>
     </div>
+
+    <?php 
+    if(isset($_SESSION['editCate']) && $_SESSION['editCate'] != ''): 
+     
+    ?>
+    <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
+      <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
+        <form class="add-cate popup-cate" action="controllers/restaurant_owner/editcategory.controller.php" method="post">
+        <h1>Edite Category</h1>
+        <div class="mb-3">
+          <label for="username" class="form-label">Image:</label>
+          <input type="file" name="my_image" id="image">
+        </div>
+        <div class="mb-3">
+          <input type="hidden" name="cateid" value="<?php print_r($_SESSION['cate']['category_id']);?>">
+          <label for="cate" class="form-label">Category:</label>
+          <input type="text" name="cate"class="form-control" id="cate" value="<?php print_r($_SESSION['cate']['name']); ?>">
+        </div>               
+        <div class="mb-3">
+          <label for="descriptiom" class="form-label">Description:</label>
+          <textarea class="form-control" name="description" rows="5" id="description"><?php print_r($_SESSION['cate']['description']); ?></textarea></div>
+          <button type="submit" class="btn btn-primary">Update</button>
+          <a href="/all_categories" class="btn btn-danger" >cancel</a>
+        </div>
+        </form>
+      </div>
+    </div>
+  <?php 
+  $_SESSION['editCate'] = '';
+  endif; 
+  ?>
 <?php
 echo "<script>
      

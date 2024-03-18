@@ -17,6 +17,8 @@ if (isset($_SESSION["email"])) {
             require "controllers/restaurant_owner/create_restaurant.controller.php";
         }
         
+    }elseif($_SESSION['role'] == 3){
+        require 'delivery_router.php';
     }
     elseif($_SESSION['role'] == 4){
         require "admin_router.php";

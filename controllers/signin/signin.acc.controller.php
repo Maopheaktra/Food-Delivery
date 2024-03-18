@@ -18,6 +18,8 @@ if (isset($_POST['email']) && isset($_POST['pwd'])){
          $_SESSION['wrongPassword'] = ''; 
          if ($user['role_id'] == 2){
             $_SESSION['res_own'] = getRestaurant($_SESSION['userid']);
+         }elseif($_SESSION['role_id'] ==  3){
+            $_SESSION['res_delivery'] = login($user['email']);
          }
         //  Redirect to the dashboard
          header("Location: /");

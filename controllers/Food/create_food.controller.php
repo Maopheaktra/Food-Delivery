@@ -2,6 +2,7 @@
 require "../../database/database.php";
 require "../../models/user_info.model.php";
 
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST['food']) && isset($_POST['description']) && isset($_POST['price']) && isset($_POST['cate_id'])) {
         $Name = $_POST['food'];

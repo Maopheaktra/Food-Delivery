@@ -87,7 +87,7 @@
               <i data-feather="user" aria-hidden="true"></i>
               <span>Profile</span>
             </a></li>
-          <li><a href="##">
+          <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
               <span>Account settings</span>
             </a></li>
@@ -174,9 +174,9 @@
             </article>
           </div>
         </div>
-            </div>
-          </div>
-        </div>
       </div>
+    </div>
+  </div>
+</div>
 
     
