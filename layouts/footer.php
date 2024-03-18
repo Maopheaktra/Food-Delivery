@@ -1,5 +1,5 @@
 
-<footer class="section-footer border-top bg-dark">
+<footer class="section-footer border-top bg-dark" id="footer">
     <div class="container">
       <section class="footer-top padding-y py-5">
         <div class="row">
@@ -26,20 +26,6 @@
                 </div>
               </div>
             </article>
-          </aside>
-          <aside class="col-sm-3 col-md-2 text-white">
-            <h6 class="title">Error Pages</h6>
-            <ul class="list-unstyled hov_footer">
-              <li>
-                <a href="not-found.html" class="text-muted">Not found</a>
-              </li>
-              <li>
-                <a href="maintence.html" class="text-muted">Maintence</a>
-              </li>
-              <li>
-                <a href="coming-soon.html" class="text-muted">Coming Soon</a>
-              </li>
-            </ul>
           </aside>
           <aside class="col-sm-3 col-md-2 text-white">
             <h6 class="title">Services</h6>
@@ -182,16 +168,6 @@
         <a href="/order"><i class="feather-list mr-2"></i> My Orders</a>
       </li>
       <li>
-        <a href="#"><i class="feather-edit-2 mr-2"></i> Authentication</a>
-        <ul>
-          <li><a href="login.html">Login</a></li>
-          <li><a href="signup.html">Register</a></li>
-          <li><a href="forgot_password.html">Forgot Password</a></li>
-          <li><a href="verification.html">Verification</a></li>
-          <li><a href="location.html">Location</a></li>
-        </ul>
-      </li>
-      <li>
         <a href="/favorite"><i class="feather-heart mr-2"></i> Favorites</a>
       </li>
       <li>
@@ -201,77 +177,25 @@
         <a href="most_popular.html"><i class="feather-award mr-2"></i> Most Popular</a>
       </li>
       <li>
-        <a href="restaurant.html"><i class="feather-paperclip mr-2"></i> Restaurant Detail</a>
-      </li>
-      <li>
-        <a href="/checkout"><i class="feather-list mr-2"></i> Checkout</a>
-      </li>
-      <li>
         <a href="successful.html"><i class="feather-check-circle mr-2"></i> Successful</a>
       </li>
       <li>
-        <a href="map.html"><i class="feather-map-pin mr-2"></i> Live Map</a>
+        <a href="/restaurant_location"><i class="feather-map-pin mr-2"></i> Live Map</a>
       </li>
       <li>
         <a href="#"><i class="feather-user mr-2"></i> Profile</a>
         <ul>
-          <li><a href="profile.html">Profile</a></li>
+          <li><a href="/profile">Profile</a></li>
           <li><a href="favorites.html">Delivery support</a></li>
           <li><a href="contact-us.html">Contact Us</a></li>
           <li><a href="terms.html">Terms of use</a></li>
           <li><a href="privacy.html">Privacy & Policy</a></li>
         </ul>
       </li>
-      <li>
-        <a href="#"><i class="feather-alert-triangle mr-2"></i> Error</a>
-        <ul>
-          <li><a href="not-found.html">Not Found</a></li>
-          <li><a href="maintence.html"> Maintence</a></li>
-          <li><a href="coming-soon.html">Coming Soon</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#"><i class="feather-link mr-2"></i> Navigation Link Example</a>
-        <ul>
-          <li>
-            <a href="#">Link Example 1</a>
-            <ul>
-              <li>
-                <a href="#">Link Example 1.1</a>
-                <ul>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Link Example 1.2</a>
-                <ul>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">Link Example 2</a></li>
-          <li><a href="#">Link Example 3</a></li>
-          <li><a href="#">Link Example 4</a></li>
-          <li data-nav-custom-content>
-            <div class="custom-message">
-              You can add any custom content to your navigation items. This
-              text is just an example.
-            </div>
-          </li>
-        </ul>
-      </li>
     </ul>
     <ul class="bottom-nav">
       <li class="email">
-        <a class="text-danger" href="home.html">
+        <a class="text-danger" href="/">
           <p class="h5 m-0"><i class="feather-home text-danger"></i></p>
           Home
         </a>

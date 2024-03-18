@@ -88,33 +88,29 @@
                 </div>
               </a>
 
-              <a href="/signin" class="widget-header mr-4 text-white m-none">
-                <div class="icon d-flex align-items-center">
-                  <i class="feather-user h6 mr-2 mb-0"></i>
-                  <span>Sign in</span>
-                </div>
-              </a>
-
               <div class="dropdown mr-4 m-none">
                 <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton"
                   data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <img alt="#" src="assets/images/user/1.jpg" class="img-fluid rounded-circle header-user mr-2 header-user" />
-                  Hi Osahan
+                  <?php
+                    $img = showPf($_SESSION['userid']);
+                  ?>
+                  <img alt="#" src="<?php print_r('assets/images/user/'.$img[7]) ?>" class="img-fluid header-user mr-2 header-user" style="width: 40px; height: 40px; border-radius: 50%;"/>
+                  <?php print_r($img[1]) ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
                   <a class="dropdown-item" href="/profile">My account</a>
                   <a class="dropdown-item" href="faq.html">Delivery support</a>
-                  <a class="dropdown-item" href="contact-us.html">Contant us</a>
+                  <a class="dropdown-item" href="#footer">Contant us</a>
                   <a class="dropdown-item" href="terms.html">Term of use</a>
                   <a class="dropdown-item" href="privacy.html">Privacy policy</a>
-                  <a class="dropdown-item" href="/signin">Logout</a>
+                  <a class="dropdown-item" href="controllers/signout/signout.controller.php">Logout</a>
                 </div>
               </div>
 
-              <a href="/checkout" class="widget-header mr-4 text-white">
+              <a href="/order" class="widget-header mr-4 text-white">
                 <div class="icon d-flex align-items-center">
                   <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
-                  <span>Cart</span>
+                  <span>My order</span>
                 </div>
               </a>
               <a class="toggle" href="#">

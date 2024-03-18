@@ -1,3 +1,6 @@
+<link rel="stylesheet" href="../../vendor/css/profile.css">
+<link rel="stylesheet" href="../../vendor/css/popup.css">
+
 <div class="osahan-profile">
         <div class="d-none">
             <div class="bg-primary border-bottom p-3 d-flex align-items-center">
@@ -10,16 +13,19 @@
             <div class="py-5 osahan-profile row">
                 <div class="col-md-4 mb-3">
                     <div class="bg-white rounded shadow-sm sticky_sidebar overflow-hidden">
-                        <a href="profile.html" class>
                             <div class="d-flex align-items-center p-3">
                                 <div class="left mr-3">
-                                    <img alt="#" src="assets/images/user1.jpg" class="rounded-circle">
+                                    
+                        
+                                        <div class="upload" id="upload">
+                                            <img src="<?php print_r('assets/images/user/'.$img[7]) ?>" width="100" height="100" title="Change Profile">
+                                        </div>
                                 </div>
                                 <div class="right">
-                                    <h6 class="mb-1 font-weight-bold">Gurdeep Singh <i
+                                    <h6 class="mb-1 font-weight-bold"><?php print_r($img[1]) ?><i
                                             class="feather-check-circle text-success"></i></h6>
                                     <p class="text-muted m-0 small"><span class="__cf_email__"
-                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290">[email&#160;protected]</span>
+                                            data-cfemail="fd949c90928e9c959c93bd9a909c9491d39e9290"><?php print_r($img[2]) ?></span>
                                     </p>
                                 </div>
                             </div>
@@ -108,24 +114,20 @@
                         <h5 class="mb-4">My account</h5>
                         <div id="edit_profile">
                             <div>
-                                <form action="my_account.html">
+                                <form action="controllers/profiles/change.account.info.controller.php" method="post">
                                     <div class="form-group">
-                                        <label for="exampleInputName1">First Name</label>
-                                        <input type="text" class="form-control" id="exampleInputName1d" value="Gurdeep">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputName1">Last Name</label>
-                                        <input type="text" class="form-control" id="exampleInputName1" value="Singh">
+                                        <label for="exampleInputName1">Full Name</label>
+                                        <input type="text" class="form-control" id="exampleInputName1d" value="<?php print_r($img[1]) ?>" name="username">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputNumber1">Mobile Number</label>
                                         <input type="number" class="form-control" id="exampleInputNumber1"
-                                            value="1234567890">
+                                            value="<?php print_r($img[6]) ?>" name="phone">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Email</label>
                                         <input type="email" class="form-control" id="exampleInputEmail1"
-                                            value="iamosahan@gmail.com">
+                                            value="<?php print_r($img[2]) ?>" name="email">
                                     </div>
                                     <div class="text-center">
                                         <button type="submit" class="btn btn-primary btn-block">Save Changes</button>
@@ -188,3 +190,40 @@
             </div>
         </div>
     </div>
+
+    <div id="contact-popup" style="display: none;">
+        <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php" method="post">
+            <h1>Upload Profile</h1>
+            <div style="margin-top: 10px; margin-bottom: 10px;">
+                <div>
+                    <input type="file" name="my_image" id="image" class='btn bg-primary text-white'>
+                </div>
+                </div>
+            <div>
+                <input type="submit" id="send" name="send" value="Upload"/>
+            </div>
+        </form>
+    </div>
+
+    <?php
+
+echo "<script>
+
+let pop = document.querySelector('#contact-popup');
+let upload = document.querySelector('#upload');
+let send = document.querySelector('#send');
+
+upload.addEventListener('click', ()=>{
+    pop.style.display = 'block';
+});
+
+send.addEventListener('click', ()=>{
+    pop.style.display = 'none';
+});
+
+
+
+
+</script>"
+
+?> 

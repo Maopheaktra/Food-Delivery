@@ -1,12 +1,34 @@
 <?php
+// session_start();
+// session_destroy();
 require 'utils/url.php';
 require 'database/database.php';
-if (urlIs("/admin")) { 
-    require "admin_router.php";
-} else if (urlIs('/signin') || urlIs('/signup') || urlIs('/resetPwd')) {
-    require "authentication_router.php";
+require 'controllers/signin/signin.acc.controller.php';
+require 'controllers/signup/show.controller.php';
+
+if (isset($_SESSION["email"])) {
+    if ($_SESSION['role'] == 2 && !isset($_SESSION['res_own'])) { 
+        require "controllers/restaurant_owner/create_restaurant.controller.php";
+    }elseif($_SESSION['role'] == 2 && isset($_SESSION['res_own'])){
+        if($_SESSION['res_own'] != ''){
+            require "restaurantOwner_router.php";
+        }
+        else{
+            require "controllers/restaurant_owner/create_restaurant.controller.php";
+        }
+        
+    }elseif($_SESSION['role'] == 3){
+        require 'delivery_router.php';
+    }
+    elseif($_SESSION['role'] == 4){
+        require "admin_router.php";
+    } 
+    else{
+        require 'router.php';
+    }
 }else{
-    require 'router.php';
+    require "authentication_router.php";
 }
+
 
 

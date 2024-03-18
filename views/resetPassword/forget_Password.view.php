@@ -28,20 +28,27 @@
             <source src="assets/images/bg.mp4" type="video/ogg" />
             Your browser does not support the video tag.
         </video>
+        <?php
+            if(isset($_SESSION['pwd']) && $_SESSION['pwd'] != ''){
+                echo "<script>alert('Your Password is worng!!')</script>";
+                $_SESSION['pwd'] = '';
+            }
+        ?>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Forget Password</h2>
                     <p class="text-50">enter your email to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/reset/reset_Password.controller.php" method ="post">
+                    <form class="mt-5 mb-4" action="controllers/reset/new_Password.controller.php" method ="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" value="" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" />
+                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp"  name="send_email" />
                         </div>
-                        <button type="submit" name="send_email" class="btn btn-primary btn-lg btn-block">SEND</button>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">SEND</button>
                     </form>
                     <div class="d-flex align-items-center justify-content-center">
-                        <a href="signup.html">
+                        <a href="/signup">
                             <p class="text-center m-0">Don't have an account? Sign up</p>
                         </a>
                     </div>
@@ -184,3 +191,4 @@
 </body>
 
 </html>
+
