@@ -15,11 +15,11 @@
                   Dell computer commercials in which a youth reports.
                 </p>
                 <div class="d-flex align-items-center">
-                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Facebook" target="_blank" href="#"><i
+                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Facebook" target="_blank" href="https://www.facebook.com/srey.nuchsolo.90?mibextid=ZbWKwL"><i
                       class="feather-facebook"></i></a>
                   <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Instagram" target="_blank" href="#"><i
                       class="feather-instagram"></i></a>
-                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Youtube" target="_blank" href="#"><i
+                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Youtube" target="_blank" href="https://www.youtube.com/"><i
                       class="feather-youtube"></i></a>
                   <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Twitter" target="_blank" href="#"><i
                       class="feather-twitter"></i></a>
@@ -283,7 +283,7 @@
         </a>
       </li>
       <li class="ko-fi">
-        <a href="contact-us.html">
+        <a href="views/admin/help.view.php">
           <p class="h5 m-0"><i class="feather-phone"></i></p>
           Help
         </a>

@@ -265,3 +265,10 @@ function getCatebyId($cateid){
     $statement->execute(['cateid'=> $cateid]);
     return $statement->fetch();
 }
+
+function getAdmin(){
+    global $connection;
+    $statement = $connection->prepare("select * from users where role_id = 4");
+    $statement->execute();
+    return $statement->fetch();
+}
