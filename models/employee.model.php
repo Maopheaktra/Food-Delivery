@@ -25,7 +25,7 @@ function detailRes($id) : array
     return $statement->fetch();
 }
 
-// ========
+
 
 function getResByID($id)
 {

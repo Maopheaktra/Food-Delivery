@@ -237,6 +237,54 @@ INSERT INTO `res_categories` (`res_categoryID`, `restaurant_id`, `category_id`) 
 
 -- --------------------------------------------------------
 
+
+
+
+
+
+
+
+-- Table structure for sales
+CREATE TABLE `sales` (
+  `sale_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `order_id` INT(10) UNSIGNED NOT NULL,
+  `total_amount` DECIMAL(10,2) NOT NULL,
+  `date` DATETIME NOT NULL,
+  PRIMARY KEY (`sale_id`),
+  FOREIGN KEY (`order_id`) REFERENCES `orders`(`order_id`)
+);
+
+-- Table structure for expenses
+CREATE TABLE `expenses` (
+  `expense_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `description` VARCHAR(255) NOT NULL,
+  `amount` DECIMAL(10,2) NOT NULL,
+  `date` DATE NOT NULL,
+  PRIMARY KEY (`expense_id`)
+);
+
+-- Table structure for profit
+CREATE TABLE `profit` (
+  `profit_id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `sale_id` INT(10) UNSIGNED NOT NULL,
+  `expense_id` INT(10) UNSIGNED NOT NULL,
+  `amount` DECIMAL(10,2) NOT NULL,
+  PRIMARY KEY (`profit_id`),
+  FOREIGN KEY (`sale_id`) REFERENCES `sales`(`sale_id`),
+  FOREIGN KEY (`expense_id`) REFERENCES `expenses`(`expense_id`)
+);
+
+
+
+
+
+
+
+
+
+
+
+
 --
 -- Table structure for table `roles`
 --
@@ -285,6 +333,7 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `gender`, `role
 (6, 'Roth', 'roth@gmail.com', '$2y$10$A/G4TqYveELs2M02sEk8PO2CIxwj5A47qYl/TpObHzmzO8SUGOrQO', 'M', 1, '0747939554', 'IMG-65e7c0f96bb044.66271487.jpg'),
 (7, 'sothea', 'sothea@gmail.com', '$2y$10$Gpx1v0Z3hRk/Ssc23ViCEO7nFUz4EjLMhjsvPk5omSV/SWilfwLsS', 'M', 2, '089903043', 'IMG-65d9f4f69e5411.43011126.jpg'),
 (9, 'Rady', 'rady@gmail.com', '$2y$10$UAGaOBkwUe1/afDNLTnWQ.OQVqR5KF4mxYKMXGIm9QPpaHzdru1DK', 'M', 1, '09876545', 'IMG-65edb284915d97.99013425.jpg');
+(10, 'Roeurn', 'roeurn@gmail.com', '$2y$10$s7.TGlhtLgsFjpXB5ctrTueT5n6mjkgpjJRwCU7BEk9FJcj3Ys0tC', 'M', 4, '0719163052', 'IMG-65edb284915d97.99013425.jpg');
 
 --
 -- Indexes for dumped tables
@@ -435,6 +484,14 @@ ALTER TABLE `roles`
 ALTER TABLE `users`
   MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 COMMIT;
+
+
+
+
+ALTER TABLE `foods`
+ADD COLUMN `foodImg` VARCHAR(255) DEFAULT NULL;
+
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

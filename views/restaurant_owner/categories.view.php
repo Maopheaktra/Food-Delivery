@@ -138,7 +138,7 @@
           <input type="text" name="cate"class="form-control" id="cate" value="<?php print_r($_SESSION['cate']['name']); ?>">
         </div>               
         <div class="mb-3">
-          <label for="descriptiom" class="form-label">Description:</label>
+          <label for="description" class="form-label">Description:</label>
           <textarea class="form-control" name="description" rows="5" id="description"><?php print_r($_SESSION['cate']['description']); ?></textarea></div>
           <button type="submit" class="btn btn-primary">Update</button>
           <a href="/all_categories" class="btn btn-danger" >cancel</a>

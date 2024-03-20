@@ -48,7 +48,7 @@
               </a>
             </li>
             <li>
-              <a href="##">
+              <a href="#">
                 <div class="notification-dropdown-icon danger">
                   <i data-feather="info" aria-hidden="true"></i>
                 </div>
@@ -123,9 +123,10 @@
 
 
         <?php
-        $totalFoodsCount = 0;
-        foreach ($categoryIds as $category_id) {
-          $totalFoodsCount += countFoods($restaurant_id, $category_id);
+        $foods = 0;
+        $categories = getCategory($restaurant_id);
+        foreach ($categories as $category) {
+          $foods += countFoods($restaurant_id, $category);
         }
         ?>
 
@@ -136,7 +137,7 @@
             </div>
             <div class="stat-cards-info">
               <p class="stat-cards-info__num">
-                <?= $totalFoodsCount; ?>
+                <?= $foods; ?>
               </p>
               <p class="stat-cards-info__title">All Foods</p>
             </div>
@@ -163,7 +164,7 @@
             </div>
             <div class="stat-cards-info">
               <p class="stat-cards-info__num">
-                <?= countCustomers($restaurant_id) ?> people
+                <?= countOrder($restaurant_id) ?> people
               </p>
               <p class="stat-cards-info__title">All Orders</p>
             </div>
@@ -172,29 +173,277 @@
       </div>
     </div>
 
-    <!-- Recently selling and the most popular products -->
-    <div class="container top-sale">
-      <table class="table border-light-subtle">
-        <thead class="table-light">
-          <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Category</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Amount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <!-- for loop to add the items more -->
-          <tr>
-            <td>1</td>
-            <td>Sed</td>
-            <td>Fries</td>
-            <td>2</td>
-            <td>4</td>
-          </tr>
-        </tbody>
-      </table>
+
+
+
+    <div class="container content-2">
+      <div class="row stat-cards">
+        <div class="col-md-6 col-xl-3">
+          <article class="d-flex justify-content-between stat-cards-item shadow-sm" style="background-color:#ff9f43;">
+
+            <div class="stat-cards-info">
+              <p style="font-size:20px" class=" text-white">Stock </p>
+              <p class="stat-cards-info__num">
+                word
+              </p>
+            </div>
+            <div class=" justify-content-end stat-cards-icon primary">
+
+            </div>
+          </article>
+        </div>
+
+
+
+
+        <div class="col-md-6 col-xl-3">
+          <article class="d-flex justify-content-between stat-cards-item shadow-sm" style="background-color:#00cfe8;">
+
+            <div class="stat-cards-info">
+              <p style="font-size:20px;" class=" text-white">All Foods</p>
+              <p style="font-size:20px; color: #1e5794;" class="stat-cards-info__num">
+                word
+              </p>
+            </div>
+
+            <div class="stat-cards-icon warning bg-danger ">
+
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <article class="d-flex justify-content-between stat-cards-item shadow-sm" style="background-color:#13e2ea;">
+
+            <div class="stat-cards-info">
+              <p style="font-size:20px;" class=" text-white">Profitable</p>
+              <p style="font-size:20px; color: #1e5794;" class="stat-cards-info__num">
+                word
+              </p>
+            </div>
+
+            <div class="stat-cards-icon purple">
+
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-3 ">
+          <article class="d-flex justify-content-between stat-cards-item shadow-lg" style="background-color:#28c76f;">
+
+            <div class="stat-cards-info">
+
+              <p style="font-size:20px;" class=" text-white">All Orders</p>
+              <p style="font-size:20px; color: #1e5794;" class="stat-cards-info__num">
+                word
+              </p>
+            </div>
+
+            <div class="stat-cards-icon success bg-body-secondary ">
+
+            </div>
+          </article>
+        </div>
+      </div>
     </div>
+
+
+
+    <div class="container chart-summary mb-3 ">
+
+
+      <div class="shadow-sm card w-100 bg-white p-0 m-0" style="border: none; box-sizing: box">
+
+        <div class="card-header bg-white border-0" style="height: 50px">
+          <div class="d-flex justify-content-between w-100">
+            <h1>Header</h1>
+
+          </div>
+        </div>
+
+
+        <script type="text/javascript" src="../../vendor/js/jquery.min.js"></script>
+        <script type="text/javascript" src="../../vendor/js/Chart.min.js"></script>
+
+
+        <div class="card-body border-none rounded-0 p-0 bg-white">
+          <div class="d-flex justify-content-between align-items-center">
+            <div class="shadow-sm col-5 rounded border d-flex justify-content-center mx-2" style="height: 320px;">
+              <div class="shrink-size d-flex justify-content-center align-items-center align-items-center  mt-3 "
+                style="width: 250px; height:240px;">
+
+                <canvas id="pie-graphCanvas" style="width: 250px; height:320px;" class=""></canvas>
+              </div>
+            </div>
+            <div class="shadow-sm col rounded mx-2 border border-light-subtle"
+              style="height: 320px; background-color: rgba(0, 0, 0, 0) !important;">
+              <canvas class="p-1" id="bar-graphCanvas" style="background-color: transparent !important;"></canvas>
+            </div>
+          </div>
+
+        </div>
+
+
+
+        <script type="text/javascript">
+          $(document).ready(function () {
+            $.ajax({
+              url: "../../controllers/restaurant_owner/chart.controller.php",
+              method: "GET",
+              success: function (data) {
+                console.log(data);
+                let barLabels = [];
+                let barSales = [];
+                let barExpenses = [];
+                let barProfit = [];
+                let pieLabels = [];
+                let pieSales = [];
+
+                for (let i = 0; i < data.sales.length; i++) {
+                  barLabels.push(data.sales[i].month);
+                  barSales.push(data.sales[i].amount);
+                  barExpenses.push(data.expenses[i].amount);
+                  barProfit.push(data.profit[i].amount);
+                  if (i < 3) {
+                    pieLabels.push(data.sales[i].month);
+                    pieSales.push(data.sales[i].amount);
+                  }
+                }
+
+                let barChartData = {
+                  labels: barLabels,
+                  datasets: [{
+                    label: 'Sales',
+                    backgroundColor: '#3c8dbc',
+                    borderColor: '#3c8dbc',
+                    borderWidth: 1,
+                    data: barSales
+                  },
+                  {
+                    label: 'Expenses',
+                    backgroundColor: '#f56954',
+                    borderColor: '#f56954',
+                    borderWidth: 1,
+                    data: barExpenses
+                  },
+                  {
+                    label: 'Profit',
+                    backgroundColor: '#00a65a',
+                    borderColor: '#00a65a',
+                    borderWidth: 1,
+                    data: barProfit
+                  }
+                  ]
+                };
+
+                let pieChartData = {
+                  labels: pieLabels,
+                  datasets: [{
+                    label: 'Sales',
+                    backgroundColor: ['#3c8dbc', '#f56954', '#00a65a'],
+                    borderColor: ['#3c8dbc', '#f56954', '#00a65a'],
+                    borderWidth: 1,
+                    data: pieSales
+                  }]
+                };
+
+                let barGraphTarget = $("#bar-graphCanvas");
+                let pieGraphTarget = $("#pie-graphCanvas");
+
+                let barGraph = new Chart(barGraphTarget, {
+                  type: 'bar',
+                  data: barChartData,
+                  options: {
+                    scales: {
+                      yAxes: [{
+                        ticks: {
+                          beginAtZero: true
+                        }
+                      }]
+                    }
+                  }
+                });
+
+                let pieGraph = new Chart(pieGraphTarget, {
+                  type: 'pie',
+                  data: pieChartData,
+                  options: {
+                    legend: {
+                      position: 'start',
+                      labels: {
+                        boxWidth: 5,
+                        fontSize: 8
+                      }
+                    }
+                  }
+                });
+              },
+              error: function (data) {
+                console.log(data);
+              }
+            });
+          });
+
+
+
+        </script>
+
+        <div class="card-footer bg-white border-0" style="height: 50px">
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+
+
+
+    <!-- Recently selling and the most popular products -->
+    <div class="container top-sale ">
+
+      <div class="shadow-sm card w-100 bg-white" style="border: none  ;">
+
+        <table class="table border-light-subtle table-bordered">
+          <thead class="">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Category</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- for loop to add the items more -->
+            <tr>
+              <td>1</td>
+              <td>Sed</td>
+              <td>Fries</td>
+              <td>2</td>
+              <td>4</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
   </main>
 </div>
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/plugins/chart.min.js"></script>
+<script src="../../vendor/plugins/feather.min.js.map"></script>
