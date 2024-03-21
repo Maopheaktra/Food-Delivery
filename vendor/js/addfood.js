@@ -81,7 +81,7 @@ function creatCarelist(food, price, id) {
     let foodPrice = document.createElement('p');
     foodPrice.setAttribute('class', 'text-gray mb-0 float-right ml-2 text-muted small');
     foodPrice.value = price;
-    foodPrice.textContent = price;
+    foodPrice.textContent = '$' + price;
 
 
     groupAdd.appendChild(cardList);
@@ -105,3 +105,4 @@ function creatCarelist(food, price, id) {
 
 let btnIncrease = document.querySelectorAll('#plusOrder');
 console.log(bt)
+

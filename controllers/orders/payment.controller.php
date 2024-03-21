@@ -11,15 +11,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $time = date("Y-m-d h:i:sa");
     if(isset($address)){
         if($address != ''){
-
             if(isset($_POST['id'])){
+                $paymentArrs = array();
                 foreach ($_POST['id'] as $key => $value) {
+                    $paymentArr = array();
                     $foodname = showFood($value)['Foodname'];
                     $qty = $_POST['qty'][$key];
                     $total_price = showFood($value)['price'] * $qty;
-                    orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time, $address);
+                    // orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time, $address);
+                    array_push($paymentArr, "$foodname", "$qty", "$res_id", "$total_price", "$time", "$address");
+                    array_push($paymentArrs, $paymentArr);
                 }
-                header('Location: /order');
+                $_SESSION['paymentCard'] = $paymentArrs;
+                header('Location: /checkout');
             }else{
                 $_SESSION['worngpay'] = 'You need to add food';
                 header('location: /restaurant?id='.$_GET['id']);

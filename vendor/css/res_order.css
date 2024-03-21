@@ -34,8 +34,7 @@
     margin: 10px;
 }
 
-.content {
-    display: block;
+.contentOrder {
     width: 100%;
     display: flex;
     flex-wrap: wrap;

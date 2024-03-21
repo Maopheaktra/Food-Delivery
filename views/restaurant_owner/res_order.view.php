@@ -64,8 +64,9 @@
               <a href="#"  id="response" class="btn">Response</a>
             </div>
         </div>
-        <div id="content" class="content">
+        <div id="content" class="contentOrder">
           <?php foreach ($padding as $key => $value): ?>
+
             <div class="card">
                 <div class="card-header">
                     <div class="card-id">
@@ -93,12 +94,12 @@
 
                 </div>
                 <div class="card-footer">
-                    <button><a href="controllers/restaurant_owner/response_food.controller.php?time=<?= $value['time'] ?>"><i class='bx bx-check'></i>Comfirm</a></button>
-                    <button><i class='bx bx-revision'></i>Riview</button>
-                    <button><a href="#"><i class='bx bx-x'></i>Reject</a></button>
+                    <button style="background: green;"><a href="controllers/restaurant_owner/response_food.controller.php?time=<?= $value['time'] ?>" style="display: flex; justify-content: space-between;"><i class='bx bx-check'></i>Comfirm</a></button>
+                    <button style="background: teal;"><a href=""type="Submit" id ="add-cate" style="display: flex; justify-content: space-between;"><i class='bx bx-revision'></i>Review</a></button>
+                    <button><a href="#" style="display: flex; justify-content: space-between;"><i class='bx bx-x'></i>Reject</a></button>
                 </div>
             </div>
-            <?php endforeach; ?>
+          <?php endforeach; ?>
         </div>
         <div id="content1" class="hide">
           <?php foreach ($responseOrder as $key => $value): ?>
@@ -136,6 +137,22 @@
         </div>
     </div>
 
+    <?php if(isset($_SESSION['review'])): ?>
+    <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
+      <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
+        <form class="add-cate popup-cate" action="controllers/restaurant_owner/review/review.order.controller.php" method="post">
+        <h1 style="margin-top: 20px; margin-bottom: 40px;">View Food</h1>              
+        <div class="mb-3">
+          <input type="hidden" name="res_id" value="<?= $value['user_id'] ?>">
+          <textarea class="form-control" name="message" rows="5" id="description" placeholder = "Message to customer"></textarea></div>
+          <button type="submit" class="btn btn-primary">Send</button>
+          <a href="/res_order" class="btn btn-danger" >cancel</a>
+        </div>
+        </form>
+      </div>
+    </div>
+    <?php endif; ?>
+    
     <acronym title=""></acronym>
 
     <?php
@@ -147,14 +164,33 @@
     
     response.addEventListener("click", ()=>{
       content.setAttribute("class", "hide");
-      content1.setAttribute("class", "content");
+      content1.setAttribute("class", "contentOrder");
       console.log("hello");
     })
     pedding.addEventListener("click", ()=>{
       content1.setAttribute("class", "hide");
-      content.setAttribute("class", "content");
+      content.setAttribute("class", "contentOrder");
     });
-    </script>'
+    </script>';
+
+    echo "<script>
+     
+      let btnAdd = document.querySelectorAll('#add-cate');
+      let btnCancel = document.querySelector('#cancel');
+      function showBtn(e) {
+        e.preventDefault();
+        let popup = document.querySelector('.container-pop');
+        popup.style.display = 'block';
+      };
+      function hide(){
+        let popup = document.querySelector('.container-pop');
+        popup.style.display = 'none';
+      }
+      for(let i = 0; i<btnAdd.length; i++){
+        btnAdd[i].addEventListener('click', showBtn);   
+      }
+      btnCancel.addEventListener('click, hide');
+    </script>";
 
 
       ?>

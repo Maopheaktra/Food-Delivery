@@ -82,7 +82,7 @@
                                         <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                         <div class="media-body">
                                             <h6 class="mb-1"><?php echo $food[1] ?> </h6>
-                                            <p class="text-muted mb-0"><?php echo $food[3]; ?></p>
+                                            <p class="text-muted mb-0"><?php echo $food[3]; ?><span>$</span></p>
                                             <input type="hidden" value="<?php echo $food[0]?>">
                                         </div>
                                     </div>

@@ -40,7 +40,7 @@
                                 <div class="col-md-3 pb-3" id="card">
                                     <div
                                         class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-                                        <div class="list-card-image">
+                                        <div class="list-card-image" style="height: 20vh;">
                                             <div class="star position-absolute"><span class="badge badge-success"><i
                                                         class="feather-star"></i> 3.1 (300+)</span></div>
                                             <div class="favourite-heart text-danger position-absolute"><a href="#"><i
@@ -48,7 +48,7 @@
                                             <div class="member-plan position-absolute"><span
                                                     class="badge badge-dark">Promoted</span></div>
                                             <a href="/restaurant?id=<?php echo $value[0] ?>">
-                                                <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100">
+                                                <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;">
                                             </a>
                                         </div>
                                         <div class="p-3 position-relative">
@@ -105,7 +105,7 @@
                 <div class="favourite-heart text-danger position-absolute">
                   <a href="#"><i class="feather-heart"></i></a>
                 </div>
-                <a href="/restaurant">
+                <a href="/restaurant?id=<?= $value['restaurant_id'] ?>">
                   <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100" />
                 </a>
               </div>
@@ -120,7 +120,7 @@
                   <p></p>
                 </div>
                 <div class="list-card-badge">
-                  <a href="#" class="btn bg-success text-white "><i class='bx bxs-cart-download bx-tada' style="font-size: 18px;" ></i> ORDER</a>
+                  <a href="/restaurant?id=<?= $value['restaurant_id'] ?>" class="btn bg-success text-white "><i class='bx bxs-cart-download bx-tada' style="font-size: 18px;" ></i> ORDER</a>
                 </div>
                 <div class="star position-absolute" style="margin-bottom: 5%;">
                 <span style="width: 40%; font-size: 18px; display: flex; justify-content: center; align-item: center;">$<?= $value['price']?></span>
