@@ -6,7 +6,7 @@
           <aside class="col-md-4 footer-about">
             <article class="d-flex pb-3">
               <div>
-                <img alt="#" src="assets/images/logo_web_red.png" class="logo-footer mr-3" />
+                <img alt="#" src="assets/images/logo green.png" class="logo-footer mr-3" />
               </div>
               <div>
                 <h6 class="title text-white">About Us</h6>

@@ -123,7 +123,7 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
-        <a href="/deliveryMap" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="/deliveryMap" class="btn btn-success" style="font-size: 13px;">Accept</a>
       </div>
     </div>
     <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
@@ -141,7 +141,7 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
-        <a href="/deliveryMap" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="/deliveryMap" class="btn btn-success" style="font-size: 13px;">Accept</a>
       </div>
     </div>
     <div class="card" style="width: 20rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
@@ -159,7 +159,7 @@ ob_start();
           <span class="card-text mb-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center">Kandieng, Pursat.</p>
         </div>
-        <a href="/deliveryMap" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="/deliveryMap" class="btn btn-success" style="font-size: 13px;">Accept</a>
       </div>
     </div>
 

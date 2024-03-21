@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 if (isset($_POST['submit_address'])){
     $address = urlencode($_POST['address']);
@@ -15,6 +16,9 @@ if (isset($_POST['submit_coordinates'])) {
 }
 ?>
 <form method="post">
+=======
+<!-- <form action="controllers/delivery/delivery.controller.php" method="post">
+>>>>>>> 69230546812a671212807bfa9105880697bd85b0
     <p><input type="text" name="address" placeholder="Enter address"></p>
     <input type="submit" name="submit_address">
 </form>
@@ -26,4 +30,4 @@ if (isset($_POST['submit_coordinates'])) {
         <input type="text" name="longitude" placeholder="Enter longitude">
     </p>
     <input type="submit" name="submit_coordinates">
-</form>
+</form> -->
