@@ -1,3 +1,4 @@
+<?php $food = getAllFood(); ?>
 <div class="d-none">
         <div class="bg-primary p-3 d-flex align-items-center">
             <a class="toggle togglew toggle-2" href="#"><span></span></a>
@@ -21,12 +22,12 @@
                     <li class="nav-item" role="presentation">
                         <a class="nav-link active border-0 bg-light text-dark rounded" id="home-tab" data-toggle="tab"
                             href="#home" role="tab" aria-controls="home" aria-selected="true"><i
-                                class="feather-home mr-2"></i>Restaurants (8)</a>
+                                class="feather-home mr-2"></i>Restaurants (<?= count($data) ?>)</a>
                     </li>
                     <li class="nav-item" role="presentation">
                         <a class="nav-link border-0 bg-light text-dark rounded ml-3" id="profile-tab" data-toggle="tab"
                             href="#profile" role="tab" aria-controls="profile" aria-selected="false"><i
-                                class="feather-disc mr-2"></i>Dishes (23)</a>
+                                class="feather-disc mr-2"></i>Dishes (<?php echo count($food); ?>)</a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -80,8 +81,9 @@
                         </div>
                     </div>
                     <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
-
+                    
                         <div class="row d-flex align-items-center justify-content-center py-5">
+                            <?php if (count($food) == 0): ?>
                             <div class="col-md-4 py-5">
                                 <div class="text-center py-5">
                                     <p class="h4 mb-4"><i class="feather-search bg-primary text-white rounded p-2"></i>
@@ -90,6 +92,47 @@
                                     <p>we could not find anything that would match your search request, please try
                                         again.</p>
                                 </div>
+                                <?php else: ?>
+                                    <div class="most_popular">
+                                    <div class="row">
+                                    <?php foreach ($food as $key => $value): ?>
+                                        <div class="col-md-3 pb-3">
+            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+              <div class="list-card-image">
+                <div class="star position-absolute">
+                  <span class="badge badge-success">$<?= $value['price']?></span>
+                </div>
+                <div class="favourite-heart text-danger position-absolute">
+                  <a href="#"><i class="feather-heart"></i></a>
+                </div>
+                <a href="/restaurant">
+                  <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100" />
+                </a>
+              </div>
+              <div class="p-3 position-relative">
+                <div class="list-card-body">
+                  <h6 class="mb-1">
+                    <a href="/restaurant" class="text-black"> <?php print_r($value['Foodname']) ?>
+                    </a>
+                  </h6>
+                  <a href="/restaurant?id=<?= $value['restaurant_id'] ?>" class="text-gray mb-1 small"><?php print_r($value['restaurant_name']) ?></a>
+                  <p class="text-gray mb-1 rating"></p>
+                  <p></p>
+                </div>
+                <div class="list-card-badge">
+                  <a href="#" class="btn bg-success text-white "><i class='bx bxs-cart-download bx-tada' style="font-size: 18px;" ></i> ORDER</a>
+                </div>
+                <div class="star position-absolute" style="margin-bottom: 5%;">
+                <span style="width: 40%; font-size: 18px; display: flex; justify-content: center; align-item: center;">$<?= $value['price']?></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+                                        <?php endforeach; ?>
+                                    </div>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     </div>

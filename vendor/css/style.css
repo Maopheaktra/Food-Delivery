@@ -661,8 +661,8 @@ p {
 
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-    border-color: #b10101;
-    background-color: #b10101
+    border-color: #28a745;
+    background-color: #28a745
 }
 
 .gold-members h6,.menu-list h6 {

@@ -22,7 +22,7 @@
     </div>
 
     <div class="container">
-      <div class="cat-slider">
+      <div class="cat-slider" >
       <?php 
         $cate = getAllCate();
         foreach ($cate as $value):
@@ -37,41 +37,10 @@
       </div>
     </div>
 
-    <!-- <div class="bg-theme-black py-3">
-      <div class="container">
-        <div class="offer-slider">
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro1.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro3.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro4.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="container">
-      <div class="pt-4 pb-2 title d-flex align-items-center">
+      <div class="pt-4 pb-2 title d-flex align-items-start">
         <h5 class="m-0">Trending this week</h5>
-        <a class="font-weight-bold ml-auto" href="trending.html">View all <i class="feather-chevrons-right"></i></a>
+        <a class="font-weight-bold ml-auto" href="/search">View all <i class="feather-chevrons-right"></i></a>
       </div>
 
      
@@ -81,7 +50,7 @@
       <?php foreach ($data as $key => $value): ?>
         <div class="osahan-slider-item">
           <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-            <div class="list-card-image">
+            <div class="list-card-image" style="height: 30vh;">
               <div class="star position-absolute">
                 <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
               </div>
@@ -92,7 +61,7 @@
                 <span class="badge badge-dark">Promoted</span>
               </div>
               <a href="/restaurant?id=<?php echo $value[0] ?>">
-                <img alt="#" src="<?php print_r ($pic[$key]) ?>" />
+                <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
               </a>
             </div>
             <div class="p-3 position-relative">
@@ -121,28 +90,29 @@
 
       <div class="py-3 title d-flex align-items-center">
         <h5 class="m-0">Most popular</h5>
-        <a class="font-weight-bold ml-auto" href="most_popular.html">26 places <i
+        <a class="font-weight-bold ml-auto" href="/search">26 places <i
             class="feather-chevrons-right"></i></a>
       </div>
 
       <div class="most_popular">
         <div class="row">
 
+        <?php if(!isset($_GET['location'])): ?>
         <?php foreach ($data as $key => $value): ?>
           <div class="col-md-3 pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
+              <div class="list-card-image" style="height: 20vh;">
                 <div class="star position-absolute">
                   <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
                 </div>
                 <div class="favourite-heart text-danger position-absolute">
-                  <a href="/restaurant?id=<?php print_r($value[0]) ?>"><i class="feather-heart"></i></a>
+                  <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
                 </div>
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant?id=<?php print_r($value[0]) ?>">
-                  <img alt="#" src="<?php print_r ($pic[$key]) ?>" />
+                <a href="/restaurant?id=<?php print_r($value[0]) ?>" style="background: red;">
+                  <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
                 </a>
               </div>
               <div class="p-3 position-relative">
@@ -172,11 +142,61 @@
             </div>
           </div>
           <?php endforeach; ?>
+          <?php else: ?>
+            <?php 
+            $resProvince = selectResbyProvince(strtolower($_GET['location']));
+            foreach ($resProvince as $key => $value):
+               ;?>
+          <div class="col-md-3 pb-3">
+            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+              <div class="list-card-image" style="height: 20vh;">
+                <div class="star position-absolute">
+                  <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
+                </div>
+                <div class="favourite-heart text-danger position-absolute">
+                  <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
+                </div>
+                <div class="member-plan position-absolute">
+                  <span class="badge badge-dark">Promoted</span>
+                </div>
+                <a href="/restaurant?id=<?php print_r($value[0]) ?>" style="background: red;">
+                  <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
+                </a>
+              </div>
+              <div class="p-3 position-relative">
+                <div class="list-card-body">
+                  <h6 class="mb-1">
+                    <a href="/restaurant" class="text-black"> <?php print_r($value[1]) ?>
+                    </a>
+                  </h6>
+                  <p class="text-gray mb-1 small"><?php print_r($value[2]) ?></p>
+                  <p class="text-gray mb-1 rating"></p>
+                  <ul class="rating-stars list-unstyled">
+                    <li>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star"></i>
+                    </li>
+                  </ul>
+                  <p></p>
+                </div>
+                <div class="list-card-badge">
+                  <span class="badge badge-danger">OFFER</span>
+                  <small>65% OSAHAN50</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+          <?php endif; ?>
+
       </div>
 
       <div class="pt-2 pb-3 title d-flex align-items-center">
         <h5 class="m-0">Most sales</h5>
-        <a class="font-weight-bold ml-auto" href="#">26 places <i class="feather-chevrons-right"></i></a>
+        <a class="font-weight-bold ml-auto" href="/search">26 places <i class="feather-chevrons-right"></i></a>
       </div>
 
       
@@ -192,13 +212,13 @@
                   <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
                 </div>
                 <div class="favourite-heart text-danger position-absolute">
-                  <a href="#"><i class="feather-heart"></i></a>
+                  <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
                 </div>
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
                 <a href="/restaurant">
-                  <img alt="#" src="assets/images/sales1.png" class="img-fluid item-img w-100" />
+                  <img alt="#" src="assets/images/res_img/<?php print_r($data[$i]['res_img'])?>" class="img-fluid item-img w-100" />
                 </a>
               </div>
               <div class="p-3 position-relative">
@@ -232,35 +252,36 @@
   <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
     <div class="row">
       <div class="col selected">
-        <a href="home.html" class="text-danger small font-weight-bold text-decoration-none">
+        <a href="/" class="text-danger small font-weight-bold text-decoration-none">
           <p class="h4 m-0"><i class="feather-home text-danger"></i></p>
           Home
         </a>
       </div>
       <div class="col">
-        <a href="most_popular.html" class="text-dark small font-weight-bold text-decoration-none">
+        <a href="#" class="text-dark small font-weight-bold text-decoration-none">
           <p class="h4 m-0"><i class="feather-map-pin"></i></p>
           Trending
         </a>
       </div>
       <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
         <div class="bg-danger rounded-circle mt-n0 shadow">
-          <a href="checkout.html" class="text-white small font-weight-bold text-decoration-none">
+          <a href="/order" class="text-white small font-weight-bold text-decoration-none">
             <i class="feather-shopping-cart"></i>
           </a>
         </div>
       </div>
       <div class="col">
-        <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
+        <a href="/favorite" class="text-dark small font-weight-bold text-decoration-none">
           <p class="h4 m-0"><i class="feather-heart"></i></p>
           Favorites
         </a>
       </div>
       <div class="col">
-        <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
+        <a href="/profile" class="text-dark small font-weight-bold text-decoration-none">
           <p class="h4 m-0"><i class="feather-user"></i></p>
           Profile
         </a>
       </div>
     </div>
   </div>
+

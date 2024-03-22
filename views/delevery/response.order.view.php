@@ -109,7 +109,8 @@ ob_start();
   </div>
   <div class="contain-card d-flex flex-wrap p-4 gap-4 ">
     <?php
-      foreach ($responseOrder as $key => $value):
+      foreach ($responseOrderConfirm as $key => $value):
+
     ?>
     <div class="card" style="width: 25rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
       <img src="assets/images/popular2.png" class="card-img-top" alt="...">
@@ -126,7 +127,7 @@ ob_start();
           <span class="card-text m-lg-1" style="font-weight:bold;">Location:</span>
           <p class="align-self-center"><?= $value['address'] ?></p>
         </div>
-        <a href="controllers/delivery/response.order.controller.php?time=<?= $value['time'] ?>&adre=<?= $value['useraddress'] ?>" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="controllers/delivery/response.order.controller.php?orderAction=<?= $value['action'] ?>&adre=Passerelles numériques Cambodia" class="btn btn-danger" style="font-size: 13px;">Accept</a>
       </div>
     </div>
     <?php endforeach; ?>
