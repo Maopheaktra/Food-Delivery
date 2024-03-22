@@ -96,74 +96,27 @@ ob_start();
   </nav>
   <!-- ! Main -->
   <!-- ================delevery page=============== -->
-  <div class="container-card mt-4">
-    <div class="card rounded-0">
-      <div class="card-body d-flex">
-        <img src="../../assets/images/delevery moto.jpg" style="width: 30%;" alt="...">
-        <span class="d-flex flex-column justify-content-center" style="width: 100%;">
-          <h2 class="text-center mb-2">Safety & Quickly For Delevery</h2>
-          <p class="text-center">Please order now to be accept a good price for our Restuarant.</p>
-        </span>
-      </div>
-    </div>
-  </div>
-  <div class="contain-card d-flex flex-wrap p-4 gap-4 ">
-    <?php
-      foreach ($responseOrder as $key => $value):
-    ?>
-    <div class="card" style="width: 19rem;" style="border-color: transparent !important; border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
-      <img src="assets/images/popular2.png" class="card-img-top" alt="...">
-      <div class="card-body d-flex flex-column">
-        <div class="contain-name d-flex mb-1">
-          <span class="card-text m-lg-1 " style="font-weight:bold;">Name:</span>
-          <p class="align-self-center"><?= $value['username'] ?></p>
-        </div>
-        <div class="contain-phone d-flex mb-1">
-          <span class="card-text m-lg-1" style="font-weight:bold;">Phone Number: </span>
-          <p class="align-self-center"><?= $value['phoneNumber']?></p>
-        </div>
-        <div class="contain-loca d-flex mb-1">
-          <span class="card-text m-lg-1 " style="font-weight:bold;">Location:</span>
-          <p class="align-self-center">Kandieng, Pursat.</p>
-        </div>
-        <div class="contain-loca d-flex mb-1">
-          <span class="card-text m-lg-1" style="font-weight:bold;">Restaurant Location:</span>
-          <p class="align-self-center"><?= $value['address'] ?></p>
-        </div>
-        <a href="controllers/delivery/response.order.controller.php?time=<?= $value['time'] ?>&adre=<?= $value['useraddress']?>" class="btn btn-danger" style="font: size 13px;">Accept</a>
-      </div>
-    </div>
-    <?php endforeach; ?>
-  </div>
+  
+  <?php
+    if (isset($_SESSION['adre']))
+    {
+        if($_SESSION['adre'] != ''){
+        $address = $_SESSION["adre"];
+        $address = str_replace(" ", "+", $address);
+        ?>
+ 
+        <iframe width="100%" height="500" src="https://maps.google.com/maps?q=<?php echo $address; ?>&output=embed"></iframe>
+ 
+        <?php
+    }else{
+        ?>
+        <iframe width="100%" height="500" src="https://maps.google.com/maps?output=embed"></iframe>
+            <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
+    }
+    }
+?>
 
 
-  <!-- pop-up profile user-admin -->
-  <div id="profile-admin-popup" class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display: none; z-index: 999; width:100%; height:100%">
-    <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
-      <div class="show-pro d-flex flex-column">
-        <label class="d-flex justify-content-center" for="imageInput" style="width: auto;">
-          <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" style="width: 20%; border-radius: 50%;" alt="...">
-        </label>
-        <input type="file" id="imageInput" style="display: none;" accept="image/*">
-<<<<<<< HEAD
-        <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
-        <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">chuonveasna123@gmail.com</div>
-=======
-        <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"></div>
-        <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;"></div>
->>>>>>> restaurant_response_order
-      </div>
-      <div class="show-info" style="width:100%;">
-        <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username">
-        <input type="email" class="form-control mb-3" placeholder="Email Address" aria-label="email">
-        <input type="number" class="form-control mb-3" placeholder="Phone Number" aria-label="phone">
-      </div>
-      <div>
-        <input type="submit" class="btn btn-primary" name="send" value="Save" />
-        <input type="button" class="btn btn-danger" id="btn-user-cancel" value="Cancel" />
-      </div>
-    </div>
-  </div>
   <?php
   echo "<script>
     // ================Create User Form================

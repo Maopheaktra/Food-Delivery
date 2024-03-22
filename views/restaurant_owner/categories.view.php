@@ -65,7 +65,11 @@
                   <table class = "table" style="margin-top: 30px;">
                       <thead>
                           <tr>
+<<<<<<< HEAD
                               <!-- <th scope="col">Cate_ID</th> -->
+=======
+                              <th scope="col">Cate_ID</th>
+>>>>>>> restaurant_response_order
                               <th scope="col">Photo</th>
                               <th scope="col">Category's Name</th>
                               <th scope="col">Description</th>
@@ -126,7 +130,11 @@
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/restaurant_owner/editcategory.controller.php" method="post">
+<<<<<<< HEAD
         <h1>Edit Category</h1>
+=======
+        <h1>Edite Category</h1>
+>>>>>>> restaurant_response_order
         <div class="mb-3">
           <label for="username" class="form-label">Image:</label>
           <input type="file" name="my_image" id="image">

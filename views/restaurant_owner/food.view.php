@@ -64,6 +64,8 @@
                   <table class = "table"  id="selectedColumn"  cellspacing="0" width="100%" style="margin-top: 30px;">
                       <thead>
                           <tr>
+                              <!-- <th scope="col">Food_ID</th> -->
+                              <th scope="col">Food_ID</th>
                               <th scope="col">Photo</th>
                               <th scope="col">Food Name</th>
                               <th scope="col">Description</th>
@@ -86,6 +88,7 @@
                         $foods = $statement->fetchAll();
                         foreach ($foods as $index => $food):?>
                         <tr>
+                          <td scope="row" style="vertical-align: bottom; text-align: center;"><?= $index+1 ?></td>
                           <td style="vertical-align: bottom;"><img src="assets/images/popular3.png" alt="" style ="width:70px" class = "img-responsive"></td>
                           <td style="vertical-align: bottom;"><?=$food['Foodname'];?></td>
                           <td style="vertical-align: bottom;"><?=$food['description'];?></td>
@@ -150,7 +153,7 @@
     <?php 
     if(isset($_SESSION['editFood']) && $_SESSION['editFood'] != ''): 
       $food = getFoodbyId($_SESSION['editFood']);
-      // print_r($food['Foodname']);
+      print_r($food['Foodname']);
      
     ?>
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
@@ -185,6 +188,8 @@
               </select>
               </div>          
         <div class="mb-3">
+          <label for="descriptiom" class="form-label">Description:</label>
+          <textarea class="form-control" name="description" rows="5" id="description"></textarea></div>
           <button type="submit" class="btn btn-primary">Update</button>
           <a href="/all_food" class="btn btn-danger" >cancel</a>
         </div>

@@ -10,7 +10,7 @@
     </div>
     <div class="offer-section py-4">
         <div class="container position-relative">
-            <img alt="#" src="assets/images/trending1.png" class="restaurant-pic">
+            <img alt="#" src="assets/images/res_img/<?= $resDetail['res_img']?>" class="restaurant-pic">
             <div class="pt-3 text-white">
                 <h2 class="font-weight-bold"><?php echo $resDetail[1] ?></h2>
                 <p class="text-white m-0"><?php echo $resDetail[2] ?></p>
@@ -238,6 +238,7 @@
                     </div>
                 </div>
             </div>
+            
             <form class="col-md-4 pt-3" action="controllers/orders/payment.controller.php?id=<?php echo $_GET['id'] ?>" method="post">
                 <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
                     <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
@@ -251,6 +252,9 @@
                         
                     </div>
                     <div class="bg-white p-3 clearfix border-bottom">
+                        <input type="text" name="address" placeholder="Your location" class="form-control" id="exampleInputName" />
+                    </div>
+                    <div class="bg-white p-3 clearfix border-bottom">
                         <p class="mb-1">Item Total <span class="float-right text-dark">$0</span></p>
                         <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i
                                     class="feather-info"></i></span><span class="float-right text-dark">$0</span>
@@ -258,49 +262,61 @@
                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$0</span></h6>
                     </div>
                     <div class="p-3">
-                        <button class="btn btn-success btn-block btn-lg" type="submit" >PAY $0<i
+                        <button class="btn btn-success btn-block btn-lg" type="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">PAY $0<i
                                 class="feather-arrow-right"></i></button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
         </div>
     </div>
 
     <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
-        <div class="row">
-            <div class="col">
-                <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-home text-dark"></i></p>
-                    Home
-                </a>
-            </div>
-            <div class="col selected">
-                <a href="trending.html" class="text-danger small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-map-pin"></i></p>
-                    Trending
-                </a>
-            </div>
-            <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
-                <div class="bg-danger rounded-circle mt-n0 shadow">
-                    <a href="/checkout" class="text-white small font-weight-bold text-decoration-none">
-                        <i class="feather-shopping-cart"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col">
-                <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-heart"></i></p>
-                    Favorites
-                </a>
-            </div>
-            <div class="col">
-                <a href="profile.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-user"></i></p>
-                    Profile
-                </a>
-            </div>
+    <div class="row">
+      <div class="col selected">
+        <a href="/" class="text-danger small font-weight-bold text-decoration-none">
+          <p class="h4 m-0"><i class="feather-home text-danger"></i></p>
+          Home
+        </a>
+      </div>
+      <div class="col">
+        <a href="#" class="text-dark small font-weight-bold text-decoration-none">
+          <p class="h4 m-0"><i class="feather-map-pin"></i></p>
+          Trending
+        </a>
+      </div>
+      <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
+        <div class="bg-danger rounded-circle mt-n0 shadow">
+          <a href="/order" class="text-white small font-weight-bold text-decoration-none">
+            <i class="feather-shopping-cart"></i>
+          </a>
         </div>
+      </div>
+      <div class="col">
+        <a href="/favorite" class="text-dark small font-weight-bold text-decoration-none">
+          <p class="h4 m-0"><i class="feather-heart"></i></p>
+          Favorites
+        </a>
+      </div>
+      <div class="col">
+        <a href="/profile" class="text-dark small font-weight-bold text-decoration-none">
+          <p class="h4 m-0"><i class="feather-user"></i></p>
+          Profile
+        </a>
+      </div>
     </div>
+  </div>
     </div>
+<?php
+    if(isset($_SESSION['worngpay'])){
+        if($_SESSION['worngpay'] == 'You need to add food'){
+            echo "<script>alert('You need to add food')</script>";
+            $_SESSION['worngpay'] = '';
+        }elseif ($_SESSION['worngpay'] != '') {
+            echo "<script>alert('You need to enter your location')</script>";
+            $_SESSION['worngpay'] = '';
+        }
+    }
+?>
+   
 
     <?php echo '<script src="vendor/js/addfood.js"></script>'; ?>
