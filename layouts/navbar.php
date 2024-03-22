@@ -15,7 +15,7 @@
               </div>
               <div>
                 <p class="text-white mb-0 small">Select Location</p>
-                <?php if (isset($_GET['location'])) { echo $_GET['location']; }?>
+                <?php if (isset($_GET['location'])) {echo $_GET['location'];} ?>
               </div>
             </a>
             <div class="dropdown-menu p-0 drop-loc mt-1" aria-labelledby="navbarDropdown">
@@ -33,7 +33,7 @@
                 <div class="p-3 border-bottom">
                   <a href="/" class="text-decoration-none">
                     <p class="font-weight-bold text-primary m-0">
-                      <i class="feather-navigation"></i> <?php if (isset($_GET['location'])) { echo $_GET['location']; } ?>
+                      <i class="feather-navigation"></i> <?php if (isset($_GET['location'])) { echo $_GET['location'];} ?>                                  
                     </p>
                   </a>
                 </div>
@@ -41,30 +41,29 @@
                   <h6 class="px-3 py-3 bg-light pb-1 m-0 border-bottom">
                     Choose your country
                   </h6>
-                  <form>  
-                    <link rel="stylesheet" href="/vendor/js/search_local.js">
+                  <form id="contain-pro">
                     <div class="custom-control border-bottom px-0 custom-radio">
-                      <input type="radio" id="customRadio1" name="location" class="custom-control-input" value="Phnom Penh" <?php if (isset($_GET['location'])){ if ($_GET['location'] == "Phnom Penh"){ ?> checked <?php } } ?> >
+                      <input type="radio" id="customRadio1" name="location" class="custom-control-input" value="Phnom Penh" <?php if (isset($_GET['location'])) {if ($_GET['location'] == "Phnom Penh") { ?> checked <?php } } ?>>
                       <label class="custom-control-label py-3 w-100 px-3 " for="customRadio1">Phnom Penh</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
-                      <input type="radio" id="customRadio2" name="location" class="custom-control-input" value="Kandal"<?php if (isset($_GET['location'])){ if ($_GET['location'] == "Kandal"){ ?> checked <?php } } ?>>
+                      <input type="radio" id="customRadio2" name="location" class="custom-control-input" value="Kandal" <?php if (isset($_GET['location'])) { if ($_GET['location'] == "Kandal") { ?> checked <?php } } ?>>
                       <label class="custom-control-label py-3 w-100 px-3" for="customRadio2">Kandal</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
-                      <input type="radio" id="customRadio3" name="location" class="custom-control-input" value="Preah Sihanouk" <?php if (isset($_GET['location'])){ if ($_GET['location'] == "Preah Sihanouk"){ ?> checked <?php } } ?>>
+                      <input type="radio" id="customRadio3" name="location" class="custom-control-input" value="Preah Sihanouk" <?php if (isset($_GET['location'])) { if ($_GET['location'] == "Preah Sihanouk") { ?> checked <?php }} ?>>
                       <label class="custom-control-label py-3 w-100 px-3" for="customRadio3">Preah Sihanouk</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
-                      <input type="radio" id="customRadio4" name="location" class="custom-control-input" value="Siem Reap" <?php if (isset($_GET['location'])){ if ($_GET['location'] == "Siem Reap"){ ?> checked <?php } } ?>>
+                      <input type="radio" id="customRadio4" name="location" class="custom-control-input" value="Siem Reap" <?php if (isset($_GET['location'])) { if ($_GET['location'] == "Siem Reap") { ?> checked <?php }} ?>>                                                                                                                                                                                 
                       <label class="custom-control-label py-3 w-100 px-3" for="customRadio4">Siem Reap</label>
                     </div>
                     <div class="custom-control border-bottom px-0 custom-radio">
-                      <input type="radio" id="customRadio5" name="location" class="custom-control-input" value="Svay Rieng"<?php if (isset($_GET['location'])){ if ($_GET['location'] == "Svay Rieng"){ ?> checked <?php } } ?>>
+                      <input type="radio" id="customRadio5" name="location" class="custom-control-input" value="Svay Rieng" <?php if (isset($_GET['location'])) {if ($_GET['location'] == "Svay Rieng") { ?> checked <?php }} ?>>                                                                                                                                                                                                                                                                                                                                          
                       <label class="custom-control-label py-3 w-100 px-3" for="customRadio5">Svay Rieng</label>
                     </div>
                     <div class="custom-control px-0 custom-radio">
-                      <input type="radio" id="customRadio6" name="location" class="custom-control-input" value="Battambang" <?php if (isset($_GET['location'])){ if ($_GET['location'] == "Battambang"){ ?> checked <?php } } ?>>
+                      <input type="radio" id="customRadio6" name="location" class="custom-control-input" value="Battambang" <?php if (isset($_GET['location'])) {if ($_GET['location'] == "Battambang") { ?> checked <?php }} ?>>                                                                                                                                                                                
                       <label class="custom-control-label py-3 w-100 px-3" for="customRadio6">Battambang</label>
                     </div>
                     <button type="submit" hidden></button>
@@ -74,6 +73,23 @@
             </div>
           </div>
         </div>
+
+        <script>
+                let search = document.getElementById('search-area');
+                search.addEventListener('keyup', function(e) {
+                let text = search.value.toLowerCase();
+                const radios = document.querySelectorAll('#contain-pro input[type="radio"]'); 
+
+                for (let radio of radios) {
+                    let label = radio.nextElementSibling.textContent.toLowerCase(); 
+                    if (label.indexOf(text) === -1) {
+                        radio.parentNode.style.display = "none"; 
+                    } else {
+                        radio.parentNode.style.display = "block"; 
+                      }
+                }
+                });
+        </script>
 
         <div class="col-8">
           <div class="d-flex align-items-center justify-content-end pr-5">
