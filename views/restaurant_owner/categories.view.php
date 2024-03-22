@@ -66,6 +66,7 @@
                       <thead>
                           <tr>
                               <!-- <th scope="col">Cate_ID</th> -->
+                              <th scope="col">Cate_ID</th>
                               <th scope="col">Photo</th>
                               <th scope="col">Category's Name</th>
                               <th scope="col">Description</th>

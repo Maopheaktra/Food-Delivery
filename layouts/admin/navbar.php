@@ -88,6 +88,7 @@ $adminPf = showPf($_SESSION['userid']);
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 
                                 <a href="users-01.html">Users-01</a>
                             </li>
@@ -100,12 +101,15 @@ $adminPf = showPf($_SESSION['userid']);
 =======
 >>>>>>> add_food
                                 <a href="runners.filter.php">Runners</a>
+=======
+                                <a href="/delivery">Runners</a>
+>>>>>>> restaurant_response_order
                             </li>
                             <li>
-                                <a href="customers.filter.php">Customers</a>
+                                <a href="/customer">Customers</a>
                             </li>
                             <li>
-                                <a href="restaurantowners.filter.php">Owners</a>
+                                <a href="/res_onwer">Owners</a>
                             </li>
                         </ul>
                     </li>

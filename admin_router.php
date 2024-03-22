@@ -6,7 +6,10 @@ $routes = [
     // '/trainer-review' => 'controllers/reviews/review.controller.php',
     // '/trainer-classroom' => 'controllers/classroom/classroom.controller.php',
     '/create-user' => 'controllers/admin/admin.controller.php',
-    '/profile_admin' => 'controllers/admin/admin.upload_profile.controller.php'
+    '/profile_admin' => 'controllers/admin/admin.upload_profile.controller.php',
+    '/delivery'=>'controllers/admin/admin.delivery.controller.php',
+    '/res_onwer'=>'controllers/admin/admin.res_owner.controller.php',
+    '/customer'=>'controllers/admin/admin.customer.controller.php'
 ];
 
 if (array_key_exists($uri, $routes)) {
