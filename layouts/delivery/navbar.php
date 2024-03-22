@@ -37,7 +37,7 @@ $users = getAllUsers();
                         <a href="/"><span class="icon home" aria-hidden="true"></span>Customer's Orders</a>
                     </li>
                     <li>
-                        <a href="/map"><span class="icon home" aria-hidden="true"></span>Direct location</a>
+                        <a href="/map"><span class="icon home" aria-hidden="true"></span>Direct location:</a>
                     </li>
                     <li>
                         <a href="/response"><span class="icon home" aria-hidden="true"></span>Response</a>

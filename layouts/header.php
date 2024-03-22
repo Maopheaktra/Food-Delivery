@@ -38,7 +38,7 @@ $foodAdd = addTolist();
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <meta name="description" content="Gurdeep Osahan" />
   <meta name="author" content="Gurdeep Osahan" />
-  <link rel="icon" type="image/png" href="img/logo_web_red.png" />
+  <link rel="icon" type="image/png" href="assets/images/unnamed_(1)-transformed.png" />
   <title>Foodride - Online Food Ordering Website Template</title>
 
   <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
