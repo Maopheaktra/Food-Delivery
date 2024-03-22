@@ -29,17 +29,14 @@
         </video>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
-                <div class="px-5 col-10 mx-auto">
-                    <h2 class="text-dark my-0">Welcome Back</h2>
-                    <p class="text-50">Sign in to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/signin/signin.acc.controller.php" method="post">
+                <div class="px-5 col-20 mx-auto">
+                    <h2 class="text-dark my-0">Singn In</h2>
+                    <form class="mt-4 mb-4" action="controllers/signin/signin.acc.controller.php" method="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="text-dark">Email</label>
                             <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp" name='email' />
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1" class="text-dark">Password</label>
                             <input type="password" placeholder="Enter Password" class="form-control"
                                 id="exampleInputPassword1" name='pwd' />
                             <?php if(isset($_SESSION['wrongPassword'])): ?>
@@ -49,11 +46,11 @@
                         <button class="btn btn-primary btn-lg btn-block" type="submit">SIGN IN</button>
                     </form>
                     <a href="/resetPwd" class="text-decoration-none">
-                        <p class="text-center">Forgot your password?</p>
+                        <p class="text-center paragraph">Forgot your password?</p>
                     </a>
                     <div class="d-flex align-items-center justify-content-center">
                         <a href="/signup">
-                            <p class="text-center m-0">Don't have an account? Sign up</p>
+                            <p class="text-center m-0 paragraph">Don't have an account? Sign up</p>
                         </a>
                     </div>
                 </div>
