@@ -64,10 +64,7 @@
                   <table class = "table"  id="selectedColumn"  cellspacing="0" width="100%" style="margin-top: 30px;">
                       <thead>
                           <tr>
-<<<<<<< HEAD
                               <!-- <th scope="col">Food_ID</th> -->
-=======
->>>>>>> add_category
                               <th scope="col">Photo</th>
                               <th scope="col">Food Name</th>
                               <th scope="col">Description</th>
