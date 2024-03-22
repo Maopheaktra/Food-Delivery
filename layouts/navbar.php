@@ -15,7 +15,7 @@
               </div>
               <div>
                 <p class="text-white mb-0 small">Select Location</p>
-                <?php if (isset($_GET['location'])) { echo $_GET['location']; } ?>
+                <?php if (isset($_GET['location'])) { echo $_GET['location']; }?>
               </div>
             </a>
             <div class="dropdown-menu p-0 drop-loc mt-1" aria-labelledby="navbarDropdown">
@@ -27,7 +27,7 @@
                         <i class="feather-search"></i>
                       </button>
                     </div>
-                    <input type="text" class="shadow-none border-0 form-control" placeholder="Enter Your Location" />
+                    <input type="text" class="shadow-none border-0 form-control" id="search-area" placeholder="Enter Your Location" />
                   </div>
                 </div>
                 <div class="p-3 border-bottom">
@@ -41,7 +41,8 @@
                   <h6 class="px-3 py-3 bg-light pb-1 m-0 border-bottom">
                     Choose your country
                   </h6>
-                  <form>
+                  <form>  
+                    <link rel="stylesheet" href="/vendor/js/search_local.js">
                     <div class="custom-control border-bottom px-0 custom-radio">
                       <input type="radio" id="customRadio1" name="location" class="custom-control-input" value="Phnom Penh" <?php if (isset($_GET['location'])){ if ($_GET['location'] == "Phnom Penh"){ ?> checked <?php } } ?> >
                       <label class="custom-control-label py-3 w-100 px-3 " for="customRadio1">Phnom Penh</label>
