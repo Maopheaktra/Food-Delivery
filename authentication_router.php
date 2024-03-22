@@ -4,7 +4,7 @@ $page = "";
 $routes = [
     '/' => 'controllers/signin/signin.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
-    '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
+    '/resetPwd' => 'controllers/reset/forget_password.controller.php',
     // '/createRes'=> 'controllers/restaurant_owner/create_restaurant.controller.php',
 ];
 
