@@ -30,7 +30,11 @@
     height: 25px;
     outline: none;
     border: none;
+<<<<<<< HEAD
+    border-bottom: 2px solid black;
+=======
     border-bottom: 2px solid rgb(0, 0, 0);
+>>>>>>> restaurant_response_order
     padding: 5px;
 }
 #time {

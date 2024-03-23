@@ -64,6 +64,7 @@
                   <table class = "table"  id="selectedColumn"  cellspacing="0" width="100%" style="margin-top: 30px;">
                       <thead>
                           <tr>
+                              <!-- <th scope="col">Food_ID</th> -->
                               <th scope="col">Food_ID</th>
                               <th scope="col">Photo</th>
                               <th scope="col">Food Name</th>
@@ -157,12 +158,13 @@
     ?>
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" method="post">
-        <h1>Edite Food</h1>
-        <div class="mb-3">
-          <label for="username" class="form-label">Image:</label>
-          <input type="file" name="my_image" id="image">
-        </div>
+        <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" style="width:100%; height:100%"  method="post">
+            <h1 class="text-center">Edit Food</h1>
+            <div class="mb-3">
+              <label for="username" class="form-label"></label>
+              <img src="../../assets/images/res_img/IMG-65edd7f1a02667.05645755.png" style="width: 100%; height:16rem;"alt="">
+              <!-- <input type="file" name="my_image" id="image"> -->
+            </div>
         <div class="mb-3">
           <input type="hidden" name="food_id" value="<?= $_SESSION['editFood'] ?>">
           <label for="food" class="form-label">Food:</label>
@@ -173,7 +175,7 @@
           <input type="number" name="price" class="form-control" id="price" placeholder="Place Enter Food Price" value="<?= $food['price']?>">
         </div>
         <div class="mb-3">
-              <label for="cate_id" class="form-label">Caategory:</label>
+              <label for="cate_id" class="form-label">Category:</label>
               <select class="form-select-sm" id="cate_id" name="cate_id">
                 <option>Select Category</option>
                 <?php

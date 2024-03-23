@@ -34,6 +34,12 @@ $users = getAllUsers();
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
+<<<<<<< HEAD
+                        <a href="/"><span class="icon home" aria-hidden="true"></span>Costomer Orders</a>
+                    </li>
+                    <li>
+                        <a href="/"><span class="icon home" aria-hidden="true"></span>Feedback</a>
+=======
                         <a href="/"><span class="icon home" aria-hidden="true"></span>Customer's Orders</a>
                     </li>
                     <li>
@@ -41,6 +47,7 @@ $users = getAllUsers();
                     </li>
                     <li>
                         <a href="/response"><span class="icon home" aria-hidden="true"></span>Response</a>
+>>>>>>> restaurant_response_order
                     </li>
                         
                 </ul>

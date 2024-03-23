@@ -9,6 +9,16 @@ function getOrderFood($user_id, $action){
     ]);
     return $stmt->fetchAll();
 }
+
+function orderbyTime($user_id, $time, $actoin){
+    global $connection;
+    $stmt = $connection->prepare("SELECT * FROM orderdetails WHERE user_id = :user_id && action = :action && time = :time");
+    $stmt->execute([
+        ':user_id'=> $user_id,
+        ':time'=> $time,
+        ':action'=> $actoin
+    ]);
+}
 function getAllorder($user_id){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM orderdetails WHERE user_id = :user_id group by time");
@@ -18,15 +28,15 @@ function getAllorder($user_id){
     return $stmt->fetchAll();
 }
 
-function orderbyTime($user_id, $time){
-    global $connection;
-    $stmt = $connection->prepare("SELECT * FROM orderdetails WHERE user_id = :user_id && time = :time");
-    $stmt->execute([
-        ':user_id'=> $user_id,
-        ':time'=> $time
-    ]);
-    return $stmt->fetchAll();
-}
+// function orderbyTime($user_id, $time){
+//     global $connection;
+//     $stmt = $connection->prepare("SELECT * FROM orderdetails WHERE user_id = :user_id && time = :time");
+//     $stmt->execute([
+//         ':user_id'=> $user_id,
+//         ':time'=> $time
+//     ]);
+//     return $stmt->fetchAll();
+// }
 
 function cancel($action, $cancel, $user_id){
     global $connection;

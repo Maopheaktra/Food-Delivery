@@ -93,6 +93,7 @@
 
                 </div>
                 <div class="card-footer">
+                    <button><a href="controllers/restaurant_owner/response_food.controller.php?time=<?= $value['time'] ?>"><i class='bx bx-check'></i>Complete</a></button>
                     <button><a href="controllers/restaurant_owner/response_food.controller.php?time=<?= $value['time'] ?>"><i class='bx bx-check'></i>Comfirm</a></button>
                     <button><i class='bx bx-revision'></i>Riview</button>
                     <button><a href="#"><i class='bx bx-x'></i>Reject</a></button>
@@ -136,7 +137,7 @@
         </div>
     </div>
 
-    <acronym title=""></acronym>
+    <!-- <acronym title=""></acronym> -->
 
     <?php
     echo '<script>
@@ -153,6 +154,7 @@
     pedding.addEventListener("click", ()=>{
       content1.setAttribute("class", "hide");
       content.setAttribute("class", "content");
+      console.log("haha");
     });
     </script>'
 
