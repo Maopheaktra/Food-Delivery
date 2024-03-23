@@ -78,14 +78,6 @@
                 <div class="icon d-flex align-items-center" style="border: 1px solid white; border-radius: 3px;">
                   <i class="feather-search h6 mr-2 mb-0 p-2"></i>
                   <span>Search</span>
-                </div>
-              </a>
-
-              <a href="offers.html" class="golden-btn widget-header mr-4 text-dark btn m-none">
-                <div class="icon d-flex align-items-center">
-                  <i class="feather-disc h6 mr-2 mb-0"></i>
-                  <span>Offers</span>
-                </div>
                 </div> 
               </a>
 
