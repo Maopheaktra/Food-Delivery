@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $userImg = 'IMG-65d9f4f69e5411.43011126.jpg';
         // echo $role
         addUsers($username, $email, $crypted, $gender, $role, $phoneNumber, $userImg);
+        header('location: /');
+        // echo 'yes';
         if($role == 1){
             $_SESSION['alert'] = 'customer';
             header('location: /customer');

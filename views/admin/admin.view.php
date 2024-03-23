@@ -425,7 +425,7 @@ $userCountsByRole = countUsersByRole();
     <div class="col-6 m-auto p-4 mt-3 bg-light rounded-3">
         <div class="show-pro row">
             <div class="profile-container d-flex justify-content-center">
-                <label for="imageInput" style="width: 150px; heigh: 150px;">
+                <label for="imageInput" style="width: 150px; height: 150px;">
                     <img id="imagePreview" class="border border-5" src="assets/images/user/<?= $adminPf['user_img']; ?>" alt="Preview" title="Upload profile" width="150" height="150" style="border-radius: 50%;">
                 </label>
                 <input type="file" id="imageInput" class="image" name="my_image" style="display: none;" accept="image/*">

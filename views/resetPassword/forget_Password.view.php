@@ -38,14 +38,15 @@
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Forget Password</h2>
-                    <p class="text-50">enter your email to continue</p>
+                    <p class="text-50">Enter your email to continue</p>
                     <form class="mt-5 mb-4" action="controllers/reset/new_Password.controller.php" method ="post">
                         <div class="form-group">
-                            <label for="exampleInputEmail1" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
-                                aria-describedby="emailHelp"  name="send_email" />
+                        <input type="email" value="<?= isset($_POST['email'])? $_POST['email'] : "";?>" placeholder="Enter Email" name='email' class="form-control" id="email"
+                                aria-describedby="emailHelp" />
+                            <span class="text-red-600"><?= isset($errorEmail)? $errorEmail : "";?></span>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">SEND</button>
+
+                        <a href="/securityCode" type="button" class="btn btn-primary btn-lg btn-block">SEND</a>
                     </form>
                     <div class="d-flex align-items-center justify-content-center">
                         <a href="/signup">

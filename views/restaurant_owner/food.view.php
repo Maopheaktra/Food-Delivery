@@ -8,7 +8,7 @@
         <input type="text" placeholder="Enter keywords ..." required>
       </div>
     </div>
-    <div class="main-nav-end">
+    <div class="main-nav-end"> 
       <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
         <span class="sr-only">Toggle menu</span>
         <span class="icon menu-toggle--gray" aria-hidden="true"></span>

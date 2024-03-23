@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -36,27 +37,27 @@
         ?>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
-                <form action="controllers/reset/new_Password.controller.php" method = "post" class="form-col">
-                    <h1>New Password</h1>
-                    <!-- <p>Enter New Passord</p> -->
-                    <div class="group-form mt-3">
-                        <label for="confirm-pwd">New Password:</label>
-                        <input type="number" name='new_pass' class="form-control" id="confirm-pwd" placeholder="••••••••••••">
+                <div class="px-5 col-10 mx-auto">
+                    <form action="/codesecurity" method="POST">
+                        <h1 class="text-xl font-bold leading-tight tracking-tight md:text-2xl text-center">
+                            Enter your code 
+                        </h1>
+                        <label for="number">Please check your email address to get 6-digits PIN CODE</label>
+                        <div class = "form-control">
+                            <input type="number" id="number" name="pin-code" placeholder="Enter code" class="form-control" id="exampleInputPassword1" />
+                            <span class="text-red-600"><?= isset($errorCode)? $errorCode : "";?></span>
+                        </div>
+                        <a href="/recoverPassword" type="button" class="btn btn-primary btn-lg btn-block mt-3">CONTINUE</a>
+                    </form>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="/signup">
+                            <p class="text-center m-0">Don't have an account? Sign up</p>
+                        </a>
                     </div>
-                    <div class="group-form mt-3">
-                        <label for="confirm-pwd">Confirm Password:</label>
-                        <input type="number" name='new_pass' class="form-control" id="confirm-pwd" placeholder="••••••••••••">
-                    </div>
-                    <div class="form-check p-3">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Remember me
-                        </label>
-                    </div>
-                    <a href="/" type="button" class="btn btn-primary btn-lg btn-block mt-3">CONTINUE</a>
-                </form>
+                </div>
             </div>
         </div>
-</div>
+    </div>
     <nav id="main-nav">
         <ul class="second-nav">
             <li>
@@ -70,7 +71,7 @@
                 <ul>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="signup.html">Register</a></li>
-                    <li><a href="forgot_password.html">Forgot Password</a></li>
+                    <li><a href="forgot_password.htm">Forgot Password</a></li>
                     <li><a href="verification.html">Verification</a></li>
                     <li><a href="location.html">Location</a></li>
                 </ul>
@@ -120,8 +121,6 @@
                     <li>
                         <a href="#">Link Example 1</a>
                         <ul>
-
-<li>
                             <li>
                                 <a href="#">Link Example 1.1</a>
                                 <ul>
@@ -186,7 +185,17 @@
 
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/js/osahan.js"></script>
     <script src="vendor/rocket/rocket-loader.min.js" data-cf-settings="c7cde99310a44e0c8a34cba7-|49" defer></script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}' crossorigin="anonymous"></script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}'
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+
+
+
+
+
