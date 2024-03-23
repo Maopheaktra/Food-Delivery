@@ -4,11 +4,8 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
     '/' => 'controllers/delivery/delivery.controller.php',
-<<<<<<< HEAD
-=======
     '/map'=> 'controllers/delivery/delivery.map.controller.php',
     '/response'=> 'controllers/delivery/delivery.response.order.controller.php'
->>>>>>> restaurant_response_order
 ];
 
 if (array_key_exists($uri, $routes)) {
