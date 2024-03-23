@@ -68,6 +68,10 @@ $foodAdd = addTolist();
 
   <link href="vendor/sidebar/demo.css" rel="stylesheet" />
   <link href="vendor/css/res_table.css" rel="stylesheet" />
+<<<<<<< HEAD
+=======
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+>>>>>>> restaurant_response_order
 </head>
 
 <body class="fixed-bottom-bar">

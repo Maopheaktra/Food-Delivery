@@ -4,7 +4,7 @@
         <div class="row align-items-center">
           <div class="col-1">
             <a href="/" class="brand-wrap mb-0">
-              <img alt="#" class="img-fluid" src="assets/images/logo_web.png" />
+              <img alt="#" class="img-fluid" src="assets/images/unnamed_(1)-transformed.png" style="width: 4rem; height: 4rem;" />
             </a>
           </div>
           <div class="col-3 d-flex align-items-center m-none">
@@ -74,9 +74,9 @@
 
           <div class="col-8">
             <div class="d-flex align-items-center justify-content-end pr-5">
-              <a href="/search" class="widget-header mr-4 text-white">
-                <div class="icon d-flex align-items-center">
-                  <i class="feather-search h6 mr-2 mb-0"></i>
+              <a href="/search" class="widget-header mr-4 text-white" style="width: 30%;">
+                <div class="icon d-flex align-items-center" style="border: 1px solid white; border-radius: 3px;">
+                  <i class="feather-search h6 mr-2 mb-0 p-2"></i>
                   <span>Search</span>
                 </div>
               </a>
@@ -86,6 +86,7 @@
                   <i class="feather-disc h6 mr-2 mb-0"></i>
                   <span>Offers</span>
                 </div>
+                </div> 
               </a>
 
               <div class="dropdown mr-4 m-none">
@@ -94,7 +95,7 @@
                   <?php
                     $img = showPf($_SESSION['userid']);
                   ?>
-                  <img alt="#" src="<?php print_r('assets/images/user/'.$img[7]) ?>" class="img-fluid header-user mr-2 header-user" style="width: 40px; height: 40px; border-radius: 50%;"/>
+                  <img alt="#" src="<?php print_r('assets/images/user/'.$img[7]) ?>" class="img-fluid header-user mr-2 header-user" style="width: 40px; height: 40px; border: 2px solid white ;border-radius: 50%;"/>
                   <?php print_r($img[1]) ?>
                 </a>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
@@ -122,4 +123,3 @@
       </div>
     </section>
   </header>
-  

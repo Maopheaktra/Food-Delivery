@@ -94,6 +94,9 @@
                 </div>
                 <div class="card-footer">
                     <button><a href="controllers/restaurant_owner/response_food.controller.php?time=<?= $value['time'] ?>"><i class='bx bx-check'></i>Complete</a></button>
+                    <button><a href="controllers/restaurant_owner/response_food.controller.php?time=<?= $value['time'] ?>"><i class='bx bx-check'></i>Comfirm</a></button>
+                    <button><i class='bx bx-revision'></i>Riview</button>
+                    <button><a href="#"><i class='bx bx-x'></i>Reject</a></button>
                 </div>
             </div>
             <?php endforeach; ?>
@@ -127,12 +130,14 @@
 
                 </div>
                 <div class="card-footer">
-                    <button><i class='bx bx-check'></i>Responsed</button>
+                    <button style="width: 100%;"><i class='bx bx-check'></i>Responsed</button>
                 </div>
             </div>
             <?php endforeach; ?>
         </div>
     </div>
+
+    <!-- <acronym title=""></acronym> -->
 
     <?php
     echo '<script>

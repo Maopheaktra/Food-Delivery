@@ -39,7 +39,7 @@
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Forget Password</h2>
                     <p class="text-50">enter your email to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/reset/send_reset_password.controller.php" method ="post">
+                    <form class="mt-5 mb-4" action="controllers/reset/new_Password.controller.php" method ="post">
                         <div class="form-group">
                             <label for="exampleInputEmail1" class="text-dark">Email</label>
                             <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"

@@ -1,7 +1,12 @@
 <?php
 // session_start();
-require_once "database/database.php"; // Include database connection
+// require_once "database/database.php"; // Include database connection
 require_once "models/admin.model.php"; // Include admin model file once
+require "models/foodOrder.model.php";
+
+$responseOrder = deliverFood(3);
+$responseOrderConfirm = deliverFood(4);
+
 $users = getAllUsers();
 ?>
 
@@ -29,10 +34,20 @@ $users = getAllUsers();
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
+<<<<<<< HEAD
                         <a href="/"><span class="icon home" aria-hidden="true"></span>Costomer Orders</a>
                     </li>
                     <li>
                         <a href="/"><span class="icon home" aria-hidden="true"></span>Feedback</a>
+=======
+                        <a href="/"><span class="icon home" aria-hidden="true"></span>Customer's Orders</a>
+                    </li>
+                    <li>
+                        <a href="/map"><span class="icon home" aria-hidden="true"></span>Direct location</a>
+                    </li>
+                    <li>
+                        <a href="/response"><span class="icon home" aria-hidden="true"></span>Response</a>
+>>>>>>> restaurant_response_order
                     </li>
                         
                 </ul>

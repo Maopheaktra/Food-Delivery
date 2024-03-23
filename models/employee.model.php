@@ -212,16 +212,27 @@ function showCmtOfRes($resID){
 
 //order========
 
+<<<<<<< HEAD
 function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
     global $connection;
     $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time)");
+=======
+function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time, $address){
+    global $connection;
+    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time, useraddress) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time, :address)");
+>>>>>>> restaurant_response_order
     $statement->execute([
         ':foodname'=>$foodname,
         ':user_id'=>$user_id,
         ':qty'=>$qty,
         ':res_id'=>$res_id,
         ':total_price'=>$total_price,
+<<<<<<< HEAD
         ':time'=>$time
+=======
+        ':time'=>$time,
+        ':address'=>$address
+>>>>>>> restaurant_response_order
     ]);
 }
 
@@ -307,4 +318,29 @@ function getFoodbyId($foodid){
     $statement = $connection->prepare("select * from foods where Food_id = :foodid");
     $statement->execute([':foodid'=> $foodid]);
     return $statement->fetch();   
+}
+
+//get customer
+function getSpacificUser($role){
+    global $connection;
+
+    $query = "
+        SELECT 
+            u.user_id,
+            u.username,
+            u.email,
+            u.gender,
+            u.phoneNumber,
+            u.user_img,
+            r.role_type
+        FROM 
+            users u
+        LEFT JOIN 
+            roles r ON u.role_id = r.role_id
+        WHERE  u.role_id = :role
+    ";
+
+    $statement = $connection->prepare($query);
+    $statement->execute([':role'=> $role]);
+    return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
