@@ -37,6 +37,37 @@
       </div>
     </div>
 
+    <!-- <div class="bg-theme-black py-3">
+      <div class="container">
+        <div class="offer-slider">
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro1.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro3.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro4.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+          <div class="cat-item px-1 py-3">
+            <a class="d-block text-center shadow-sm" href="trending.html">
+              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
+            </a>
+          </div>
+        </div>
+      </div>
+    </div> -->
     <div class="container">
       <div class="pt-4 pb-2 title d-flex align-items-start">
         <h5 class="m-0">Trending this week</h5>
@@ -97,6 +128,7 @@
       <div class="most_popular">
         <div class="row">
 
+        <?php if(!isset($_GET['location'])): ?>
         <?php foreach ($data as $key => $value): ?>
           <div class="col-md-3 pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -141,6 +173,56 @@
             </div>
           </div>
           <?php endforeach; ?>
+          <?php else: ?>
+            <?php 
+            $resProvince = selectResbyProvince(strtolower($_GET['location']));
+            foreach ($resProvince as $key => $value):
+               ;?>
+          <div class="col-md-3 pb-3">
+            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+              <div class="list-card-image" style="height: 20vh;">
+                <div class="star position-absolute">
+                  <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
+                </div>
+                <div class="favourite-heart text-danger position-absolute">
+                  <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
+                </div>
+                <div class="member-plan position-absolute">
+                  <span class="badge badge-dark">Promoted</span>
+                </div>
+                <a href="/restaurant?id=<?php print_r($value[0]) ?>" style="background: red;">
+                  <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
+                </a>
+              </div>
+              <div class="p-3 position-relative">
+                <div class="list-card-body">
+                  <h6 class="mb-1">
+                    <a href="/restaurant" class="text-black"> <?php print_r($value[1]) ?>
+                    </a>
+                  </h6>
+                  <p class="text-gray mb-1 small"><?php print_r($value[2]) ?></p>
+                  <p class="text-gray mb-1 rating"></p>
+                  <ul class="rating-stars list-unstyled">
+                    <li>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star"></i>
+                    </li>
+                  </ul>
+                  <p></p>
+                </div>
+                <div class="list-card-badge">
+                  <span class="badge badge-danger">OFFER</span>
+                  <small>65% OSAHAN50</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+          <?php endif; ?>
+
       </div>
 
       <div class="pt-2 pb-3 title d-flex align-items-center">

@@ -8,7 +8,7 @@
         <input type="text" placeholder="Enter keywords ..." required>
       </div>
     </div>
-    <div class="main-nav-end">
+    <div class="main-nav-end"> 
       <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
         <span class="sr-only">Toggle menu</span>
         <span class="icon menu-toggle--gray" aria-hidden="true"></span>
@@ -96,7 +96,7 @@
                           <td style="vertical-align: bottom;"><?=getCatebyId($food['category_id'])['name'];?></td>
                           <td style="vertical-align: bottom;">
                           <a href="controllers/Food/edit_food.restaurant.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="edit" style="font-size:48px;color:green"></i></a>
-                        <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="trash-2" style="font-size:48px;color:red"></i></a>
+                        <a href="controllers/Food/delete_food.controller.php?foodid=<?= $food['Food_id']; ?>"><i data-feather="trash" style="font-size:48px;color:red"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>

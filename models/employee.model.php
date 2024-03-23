@@ -334,3 +334,10 @@ function getSpacificUser($role){
     $statement->execute([':role'=> $role]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
 }
+
+function selectResbyProvince($address){
+    global $connection;
+    $statement = $connection->prepare("select * from restaurants where address = :address");
+    $statement->execute([':address'=> $address]);
+    return $statement->fetchAll();
+}

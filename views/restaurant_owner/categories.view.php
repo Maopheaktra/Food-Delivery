@@ -65,11 +65,7 @@
                   <table class = "table" style="margin-top: 30px;">
                       <thead>
                           <tr>
-<<<<<<< HEAD
-                              <!-- <th scope="col">Cate_ID</th> -->
-=======
                               <th scope="col">Cate_ID</th>
->>>>>>> restaurant_response_order
                               <th scope="col">Photo</th>
                               <th scope="col">Category's Name</th>
                               <th scope="col">Description</th>
@@ -89,7 +85,7 @@
                           <td style="vertical-align: bottom;"><?=$category['description'];?></td>
                           <td style="vertical-align: bottom;">
                             <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>"><i data-feather="edit" style="font-size:48px;color:green"></i></a>
-                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>"><i data-feather="trash-2" style="font-size:48px;color:red"></i></a>
+                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>"><i data-feather="trash" style="font-size:48px;color:red"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>
@@ -131,10 +127,14 @@
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/restaurant_owner/editcategory.controller.php" method="post">
 <<<<<<< HEAD
+<<<<<<< HEAD
         <h1>Edit Category</h1>
 =======
         <h1>Edite Category</h1>
 >>>>>>> restaurant_response_order
+=======
+        <h1>Edit Category</h1>
+>>>>>>> IMPROVE
         <div class="mb-3">
           <label for="username" class="form-label">Image:</label>
           <input type="file" name="my_image" id="image">
