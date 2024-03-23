@@ -17,6 +17,8 @@ function orderbyTime($user_id, $time, $actoin){
         ':user_id'=> $user_id,
         ':time'=> $time,
         ':action'=> $actoin
+    ]);
+}
 function getAllorder($user_id){
     global $connection;
     $stmt = $connection->prepare("SELECT * FROM orderdetails WHERE user_id = :user_id group by time");
@@ -33,7 +35,7 @@ function orderbyTime($user_id, $time){
         ':user_id'=> $user_id,
         ':time'=> $time
     ]);
-    return $stmt->fetchAll();
+    return $stmt->fetchAll()
 }
 
 function cancel($action, $cancel, $user_id){

@@ -212,27 +212,17 @@ function showCmtOfRes($resID){
 
 //order========
 
-<<<<<<< HEAD
-function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
-    global $connection;
-    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time)");
-=======
 function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time, $address){
     global $connection;
     $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time, useraddress) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time, :address)");
->>>>>>> restaurant_response_order
     $statement->execute([
         ':foodname'=>$foodname,
         ':user_id'=>$user_id,
         ':qty'=>$qty,
         ':res_id'=>$res_id,
         ':total_price'=>$total_price,
-<<<<<<< HEAD
-        ':time'=>$time
-=======
         ':time'=>$time,
         ':address'=>$address
->>>>>>> restaurant_response_order
     ]);
 }
 

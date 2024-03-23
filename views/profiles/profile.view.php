@@ -139,7 +139,6 @@
         </div>
     </div>
 
-<<<<<<< HEAD
     <div id="contact-popup" style="display: none;">
         <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php" method="post">
             <h1>Upload Profile</h1>
@@ -155,78 +154,14 @@
     </div>
 
     <?php
-=======
-    <div class="osahan-menu-fotter fixed-bottom bg-white px-3 py-2 text-center d-none">
-        <div class="row">
-            <div class="col">
-                <a href="home.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-home text-dark"></i></p>
-                    Home
-                </a>
-            </div>
-            <div class="col">
-                <a href="most_popular.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-map-pin"></i></p>
-                    Trending
-                </a>
-            </div>
-            <div class="col bg-white rounded-circle mt-n4 px-3 py-2">
-                <div class="bg-danger rounded-circle mt-n0 shadow">
-                    <a href="checkout.html" class="text-white small font-weight-bold text-decoration-none">
-                        <i class="feather-shopping-cart"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="col">
-                <a href="favorites.html" class="text-dark small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-heart"></i></p>
-                    Favorites
-                </a>
-            </div>
-            <div class="col selected">
-                <a href="profile.html" class="text-danger small font-weight-bold text-decoration-none">
-                    <p class="h4 m-0"><i class="feather-user"></i></p>
-                    Profile
-                </a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- =========form popup======== -->
-<div id="contact-popup" style="display: none;">
-    <form class="contact-form" id="" enctype="multipart/form-data" action="../../controllers/profiles/upload.php" method="post">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-circle" viewBox="0 0 16 16">
-            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16" />
-            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708" />
-        </svg>
-        <div class="contain-img d-flex flex-column" style="margin-top: -40px;">
-            <h1>Upload Profile</h1>
-            <img class="rounded-circle m-auto" style="width: 150px; height: 150px;" src="<?php print_r('assets/images/user/' . $img[7]) ?>" alt="">
-        </div>
-        <div style="margin-top: 30px; margin-bottom: 10px;">
-            <input type="file" name="my_image" id="image" class='btn bg-primary text-white' style="width: 100%;">
-        </div>
-        <div class="contain-btn d-flex justify-content-end" style="gap: 10px;">
-            <input type="submit" id="send" name="send" value="Upload" />
-        </div>
-    </form>
-</div>
-
-
-
-<?php
->>>>>>> restaurant_response_order
 
 echo "<script>
 
 let pop = document.querySelector('#contact-popup');
 let upload = document.querySelector('#upload');
 let send = document.querySelector('#send');
-<<<<<<< HEAD
-=======
 let cancel = document.querySelector('.bi');
 let footer = document.querySelector('footer');
->>>>>>> restaurant_response_order
 
 upload.addEventListener('click', ()=>{
     pop.style.display = 'block';
@@ -236,18 +171,10 @@ send.addEventListener('click', ()=>{
     pop.style.display = 'none';
 });
 
-<<<<<<< HEAD
 
 
 
 </script>"
 
 ?> 
-=======
-cancel.addEventListener('click', ()=>{
-    pop.style.display = 'none';
-});
-</script>"
 
-?>
->>>>>>> restaurant_response_order
