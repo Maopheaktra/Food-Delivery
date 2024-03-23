@@ -1,3 +1,20 @@
+<?php
+$resId = $_SESSION['res_own']['restaurant_id'];
+$categories = getCateInres($resId);
+$numberOfFood = 0;
+foreach ($categories as $key => $value) {
+  $cateid = $value['category_id'];
+  $statement = $connection->prepare("SELECT * FROM foods where category_id = $cateid");
+  $statement->execute();
+  $foods = $statement->fetchAll();
+  $numberOfFood += count($foods);
+}
+
+$orderedFood = getFoodOrdered($resId, 4);
+
+
+?>
+
 <div class="main-wrapper">
   <!-- ! Main nav -->
   <nav class="main-nav--bg">
@@ -48,7 +65,7 @@
               </a>
             </li>
             <li>
-              <a href="#">
+              <a href="##">
                 <div class="notification-dropdown-icon danger">
                   <i data-feather="info" aria-hidden="true"></i>
                 </div>
@@ -79,6 +96,7 @@
           <button href="##" class="nav-user-btn dropdown-btn" title="My profile" type="button">
             <span class="sr-only">My profile</span>
             <span class="nav-user-img">
+
               <picture>
                 <source srcset="../../assets/images/user/<?= $resOwner['user_img'] ?>" type="image/webp"><img
                   src="../../assets/images/user/<?= $resOwner['user_img'] ?>" alt="User name">
@@ -90,7 +108,7 @@
                 <i data-feather="user" aria-hidden="true"></i>
                 <span>Profile</span>
               </a></li>
-            <li><a href="##">
+            <li><a href="/edite_res">
                 <i data-feather="settings" aria-hidden="true"></i>
                 <span>Account settings</span>
               </a></li>
@@ -103,7 +121,8 @@
       </div>
     </div>
   </nav>
-  <!-- ! Main -->
+  <!-- ! Main --->
+
   <main class="main users chart-page" id="skip-target">
     <div class="container">
       <div class="row stat-cards">
@@ -114,7 +133,7 @@
             </div>
             <div class="stat-cards-info">
               <p class="stat-cards-info__num">
-                <?= countCategories($restaurant_id); ?>
+                <?= count($categories); ?>
               </p>
               <p class="stat-cards-info__title">All Categories</p>
             </div>
@@ -122,13 +141,7 @@
         </div>
 
 
-        <?php
-        $foods = 0;
-        $categories = getCategory($restaurant_id);
-        foreach ($categories as $category) {
-          $foods += countFoods($restaurant_id, $category);
-        }
-        ?>
+
 
         <div class="col-md-6 col-xl-3">
           <article class="stat-cards-item">
@@ -137,7 +150,7 @@
             </div>
             <div class="stat-cards-info">
               <p class="stat-cards-info__num">
-                <?= $foods; ?>
+                <?= $numberOfFood; ?>
               </p>
               <p class="stat-cards-info__title">All Foods</p>
             </div>
@@ -147,13 +160,13 @@
         <div class="col-md-6 col-xl-3">
           <article class="stat-cards-item">
             <div class="stat-cards-icon purple">
-              <img src="../../assets/images/icons/return-of-investment.png" alt="profit">
+              <img src="../../assets/images/icons/return-of-investment.png" alt="Revenue">
             </div>
             <div class="stat-cards-info">
               <p class="stat-cards-info__num">$
-                <?= profit($restaurant_id); ?>.00
+                <?= sumMoney($resId)['sum(total_price)'] ?>.00
               </p>
-              <p class="stat-cards-info__title">Profitable</p>
+              <p class="stat-cards-info__title">Revenue</p>
             </div>
           </article>
         </div>
@@ -164,7 +177,7 @@
             </div>
             <div class="stat-cards-info">
               <p class="stat-cards-info__num">
-                <?= countOrder($restaurant_id) ?> people
+                <?= sumOrder($resId)['count(user_id)'] ?> people
               </p>
               <p class="stat-cards-info__title">All Orders</p>
             </div>
@@ -176,220 +189,166 @@
 
 
 
-    <div class="container content-2">
-      <div class="row stat-cards">
-        <div class="col-md-6 col-xl-3">
-          <article class="d-flex justify-content-between stat-cards-item shadow-sm" style="background-color:#ff9f43;">
-
-            <div class="stat-cards-info">
-              <p style="font-size:20px" class=" text-white">Stock </p>
-              <p class="stat-cards-info__num">
-                word
-              </p>
-            </div>
-            <div class=" justify-content-end stat-cards-icon primary">
-
-            </div>
-          </article>
-        </div>
-
-
-
-
-        <div class="col-md-6 col-xl-3">
-          <article class="d-flex justify-content-between stat-cards-item shadow-sm" style="background-color:#00cfe8;">
-
-            <div class="stat-cards-info">
-              <p style="font-size:20px;" class=" text-white">All Foods</p>
-              <p style="font-size:20px; color: #1e5794;" class="stat-cards-info__num">
-                word
-              </p>
-            </div>
-
-            <div class="stat-cards-icon warning bg-danger ">
-
-            </div>
-          </article>
-        </div>
-
-        <div class="col-md-6 col-xl-3">
-          <article class="d-flex justify-content-between stat-cards-item shadow-sm" style="background-color:#13e2ea;">
-
-            <div class="stat-cards-info">
-              <p style="font-size:20px;" class=" text-white">Profitable</p>
-              <p style="font-size:20px; color: #1e5794;" class="stat-cards-info__num">
-                word
-              </p>
-            </div>
-
-            <div class="stat-cards-icon purple">
-
-            </div>
-          </article>
-        </div>
-        <div class="col-md-6 col-xl-3 ">
-          <article class="d-flex justify-content-between stat-cards-item shadow-lg" style="background-color:#28c76f;">
-
-            <div class="stat-cards-info">
-
-              <p style="font-size:20px;" class=" text-white">All Orders</p>
-              <p style="font-size:20px; color: #1e5794;" class="stat-cards-info__num">
-                word
-              </p>
-            </div>
-
-            <div class="stat-cards-icon success bg-body-secondary ">
-
-            </div>
-          </article>
-        </div>
-      </div>
-    </div>
-
-
-
     <div class="container chart-summary mb-3 ">
 
 
       <div class="shadow-sm card w-100 bg-white p-0 m-0" style="border: none; box-sizing: box">
 
         <div class="card-header bg-white border-0" style="height: 50px">
-          <div class="d-flex justify-content-between w-100">
-            <h1>Header</h1>
-
+          <div class=" bg-body-secondary d-flex justify-content-between w-100">
+            <h1>Restaurant data</h1>
+            <button class="btn btn-primary shadow-none" style="width:100px;" id="change-chart">Classic</button>
           </div>
         </div>
-
-
-        <script type="text/javascript" src="../../vendor/js/jquery.min.js"></script>
-        <script type="text/javascript" src="../../vendor/js/Chart.min.js"></script>
 
 
         <div class="card-body border-none rounded-0 p-0 bg-white">
           <div class="d-flex justify-content-between align-items-center">
-            <div class="shadow-sm col-5 rounded border d-flex justify-content-center mx-2" style="height: 320px;">
-              <div class="shrink-size d-flex justify-content-center align-items-center align-items-center  mt-3 "
-                style="width: 250px; height:240px;">
 
-                <canvas id="pie-graphCanvas" style="width: 250px; height:320px;" class=""></canvas>
-              </div>
+            <div class="shadow-sm col-4 rounded border mx-2">
+              <aside class="" id="doughnutchart" style="height: 340px;">
+
+                <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+                <script type="text/javascript">
+                  google.charts.load("current", { packages: ["corechart"] });
+                  google.charts.setOnLoadCallback(drawChart);
+                  function drawChart() {
+                    let data = google.visualization.arrayToDataTable([
+                      ['Sale', 'Sale per month'],
+                      ['Revenue',     <?= sumMoney($resId)['sum(total_price)'] ?>],
+                      ['Cancel',     <?= sumCancelOrder()['count(user_id)'] ?>],
+                      ['Orders',  <?= sumOrder($resId)['count(user_id)'] ?>],
+                    ]);
+
+                    let options = {
+                      title: 'Restaurant Revenue ',
+                      pieHole: 0.4,
+                      height: 380,
+                      width: 380,
+                      backgroundColor: 'transparent',
+                    };
+
+                    let chart = new google.visualization.PieChart(document.getElementById('doughnutchart'));
+                    chart.draw(data, options);
+                  }
+                </script>
+
+
+
+              </aside>
             </div>
-            <div class="shadow-sm col rounded mx-2 border border-light-subtle"
-              style="height: 320px; background-color: rgba(0, 0, 0, 0) !important;">
-              <canvas class="p-1" id="bar-graphCanvas" style="background-color: transparent !important;"></canvas>
+
+
+            <div class="shadow-sm col rounded mx-2 border border-light-subtle p-0"
+              style="background-color: rgba(0, 0, 0, 0) !important;">
+
+              <aside class="p-3 py-lg-3 d-flex align-items-center   justify-content-between" id="chart_div"
+                style="height: 340px; padding-bottom: 30px;">
+
+
+                <script type="text/javascript">
+                  google.charts.load('current', { 'packages': ['bar'] });
+                  google.charts.setOnLoadCallback(drawChart);
+
+                  function drawChart() {
+                    let date = new Date();
+                    let currentYear = date.getFullYear();
+
+                    let data = google.visualization.arrayToDataTable([
+                      ['Month', 'Sales', 'Revenue'],
+                      ['January ' + currentYear, 1000, 200],
+                      ['February ' + currentYear, 1170, 250],
+                      ['March ' + currentYear, 660, 300],
+                      ['April ' + currentYear, 1030, 350],
+                      ['May ' + currentYear, 1030, 350],
+                      ['June ' + currentYear, 1030, 350],
+                      ['July ' + currentYear, 1030, 350],
+                      ['August ' + currentYear, 1030, 350],
+                      ['September ' + currentYear, 1030, 350],
+                      ['October ' + currentYear, 1030, 350],
+                      ['November ' + currentYear, 1030, 350],
+                      ['December ' + currentYear, 1030, 350]
+                    ]);
+
+
+                    let options = {
+                      chart: {
+                        title: 'Restaurant',
+                        subtitle: 'Sales, Revenue: ' + currentYear,
+                        backgroundColor: '#de3a3a',
+
+                      },
+                      bars: 'horizontal',
+                      vAxis: {
+                        format: 'decimal',
+                        title: 'Months', titleTextStyle: { color: 'blue' }
+                      },
+
+                      height: 320,
+                      width: 600,
+                      bar: {
+                        groupWidth: "90%",
+                        alignment: 'center',
+                        cornerRadius: 10,
+                        opacity: 0.8,
+                        animation: { duration: 1000, easing: 'out' },
+                        style: 'fill: blue; stroke: black; stroke-width: 2',
+                        tooltip: { trigger: 'hover', isHtml: true },
+                      },
+                      colors: ['#AF7AF3', '#12C4E0'],
+                      legend: {
+                        position: 'top',
+                      },
+                      backgroundColor: {
+                        fill: 'transparent',
+                      },
+                    };
+
+                    let classicChart;
+                    let materialChart;
+
+                    materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+                    materialChart.draw(data, google.charts.Bar.convertOptions(options));
+
+                    let button = document.getElementById('change-chart');
+
+                    button.onclick = function () {
+                      if (button.innerText === 'Classic') {
+                        classicChart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                        classicChart.draw(data, options);
+                        button.innerText = 'Material';
+                      } else {
+                        materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+                        materialChart.draw(data, google.charts.Bar.convertOptions(options));
+                        button.innerText = 'Classic';
+                      }
+                    };
+                  }
+
+
+                </script>
+
+              </aside>
             </div>
           </div>
 
         </div>
 
 
+        <div class="card-footer d-flex justify-content-between align-items-center border-0" style="height: 60px">
 
-        <script type="text/javascript">
-          $(document).ready(function () {
-            $.ajax({
-              url: "../../controllers/restaurant_owner/chart.controller.php",
-              method: "GET",
-              success: function (data) {
-                console.log(data);
-                let barLabels = [];
-                let barSales = [];
-                let barExpenses = [];
-                let barProfit = [];
-                let pieLabels = [];
-                let pieSales = [];
-
-                for (let i = 0; i < data.sales.length; i++) {
-                  barLabels.push(data.sales[i].month);
-                  barSales.push(data.sales[i].amount);
-                  barExpenses.push(data.expenses[i].amount);
-                  barProfit.push(data.profit[i].amount);
-                  if (i < 3) {
-                    pieLabels.push(data.sales[i].month);
-                    pieSales.push(data.sales[i].amount);
-                  }
-                }
-
-                let barChartData = {
-                  labels: barLabels,
-                  datasets: [{
-                    label: 'Sales',
-                    backgroundColor: '#3c8dbc',
-                    borderColor: '#3c8dbc',
-                    borderWidth: 1,
-                    data: barSales
-                  },
-                  {
-                    label: 'Expenses',
-                    backgroundColor: '#f56954',
-                    borderColor: '#f56954',
-                    borderWidth: 1,
-                    data: barExpenses
-                  },
-                  {
-                    label: 'Profit',
-                    backgroundColor: '#00a65a',
-                    borderColor: '#00a65a',
-                    borderWidth: 1,
-                    data: barProfit
-                  }
-                  ]
-                };
-
-                let pieChartData = {
-                  labels: pieLabels,
-                  datasets: [{
-                    label: 'Sales',
-                    backgroundColor: ['#3c8dbc', '#f56954', '#00a65a'],
-                    borderColor: ['#3c8dbc', '#f56954', '#00a65a'],
-                    borderWidth: 1,
-                    data: pieSales
-                  }]
-                };
-
-                let barGraphTarget = $("#bar-graphCanvas");
-                let pieGraphTarget = $("#pie-graphCanvas");
-
-                let barGraph = new Chart(barGraphTarget, {
-                  type: 'bar',
-                  data: barChartData,
-                  options: {
-                    scales: {
-                      yAxes: [{
-                        ticks: {
-                          beginAtZero: true
-                        }
-                      }]
-                    }
-                  }
-                });
-
-                let pieGraph = new Chart(pieGraphTarget, {
-                  type: 'pie',
-                  data: pieChartData,
-                  options: {
-                    legend: {
-                      position: 'start',
-                      labels: {
-                        boxWidth: 5,
-                        fontSize: 8
-                      }
-                    }
-                  }
-                });
-              },
-              error: function (data) {
-                console.log(data);
-              }
-            });
-          });
-
-
-
-        </script>
-
-        <div class="card-footer bg-white border-0" style="height: 50px">
-
+          <div>
+            <select id="rowCount" class="form-select shadow-none" style="width:100px" onchange="updateRowCount()">
+              <option value="Select">Select</option>
+              <option value="none">None</option>
+              <option value="5">5 rows</option>
+              <option value="10">10 rows</option>
+              <option value="15">15 rows</option>
+              <option value="all">All rows</option>
+            </select>
+          </div>
         </div>
+
 
 
       </div>
@@ -401,36 +360,96 @@
 
 
     <!-- Recently selling and the most popular products -->
-    <div class="container top-sale ">
+    <div class="container top-sale">
 
-      <div class="shadow-sm card w-100 bg-white" style="border: none  ;">
 
+      <div class="shadow-sm card w-100 bg-white" style="border: none;">
         <table class="table border-light-subtle table-bordered">
-          <thead class="">
+          <thead class="table-body-secondary">
             <tr>
-              <th scope="col">ID</th>
-              <th scope="col">Name</th>
-              <th scope="col">Category</th>
-              <th scope="col">Quantity</th>
-              <th scope="col">Amount</th>
+              <th class="text-center" scope="col">ID</th>
+              <th class="text-center" scope="col">Name</th>
+              <th class="text-center" scope="col">Quantity</th>
+              <th class="text-center" scope="col">Amount</th>
+              <th class="text-center" scope="col">Time</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="myTable">
 
             <!-- for loop to add the items more -->
-            <tr>
-              <td>1</td>
-              <td>Sed</td>
-              <td>Fries</td>
-              <td>2</td>
-              <td>4</td>
-            </tr>
+            <?php foreach ($orderedFood as $key => $value): ?>
+              <tr>
+                <td class="text-center">
+                  <?= $key + 1 ?>
+                </td>
+                <td class="text-center">
+                  <?= $value['foodname'] ?>
+                </td>
+                <td class="text-center">
+                  <?= $value['sum(quantity)'] ?>
+                </td>
+                <td class="text-center">
+                  <?= $value['sum(total_price)'] ?>$
+                </td>
+                <td class="text-center">
+                  <?= $value['time'] ?>
+                </td>
+              </tr>
+            <?php endforeach; ?>
           </tbody>
         </table>
       </div>
-
-
     </div>
+
+
+    <script>
+      document.getElementById("rowCount").addEventListener("change", function () {
+        applyFilters();
+        toggleSortingOrder();
+      });
+
+      let descendingOrder = true;
+      function toggleSortingOrder() {
+        descendingOrder = !descendingOrder;
+      }
+
+      function applyFilters() {
+        let select = document.getElementById("rowCount");
+        let selectedOption = select.options[select.selectedIndex].value;
+        let table = document.getElementById("myTable");
+        let rows = table.getElementsByTagName("tr");
+
+        for (let i = 0; i < rows.length; i++) {
+          rows[i].style.display = "none";
+        }
+
+        if (selectedOption === "Select" || selectedOption === "all") {
+          for (let i = 0; i < rows.length; i++) {
+            rows[i].style.display = "";
+          }
+        } else {
+          let numRowsToShow = parseInt(selectedOption, 10);
+          if (!isNaN(numRowsToShow)) {
+            for (let i = 0; i < numRowsToShow && i < rows.length; i++) {
+              rows[i].style.display = "";
+            }
+          }
+        }
+
+        localStorage.setItem("selectedOption", selectedOption);
+      }
+
+      window.addEventListener("load", function () {
+        let selectedOption = localStorage.getItem("selectedOption");
+        if (selectedOption) {
+          document.getElementById("rowCount").value = selectedOption;
+          applyFilters();
+        }
+      });
+    </script>
+
+
+
 
   </main>
 </div>

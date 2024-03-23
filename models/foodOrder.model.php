@@ -31,18 +31,3 @@ function cancel($action, $cancel, $user_id){
         ':user_id'=> $user_id
     ]);
 }
-
-
-function countCancel($user_id)
-{
-    global $connection;
-    $statement = $connection->prepare("SELECT COUNT(*) AS cancel_count FROM orderdetails WHERE action = 3 AND user_id = :user_id");
-    $statement->execute([':user_id' => $user_id]);
-    $result = $statement->fetch(PDO::FETCH_ASSOC);
-    return $result['cancel_count'];
-}
-
-$cancel_count = countCancel($user_id);
-echo "The number of canceled orders for user with ID $user_id is: $cancel_count";
-
-
