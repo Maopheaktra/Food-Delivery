@@ -131,7 +131,7 @@ ob_start();
           <span class="card-text m-lg-1" style="font-weight:bold;">Restaurant Location:</span>
           <p class="align-self-center"><?= $value['address'] ?></p>
         </div>
-        <a href="controllers/delivery/response.order.controller.php?orderAction=<?= $value['action'] ?>&adre=Passerelles numériques Cambodia" class="btn btn-danger" style="font-size: 13px;">Accept</a>
+        <a href="controllers/delivery/completed.order.php?time=<?php echo $value['time'] ?>" class="btn btn-danger" style="font-size: 13px;">Complete</a>
       </div>
     </div>
     <?php endforeach; ?>

@@ -3,7 +3,7 @@ $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 $page = "";
 $routes = [
     '/' => 'controllers/home/home.controller.php',
-    '/checkout' => 'controllers/checkout/checkout.controller.php',
+    // '/checkout' => 'controllers/checkout/checkout.controller.php',
     '/favorite' => 'controllers/favorites/favorite.controller.php',
     '/order' => 'controllers/orders/order.controller.php',
     '/profile' => 'controllers/profiles/profile.controller.php',
@@ -11,6 +11,7 @@ $routes = [
     '/search' => 'controllers/search/search.controller.php',
     '/categories' => 'controllers/categories/categorie.controller.php',
     '/restaurant_location' => 'controllers/restaurant/show.map.controller.php',
+    '/help'=> 'controllers/help/help.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {

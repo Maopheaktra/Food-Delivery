@@ -28,13 +28,13 @@ function orderbyTime($user_id, $time){
     return $stmt->fetchAll();
 }
 
-function cancel($action, $cancel, $user_id){
+function cancel($action, $cancel, $res_id){
     global $connection;
-    $stmt = $connection->prepare("update orderdetails set action=:action where time = :cancel && user_id = :user_id");
+    $stmt = $connection->prepare("update orderdetails set action=:action where time = :cancel && restaurant_id = :res_id");
     $stmt->execute([
         ':cancel'=> $cancel,
         ':action'=> $action,
-        ':user_id'=> $user_id
+        ':res_id'=> $res_id
     ]);
 }
 
@@ -60,5 +60,12 @@ function getAllFood(){
     global $connection;
     $stmt = $connection->prepare("select * from (((res_categories inner join categories on res_categories.category_id = categories.category_id) inner join foods on categories.category_id =  foods.category_id) inner join restaurants on restaurants.restaurant_id =  res_categories.restaurant_id)");
     $stmt->execute();
+    return $stmt->fetchAll();
+}
+
+function getAllFoodByid($cateid){
+    global $connection;
+    $stmt = $connection->prepare("select * from (((res_categories inner join categories on res_categories.category_id = categories.category_id) inner join foods on categories.category_id =  foods.category_id) inner join restaurants on restaurants.restaurant_id =  res_categories.restaurant_id) where res_categories.category_id = :cateid");
+    $stmt->execute([':cateid'=> $cateid]);
     return $stmt->fetchAll();
 }

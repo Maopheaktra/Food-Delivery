@@ -69,10 +69,6 @@
                                                 </ul>
                                                 </p>
                                             </div>
-                                            <div class="list-card-badge">
-                                                <span class="badge badge-danger">OFFER</span> <small>65%
-                                                    OSAHAN50</small>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -98,7 +94,7 @@
                                     <?php foreach ($food as $key => $value): ?>
                                         <div class="col-md-3 pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
+              <div class="list-card-image" style="height: 20vh;">
                 <div class="star position-absolute">
                   <span class="badge badge-success">$<?= $value['price']?></span>
                 </div>
@@ -106,7 +102,7 @@
                   <a href="#"><i class="feather-heart"></i></a>
                 </div>
                 <a href="/restaurant?id=<?= $value['restaurant_id'] ?>">
-                  <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100" />
+                  <img alt="#" src="assets/images/food/<?= $value['food_img'] ?>" style="width: 100%; height: 100%;" />
                 </a>
               </div>
               <div class="p-3 position-relative">

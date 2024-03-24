@@ -1,13 +1,10 @@
 <?php
-
-
-if(isset($_POST)){
-    $content = $_POST['message'];
-    $userid = $_GET['userid'];
-    $restauratid = $_POST['res_id'];
-    $time = date("Y-m-d h:i:sa");
-
-    echo $content, $userid, $restauratid, $time;
-}
-
-// header('location: /res_order');
+session_start();
+require "../../../database/database.php";
+require "../../../models/restaurant.owner.model.php";
+$resId = $_SESSION['res_own']['restaurant_id'];
+$customerId = $_POST['customer'];
+$time = $_POST['time'];
+$content = $_POST['message'];
+reviewOrder($resId, $customerId, $time, $content);
+header('location: /res_order');

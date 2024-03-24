@@ -228,12 +228,13 @@ function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time, $add
 
 // ------ *Add category of the restaurant onwer* -----------------------//
 
-function addCategories($cateName, $description){
+function addCategories($cateName, $description, $img){
     global $connection;
-    $statement = $connection->prepare("insert into categories(description, name) values(:description, :name)");
+    $statement = $connection->prepare("insert into categories(description, name, cate_img) values(:description, :name, :cate_img)");
     $statement->execute([
         ':description'=> $description,
-        ':name'=>$cateName
+        ':name'=>$cateName,
+        ':cate_img'=> $img
     ]);
 }
 
@@ -333,4 +334,19 @@ function getSpacificUser($role){
     $statement = $connection->prepare($query);
     $statement->execute([':role'=> $role]);
     return $statement->fetchAll(PDO::FETCH_ASSOC);
+}
+
+
+function selectResbyProvince($address){
+    global $connection;
+    $statement = $connection->prepare("select * from restaurants where address = :address");
+    $statement->execute([':address'=> $address]);
+    return $statement->fetchAll();
+}
+
+function getAdmin(){
+    global $connection;
+    $statement = $connection->prepare("select * from users where role_id = 4");
+    $statement->execute();
+    return $statement->fetch();
 }

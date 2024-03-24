@@ -50,11 +50,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             foreach ($_SESSION['paymentCard'] as $key => $value) {
                 orderFood($value[0], intval($_SESSION['userid']), intval($value[1]), intval($value[2]), $value[3], $value[4], $value[5]);
                 $_SESSION['paymentCard'] = '';
+                header('Location: /order');
             }
-            header('Location: /checkout');
+            header('Location: /order');
         }
-        header('Location: /checkout'); 
-    } 
+    } else{
+        header('Location: /checkout');
+    }
 } 
  
 function validateCreditCard($creditCardNumber) 

@@ -29,7 +29,7 @@
         ?>
         <div class="cat-item px-1 py-3">
           <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="controllers/categories/categories.filter.controller.php?cateid=<?= $value[0]; ?>">
-            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" />
+            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" style="width: 150px; height: 80px;" />
             <p class="m-0 small"><?php echo $value[2] ?></p>
           </a>
         </div>
@@ -71,15 +71,15 @@
                   </a>
                 </h6>
                 <p class="text-gray mb-3"><?php print_r ($value[2])?></p>
-                <p class="text-gray mb-3 time">
-                  <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–30
-                    min</span>
-                  <span class="float-right text-black-50"> $350 FOR TWO</span>
-                </p>
-              </div>
-              <div class="list-card-badge">
-                <span class="badge badge-danger">OFFER</span>
-                <small> Use Coupon OSAHAN50</small>
+                <ul class="rating-stars list-unstyled">
+                    <li>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star"></i>
+                    </li>
+                  </ul>
               </div>
             </div>
           </div>
@@ -97,6 +97,7 @@
       <div class="most_popular">
         <div class="row">
 
+        <?php if(!isset($_GET['location'])): ?>
         <?php foreach ($data as $key => $value): ?>
           <div class="col-md-3 pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
@@ -133,14 +134,56 @@
                   </ul>
                   <p></p>
                 </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">OFFER</span>
-                  <small>65% OSAHAN50</small>
+              </div>
+            </div>
+          </div>
+          <?php endforeach; ?>
+          <?php else: ?>
+            <?php 
+            $resProvince = selectResbyProvince(strtolower($_GET['location']));
+            foreach ($resProvince as $key => $value):
+               ;?>
+          <div class="col-md-3 pb-3">
+            <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
+              <div class="list-card-image" style="height: 20vh;">
+                <div class="star position-absolute">
+                  <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
+                </div>
+                <div class="favourite-heart text-danger position-absolute">
+                  <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
+                </div>
+                <div class="member-plan position-absolute">
+                  <span class="badge badge-dark">Promoted</span>
+                </div>
+                <a href="/restaurant?id=<?php print_r($value[0]) ?>" style="background: red;">
+                  <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
+                </a>
+              </div>
+              <div class="p-3 position-relative">
+                <div class="list-card-body">
+                  <h6 class="mb-1">
+                    <a href="/restaurant" class="text-black"> <?php print_r($value[1]) ?>
+                    </a>
+                  </h6>
+                  <p class="text-gray mb-1 small"><?php print_r($value[2]) ?></p>
+                  <p class="text-gray mb-1 rating"></p>
+                  <ul class="rating-stars list-unstyled">
+                    <li>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star"></i>
+                    </li>
+                  </ul>
+                  <p></p>
                 </div>
               </div>
             </div>
           </div>
           <?php endforeach; ?>
+          <?php endif; ?>
+
       </div>
 
       <div class="pt-2 pb-3 title d-flex align-items-center">
@@ -166,14 +209,14 @@
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant">
+                <a href="/restaurant?id=<?php print_r($data[$i]['restaurant_id']); ?>">
                   <img alt="#" src="assets/images/res_img/<?php print_r($data[$i]['res_img'])?>" class="img-fluid item-img w-100" />
                 </a>
               </div>
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
-                    <a href="/restaurant" class="text-black"><?php print_r($data[$i][1]); ?>
+                    <a href="/restaurant?id=<?php print_r($data[$i]['restaurant_id']); ?>" class="text-black"><?php print_r($data[$i][1]); ?>
                     </a>
                   </h6>
                   <p class="text-gray mb-3"><?php print_r($data[$i][2]); ?></p>
@@ -183,10 +226,6 @@
                     <span class="float-right text-black-50">
                       $500 FOR TWO</span>
                   </p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">OFFER</span>
-                  <small>65% OSAHAN50</small>
                 </div>
               </div>
             </div>

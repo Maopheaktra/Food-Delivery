@@ -1,5 +1,9 @@
 <?php
-$detail = detailRes($_SESSION['paymentCard'][0][2]);
+if(isset($_SESSION['paymentCard'])){
+    if($_SESSION['paymentCard'] != ''){
+        $detail = detailRes($_SESSION['paymentCard'][0][2]);
+    }
+}
 ?>
 <div class="osahan-checkout">
         <div class="d-none">

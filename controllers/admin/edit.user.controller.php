@@ -8,11 +8,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if ($_POST['username'] !== '' && $_POST['email'] !== '' && $_POST['password'] !== '' && $_POST['number'] !== '' && $_POST['role'] !== '') {
         // If all required fields are filled, proceed with user creation
         $username = strval($_POST['username']);
-        $email = $_POST['email'];
-        $password = $_POST['password'];
-        $phoneNumber = $_POST['number'];
-        $role = $_POST['role'];
-        $gender = $_POST['gender'];
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+        $phoneNumber = htmlspecialchars($_POST['number']);
+        $role = htmlspecialchars($_POST['role']);
+        $gender = htmlspecialchars($_POST['gender']);
         $user_id = intval($_POST['user_id']);
 
         updateUser($username, $phoneNumber, $email, $user_id, $role);
