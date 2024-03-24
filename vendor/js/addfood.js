@@ -5,7 +5,7 @@ const adds = document.querySelectorAll('#add');
 for (let add of adds) {
     add.addEventListener('click', (e) => {
         let food = e.target.parentElement.parentElement.children[1].children[1].children[0].textContent;
-        let price = e.target.parentElement.parentElement.children[1].children[1].children[1].textContent;
+        let price = e.target.parentElement.parentElement.children[1].children[1].children[1].children[0].textContent;
         let id = e.target.parentElement.parentElement.children[1].children[1].children[2].value;
         console.log(id);
 
@@ -48,6 +48,10 @@ function creatCarelist(food, price, id) {
     Inputid.value = id;
     Inputid.name = 'id[]';
 
+    let inputPriceHidden = document.createElement('input');
+    inputPriceHidden.type = 'hidden';
+    inputPriceHidden.value = price;
+
     let mediaLeft = document.createElement('div');
     mediaLeft.setAttribute('class', 'd-flex align-items-center');
     let span = document.createElement('span');
@@ -76,12 +80,19 @@ function creatCarelist(food, price, id) {
     i1.setAttribute('class', 'feather-plus');
     i1.addEventListener('click', (e)=>{
         let qty = e.target.parentElement.parentElement.children[1];
+        let price = e.target.parentElement.parentElement.parentElement.children[1];
+        let oldPrice = e.target.parentElement.parentElement.parentElement.children[3];
         qty.value ++;
+        price.textContent = Number(price.textContent) + Number(oldPrice.value);
+        
     })
     let foodPrice = document.createElement('p');
     foodPrice.setAttribute('class', 'text-gray mb-0 float-right ml-2 text-muted small');
-    foodPrice.value = price;
+    // foodPrice.value = price;
     foodPrice.textContent = price;
+
+    let foodUsd = document.createElement('span');
+    foodUsd.textContent = '$';
 
 
     groupAdd.appendChild(cardList);
@@ -95,6 +106,8 @@ function creatCarelist(food, price, id) {
 
     mediaLeft.appendChild(span);
     mediaLeft.appendChild(foodPrice);
+    mediaLeft.appendChild(foodUsd);
+    mediaLeft.appendChild(inputPriceHidden);
     span.appendChild(btn);
     btn.appendChild(i);
     span.appendChild(input);
@@ -105,3 +118,4 @@ function creatCarelist(food, price, id) {
 
 let btnIncrease = document.querySelectorAll('#plusOrder');
 console.log(bt)
+

@@ -29,7 +29,7 @@
         ?>
         <div class="cat-item px-1 py-3">
           <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="controllers/categories/categories.filter.controller.php?cateid=<?= $value[0]; ?>">
-            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" />
+            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" style="width: 150px; height: 80px;" />
             <p class="m-0 small"><?php echo $value[2] ?></p>
           </a>
         </div>
@@ -37,37 +37,6 @@
       </div>
     </div>
 
-    <!-- <div class="bg-theme-black py-3">
-      <div class="container">
-        <div class="offer-slider">
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro1.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro3.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro4.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-          <div class="cat-item px-1 py-3">
-            <a class="d-block text-center shadow-sm" href="trending.html">
-              <img alt="#" src="assets/images/pro2.jpg" class="img-fluid rounded" />
-            </a>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <div class="container">
       <div class="pt-4 pb-2 title d-flex align-items-start">
         <h5 class="m-0">Trending this week</h5>
@@ -102,15 +71,15 @@
                   </a>
                 </h6>
                 <p class="text-gray mb-3"><?php print_r ($value[2])?></p>
-                <p class="text-gray mb-3 time">
-                  <span class="bg-light text-dark rounded-sm pl-2 pb-1 pt-1 pr-2"><i class="feather-clock"></i> 15–30
-                    min</span>
-                  <span class="float-right text-black-50"> $350 FOR TWO</span>
-                </p>
-              </div>
-              <div class="list-card-badge">
-                <span class="badge badge-danger">OFFER</span>
-                <small> Use Coupon OSAHAN50</small>
+                <ul class="rating-stars list-unstyled">
+                    <li>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star star_active"></i>
+                      <i class="feather-star"></i>
+                    </li>
+                  </ul>
               </div>
             </div>
           </div>
@@ -138,13 +107,12 @@
                 </div>
                 <div class="favourite-heart text-danger position-absolute">
                   <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
-                  <a href="/restaurant?id=<?php print_r($value[0]) ?>"><i class="feather-heart"></i></a>
                 </div>
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant?id=<?php print_r($value[0]) ?>">
-                  <img alt="#" src="<?php print_r ($pic[$key]) ?>" />
+                <a href="/restaurant?id=<?php print_r($value[0]) ?>" style="background: red;">
+                  <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
                 </a>
               </div>
               <div class="p-3 position-relative">
@@ -165,10 +133,6 @@
                     </li>
                   </ul>
                   <p></p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">OFFER</span>
-                  <small>65% OSAHAN50</small>
                 </div>
               </div>
             </div>
@@ -214,10 +178,6 @@
                   </ul>
                   <p></p>
                 </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">OFFER</span>
-                  <small>65% OSAHAN50</small>
-                </div>
               </div>
             </div>
           </div>
@@ -249,14 +209,14 @@
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant">
-                  <img alt="#" src="assets/images/sales1.png" class="img-fluid item-img w-100" />
+                <a href="/restaurant?id=<?php print_r($data[$i]['restaurant_id']); ?>">
+                  <img alt="#" src="assets/images/res_img/<?php print_r($data[$i]['res_img'])?>" class="img-fluid item-img w-100" />
                 </a>
               </div>
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
-                    <a href="/restaurant" class="text-black"><?php print_r($data[$i][1]); ?>
+                    <a href="/restaurant?id=<?php print_r($data[$i]['restaurant_id']); ?>" class="text-black"><?php print_r($data[$i][1]); ?>
                     </a>
                   </h6>
                   <p class="text-gray mb-3"><?php print_r($data[$i][2]); ?></p>
@@ -266,10 +226,6 @@
                     <span class="float-right text-black-50">
                       $500 FOR TWO</span>
                   </p>
-                </div>
-                <div class="list-card-badge">
-                  <span class="badge badge-danger">OFFER</span>
-                  <small>65% OSAHAN50</small>
                 </div>
               </div>
             </div>

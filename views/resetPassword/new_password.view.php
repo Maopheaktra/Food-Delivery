@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
-    <link rel="shortcut icon" href="assets/images/logo_web_red.png" type="image/x-icon">
-    <title>Foodride - Online Food Ordering Website Template</title>
+    <link rel="shortcut icon" href="assets/images/logo green.png" type="image/x-icon">
+    <title>Food-delivery</title>
 
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
@@ -28,35 +28,39 @@
             <source src="assets/images/bg.mp4" type="video/ogg" />
             Your browser does not support the video tag.
         </video>
-        <?php
-            if(isset($_SESSION['pwd']) && $_SESSION['pwd'] != ''){
-                echo "<script>alert('Your Password is worng!!')</script>";
-                $_SESSION['pwd'] = '';
-            }
-        ?>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
-                <form action="controllers/reset/new_Password.controller.php" method = "post" class="form-col">
-                    <h1>New Password</h1>
-                    <!-- <p>Enter New Passord</p> -->
-                    <div class="group-form mt-3">
-                        <label for="confirm-pwd">New Password:</label>
-                        <input type="number" name='new_pass' class="form-control" id="confirm-pwd" placeholder="••••••••••••">
+                <div class="px-5 col-10 mx-auto">
+                    <h2 class="text-dark my-0">New Password</h2>
+                    <p class="text-50">enter your new password to continue</p>
+                    <form class="mt-5 mb-4" action="controllers/reset/new_Password.controller.php" method ="post" enctype="multipart/form-data">
+                        <div class="form-group">
+                            <input type="password" placeholder="Enter new password" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp"  name="new_password" />
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="confirm password" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp"  name="confirm_password" />
+                                <?php if(isset($_SESSION['erro'])):?>
+                                    <?php if($_SESSION['erro'] != ''): ?>
+                                        <p style= "color: red; margin-top: 4px;">* <?= $_SESSION['erro'] ?></p>
+                                    <?php 
+                                    $_SESSION['erro'] = '';
+                                    endif; 
+                                    ?>
+                                <?php endif; ?>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">SEND</button>
+                    </form>
+                    <div class="d-flex align-items-center justify-content-center">
+                        <a href="/signup">
+                            <p class="text-center m-0">Don't have an account? Sign up</p>
+                        </a>
                     </div>
-                    <div class="group-form mt-3">
-                        <label for="confirm-pwd">Confirm Password:</label>
-                        <input type="number" name='new_pass' class="form-control" id="confirm-pwd" placeholder="••••••••••••">
-                    </div>
-                    <div class="form-check p-3">
-                        <label class="form-check-label">
-                        <input class="form-check-input" type="checkbox"> Remember me
-                        </label>
-                    </div>
-                    <a href="/" type="button" class="btn btn-primary btn-lg btn-block mt-3">CONTINUE</a>
-                </form>
+                </div>
             </div>
         </div>
-</div>
+    </div>
     <nav id="main-nav">
         <ul class="second-nav">
             <li>
@@ -70,7 +74,7 @@
                 <ul>
                     <li><a href="login.html">Login</a></li>
                     <li><a href="signup.html">Register</a></li>
-                    <li><a href="forgot_password.html">Forgot Password</a></li>
+                    <li><a href="forgot_password.htm">Forgot Password</a></li>
                     <li><a href="verification.html">Verification</a></li>
                     <li><a href="location.html">Location</a></li>
                 </ul>
@@ -120,8 +124,6 @@
                     <li>
                         <a href="#">Link Example 1</a>
                         <ul>
-
-<li>
                             <li>
                                 <a href="#">Link Example 1.1</a>
                                 <ul>
@@ -186,7 +188,12 @@
 
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/js/osahan.js"></script>
     <script src="vendor/rocket/rocket-loader.min.js" data-cf-settings="c7cde99310a44e0c8a34cba7-|49" defer></script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}' crossorigin="anonymous"></script>
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317"
+        integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA=="
+        data-cf-beacon='{"rayId":"84de77e33d3c8817","r":1,"version":"2024.1.0","token":"dd471ab1978346bbb991feaa79e6ce5c"}'
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
+

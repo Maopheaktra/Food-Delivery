@@ -24,7 +24,7 @@ input[type="password"] {
 
 input[type="submit"] {
     padding: 10px 20px;
-    background-color: #333;
+    background-color: #0fb000;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -34,7 +34,9 @@ input[type="submit"] {
 }
 
 input[type="submit"]:hover {
-    background-color: #555;
+    background-color: #72966b00;
+    border: 1px solid #0fb000;
+    color: #0fb000;
 }
 
 .button-submit-change {

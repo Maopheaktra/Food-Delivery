@@ -1,22 +1,13 @@
 <?php
-<<<<<<< HEAD
 require_once "database/database.php"; 
 require_once "models/employee.model.php";
 require_once "models/admin.model.php"; 
 $users = getAllUsers();
 $adminPf = showPf($_SESSION['userid']);
 
-=======
-// session_start();
-require_once "database/database.php"; // Include database connection
-require_once "models/admin.model.php"; // Include admin model file once
-require_once "models/employee.model.php";
-$users = getAllUsers();
->>>>>>> change_password
 
 ?>
 
-<!-- ! Body -->
 <!-- ! Body -->
 <a class="skip-link sr-only" href="#skip-target">Skip to content</a>
 <div class="page-flex">
@@ -28,7 +19,7 @@ $users = getAllUsers();
                     <span class="sr-only">Home</span>
                     <span class="icon logo" aria-hidden="true"></span>
                     <div class="logo-text">
-                        <span class="logo-title">Elegant</span>
+                        <span class="logo-title">Admin</span>
                         <span class="logo-subtitle">Dashboard</span>
                     </div>
 
@@ -43,44 +34,6 @@ $users = getAllUsers();
                     <li>
                         <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
                     </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon folder" aria-hidden="true"></span>Categories
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="categories.html">All categories</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a class="show-cat-btn" href="##">
-                            <span class="icon paper" aria-hidden="true"></span>Pages
-                            <span class="category__btn transparent-btn" title="Open list">
-                                <span class="sr-only">Open list</span>
-                                <span class="icon arrow-down" aria-hidden="true"></span>
-                            </span>
-                        </a>
-                        <ul class="cat-sub-menu">
-                            <li>
-                                <a href="pages.html">All pages</a>
-                            </li>
-                            <li>
-                                <a href="new-page.html">Add new page</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li>
-                        <a href="comments.html">
-                            <span class="icon message" aria-hidden="true"></span>
-                            Comments
-                        </a>
-                        <span class="msg-counter">7</span>
-                    </li>
                 </ul>
                 <span class="system-menu__title">system</span>
                 <ul class="sidebar-body-menu">
@@ -94,18 +47,13 @@ $users = getAllUsers();
                         </a>
                         <ul class="cat-sub-menu">
                             <li>
-                                <a href="users-01.html">Users-01</a>
-                            </li>
-                            <li>
-                                <a href="users-02.html">Users-02</a>
-                                <a href="runners.filter.php">Runners</a>
                                 <a href="/delivery">Runners</a>
                             </li>
                             <li>
                                 <a href="/customer">Customers</a>
                             </li>
                             <li>
-                                <a href="restaurantowners.filter.php">Owners</a>
+                                <a href="/res_onwer">Owners</a>
                             </li>
                         </ul>
                     </li>
@@ -115,21 +63,5 @@ $users = getAllUsers();
                 </ul>
             </div>
         </div>
-<<<<<<< HEAD
         
-=======
-        <div class="sidebar-footer">
-            <a href="##" class="sidebar-user">
-                <span class="sidebar-user-img">
-                    <picture>
-                            <img src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" alt="Default Profile Picture">
-                    </picture>
-                </span>
-                <div class="sidebar-user-info">
-                    <span class="sidebar-user__title">Pheak Tra.</span>
-                    <span class="sidebar-user__subtitle">Restaurant Owner</span>
-                </div>
-            </a>
-        </div>
->>>>>>> change_password
     </aside>

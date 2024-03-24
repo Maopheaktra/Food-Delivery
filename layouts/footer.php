@@ -6,7 +6,7 @@
           <aside class="col-md-4 footer-about">
             <article class="d-flex pb-3">
               <div>
-                <img alt="#" src="assets/images/logo green.png" class="logo-footer mr-3" />
+                <img alt="#" src="assets/images/unnamed_(1)-transformed.png" class="logo-footer mr-3" style="background: green;" />
               </div>
               <div>
                 <h6 class="title text-white">About Us</h6>
@@ -15,31 +15,17 @@
                   Dell computer commercials in which a youth reports.
                 </p>
                 <div class="d-flex align-items-center">
-                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Facebook" target="_blank" href="https://www.facebook.com/srey.nuchsolo.90?mibextid=ZbWKwL"><i
+                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Facebook" target="_blank" href="#"><i
                       class="feather-facebook"></i></a>
                   <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Instagram" target="_blank" href="#"><i
                       class="feather-instagram"></i></a>
-                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Youtube" target="_blank" href="https://www.youtube.com/"><i
+                  <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Youtube" target="_blank" href="#"><i
                       class="feather-youtube"></i></a>
                   <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Twitter" target="_blank" href="#"><i
                       class="feather-twitter"></i></a>
                 </div>
               </div>
             </article>
-          </aside>
-          <aside class="col-sm-3 col-md-2 text-white">
-            <h6 class="title">Error Pages</h6>
-            <ul class="list-unstyled hov_footer">
-              <li>
-                <a href="not-found.html" class="text-muted">Not found</a>
-              </li>
-              <li>
-                <a href="maintain.html" class="text-muted">Maintain</a>
-              </li>
-              <li>
-                <a href="coming-soon.html" class="text-muted">Coming Soon</a>
-              </li>
-            </ul>
           </aside>
           <aside class="col-sm-3 col-md-2 text-white">
             <h6 class="title">Services</h6>
@@ -167,8 +153,8 @@
       <div class="container d-flex align-items-center">
         <p class="mb-0">© 2021 Company All rights reserved</p>
         <p class="text-muted mb-0 ml-auto d-flex align-items-center">
-          <a href="https://apps.apple.com/us/app/foodpanda-food-delivery/id758103884" class="d-block"><img alt="app-store" title="Download now"  src="assets/images/appstore.png" height="40" /></a>
-          <a href="https://play.google.com/store/apps/details?id=com.global.foodpanda.android&hl=en_GB" class="d-block ml-3"><img alt="play-store" title="Download now" src="assets/images/playmarket.png" height="40" /></a>
+          <a href="#" class="d-block"><img alt="#" src="assets/images/appstore.png" height="40" /></a>
+          <a href="#" class="d-block ml-3"><img alt="#" src="assets/images/playmarket.png" height="40" /></a>
         </p>
       </div>
     </section>
@@ -185,13 +171,13 @@
         <a href="/favorite"><i class="feather-heart mr-2"></i> Favorites</a>
       </li>
       <li>
-        <a href="trending.html"><i class="feather-trending-up mr-2"></i> Trending</a>
+        <a href="/"><i class="feather-trending-up mr-2"></i> Trending</a>
       </li>
       <li>
-        <a href="most_popular.html"><i class="feather-award mr-2"></i> Most Popular</a>
+        <a href="/search"><i class="feather-award mr-2"></i> Most Popular</a>
       </li>
       <li>
-        <a href="successful.html"><i class="feather-check-circle mr-2"></i> Successful</a>
+        <a href="/order"><i class="feather-check-circle mr-2"></i> Successful</a>
       </li>
       <li>
         <a href="/restaurant_location"><i class="feather-map-pin mr-2"></i> Live Map</a>
@@ -200,56 +186,7 @@
         <a href="#"><i class="feather-user mr-2"></i> Profile</a>
         <ul>
           <li><a href="/profile">Profile</a></li>
-          <li><a href="favorites.html">Delivery support</a></li>
-          <li><a href="contact-us.html">Contact Us</a></li>
-          <li><a href="terms.html">Terms of use</a></li>
-          <li><a href="privacy.html">Privacy & Policy</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#"><i class="feather-alert-triangle mr-2"></i> Error</a>
-        <ul>
-          <li><a href="not-found.html">Not Found</a></li>
-          <li><a href="maintence.html"> Maintence</a></li>
-          <li><a href="coming-soon.html">Coming Soon</a></li>
-        </ul>
-      </li>
-      <li>
-        <a href="#"><i class="feather-link mr-2"></i> Navigation Link Example</a>
-        <ul>
-          <li>
-            <a href="#">Link Example 1</a>
-            <ul>
-              <li>
-                <a href="#">Link Example 1.1</a>
-                <ul>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-              </li>
-              <li>
-                <a href="#">Link Example 1.2</a>
-                <ul>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                  <li><a href="#">Link</a></li>
-                </ul>
-              </li>
-            </ul>
-          </li>
-          <li><a href="#">Link Example 2</a></li>
-          <li><a href="#">Link Example 3</a></li>
-          <li><a href="#">Link Example 4</a></li>
-          <li data-nav-custom-content>
-            <div class="custom-message">
-              You can add any custom content to your navigation items. This
-              text is just an example.
-            </div>
-          </li>
+          <li><a href="/help">Contact Us</a></li>
         </ul>
       </li>
     </ul>
@@ -267,7 +204,7 @@
         </a>
       </li>
       <li class="ko-fi">
-        <a href="views/admin/help.view.php">
+        <a href="/help">
           <p class="h5 m-0"><i class="feather-phone"></i></p>
           Help
         </a>

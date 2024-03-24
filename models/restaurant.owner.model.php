@@ -29,6 +29,15 @@ function getFoodOrder($resid, $action){
     ]);
     return $statement->fetchAll();
 }
+function getFoodOrdered($resid, $action){
+    global $connection;
+    $statement = $connection->prepare("select sum(quantity), foodname, sum(total_price), time from orderdetails where restaurant_id = :resid && action = :action group by foodname order by quantity asc");
+    $statement->execute([
+        ':resid'=> $resid,
+        ':action'=> $action
+    ]);
+    return $statement->fetchAll();
+}
 
 function orderbyTimeInres($resid, $time, $actoin){
     global $connection;
@@ -63,4 +72,45 @@ function editeRestaurant($resid, $resname, $resimg, $resAddress, $resOpen, $resC
         ':resimg'=> $resimg,
         ':resid'=> $resid,
     ]);
+}
+
+function sumMoney($resid){
+    global $connection;
+    $statement = $connection->prepare("select sum(total_price) from orderdetails where restaurant_id = :resid && action = 4");
+    $statement->execute([':resid'=> $resid]);
+    return $statement->fetch();
+}
+
+function sumOrder($resid){
+    global $connection;
+    $statement = $connection->prepare("select count(user_id) from orderdetails where restaurant_id = :resid group by user_id");
+    $statement->execute([':resid'=> $resid]);
+    return $statement->fetch();
+}
+
+
+function sumCancelOrder(){
+    global $connection;
+    $statement = $connection -> prepare("select count(user_id) from orderdetails where action = 5");
+    $statement->execute();
+    return $statement->fetch();
+}
+
+
+function reviewOrder($resId, $customerId, $time, $content){
+    global $connection;
+    $statement = $connection->prepare("insert into orders (date, user_id, restaurant_id, content) values (:date, :user_id, :restaurant_id, :content)");
+    $statement->execute([
+        ':date'=>$time,
+        ':user_id'=>$customerId,
+        ':restaurant_id'=> $resId,
+        ':content'=> $content
+    ]);
+}
+
+function customerReview($time){
+    global $connection;
+    $statement = $connection->prepare("select * from orders where date = :time");
+    $statement->execute([':time'=> $time]);
+    return $statement->fetchAll();
 }

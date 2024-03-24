@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
-    <link rel="shortcut icon" href="assets/images/logo_web_red.png" type="image/x-icon">
-    <title>Foodride - Online Food Ordering Website Template</title>
+    <link rel="shortcut icon" href="assets/images/logo green.png" type="image/x-icon">
+    <title>Food-delivery</title>
 
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
@@ -28,25 +28,17 @@
             <source src="assets/images/bg.mp4" type="video/ogg" />
             Your browser does not support the video tag.
         </video>
-        <?php
-            if(isset($_SESSION['pwd']) && $_SESSION['pwd'] != ''){
-                echo "<script>alert('Your Password is wrong!!')</script>";
-                $_SESSION['pwd'] = '';
-            }
-        ?>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
                     <h2 class="text-dark my-0">Forget Password</h2>
                     <p class="text-50">enter your email to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/reset/new_password.controller.php" method ="post">
+                    <form class="mt-5 mb-4" action="controllers/sendMailresetPwd/sendMail.controller.php" method ="post" enctype="multipart/form-data">
                         <div class="form-group">
-                            <label for="inputEmail" class="text-dark">Email</label>
-                            <input type="email" placeholder="Enter Email" class="form-control" id="inputEmail"
+                            <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
                                 aria-describedby="emailHelp"  name="send_email" />
                         </div>
-
-                        <a href="/securityCode" type="button" class="btn btn-primary btn-lg btn-block">SEND</a>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">SEND</button>
                     </form>
                     <div class="d-flex align-items-center justify-content-center">
                         <a href="/signup">
@@ -174,6 +166,7 @@
             </li>
         </ul>
     </nav>
+
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/jquery/jquery.min.js"></script>
     <script type="c7cde99310a44e0c8a34cba7-text/javascript" src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 

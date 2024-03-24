@@ -112,7 +112,7 @@ ob_start();
       foreach ($responseOrderConfirm as $key => $value):
 
     ?>
-    <div class="card" style="width: 19rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
+    <div class="card" style="width: 25rem;" style="border-color: transparent !important;" border: 2px solid transparent; background-color: #ccc; cursor: pointer;" onmouseover="this.style.border='2px solid #EED7C5'" onmouseout="this.style.border='2px solid transparent'">
       <img src="assets/images/popular2.png" class="card-img-top" alt="...">
       <div class="card-body d-flex flex-column">
         <div class="contain-name d-flex mb-1">
@@ -124,10 +124,14 @@ ob_start();
           <p class="align-self-center"><?= $value['phoneNumber'] ?></p>
         </div>
         <div class="contain-loca d-flex mb-1">
-          <span class="card-text m-lg-1" style="font-weight:bold;">Location:</span>
+          <span class="card-text m-lg-1 " style="font-weight:bold;">Location:</span>
+          <p class="align-self-center">Kandieng, Pursat.</p>
+        </div>
+        <div class="contain-loca d-flex mb-1">
+          <span class="card-text m-lg-1" style="font-weight:bold;">Restaurant Location:</span>
           <p class="align-self-center"><?= $value['address'] ?></p>
         </div>
-        <a href="controllers/delivery/response.order.controller.php?orderAction=<?= $value['action'] ?>&adre=Passerelles numériques Cambodia" class="btn btn-success" style="font-size: 13px;">Complete</a>
+        <a href="controllers/delivery/completed.order.php?time=<?php echo $value['time'] ?>" class="btn btn-danger" style="font-size: 13px;">Complete</a>
       </div>
     </div>
     <?php endforeach; ?>

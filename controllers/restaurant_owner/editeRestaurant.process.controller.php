@@ -23,7 +23,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $error = $_FILES['my_image']['error'];
         
             if($error === 0){
-                if($img_size > 1200000){
+                if($img_size > 12000000){
                     header('Location: /profile');
                 }else{
                    
@@ -33,7 +33,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                     $allowed_exs = array("jpg", "jpeg", "png");
                     if(in_array($img_ex_lc, $allowed_exs)){
                         $new_img_name = uniqid("IMG-", true).'.'.$img_ex_lc;
-                        $img_upload_path = '../../assets/images/res_img'.$new_img_name;
+                        $img_upload_path = '../../assets/images/res_img/'.$new_img_name;
+                        move_uploaded_file($tmp_name, $img_upload_path);
                         $resimg = $new_img_name;
 
                         editeRestaurant($resid, $resname, $resimg, $resaddress, $resOpen, $resClose);
@@ -47,7 +48,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
     }
 }
-header('Location: /');
+header('Location: /edite_res');
 
 
 

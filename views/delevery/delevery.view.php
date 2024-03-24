@@ -123,7 +123,11 @@ ob_start();
           <p class="align-self-center"><?= $value['phoneNumber'] ?></p>
         </div>
         <div class="contain-loca d-flex mb-1">
-          <span class="card-text m-lg-1" style="font-weight:bold;">Location:</span>
+          <span class="card-text m-lg-1 " style="font-weight:bold;">Location:</span>
+          <p class="align-self-center">Kandieng, Pursat.</p>
+        </div>
+        <div class="contain-loca d-flex mb-1">
+          <span class="card-text m-lg-1" style="font-weight:bold;">Restaurant Location:</span>
           <p class="align-self-center"><?= $value['address'] ?></p>
         </div>
         <a href="controllers/delivery/response.order.controller.php?time=<?= $value['time'] ?>&adre=<?= $value['useraddress'] ?>" class="btn btn-danger" style="font-size: 13px;">Accept</a>
@@ -141,9 +145,8 @@ ob_start();
           <img class="border border-5" src="../../assets/images/user/IMG-65d9f4f69e5411.43011126.jpg" style="width: 20%; border-radius: 50%;" alt="...">
         </label>
         <input type="file" id="imageInput" style="display: none;" accept="image/*">
-
-        <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"></div>
-        <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;"></div>
+        <div class="username text-center fs-4" style="font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;">Chuon Veasna</div>
+        <div class="email text-secondary mb-3 m-auto" style="font-family: serif; font-style: italic;">chuonveasna123@gmail.com</div>
       </div>
       <div class="show-info" style="width:100%;">
         <input type="text" class="form-control mb-3" placeholder="Username" aria-label="username">

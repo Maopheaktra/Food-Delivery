@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="Gurdeep Osahan" />
     <meta name="author" content="Gurdeep Osahan" />
-    <link rel="shortcut icon" href="assets/images/logo_web_red.png" type="image/x-icon">
-    <title>Foodride - Online Food Ordering Website Template</title>
+    <link rel="shortcut icon" href="assets/images/logo green.png" type="image/x-icon">
+    <title>Food-delivery</title>
 
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick.min.css" />
     <link rel="stylesheet" type="text/css" href="vendor/slick/slick-theme.min.css" />
@@ -29,10 +29,6 @@
         </video>
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
-                <div class="px-5 col-10 mx-auto">
-                    <h2 class="text-dark my-0">Welcome Back</h2>
-                    <p class="text-50">Sign in to continue</p>
-                    <form class="mt-5 mb-4" action="controllers/signin/signin.acc.controller.php" method="post">
                 <div class="px-5 col-20 mx-auto">
                     <h2 class="text-dark my-0">Singn In</h2>
                     <form class="mt-4 mb-4" action="controllers/signin/signin.acc.controller.php" method="post">
