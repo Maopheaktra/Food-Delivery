@@ -138,12 +138,13 @@
                 </div>
                 <div class="favourite-heart text-danger position-absolute">
                   <a href="controllers/favorites/addfavo.controller.php?favoid=<?php echo $value[0]; ?>"><i class="feather-heart"></i></a>
+                  <a href="/restaurant?id=<?php print_r($value[0]) ?>"><i class="feather-heart"></i></a>
                 </div>
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant?id=<?php print_r($value[0]) ?>" style="background: red;">
-                  <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
+                <a href="/restaurant?id=<?php print_r($value[0]) ?>">
+                  <img alt="#" src="<?php print_r ($pic[$key]) ?>" />
                 </a>
               </div>
               <div class="p-3 position-relative">
@@ -249,7 +250,7 @@
                   <span class="badge badge-dark">Promoted</span>
                 </div>
                 <a href="/restaurant">
-                  <img alt="#" src="assets/images/res_img/<?php print_r($data[$i]['res_img'])?>" class="img-fluid item-img w-100" />
+                  <img alt="#" src="assets/images/sales1.png" class="img-fluid item-img w-100" />
                 </a>
               </div>
               <div class="p-3 position-relative">

@@ -11,6 +11,7 @@ $routes = [
     '/search' => 'controllers/search/search.controller.php',
     '/categories' => 'controllers/categories/categorie.controller.php',
     '/restaurant_location' => 'controllers/restaurant/show.map.controller.php',
+    '/help'=> 'controllers/help/help.controller.php',
 ];
 
 if (array_key_exists($uri, $routes)) {

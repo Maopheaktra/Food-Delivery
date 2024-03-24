@@ -32,6 +32,7 @@
             </div>
             <div class="form-group">
                 <input type="submit" id="send" name="send" value="Save" style="padding: 10px 0px; font-size: 18px; background-color: rgb(79, 171, 233); border: none; border-radius: 10px; color: white;"/>
+                <button style="padding: 10px 0px; font-size: 18px; background-color: rgb(79, 171, 233); border: none; border-radius: 10px; color: white;">Save</button>
             </div>
         </form>
     </div>

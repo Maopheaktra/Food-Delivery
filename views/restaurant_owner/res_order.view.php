@@ -130,7 +130,7 @@
 
                 </div>
                 <div class="card-footer">
-                    <button style="width: 100%;"><i class='bx bx-check'></i>Responsed</button>
+                    <button><i class='bx bx-check'></i>Responsed</button>
                 </div>
             </div>
             <?php endforeach; ?>

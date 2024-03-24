@@ -26,6 +26,29 @@
                       <button class="border-0 btn btn-outline-secondary text-dark bg-white btn-block">
                         <i class="feather-search"></i>
                       </button>
+          </div>
+          <div class="col-3 d-flex align-items-center m-none">
+            <div class="dropdown mr-3">
+              <a class="btn-border-1 text-white dropdown-toggle d-flex align-items-center py-3" href="#"
+                id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <div>
+                  <i class="feather-map-pin mr-2 primary-dark rounded-pill p-2 icofont-size"></i>
+                </div>
+                <div>
+                  <p class="text-white mb-0 small">Select Location</p>
+                  Jawaddi Ludhiana...
+                </div>
+              </a>
+              <div class="dropdown-menu p-0 drop-loc" aria-labelledby="navbarDropdown">
+                <div class="osahan-country">
+                  <div class="search_location bg-primary p-3 text-right">
+                    <div class="input-group rounded shadow-sm overflow-hidden">
+                      <div class="input-group-prepend">
+                        <button class="border-0 btn btn-outline-secondary text-dark bg-white btn-block">
+                          <i class="feather-search"></i>
+                        </button>
+                      </div>
+                      <input type="text" class="shadow-none border-0 form-control" placeholder="Enter Your Location" />
                     </div>
                     <input type="text" class="shadow-none border-0 form-control" id="search-area" placeholder="Enter Your Location" />
                   </div>
@@ -111,6 +134,52 @@
             <a class="toggle" href="#">
               <span></span>
             </a>
+
+          <div class="col-8">
+            <div class="d-flex align-items-center justify-content-end pr-5">
+              <a href="/search" class="widget-header mr-4 text-white">
+                <div class="icon d-flex align-items-center">
+                  <i class="feather-search h6 mr-2 mb-0"></i>
+                  <span>Search</span>
+                </div>
+              </a>
+
+              <a href="offers.html" class="golden-btn widget-header mr-4 text-dark btn m-none">
+                <div class="icon d-flex align-items-center">
+                  <i class="feather-disc h6 mr-2 mb-0"></i>
+                  <span>Offers</span>
+                </div>
+              </a>
+
+              <div class="dropdown mr-4 m-none">
+                <a href="#" class="dropdown-toggle text-white py-3 d-block" id="dropdownMenuButton"
+                  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <?php
+                    $img = showPf($_SESSION['userid']);
+                  ?>
+                  <img alt="#" src="<?php print_r('assets/images/user/'.$img[7]) ?>" class="img-fluid header-user mr-2 header-user" style="width: 40px; height: 40px; border-radius: 50%;"/>
+                  <?php print_r($img[1]) ?>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" href="/profile">My account</a>
+                  <a class="dropdown-item" href="faq.html">Delivery support</a>
+                  <a class="dropdown-item" href="#footer">Contant us</a>
+                  <a class="dropdown-item" href="terms.html">Term of use</a>
+                  <a class="dropdown-item" href="privacy.html">Privacy policy</a>
+                  <a class="dropdown-item" href="controllers/signout/signout.controller.php">Logout</a>
+                </div>
+              </div>
+
+              <a href="/order" class="widget-header mr-4 text-white">
+                <div class="icon d-flex align-items-center">
+                  <i class="feather-shopping-cart h6 mr-2 mb-0"></i>
+                  <span>My order</span>
+                </div>
+              </a>
+              <a class="toggle" href="#">
+                <span></span>
+              </a>
+            </div>
           </div>
         </div>
       </div>

@@ -46,11 +46,8 @@
     display: none;
 }
 .card{
-<<<<<<< HEAD
+
     width: 300px;
-=======
-    width: 400px;
->>>>>>> restaurant_response_order
     height: auto;
     display: flex;
     flex-direction: column;
@@ -81,28 +78,22 @@
 }
 
 .card-footer{
-<<<<<<< HEAD
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: center;
-=======
     width: 100%;
     height: 30px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0;
->>>>>>> restaurant_response_order
 }
 .card-footer button{
     border: none;
     padding: 7px 10px;
-<<<<<<< HEAD
     width: 150px;
-=======
-    width: 110px;
->>>>>>> restaurant_response_order
+    width: 150px;
     border-radius: 5px;
     background: red;
     font-weight: bold;

@@ -7,6 +7,7 @@ $routes = [
     '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
     '/securityCode' => 'controllers/reset/forgetPass_code.controller.php',
     '/recoverPassword' => 'controllers/reset/new_Password.controller.php',
+    '/changePwd' => 'controllers/reset/change_password.controller.php'
     // '/createRes'=> 'controllers/restaurant_owner/create_restaurant.controller.php',
 ];
 

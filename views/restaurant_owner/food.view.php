@@ -8,7 +8,7 @@
         <input type="text" placeholder="Enter keywords ..." required>
       </div>
     </div>
-    <div class="main-nav-end"> 
+    <div class="main-nav-end">
       <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
         <span class="sr-only">Toggle menu</span>
         <span class="icon menu-toggle--gray" aria-hidden="true"></span>
@@ -140,6 +140,9 @@
                 <?php endforeach; ?>
               </select>
               </div>
+                <label for="cate_id" class="form-label">Price:</label>
+                <input type="number" name="cate_id"class="form-control" id="cate_id" placeholder="Category ID">
+            </div>
             <div class="mb-3">
                 <label for="descriptiom" class="form-label">Description:</label>
                 <textarea class="form-control" name="description" rows="3" id="description" placeholder = "Description"></textarea></div>
@@ -200,6 +203,9 @@
   $_SESSION['editFood'] = '';
   endif; 
   ?>
+        </form>
+      </div>
+    </div>
     <?php
 echo "<script>
      

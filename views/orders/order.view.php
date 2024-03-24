@@ -1,5 +1,10 @@
 <?php
+<<<<<<< HEAD
     $FoodOrders = getAllorder($_SESSION['userid']);
+=======
+    $FoodOrders = (getOrderFood($_SESSION['userid'], 0));
+    $cancelFood = (getOrderFood($_SESSION['userid'], 1));
+>>>>>>> change_password
     $completedFood = (getOrderFood($_SESSION['userid'], 4));
 ?>
 <div class="d-none">
@@ -64,7 +69,8 @@
                                             <span class="text-dark font-weight-bold"><?= $completTotalprice.'$' ?></span>
                                         </div>
                                         <div class="text-right">
-                                            <a href="#" class="btn btn-primary px-3">View detail</a>
+                                            <a href="checkout.html" class="btn btn-primary px-3">Reorder</a>
+                                            <a href="contact-us.html" class="btn btn-outline-primary px-3">Help</a>
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +106,7 @@
                                         <div class="small">
                                             <?php
                                             $total_price = 0;
-                                            $foodName = orderbyTime($_SESSION['userid'], $value['time']);
+                                            $foodName = orderbyTime($_SESSION['userid'], $value['time'], 0);
                                             foreach ($foodName as $name):
                                                 $total_price += $name['total_price'];
                                             ?>
@@ -109,6 +115,55 @@
                                         </div>
                                         <div class="text-muted m-0 ml-auto mr-3 small">Total Payment<br>
                                             <span class="text-dark font-weight-bold"><?php echo $total_price.'$' ?></span>
+                                        </div>
+                                        <div class="text-right">
+                                            <a href="controllers/orders/cancel.controller.php?orderid=<?php echo $value['time'] ?>" class="btn btn-primary px-3">Track</a>
+                                            <a href="contact-us.html" class="btn btn-outline-primary px-3">Help</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <?php endforeach; ?>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="canceled" role="tabpanel" aria-labelledby="canceled-tab">
+                        <div class="order-body">
+                            <div class="pb-3">
+                                
+                            <?php
+                            foreach ($cancelFood as $key => $value):
+                            ?>
+                                <div class="p-3 rounded shadow-sm bg-white">
+                                    <div class="d-flex border-bottom pb-3">
+                                        <div class="text-muted mr-3">
+                                            <img alt="#" src="assets/images/popular6.png" class="img-fluid order_img rounded">
+                                        </div>
+                                        <div>
+                                        <p class="mb-0 font-weight-bold"><a href="restaurant.html"
+                                                    class="text-dark"><?php echo detailRes($value['restaurant_id'])['restaurant_name']?></a></p>
+                                            <p class="mb-0"><?php echo detailRes($value['restaurant_id'])['address']?></p>
+                                            <p class="mb-0 small"><a href="status_onprocess.html">View Details</a></p>
+                                        </div>
+                                        <div class="ml-auto">
+                                            <p class="bg-danger text-white py-1 px-2 rounded small mb-1 text-center">Payment failed
+                                            </p>
+                                            <p class="small font-weight-bold text-center"><i class="feather-clock"></i>
+                                            <?php echo $value['time'] ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex pt-3">
+                                        <div class="small">
+                                        <?php
+                                            $orderCancels = orderbyTime($_SESSION['userid'], $value['time'], 1);
+                                            $cancelPrice = 0;
+                                            foreach ($orderCancels as $ordercancel):
+                                                $cancelPrice += $ordercancel['total_price'];
+                                        ?>
+                                        <p class="text- font-weight-bold mb-0"><?php echo $ordercancel['foodname'].' '.'x'.' '.$ordercancel['quantity']; ?></p>
+                                        <?php endforeach; ?>
+                                        </div>
+                                        <div class="text-muted m-0 ml-auto mr-3 small">Total Payment<br>
+                                            <span class="text-dark font-weight-bold"><?php echo $cancelPrice.'$' ?></span>
                                         </div>
                                         <div class="text-right">
                                             <a href="controllers/orders/cancel.controller.php?orderid=<?php echo $value['time'] ?>" class="btn btn-primary px-3">Cancel</a>
@@ -126,6 +181,7 @@
                                 <?php endif; ?>
                                 <?php endforeach; ?>
                             </div>
+                            <?php endforeach; ?>
                         </div>
                     </div>
                 </div>

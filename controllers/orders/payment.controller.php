@@ -18,6 +18,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         }
         header('Location: /order');
     }
+<<<<<<< HEAD
     if(isset($address)){
         if($address != ''){
 
@@ -44,4 +45,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 }else{
     $_SESSION['worngpay'] = 'You need to add food';
     header('location: /restaurant?id='.$_GET['id']);
+=======
+>>>>>>> change_password
 }

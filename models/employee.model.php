@@ -212,9 +212,9 @@ function showCmtOfRes($resID){
 
 //order========
 
-function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time, $address){
+function orderFood($foodname, $user_id, $qty, $res_id, $total_price, $time){
     global $connection;
-    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time, useraddress) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time, :address)");
+    $statement = $connection->prepare("insert into orderdetails(foodname, user_id, quantity, restaurant_id, total_price, action, time) values (:foodname, :user_id, :qty, :res_id, :total_price, 0, :time)");
     $statement->execute([
         ':foodname'=>$foodname,
         ':user_id'=>$user_id,
@@ -286,13 +286,14 @@ function updateCate($cateid, $catename, $description){
     ]);
 }
 
-function deleteFood($foodid){
-    global $connection;
-    $statement = $connection->prepare("delete from foods where Food_id = :foodid");
-    $statement->execute([':foodid'=> $foodid]);
-}
+// function getCatebyId($cateid){
+//     global $connection;
+//     $statement = $connection->prepare("select * from categories where category_id = :cateid");
+//     $statement->execute(['cateid'=> $cateid]);
+//     return $statement->fetch();
+// }
 
-function updateFood($foodid, $foodname, $description,$price){
+function getAdmin(){
     global $connection;
     $statement = $connection->prepare("update foods set Foodname = :foodname, description = :description, price = :price where Food_id = :foodid");
     $statement->execute([
@@ -340,4 +341,7 @@ function selectResbyProvince($address){
     $statement = $connection->prepare("select * from restaurants where address = :address");
     $statement->execute([':address'=> $address]);
     return $statement->fetchAll();
+    $statement = $connection->prepare("select * from users where role_id = 4");
+    $statement->execute();
+    return $statement->fetch();
 }

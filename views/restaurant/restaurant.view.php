@@ -262,11 +262,11 @@
                         <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$0</span></h6>
                     </div>
                     <div class="p-3">
-                        <button class="btn btn-success btn-block btn-lg" type="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">PAY $0<i
+                        <button class="btn btn-success btn-block btn-lg" type="submit" >PAY $0<i
                                 class="feather-arrow-right"></i></button>
-                        </div>
                     </div>
-                </form>
+                </div>
+            </form>
         </div>
     </div>
 
