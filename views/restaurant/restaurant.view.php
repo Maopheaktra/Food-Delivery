@@ -82,7 +82,7 @@
                                         <div class="mr-3 font-weight-bold text-danger non_veg">.</div>
                                         <div class="media-body">
                                             <h6 class="mb-1"><?php echo $food[1] ?> </h6>
-                                            <p class="text-muted mb-0"><?php echo $food[3]; ?></p>
+                                            <p class="text-muted mb-0">$<span><?php echo $food[3]; ?></span></p>
                                             <input type="hidden" value="<?php echo $food[0]?>">
                                         </div>
                                     </div>
@@ -242,7 +242,7 @@
             <form class="col-md-4 pt-3" action="controllers/orders/payment.controller.php?id=<?php echo $_GET['id'] ?>" method="post">
                 <div class="osahan-cart-item rounded rounded shadow-sm overflow-hidden bg-white sticky_sidebar">
                     <div class="d-flex border-bottom osahan-cart-item-profile bg-white p-3">
-                        <img alt="osahan" src="assets/images/starter1.jpg" class="mr-3 rounded-circle img-fluid">
+                        <img alt="osahan" src="assets/images/res_img/<?= $resDetail['res_img']?>" style="width: 50px; height: 50px; border-radius: 50%; margin-right: 5px;">
                         <div class="d-flex flex-column">
                             <h6 class="mb-1 font-weight-bold"><?php echo $resDetail[1] ?></h6>
                             <p class="mb-0 small text-muted"><i class="feather-map-pin"></i> <?php echo $resDetail[2] ?></p>
@@ -254,15 +254,8 @@
                     <div class="bg-white p-3 clearfix border-bottom">
                         <input type="text" name="address" placeholder="Your location" class="form-control" id="exampleInputName" />
                     </div>
-                    <div class="bg-white p-3 clearfix border-bottom">
-                        <p class="mb-1">Item Total <span class="float-right text-dark">$0</span></p>
-                        <p class="mb-1">Delivery Fee<span class="text-info ml-1"><i
-                                    class="feather-info"></i></span><span class="float-right text-dark">$0</span>
-                        <hr>
-                        <h6 class="font-weight-bold mb-0">TO PAY <span class="float-right">$0</span></h6>
-                    </div>
                     <div class="p-3">
-                        <button class="btn btn-success btn-block btn-lg" type="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">PAY $0<i
+                        <button class="btn btn-success btn-block btn-lg" type="submit" data-toggle="modal" data-target="#exampleModal" data-whatever="@getbootstrap">CHECKOUT<i
                                 class="feather-arrow-right"></i></button>
                         </div>
                     </div>
@@ -303,7 +296,6 @@
           Profile
         </a>
       </div>
-    </div>
     </div>
   </div>
     </div>

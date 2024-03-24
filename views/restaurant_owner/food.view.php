@@ -65,7 +65,6 @@
                       <thead>
                           <tr>
                               <!-- <th scope="col">Food_ID</th> -->
-                              <th scope="col">Food_ID</th>
                               <th scope="col">Photo</th>
                               <th scope="col">Food Name</th>
                               <th scope="col">Description</th>
@@ -88,8 +87,7 @@
                         $foods = $statement->fetchAll();
                         foreach ($foods as $index => $food):?>
                         <tr>
-                          <td scope="row" style="vertical-align: bottom; text-align: center;"><?= $index+1 ?></td>
-                          <td style="vertical-align: bottom;"><img src="assets/images/popular3.png" alt="" style ="width:70px" class = "img-responsive"></td>
+                          <td style="vertical-align: bottom;"><img src="assets/images/food/<?= $food['food_img'] ?>" alt="" style ="width:70px; height: 50px;" class = "img-responsive"></td>
                           <td style="vertical-align: bottom;"><?=$food['Foodname'];?></td>
                           <td style="vertical-align: bottom;"><?=$food['description'];?></td>
                           <td style="vertical-align: bottom;"><?=$food['price']."$";?></td>
@@ -113,7 +111,7 @@
 </main>
 <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display:none; z-index: 999; width:100%; height:100%">
       <div id="add-food popup-food" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-food popup-food" action="controllers/Food/create_food.controller.php" method="post">
+        <form class="add-food popup-food" enctype="multipart/form-data" action="controllers/Food/create_food.controller.php" method="post">
             <h1>Create Food</h1>
             <div class="mb-3">
             <label for="username" class="form-label">Image:</label>
@@ -153,12 +151,12 @@
     <?php 
     if(isset($_SESSION['editFood']) && $_SESSION['editFood'] != ''): 
       $food = getFoodbyId($_SESSION['editFood']);
-      print_r($food['Foodname']);
+      // print_r($food['Foodname']);
      
     ?>
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-cate popup-cate" action="controllers/Food/editFood.controller.php" style="width:100%; height:100%"  method="post">
+        <form class="add-cate popup-cate" enctype="multipart/form-data" action="controllers/Food/editFood.controller.php" style="width:100%; height:100%"  method="post">
             <h1 class="text-center">Edit Food</h1>
             <div class="mb-3">
               <label for="username" class="form-label"></label>
@@ -188,8 +186,6 @@
               </select>
               </div>          
         <div class="mb-3">
-          <label for="descriptiom" class="form-label">Description:</label>
-          <textarea class="form-control" name="description" rows="5" id="description"></textarea></div>
           <button type="submit" class="btn btn-primary">Update</button>
           <a href="/all_food" class="btn btn-danger" >cancel</a>
         </div>

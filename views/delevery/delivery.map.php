@@ -115,8 +115,8 @@ ob_start();
     }
     }else{
       ?>
-      <iframe width="100%" height="500" src="https://maps.google.com/maps?output=embed"></iframe>
-        <?php
+        <iframe width="100%" height="500" src="https://maps.google.com/maps?output=embed"></iframe>
+          <?php
     }
 ?>
 

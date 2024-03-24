@@ -65,7 +65,7 @@
                   <table class = "table" style="margin-top: 30px;">
                       <thead>
                           <tr>
-                              <th scope="col">Cate_ID</th>
+                              <!-- <th scope="col">Cate_ID</th> -->
                               <th scope="col">Photo</th>
                               <th scope="col">Category's Name</th>
                               <th scope="col">Description</th>
@@ -80,13 +80,12 @@
                         
                         foreach ($categories as $category):?>
                         <tr>
-                          <td scope="row" style="vertical-align: bottom; text-align: center;"><?=$category['category_id'];?></td>
-                          <td style="vertical-align: bottom;"><img src="assets/images/icons/<?= $category['cate_img']; ?>" alt="" style ="width:70px" class = "img-responsive"></td>
+                          <td style="vertical-align: bottom;"><img src="assets/images/icons/<?= $category['cate_img']; ?>" alt="" style ="width:40px" class = "img-responsive"></td>
                           <td style="vertical-align: bottom;"><?=$category['name'];?></td>
                           <td style="vertical-align: bottom;"><?=$category['description'];?></td>
                           <td style="vertical-align: bottom;">
-                          <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>" class = "btn btn-success">Edit</a>
-                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>" class="btn btn-danger">Delete</a>
+                          <a href="controllers/restaurant_owner/edit_categories.restaurant.controller.php?cateid=<?= $category['category_id']; ?>"><i data-feather="edit" style="font-size:48px;color:green"></i></a>
+                            <a href="controllers/restaurant_owner/delete_categories.restaurant.controller.php?cateid=<?=$category['category_id'];?>"><i data-feather="trash-2" style="font-size:48px;color:red"></i></a>
                           </td>
                         </tr>
                         <?php endforeach;?>
@@ -100,7 +99,7 @@
 </main>
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="display:none; z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
-        <form class="add-cate popup-cate" action="controllers/categories/create_category.controller.php" method="post">
+        <form class="add-cate popup-cate" enctype="multipart/form-data" action="controllers/categories/create_category.controller.php" method="post">
         <h1>Create Category</h1>
         <div class="mb-3">
           <label for="username" class="form-label">Image:</label>
@@ -127,7 +126,7 @@
     <div class="container-pop bg-dark text-dark bg-opacity-50 position-fixed top-50 start-50 translate-middle" style="z-index: 999; width:100%; height:100%">
       <div id="add-cate popup-cate" class="col-6 m-auto p-4 mt-3 bg-light">
         <form class="add-cate popup-cate" action="controllers/restaurant_owner/editcategory.controller.php" method="post">
-        <h1>Edit Category</h1>
+        <h1>Edite Category</h1>
         <div class="mb-3">
           <label for="username" class="form-label">Image:</label>
           <input type="file" name="my_image" id="image">

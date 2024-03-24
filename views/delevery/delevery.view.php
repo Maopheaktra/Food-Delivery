@@ -123,7 +123,11 @@ ob_start();
           <p class="align-self-center"><?= $value['phoneNumber'] ?></p>
         </div>
         <div class="contain-loca d-flex mb-1">
-          <span class="card-text m-lg-1" style="font-weight:bold;">Location:</span>
+          <span class="card-text m-lg-1 " style="font-weight:bold;">Location:</span>
+          <p class="align-self-center">Kandieng, Pursat.</p>
+        </div>
+        <div class="contain-loca d-flex mb-1">
+          <span class="card-text m-lg-1" style="font-weight:bold;">Restaurant Location:</span>
           <p class="align-self-center"><?= $value['address'] ?></p>
         </div>
         <a href="controllers/delivery/response.order.controller.php?time=<?= $value['time'] ?>&adre=<?= $value['useraddress'] ?>" class="btn btn-danger" style="font-size: 13px;">Accept</a>

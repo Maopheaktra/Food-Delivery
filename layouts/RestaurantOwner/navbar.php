@@ -66,7 +66,9 @@
                             <a href="/comment">Comments</a>
                         </li>
                         <li>
-                            <a href="/res_order">Order</a>
+                            <a href="/res_order">Order
+                            <span class="msg-counter"><?php echo count($padding) ?></span>
+                            </a>
                         </li>
                     </ul>
                 </li>
