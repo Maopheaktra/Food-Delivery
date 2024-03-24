@@ -14,7 +14,7 @@
 }
 
 .slick-slider {
-    margin: 0 -8px;
+    margin: 0 -8px
 }
 
 .slick-slide {
@@ -661,8 +661,8 @@ p {
 
 .custom-control-input:checked~.custom-control-label::before {
     color: #fff;
-    border-color: #28a745;
-    background-color: #28a745
+    border-color: #b10101;
+    background-color: #b10101
 }
 
 .gold-members h6,.menu-list h6 {

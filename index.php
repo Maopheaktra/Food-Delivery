@@ -22,7 +22,13 @@ if (isset($_SESSION["email"])) {
     }
     elseif($_SESSION['role'] == 4){
         require "admin_router.php";
-    } 
+    } elseif(isset($_SESSION['paymentCard'])){
+        if($_SESSION['paymentCard'] != ''){
+            require 'checkout.router.php';
+        }else{
+            require 'router.php';
+        }
+    }
     else{
         require 'router.php';
     }

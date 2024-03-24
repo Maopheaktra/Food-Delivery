@@ -5,8 +5,8 @@ $routes = [
     '/' => 'controllers/signin/signin.controller.php',
     '/signup' => 'controllers/signup/signup.controller.php',
     '/resetPwd' => 'controllers/reset/reset_Password.controller.php',
-    '/securityCode' => 'controllers/reset/forgetPass_code.controller.php',
-    '/recoverPassword' => 'controllers/reset/new_Password.controller.php',
+    '/digitCode' => 'controllers/reset/getcode.controller.php',
+    '/newPwd' => 'controllers/reset/resset_newpassword.controller.php',
     // '/createRes'=> 'controllers/restaurant_owner/create_restaurant.controller.php',
 ];
 
