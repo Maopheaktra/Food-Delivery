@@ -10,7 +10,7 @@ foreach ($categories as $key => $value) {
   $numberOfFood += count($foods); 
 }
 
-$orderedFood = getFoodOrdered($resId, 4);
+$orderedFood = getFoodOrdered($resId, 5);
 
 ?>
 

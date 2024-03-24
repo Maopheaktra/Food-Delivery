@@ -63,7 +63,7 @@
                             </div>
                         </div>
                         <div class="form-group" style="display: flex; justify-content: space-between;">
-                            <a href="controllers/restaurant_owner/cancel_restaurant.controller.php" class="btn btn-primary btn-lg" style="width: 30%;">Cancel</a>
+                            <a href="controllers/restaurant_owner/cancel_restaurant.controller.php" class="btn btn-lg" style="width: 30%; background: red; color: white;">Cancel</a>
                             <button class="btn btn-success btn-lg text-white" style="width: 30%;">Create</button>
                         </div>
                     </form>

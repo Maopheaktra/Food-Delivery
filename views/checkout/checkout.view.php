@@ -88,8 +88,9 @@ if(isset($_SESSION['paymentCard'])){
                                                             card for a faster checkout next time.</label></div>
                                                             
                                                 </div>
-                                                <div class="col-md-12 form-group mb-0">
-                                                <button class="btn btn-success btn-block btn-lg">PAY FOR YOUR ORDER <i
+                                                <div class="col-md-12 form-group mb-0" style="display: flex; justify-content: space-between;">
+                                                <a href="controllers/checkout/cancel_checkout.controller.php" class="btn btn-blcok" style="background: red; color: white; height: 100%; width: 45%;">Cancel</a>
+                                                <button class="btn btn-success btn-block" style="height: 100%; width: 45%;">PAY FOR YOUR ORDER <i
                                     class="feather-arrow-right"></i></button>
                                                 </div>
                                             </div>

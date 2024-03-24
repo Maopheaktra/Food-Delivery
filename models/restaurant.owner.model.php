@@ -76,7 +76,7 @@ function editeRestaurant($resid, $resname, $resimg, $resAddress, $resOpen, $resC
 
 function sumMoney($resid){
     global $connection;
-    $statement = $connection->prepare("select sum(total_price) from orderdetails where restaurant_id = :resid && action = 4");
+    $statement = $connection->prepare("select sum(total_price) from orderdetails where restaurant_id = :resid && action = 5");
     $statement->execute([':resid'=> $resid]);
     return $statement->fetch();
 }
