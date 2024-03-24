@@ -113,6 +113,10 @@ ob_start();
         <iframe width="100%" height="500" src="https://maps.google.com/maps?output=embed"></iframe>
             <?php                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
     }
+    }else{
+      ?>
+        <iframe width="100%" height="500" src="https://maps.google.com/maps?output=embed"></iframe>
+          <?php
     }
 ?>
 

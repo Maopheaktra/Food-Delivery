@@ -28,7 +28,7 @@
         ?>
         <div class="cat-item px-1 py-3">
           <a class="bg-white rounded d-block p-2 text-center shadow-sm" href="controllers/categories/categories.filter.controller.php?cateid=<?= $value[0]; ?>">
-            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" />
+            <img alt="#" src="assets/images/icons/<?= $value['cate_img']?> " class="img-fluid mb-2" style="width: 150px; height: 80px;" />
             <p class="m-0 small"><?php echo $value[2] ?></p>
           </a>
         </div>
@@ -60,46 +60,40 @@
       <div class="most_popular">
         <div class="row">
 
-        <?php foreach ($categories as $value): ?>
+        <?php 
+          $cateid = $_SESSION['cateid'];
+          $foodFilter = getAllFoodByid($cateid); 
+        ?>
+        <?php foreach ($foodFilter as $value): ?>
 
           <div class="col-md-3 pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
-              <div class="list-card-image">
+              <div class="list-card-image" style="height: 20vh;">
                 <div class="star position-absolute">
-                  <span class="badge badge-success"><i class="feather-star"></i> 3.1 (300+)</span>
+                  <span class="badge badge-success">$<?= $value['price']?></span>
                 </div>
                 <div class="favourite-heart text-danger position-absolute">
                   <a href="#"><i class="feather-heart"></i></a>
                 </div>
-                <div class="member-plan position-absolute">
-                  <span class="badge badge-dark">Promoted</span>
-                </div>
-                <a href="/restaurant">
-                  <img alt="#" src="assets/images/popular1.png" class="img-fluid item-img w-100" />
+                <a href="/restaurant?id=<?= $value['restaurant_id'] ?>">
+                  <img alt="#" src="assets/images/food/<?= $value['food_img'] ?>" style="width: 100%; height: 100%;" />
                 </a>
               </div>
               <div class="p-3 position-relative">
                 <div class="list-card-body">
                   <h6 class="mb-1">
-                    <a href="/restaurant" class="text-black"> <?php print_r($value[1]) ?>
+                    <a href="/restaurant" class="text-black"> <?php print_r($value['Foodname']) ?>
                     </a>
                   </h6>
-                  <p class="text-gray mb-1 small"><?php print_r($value[2]) ?></p>
+                  <a href="/restaurant?id=<?= $value['restaurant_id'] ?>" class="text-gray mb-1 small"><?php print_r($value['restaurant_name']) ?></a>
                   <p class="text-gray mb-1 rating"></p>
-                  <ul class="rating-stars list-unstyled">
-                    <li>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star star_active"></i>
-                      <i class="feather-star"></i>
-                    </li>
-                  </ul>
                   <p></p>
                 </div>
                 <div class="list-card-badge">
-                  <span class="badge badge-danger">OFFER</span>
-                  <small>65% OSAHAN50</small>
+                  <a href="/restaurant?id=<?= $value['restaurant_id'] ?>" class="btn bg-success text-white "><i class='bx bxs-cart-download bx-tada' style="font-size: 18px;" ></i> ORDER</a>
+                </div>
+                <div class="star position-absolute" style="margin-bottom: 5%;">
+                <span style="width: 40%; font-size: 18px; display: flex; justify-content: center; align-item: center;">$<?= $value['price']?></span>
                 </div>
               </div>
             </div>

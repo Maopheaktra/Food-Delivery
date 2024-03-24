@@ -1,3 +1,19 @@
+<?php 
+$resId = $_SESSION['res_own']['restaurant_id'];
+$categories = getCateInres($resId);
+$numberOfFood = 0;
+foreach ($categories as $key => $value) {
+  $cateid = $value['category_id'];
+  $statement = $connection->prepare("SELECT * FROM foods where category_id = $cateid");
+  $statement->execute();
+  $foods = $statement->fetchAll();
+  $numberOfFood += count($foods); 
+}
+
+$orderedFood = getFoodOrdered($resId, 4);
+
+?>
+
 <div class="main-wrapper">
     <!-- ! Main nav -->
     <nav class="main-nav--bg">
@@ -100,83 +116,264 @@
     </div>
   </div>
 </nav>
-    <!-- ! Main -->
-<main class="main users chart-page" id="skip-target">
-      <div class="container">
-        <h2 class="main-title">Dashboard</h2>
-        <div class="row stat-cards">
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item">
-              <div class="stat-cards-icon primary">
-                <i data-feather="bar-chart-2" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info">
-                <p class="stat-cards-info__num">1478 286</p>
-                <p class="stat-cards-info__title">Total visits</p>
-                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit success">
-                    <i data-feather="trending-up" aria-hidden="true"></i>4.07%
-                  </span>
-                  Last month
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item">
-              <div class="stat-cards-icon warning">
-                <i data-feather="file" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info">
-                <p class="stat-cards-info__num">1478 286</p>
-                <p class="stat-cards-info__title">Total visits</p>
-                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit success">
-                    <i data-feather="trending-up" aria-hidden="true"></i>0.24%
-                  </span>
-                  Last month
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item">
-              <div class="stat-cards-icon purple">
-                <i data-feather="file" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info">
-                <p class="stat-cards-info__num">1478 286</p>
-                <p class="stat-cards-info__title">Total visits</p>
-                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit danger">
-                    <i data-feather="trending-down" aria-hidden="true"></i>1.64%
-                  </span>
-                  Last month
-                </p>
-              </div>
-            </article>
-          </div>
-          <div class="col-md-6 col-xl-3">
-            <article class="stat-cards-item">
-              <div class="stat-cards-icon success">
-                <i data-feather="feather" aria-hidden="true"></i>
-              </div>
-              <div class="stat-cards-info">
-                <p class="stat-cards-info__num">1478 286</p>
-                <p class="stat-cards-info__title">Total visits</p>
-                <p class="stat-cards-info__progress">
-                  <span class="stat-cards-info__profit warning">
-                    <i data-feather="trending-up" aria-hidden="true"></i>0.00%
-                  </span>
-                  Last month
-                </p>
-              </div>
-            </article>
-          </div>
+    <!-- ! Main --->
+
+    <main class="main users chart-page" id="skip-target">
+    <div class="container">
+      <div class="row stat-cards">
+        <div class="col-md-6 col-xl-3">
+          <article class="stat-cards-item">
+            <div class="stat-cards-icon primary">
+              <img src="../../assets/images/icons/cutlery.png" alt="categories">
+            </div>
+            <div class="stat-cards-info">
+              <p class="stat-cards-info__num">
+                <?= count($categories); ?>
+              </p>
+              <p class="stat-cards-info__title">All Categories</p>
+            </div>
+          </article>
+        </div>
+
+
+        
+
+        <div class="col-md-6 col-xl-3">
+          <article class="stat-cards-item">
+            <div class="stat-cards-icon warning">
+              <img src="../../assets/images/icons/bibimbap.png" alt="foods">
+            </div>
+            <div class="stat-cards-info">
+              <p class="stat-cards-info__num">
+                <?= $numberOfFood; ?>
+              </p>
+              <p class="stat-cards-info__title">All Foods</p>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-md-6 col-xl-3">
+          <article class="stat-cards-item">
+            <div class="stat-cards-icon purple">
+              <img src="../../assets/images/icons/return-of-investment.png" alt="profit">
+            </div>
+            <div class="stat-cards-info">
+              <p class="stat-cards-info__num">$
+                <?= sumMoney($resId)['sum(total_price)'] ?>.00
+              </p>
+              <p class="stat-cards-info__title">Profitable</p>
+            </div>
+          </article>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <article class="stat-cards-item">
+            <div class="stat-cards-icon success">
+              <img src="../../assets/images/icons/online-order.png" alt="orders">
+            </div>
+            <div class="stat-cards-info">
+              <p class="stat-cards-info__num">
+                <?php if(isset(sumOrder($resId)['count(user_id)'])): ?> 
+                  <?= sumOrder($resId)['count(user_id)'] ?> people
+                <?php else: ?>
+                  0 people
+                <?php endif; ?>
+              </p>
+              <p class="stat-cards-info__title">All Orders</p>
+            </div>
+          </article>
         </div>
       </div>
     </div>
+
+
+
+
+    <div class="container chart-summary mb-3 ">
+
+
+<div class="shadow-sm card w-100 bg-white p-0 m-0" style="border: none; box-sizing: box">
+
+  <div class="card-header bg-white border-0" style="height: 50px">
+    <div class=" bg-body-secondary d-flex justify-content-between w-100">
+      <h1>Header</h1>
+      <button class="btn btn-primary shadow-none" style="width:100px;" id="change-chart">Classic</button>
+    </div>
   </div>
+
+
+  <div class="card-body border-none rounded-0 p-0 bg-white">
+    <div class="d-flex justify-content-between align-items-center">
+
+      <div class="shadow-sm col-5 rounded border mx-2">
+        <aside class="" id="donutchart" style="height: 340px;">
+
+            <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript">
+              google.charts.load("current", {packages:["corechart"]});
+              google.charts.setOnLoadCallback(drawChart);
+              function drawChart() {
+                let data = google.visualization.arrayToDataTable([
+                  ['Task', 'Hours per Day'],
+                  ['Profit',     <?= sumMoney($resId)['sum(total_price)'] ?>],
+                  ['Cancel',     <?= sumCancelOrder()['count(user_id)'] ?>],
+                  ['Orders',  <?= sumOrder($resId)['count(user_id)'] ?>],
+                ]);
+
+                let options = {
+                  title: 'My Daily ',
+                  pieHole: 0.4,
+                };
+
+                let chart = new google.visualization.PieChart(document.getElementById('donutchart'));
+                chart.draw(data, options);
+              }
+            </script>
+
+
+
+        </aside>
+      </div>
+
+
+        <div class="shadow-sm col rounded mx-2 border border-light-subtle" style="background-color: rgba(0, 0, 0, 0) !important;">
+          <aside class="p-1" id="chart_div" style="height: 340px; background-color: transparent !important;">
+
+
+            <script type="text/javascript">
+                google.charts.load('current', {'packages':['bar']});
+                google.charts.setOnLoadCallback(drawChart);
+
+                function drawChart() {
+                  var date = new Date();
+                  var currentYear = date.getFullYear();
+
+                  var data = google.visualization.arrayToDataTable([
+                    ['Month', 'Sales', 'Expenses', 'Profit'],
+                    ['January ' + currentYear, 1000, 400, 200],
+                    ['February ' + currentYear, 1170, 460, 250],
+                    ['March ' + currentYear, 660, 1120, 300],
+                    ['April ' + currentYear, 1030, 540, 350],
+                    ['May ' + currentYear, 1030, 540, 350],
+                    ['June ' + currentYear, 1030, 540, 350],
+                    ['July ' + currentYear, 1030, 540, 350],
+                    ['August ' + currentYear, 1030, 540, 350],
+                    ['September ' + currentYear, 1030, 540, 350],
+                    ['October ' + currentYear, 1030, 540, 350],
+                    ['November ' + currentYear, 1030, 540, 350],
+                    ['December ' + currentYear, 1030, 540, 350]
+                  ]);
+
+                  var options = {
+                    chart: {
+                      title: 'Company Performance',
+                      subtitle: 'Sales, Expenses, and Profit: ' + currentYear + ' (Current Year)',
+                    },
+                    bars: 'horizontal',
+                    vAxis: {format: 'decimal'},
+                    height: 300,
+                    bar: { groupWidth: '20px' }, // Set the width of the bars to 20px
+                    colors: ['#1b9e77', '#d95f02', '#7570b3'],
+                    legend: {
+                      position: 'top', // Position the legend at the top
+                    },
+                    backgroundColor: {
+                      fill: 'transparent', // Set the background color of the chart area to transparent
+                    },
+                  };
+
+                  var classicChart;
+                  var materialChart;
+
+                  // Draw the material chart initially
+                  materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+                  materialChart.draw(data, google.charts.Bar.convertOptions(options));
+
+                  var button = document.getElementById('change-chart');
+
+                  button.onclick = function () {
+                    if (button.innerText === 'Classic') {
+                      // Draw the classic chart
+                      classicChart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+                      classicChart.draw(data, options);
+                      button.innerText = 'Material';
+                    } else {
+                      // Draw the material chart
+                      materialChart = new google.charts.Bar(document.getElementById('chart_div'));
+                      materialChart.draw(data, google.charts.Bar.convertOptions(options));
+                      button.innerText = 'Classic';
+                    }
+                  };
+                }
+              </script>
+        </aside>
+      </div>
+    </div>
+
+  </div>
+
+
+  <div class="card-footer bg-white border-0" style="height: 50px">
+
+  </div>
+
+
 </div>
 
-    
+</div>
+
+
+
+
+    <!-- Recently selling and the most popular products -->
+    <div class="container top-sale ">
+
+      <div class="shadow-sm card w-100 bg-white" style="border: none  ;">
+
+        <table class="table border-light-subtle table-bordered">
+          <thead class="">
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Name</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Time</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <!-- for loop to add the items more -->
+            <?php
+            foreach ($orderedFood as $key => $value):
+            ?>
+            <tr>
+              <td><?= $key+1 ?></td>
+              <td><?= $value['foodname'] ?></td>
+              <td><?= $value['sum(quantity)'] ?></td>
+              <td><?= $value['sum(total_price)'] ?>$</td>
+              <td><?= $value['time'] ?></td>
+            </tr>
+            <?php endforeach; ?>
+          </tbody>
+        </table>
+      </div>
+
+
+    </div>
+
+  </main>
+</div>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<link rel="stylesheet" type="text/css"
+  href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="../../vendor/jquery/jquery.min.js"></script>
+<script src="../../vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../vendor/plugins/chart.min.js"></script>
+<script src="../../vendor/plugins/feather.min.js.map"></script>

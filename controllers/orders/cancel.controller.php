@@ -5,6 +5,6 @@ require "../../database/database.php";
 require "../../models/foodOrder.model.php";
 
 
-cancel(1, $_GET['orderid'], $_SESSION['userid']);
+cancel(5, $_GET['orderid'], $_SESSION['res_own']['restaurant_id']);
 
-header('Location: /order');
+header('Location: /res_order');

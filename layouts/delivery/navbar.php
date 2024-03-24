@@ -34,10 +34,10 @@ $users = getAllUsers();
             <div class="sidebar-body">
                 <ul class="sidebar-body-menu">
                     <li>
-                        <a href="/"><span class="icon home" aria-hidden="true"></span>Customer's Orders</a>
+                        <a href="/"><span class="icon home" aria-hidden="true"></span>Costomer Orders</a>
                     </li>
                     <li>
-                        <a href="/map"><span class="icon home" aria-hidden="true"></span>Direct location</a>
+                        <a href="/map"><span class="icon home" aria-hidden="true"></span>Direct location:</a>
                     </li>
                     <li>
                         <a href="/response"><span class="icon home" aria-hidden="true"></span>Response</a>
