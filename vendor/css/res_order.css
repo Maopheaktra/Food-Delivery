@@ -46,7 +46,7 @@
     display: none;
 }
 .card{
-    width: 300px;
+    width: 400px;
     height: auto;
     display: flex;
     flex-direction: column;
@@ -77,15 +77,17 @@
 }
 
 .card-footer{
+    width: 100%;
     height: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
+    padding: 0;
 }
 .card-footer button{
     border: none;
     padding: 7px 10px;
-    width: 150px;
+    width: 110px;
     border-radius: 5px;
     background: red;
     font-weight: bold;

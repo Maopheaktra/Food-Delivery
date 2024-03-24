@@ -5,19 +5,6 @@ require "database/database.php";
 require "models/employee.model.php";
 require "models/foodOrder.model.php";
 
-
-$pic = array(
-  'assets/images/popular1.png" class="img-fluid item-img w-100',
-  'assets/images/popular2.png" class="img-fluid item-img w-100',
-  'assets/images/popular3.png" class="img-fluid item-img w-100',
-  'assets/images/popular4.png" class="img-fluid item-img w-100',
-  'assets/images/popular5.png" class="img-fluid item-img w-100',
-  'assets/images/popular6.png" class="img-fluid item-img w-100',
-  'assets/images/popular7.png" class="img-fluid item-img w-100',
-  'assets/images/popular8.png" class="img-fluid item-img w-100',
-  ''
-);
-
 if (isset($_GET['addID'])){
   $food = showFood($_GET['addID']);
   $fl = addTolist();
@@ -68,6 +55,7 @@ $foodAdd = addTolist();
 
   <link href="vendor/sidebar/demo.css" rel="stylesheet" />
   <link href="vendor/css/res_table.css" rel="stylesheet" />
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
 
 <body class="fixed-bottom-bar">
