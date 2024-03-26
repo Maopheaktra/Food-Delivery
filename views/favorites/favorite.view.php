@@ -26,7 +26,7 @@
                 <div class="member-plan position-absolute">
                   <span class="badge badge-dark">Promoted</span>
                 </div>
-                <a href="/restaurant?id=<?php print_r($value[0]) ?>" style="background: red;">
+                <a href="/restaurant?id=<?php print_r($value['restaurant_id']) ?>" style="background: red;">
                   <img alt="#" src="assets/images/res_img/<?= $value['res_img']?>" style="width: 100%; height: 100%;" />
                 </a>
               </div>
