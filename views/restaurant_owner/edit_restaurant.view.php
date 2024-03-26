@@ -2,7 +2,7 @@
 <div class="container_edit">
         <form action="controllers/restaurant_owner/editeRestaurant.process.controller.php" enctype="multipart/form-data" method="post" class="form_edit">
             <div class="chengRes">
-                <h1>Cheng your restaurant infomation</h1>
+                <h1>Change your restaurant infomation</h1>
             </div>
             <div class="form-group">
                 <label for="exampleInputName" class="text-dark">Restaurant Name:</label>
@@ -35,3 +35,19 @@
             </div>
         </form>
     </div>
+
+<?php if(isset($_SESSION['success'])): ?>
+<?php if($_SESSION['success'] != ''): ?>
+<div class="container-form" style="width: 100%; height: 100%; position:  absolute; top: 0; background: rgba(12, 12, 12, 0.338); ">
+<div class="success" style="background: white; width: 600px; height: 400px; position: absolute; top: 20%; left: 35%; border-radius: 10px; display: flex; flex-direction: column; justify-content: space-between; padding: 10px;">
+    <img src="assets/images/photo_2024-03-26_09-00-23.jpg" alt="" style="width: 200px; height: 200px; align-self: center;">
+    <h3 style="align-self: center;">Your restaurant have already changed</h3>
+    <div class="btnclass" style="align-self: center; width: 200px;">
+        <a href="/edite_res" class="btn bg-success btn-lg text-white" style="width: 100%;">OK</a>
+    </div>
+</div>
+</div>
+<?php 
+$_SESSION['success'] = '';
+endif; ?>
+<?php endif; ?>

@@ -52,7 +52,6 @@
                     <a href="/restaurant_location" class="text-decoration-none text-dark"><i
                             class="p-2 bg-light rounded-circle font-weight-bold feather-map-pin"></i></a>
                 </div>
-                <a href="contact-us.html" class="btn btn-sm btn-outline-light ml-auto">Contact</a>
             </div>
         </div>
     </div>

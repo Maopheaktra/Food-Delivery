@@ -89,7 +89,7 @@
 
 
       <div class="py-3 title d-flex align-items-center">
-        <h5 class="m-0">Most popular</h5>
+        <h5 class="m-0">Restaurants</h5>
         <a class="font-weight-bold ml-auto" href="/search">View all <i
             class="feather-chevrons-right"></i></a>
       </div>
@@ -99,6 +99,7 @@
 
         <?php if(!isset($_GET['location'])): ?>
         <?php foreach ($data as $key => $value): ?>
+          <?php if($key <= 8): ?>
           <div class="col-md-3 pb-3">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
               <div class="list-card-image" style="height: 20vh;">
@@ -137,6 +138,7 @@
               </div>
             </div>
           </div>
+          <?php endif; ?>
           <?php endforeach; ?>
           <?php else: ?>
             <?php 

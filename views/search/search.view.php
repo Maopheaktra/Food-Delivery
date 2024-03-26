@@ -11,7 +11,7 @@
             <div class="search py-5">
                 <div class="input-group mb-4">
                     <input type="text" class="form-control form-control-lg input_search border-right-0"
-                    id="search" value="Osahan eats...">
+                    id="searcher" value="Osahan eats...">
                     <div class="input-group-prepend">
                         <div class="btn input-group-text bg-white border_search border-left-0 text-primary"><i
                                 class="feather-search"></i></div>
@@ -89,10 +89,10 @@
                                         again.</p>
                                 </div>
                                 <?php else: ?>
-                                    <div class="most_popular">
+                                    <div class="container mt-4 mb-4 p-0">
                                     <div class="row">
                                     <?php foreach ($food as $key => $value): ?>
-                                        <div class="col-md-3 pb-3">
+                                        <div class="col-md-3 pb-3" id="card">
             <div class="list-card bg-white h-100 rounded overflow-hidden position-relative shadow-sm">
               <div class="list-card-image" style="height: 20vh;">
                 <div class="star position-absolute">
@@ -175,6 +175,5 @@
     </div>
 
     <?php
-
     echo '<script src="vendor/js/main.js"></script>';
     ?>

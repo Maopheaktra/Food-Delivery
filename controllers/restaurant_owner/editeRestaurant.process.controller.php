@@ -39,6 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                         editeRestaurant($resid, $resname, $resimg, $resaddress, $resOpen, $resClose);
                         $_SESSION['res_own'] = getRestaurant($_SESSION['userid']);
+                        $_SESSION['success'] = 'success';
                         header('Location: /edite_res');
                 }else{
                     header('Location: /edite_res');

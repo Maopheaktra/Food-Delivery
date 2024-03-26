@@ -31,7 +31,7 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-10 mx-auto">
-                    <h2 class="text-dark my-0">Verifi Your Code</h2>
+                    <h2 class="text-dark my-0">Verification code</h2>
                     <p class="text-50">enter your 6 code to change you password</p>
                     <form class="mt-5 mb-4" action="controllers/reset/pocess.controller.php" method ="post" enctype="multipart/form-data">
                         <div class="form-group">

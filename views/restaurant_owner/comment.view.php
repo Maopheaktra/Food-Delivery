@@ -37,13 +37,9 @@
           </span>
         </button>
         <ul class="users-item-dropdown nav-user-dropdown dropdown">
-          <li><a href="##">
-              <i data-feather="user" aria-hidden="true"></i>
-              <span>Profile</span>
-            </a></li>
           <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
-              <span>Account settings</span>
+              <span>Edit Restaurant</span>
             </a></li>
           <li><a class="danger" href="controllers/signout/signout.controller.php">
               <i data-feather="log-out" aria-hidden="true"></i>

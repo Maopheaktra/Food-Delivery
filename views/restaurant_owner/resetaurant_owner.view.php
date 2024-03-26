@@ -99,13 +99,9 @@ $orderedFood = getFoodOrdered($resId, 5);
           </span>
         </button>
         <ul class="users-item-dropdown nav-user-dropdown dropdown">
-          <li><a href="##">
-              <i data-feather="user" aria-hidden="true"></i>
-              <span>Profile</span>
-            </a></li>
           <li><a href="/edite_res">
               <i data-feather="settings" aria-hidden="true"></i>
-              <span>Account settings</span>
+              <span>Edit Restaurant</span>
             </a></li>
           <li><a class="danger" href="controllers/signout/signout.controller.php">
               <i data-feather="log-out" aria-hidden="true"></i>
@@ -161,7 +157,7 @@ $orderedFood = getFoodOrdered($resId, 5);
               <p class="stat-cards-info__num">$
                 <?= sumMoney($resId)['sum(total_price)'] ?>.00
               </p>
-              <p class="stat-cards-info__title">Profitable</p>
+              <p class="stat-cards-info__title">Revenue</p>
             </div>
           </article>
         </div>
@@ -214,7 +210,7 @@ $orderedFood = getFoodOrdered($resId, 5);
               function drawChart() {
                 let data = google.visualization.arrayToDataTable([
                   ['Task', 'Hours per Day'],
-                  ['Profit',     <?= sumMoney($resId)['sum(total_price)'] ?>],
+                  ['Revenue',     <?= sumMoney($resId)['sum(total_price)'] ?>],
                   ['Cancel',     <?= sumCancelOrder()['count(user_id)'] ?>],
                   ['Orders',  <?= sumOrder($resId)['count(user_id)'] ?>],
                 ]);

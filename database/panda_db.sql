@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 24, 2024 at 10:51 AM
+-- Generation Time: Mar 26, 2024 at 02:34 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -89,6 +89,13 @@ CREATE TABLE `favorites` (
   `restaurant_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `favorites`
+--
+
+INSERT INTO `favorites` (`favorite_id`, `user_id`, `restaurant_id`) VALUES
+(1, 9, 5);
+
 -- --------------------------------------------------------
 
 --
@@ -145,7 +152,10 @@ CREATE TABLE `orderdetails` (
 --
 
 INSERT INTO `orderdetails` (`orderDetail_id`, `foodname`, `user_id`, `quantity`, `restaurant_id`, `total_price`, `action`, `time`, `useraddress`) VALUES
-(1, 'Mango Coffee', 6, 2, 8, '4', 5, '2024-03-24 04:45:40', 'ផ្សារ រំលង, ផ្លូវជាតិលេខ ៦');
+(1, 'Mango Coffee', 6, 2, 8, '4', 5, '2024-03-24 04:45:40', 'ផ្សារ រំលង, ផ្លូវជាតិលេខ ៦'),
+(2, 'Pizza Cheese', 6, 2, 5, '6', 5, '2024-03-24 08:40:36', 'ផ្សារ រំលង, ផ្លូវជាតិលេខ ៦'),
+(3, 'Pizza', 6, 2, 5, '8', 5, '2024-03-24 08:40:36', 'ផ្សារ រំលង, ផ្លូវជាតិលេខ ៦'),
+(4, 'Pizza With Salad', 6, 2, 5, '10', 5, '2024-03-24 08:40:36', 'ផ្សារ រំលង, ផ្លូវជាតិលេខ ៦');
 
 -- --------------------------------------------------------
 
@@ -373,7 +383,7 @@ ALTER TABLE `comments`
 -- AUTO_INCREMENT for table `favorites`
 --
 ALTER TABLE `favorites`
-  MODIFY `favorite_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `favorite_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `foods`
@@ -385,7 +395,7 @@ ALTER TABLE `foods`
 -- AUTO_INCREMENT for table `orderdetails`
 --
 ALTER TABLE `orderdetails`
-  MODIFY `orderDetail_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `orderDetail_id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `orders`
@@ -415,7 +425,7 @@ ALTER TABLE `roles`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `user_id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

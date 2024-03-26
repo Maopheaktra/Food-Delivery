@@ -30,7 +30,7 @@
         <div class="d-flex align-items-center justify-content-center vh-100">
             <div class="px-5 col-md-6 ml-auto">
                 <div class="px-5 col-20 mx-auto">
-                    <h2 class="text-dark my-0">Singn In</h2>
+                    <h2 class="text-dark my-0">Sign In</h2>
                     <form class="mt-4 mb-4" action="controllers/signin/signin.acc.controller.php" method="post">
                         <div class="form-group">
                             <input type="email" placeholder="Enter Email" class="form-control" id="exampleInputEmail1"
