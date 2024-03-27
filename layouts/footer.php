@@ -11,8 +11,11 @@
               <div>
                 <h6 class="title text-white">About Us</h6>
                 <p class="text-muted">
-                  Some short text about company like You might remember the
-                  Dell computer commercials in which a youth reports.
+                Satisfy your cravings with our seamless food delivery 
+                service. Explore our diverse menu, place your order effortlessly, 
+                and enjoy restaurant-quality meals delivered to your door. Indulge in 
+                a hassle-free dining experience with just a few clicks. It's time to treat
+                 yourself with convenient and delicious food delivery.
                 </p>
                 <div class="d-flex align-items-center">
                   <a class="btn btn-icon btn-outline-light mr-1 btn-sm" title="Facebook" target="_blank" href="#"><i
@@ -31,16 +34,7 @@
             <h6 class="title">Services</h6>
             <ul class="list-unstyled hov_footer">
               <li>
-                <a href="faq.html" class="text-muted">Delivery Support</a>
-              </li>
-              <li>
-                <a href="contact-us.html" class="text-muted">Contact Us</a>
-              </li>
-              <li>
-                <a href="terms.html" class="text-muted">Terms of use</a>
-              </li>
-              <li>
-                <a href="privacy.html" class="text-muted">Privacy policy</a>
+                <a href="/help" class="text-muted">Contact Us</a>
               </li>
             </ul>
           </aside>
@@ -48,18 +42,18 @@
             <h6 class="title">For users</h6>
             <ul class="list-unstyled hov_footer">
               <li>
-                <a href="/signin" class="text-muted"> User Login </a>
+                <a href="controllers/signout/signout.controller.php" class="text-muted"> User Login </a>
               </li>
               <li>
-                <a href="signup.html" class="text-muted"> User register </a>
+                <a href="controllers/signout/signout.controller.php" class="text-muted"> User register </a>
               </li>
               <li>
-                <a href="forgot_password.html" class="text-muted">
+                <a href="controllers/signout/signout.controller.php" class="text-muted">
                   Forgot Password
                 </a>
               </li>
               <li>
-                <a href="profile.html" class="text-muted">
+                <a href="controllers/signout/signout.controller.php" class="text-muted">
                   Account Setting
                 </a>
               </li>
@@ -69,15 +63,15 @@
             <h6 class="title">More Pages</h6>
             <ul class="list-unstyled hov_footer">
               <li>
-                <a href="trending.html" class="text-muted"> Trending </a>
+                <a href="/" class="text-muted"> Trending </a>
               </li>
               <li>
-                <a href="most_popular.html" class="text-muted">
-                  Most popular
+                <a href="/search" class="text-muted">
+                  All restaruants
                 </a>
               </li>
               <li>
-                <a href="restaurant.html" class="text-muted">
+                <a href="/" class="text-muted">
                   Restaurant Details
                 </a>
               </li>
@@ -89,65 +83,7 @@
         </div>
       </section>
 
-      <section class="footer-center border-top padding-y py-5">
-        <h6 class="title text-white">Countries</h6>
-        <div class="row">
-          <aside class="col-sm-2 col-md-2 text-white">
-            <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">India</a></li>
-              <li><a href="#" class="text-muted">Indonesia</a></li>
-              <li><a href="#" class="text-muted">Ireland</a></li>
-              <li><a href="#" class="text-muted">Italy</a></li>
-              <li><a href="#" class="text-muted">Lebanon</a></li>
-            </ul>
-          </aside>
-          <aside class="col-sm-2 col-md-2 text-white">
-            <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Malaysia</a></li>
-              <li><a href="#" class="text-muted">New Zealand</a></li>
-              <li><a href="#" class="text-muted">Philippines</a></li>
-              <li><a href="#" class="text-muted">Poland</a></li>
-              <li><a href="#" class="text-muted">Portugal</a></li>
-            </ul>
-          </aside>
-          <aside class="col-sm-2 col-md-2 text-white">
-            <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Australia</a></li>
-              <li><a href="#" class="text-muted">Brasil</a></li>
-              <li><a href="#" class="text-muted">Canada</a></li>
-              <li><a href="#" class="text-muted">Chile</a></li>
-              <li><a href="#" class="text-muted">Czech Republic</a></li>
-            </ul>
-          </aside>
-          <aside class="col-sm-2 col-md-2 text-white">
-            <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Turkey</a></li>
-              <li><a href="#" class="text-muted">UAE</a></li>
-              <li><a href="#" class="text-muted">United Kingdom</a></li>
-              <li><a href="#" class="text-muted">United States</a></li>
-              <li><a href="#" class="text-muted">Sri Lanka</a></li>
-            </ul>
-          </aside>
-          <aside class="col-sm-2 col-md-2 text-white">
-            <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Qatar</a></li>
-              <li><a href="#" class="text-muted">Singapore</a></li>
-              <li><a href="#" class="text-muted">Slovakia</a></li>
-              <li><a href="#" class="text-muted">South Africa</a></li>
-              <li><a href="#" class="text-muted">Green Land</a></li>
-            </ul>
-          </aside>
-          <aside class="col-sm-2 col-md-2 text-white">
-            <ul class="list-unstyled hov_footer">
-              <li><a href="#" class="text-muted">Pakistan</a></li>
-              <li><a href="#" class="text-muted">Bangladesh</a></li>
-              <li><a href="#" class="text-muted">Bhutaan</a></li>
-              <li><a href="#" class="text-muted">Nepal</a></li>
-            </ul>
-          </aside>
-        </div>
-      </section>
-    </div>
+</div>
 
     <section class="footer-copyright border-top py-3 bg-light">
       <div class="container d-flex align-items-center">

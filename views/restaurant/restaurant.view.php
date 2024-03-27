@@ -200,13 +200,13 @@
                                                 class="feather-thumbs-down"></i> 158K</a>
                                         <span class="total-like-user-main ml-2" dir="rtl">
                                             <a href="#" aria-describedby="tooltip-top0"><img alt="#"
-                                                    src="assets/images/reviewer3.png" class="total-like-user rounded-pill"></a>
+                                                    src="assets/images/user/IMG-65edb284915d97.99013425.jpg" class="total-like-user rounded-pill"></a>
                                             <a href="#" aria-describedby="tooltip-top1"><img alt="#"
-                                                    src="assets/images/reviewer4.png" class="total-like-user rounded-pill"></a>
-                                            <a href="#"><img alt="#" src="assets/images/reviewer5.png"
+                                                    src="assets/images/avatar/avatar-face-02.png" class="total-like-user rounded-pill"></a>
+                                            <a href="#"><img alt="#" src="assets/images/user/IMG-65e7bd26e36c93.04288160.jpg"
                                                     class="total-like-user rounded-pill"></a>
                                             <a href="#" aria-describedby="tooltip-top3"><img alt="#"
-                                                    src="assets/images/reviewer6.png" class="total-like-user rounded-pill"></a>
+                                                    src="assets/images/user/IMG-65f78b43b817b9.58982918.jpg" class="total-like-user rounded-pill"></a>
                                         </span>
                                     </div>
                                 </div>
