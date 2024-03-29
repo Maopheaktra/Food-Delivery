@@ -21,8 +21,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['send_email'])) {
         $mail->SMTPAuth = true;
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS; // Enable TLS encryption
         $mail->Port = 587; // TCP port to connect to
-        $mail->Username = 'chanthou.voeun@student.passerellesnumeriques.org'; // Replace with your SMTP username
-        $mail->Password = 'hmvh cvfq akmf zwjt'; // Replace with your SMTP password
+        $mail->Username = 'voeunchanthou26@gmail.com'; // Replace with your SMTP username
+        $mail->Password = 'ynfd fqpp yvfe ajvj'; // Replace with your SMTP password
 
         // Disable SSL certificate verification (optional)
         $mail->SMTPOptions = array(
